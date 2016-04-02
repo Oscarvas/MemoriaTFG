@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.28)  24 FEB 2016 00:46
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.4.28)  1 APR 2016 14:22
 entering extended mode
 **Tesis.tex
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
 , bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
@@ -29,7 +29,7 @@ File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 \@input{config.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\config.tex) (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS.sty
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\config.tex) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS.sty
 Package: TeXiS/TeXiS 
 
 ("C:\Users\OscarDavid\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
@@ -41,7 +41,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \example@out=\write3
 
 \@input{TeXiS/TeXiS_pream.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_pream.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_pream.tex
 ("C:\Users\OscarDavid\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\shortvrb.sty"
 Package: shortvrb 2014/09/29 v2.1e Standard LaTeX documentation package (FMi)
 )
@@ -412,7 +412,7 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthfirst=\dimen146
 ))
 \@input{TeXiS/TeXiS_cab.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_cab.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_cab.tex
 ("C:\Program Files\MiKTeX 2.9\tex/latex\fancyhdr\fancyhdr.sty"
 \fancy@headwidth=\skip60
 \f@ncyO@elh=\skip61
@@ -425,30 +425,32 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \f@ncyO@orf=\skip68
 ))
 \@input{TeXiS/TeXiS_cover.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_cover.tex)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_cover.tex)
 \@input{TeXiS/TeXiS_part.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_part.tex)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_part.tex)
 \@input{TeXiS/TeXiS_dedic.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_dedic.tex)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_dedic.tex)
 \@input{TeXiS/TeXiS_bib.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_bib.tex))
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_bib.tex))
 \@input{constantes.aux}
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\constantes.tex)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\constantes.tex)
 Copyright Marco Antonio and Pedro Pablo Gomez Martin
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.aux (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/cover.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.aux (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/dedicatoria.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/agradecimientos.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/resumen.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_toc.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/Parte1.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/01Capitulo1.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/ParteApendices.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/01ApendiceA.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/bibliografia.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/fin.aux))
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/dedicatoria.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/agradecimientos.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/resumen.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_toc.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte1.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/01Capitulo1.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte2.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte3.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/ParteApendices.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/01ApendiceA.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/bibliografia.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/fin.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
 LaTeX Font Info:    ... okay on input line 106.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
@@ -480,7 +482,7 @@ LaTeX Info: Redefining \ref on input line 106.
 LaTeX Info: Redefining \pageref on input line 106.
 LaTeX Info: Redefining \nameref on input line 106.
 
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.out) (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.out)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.out) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.out)
 \@outlinefile=\write5
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -501,7 +503,7 @@ Package caption Info: End \AtBeginDocument code.
 \MPnumerator=\count137
 \makeMPintoPDFobject=\count138
 \everyMPtoPDFconversion=\toks25
-) (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\guionado.tex) (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/cover.tex
+) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\guionado.tex) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/cover.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 160.
 Package babel Info: Redefining spanish shorthand >>
@@ -521,7 +523,7 @@ Package babel Info: Redefining spanish shorthand "?
 \oddsidemarginOriginal=\skip73
 \longTitulo=\skip74
 
-<Imagenes/Vectorial/escudoUCM.pdf, id=73, 597.23125pt x 844.15375pt>
+<Imagenes/Vectorial/escudoUCM.pdf, id=81, 597.23125pt x 844.15375pt>
 File: Imagenes/Vectorial/escudoUCM.pdf Graphic file (type pdf)
  <use Imagenes/Vectorial/escudoUCM.pdf>
 Package pdftex.def Info: Imagenes/Vectorial/escudoUCM.pdf used on input line 160.
@@ -570,7 +572,7 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 
-{C:/Users/OscarDavid/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/OneDrive/TFG/Texis/TeXiS-NightlyBuild/Imagen
+{C:/Users/OscarDavid/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <D:/OneDrive/Documentos/GitHub/MemoriaTFG/Imagen
 es/Vectorial/escudoUCM.pdf>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 160.
@@ -646,7 +648,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 116.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 116.
- [4] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/dedicatoria.tex
+ [4] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/dedicatoria.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 57.
 Package babel Info: Redefining spanish shorthand >>
@@ -762,7 +764,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 57.
  [8])
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/agradecimientos.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/agradecimientos.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 42.
 Package babel Info: Redefining spanish shorthand >>
@@ -840,7 +842,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 120.
  [10]
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/resumen.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/resumen.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 13.
 Package babel Info: Redefining spanish shorthand >>
@@ -883,7 +885,7 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 ]
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_toc.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_toc.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 61.
 Package babel Info: Redefining spanish shorthand >>
@@ -936,7 +938,7 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 
-] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.toc
+] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -1005,7 +1007,7 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 94.
  [14
 
-] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.lof
+] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.lof
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -1074,7 +1076,7 @@ Package babel Info: Redefining spanish shorthand "?
  [16
 
 ]
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.lot
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.lot
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 )
@@ -1132,7 +1134,7 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 ]
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/Parte1.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte1.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 55.
 Package babel Info: Redefining spanish shorthand >>
@@ -1198,7 +1200,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 55.
  [2])
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/01Capitulo1.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/01Capitulo1.tex
 Cap\'itulo 1.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 7.
@@ -1277,32 +1279,493 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 
-] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/ParteApendices.tex
+] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte2.tex
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 18.
  [4
+
+
+
+]
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\maththreesuperior ->{^3}
+                         
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra }, or forgotten $.
+<recently read> }
+                 
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+
+Overfull \hbox (351.92511pt too wide) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 Con-tie-ne un cap√-tulo de introducci√$[]\OML/cmm/m/it/10.95 n; seguidodeunadescripci[]ndelaestructura
+deT[]X[]S yc[]mosegeneraeldocumentofinal; paraterminarconuncap\T1/cmr/m/n/10.95 -
+ []
+
+
+Overfull \hbox (186.49086pt too wide) in paragraph at lines 18--18
+\OML/cmm/m/it/10.95 tuloenelquesedescribeelprocesodeedici[]nsugeridoyloscomandosqueT[]X[]S proporcionaparafacilitardicho
+proceso:$ 
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+[5]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\maththreesuperior ->{^3}
+                         
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \textexclamdown invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+
+Overfull \hbox (526.31133pt too wide) in paragraph at lines 18--18
+[]\T1/cmr/m/n/10.95 En reali-dad la divisi√$[]\OML/cmm/m/it/10.95 nporpartesdelmanualnoaportademasiadoallector\OT1/cmr/m
+/n/10.95 ; \OML/cmm/m/it/10.95 sehadivididoenvariaspartesdebidoaque; enlaprctica; elc[]digodeestemanualsirvecomoejemplod
+eusodeT[]X[]S:$ 
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+[6]) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte3.tex
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\maththreesuperior ->{^3}
+                         
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Extra }, or forgotten $.
+<recently read> }
+                 
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+
+Overfull \hbox (351.92511pt too wide) in paragraph at lines 18--18
+\T1/cmr/m/n/10.95 Con-tie-ne un cap√-tulo de introducci√$[]\OML/cmm/m/it/10.95 n; seguidodeunadescripci[]ndelaestructura
+deT[]X[]S yc[]mosegeneraeldocumentofinal; paraterminarconuncap\T1/cmr/m/n/10.95 -
+ []
+
+
+Overfull \hbox (186.49086pt too wide) in paragraph at lines 18--18
+\OML/cmm/m/it/10.95 tuloenelquesedescribeelprocesodeedici[]nsugeridoyloscomandosqueT[]X[]S proporcionaparafacilitardicho
+proceso:$ 
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+[7
+
+
+
+]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\maththreesuperior ->{^3}
+                         
+l.18 \makepart
+              
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \textexclamdown invalid in math mode on input line 18.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 18.
+
+! You can't use `\spacefactor' in math mode.
+\@->\spacefactor 
+                 \@m 
+l.18 \makepart
+              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.18 \makepart
+              
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ω in font cmr10!
+Missing character: There is no √ in font cmr10!
+Missing character: There is no Ë in font cmex10!
+
+Overfull \hbox (526.31133pt too wide) in paragraph at lines 18--18
+[]\T1/cmr/m/n/10.95 En reali-dad la divisi√$[]\OML/cmm/m/it/10.95 nporpartesdelmanualnoaportademasiadoallector\OT1/cmr/m
+/n/10.95 ; \OML/cmm/m/it/10.95 sehadivididoenvariaspartesdebidoaque; enlaprctica; elc[]digodeestemanualsirvecomoejemplod
+eusodeT[]X[]S:$ 
+ []
+
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 18.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 18.
+[8]) (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/ParteApendices.tex
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 40.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 40.
+ [9
 
 
 
@@ -1331,45 +1794,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 40.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
- [5]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
- [6])
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/01ApendiceA.tex
+ [10])
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/01ApendiceA.tex
 Ap\'{e}ndice A.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 7.
@@ -1397,63 +1823,63 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 24.
 )
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 145.
- [7
+(babel)             in language  on input line 147.
+ [11
 
 
 
 ]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 150.
+(babel)             in language  on input line 152.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 150.
- [8
+(babel)             in language  on input line 152.
+ [12
 
 
-] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/bibliografia.tex
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.bbl
+] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/bibliografia.tex
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.bbl
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
@@ -1468,33 +1894,33 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
 ))
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 156.
+(babel)             in language  on input line 158.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 156.
- [9
+(babel)             in language  on input line 158.
+ [13
 
 
-] (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/fin.tex
+] (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/fin.tex
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 48.
 Package babel Info: Redefining spanish shorthand >>
@@ -1532,7 +1958,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 89.
 
-[10
+[14
 
 
 ]
@@ -1560,56 +1986,69 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 92.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 92.
- [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 193.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 193.
- (D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Tesis.aux
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/cover.aux)
+ [15])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 195.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 195.
+ (D:\OneDrive\Documentos\GitHub\MemoriaTFG\Tesis.aux
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/cover.aux)
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
 
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/dedicatoria.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/agradecimientos.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/resumen.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\TeXiS/TeXiS_toc.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/Parte1.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Capitulos/01Capitulo1.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/ParteApendices.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Apendices/01ApendiceA.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/bibliografia.aux)
-(D:\OneDrive\TFG\Texis\TeXiS-NightlyBuild\Cascaras/fin.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 193.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 193.
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/dedicatoria.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/agradecimientos.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/resumen.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\TeXiS/TeXiS_toc.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte1.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/01Capitulo1.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte2.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Capitulos/Parte3.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/ParteApendices.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Apendices/01ApendiceA.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/bibliografia.aux)
+(D:\OneDrive\Documentos\GitHub\MemoriaTFG\Cascaras/fin.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 195.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 195.
 Package rerunfilecheck Info: File `Tesis.out' has not changed.
-(rerunfilecheck)             Checksum: F8CF5D646E181B765E260A2D9E406AB5;1078.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 193.
- ) 
+(rerunfilecheck)             Checksum: 8A48A34B706C7804393A8F245AF59933;1190.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 195.
+ )
+(\end occurred inside a group at level 6)
+
+### simple group (level 6) entered at line 18 ({)
+### simple group (level 5) entered at line 18 ({)
+### simple group (level 4) entered at line 18 ({)
+### simple group (level 3) entered at line 18 ({)
+### simple group (level 2) entered at line 18 ({)
+### simple group (level 1) entered at line 18 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 10276 strings out of 493921
- 156292 string characters out of 3147267
- 243776 words of memory out of 3000000
- 13039 multiletter control sequences out of 15000+200000
+ 10304 strings out of 493921
+ 157184 string characters out of 3147267
+ 244789 words of memory out of 3000000
+ 13047 multiletter control sequences out of 15000+200000
  22200 words of font info for 45 fonts, out of 3000000 for 9000
  1079 hyphenation exceptions out of 8191
- 55i,11n,47p,282b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti0800.pk> <C:\Users\OscarDavid\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1000.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fon
-ts\pk\ljfour\jknappen\ec\dpi600\ecxc1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\ecbx1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1095.pk> <C:\Use
-rs\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Users\OscarDavid\AppData\Loca
-l\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfo
-ur\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti
-1000.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\OscarDa
-vid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2
-.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecrm2488.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc1000.pk> <
-C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\OscarDavid\AppDat
-a\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\p
-k\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecbx2074.pk><C:/Users/OscarDavid/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-Output written on Tesis.pdf (29 pages, 543061 bytes).
+ 55i,11n,47p,282b,584s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti0800.pk> <C:\Users
+\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1000.pk> <C:\Users\OscarDavid\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
+\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\eccc10
+95.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1095.pk> <C:\Users\OscarDavi
+d\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9
+\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1095.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecti1000.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:
+\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1095.pk> <C:\Users\OscarDavid\AppData\
+Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
+eccc1000.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\Osc
+arDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\OscarDavid\AppData\Local\MiKT
+eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\OscarDavid\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
+appen\ec\dpi600\ecbx2074.pk><C:/Users/OscarDavid/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10
+.pfb><C:/Users/OscarDavid/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/OscarDavi
+d/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on Tesis.pdf (33 pages, 574578 bytes).
 PDF statistics:
- 760 PDF objects out of 1000 (max. 8388607)
- 50 named destinations out of 1000 (max. 500000)
- 150 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 802 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 
