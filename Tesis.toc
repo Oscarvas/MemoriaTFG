@@ -6,9 +6,45 @@
 \contentsline {section}{\numberline {1.1}Introducci\'on}{3}{section.1.1}
 \contentsline {section}{Notas bibliogr\'aficas}{3}{section.1.1}
 \contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{3}{section.1.1}
-\contentsline {part}{II\hspace {1em}Grueso de la investigacion}{5}{part.2}
-\contentsline {part}{III\hspace {1em}Desenlace}{7}{part.3}
-\contentsline {part}{IV\hspace {1em}Ap\'endices}{9}{part.4}
-\contentsline {chapter}{\numberline {A}As\IeC {\'\i } se hizo...}{11}{appendix.Alph1}
-\contentsline {section}{\numberline {A.1}Introducci\'on}{11}{section.Alph1.1}
-\contentsline {part}{Bibliograf\IeC {\'\i }a}{13}{appendix*.6}
+\contentsline {chapter}{\numberline {2}Trabajo Relacionado}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Generador de historias}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Multiagentes}{5}{section.2.2}
+\contentsline {section}{\numberline {2.3}Planificadores}{5}{section.2.3}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{5}{section.2.3}
+\contentsline {chapter}{\numberline {3}Objetivos del trabajo}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Automatizaci\'on}{7}{section.3.1}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{7}{section.3.1}
+\contentsline {part}{II\hspace {1em}Grueso de la investigaci\'on}{9}{part.2}
+\contentsline {chapter}{\numberline {4}Mapa}{11}{chapter.4}
+\contentsline {section}{\numberline {4.1}Un nuevo mapa}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}El mapa real}{12}{section.4.2}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{13}{section.4.2}
+\contentsline {chapter}{\numberline {5}Multi-objetivo}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Nada es lo que parece}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}La figura del villano}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}Empezando desde cero}{16}{section.5.3}
+\contentsline {section}{\numberline {5.4}Ahora que ya estamos donde queremos}{17}{section.5.4}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{17}{section.5.4}
+\contentsline {chapter}{\numberline {6}Personajes}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}El concepto de clase}{19}{section.6.1}
+\contentsline {section}{\numberline {6.2}Creando nuevos personajes}{19}{section.6.2}
+\contentsline {section}{\numberline {6.3}Raza y atributos}{20}{section.6.3}
+\contentsline {section}{\numberline {6.4}Los NPC\'s}{20}{section.6.4}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{21}{section.6.4}
+\contentsline {part}{III\hspace {1em}Desenlace}{23}{part.3}
+\contentsline {chapter}{\numberline {7}Resultados}{25}{chapter.7}
+\contentsline {section}{\numberline {7.1}Resultados}{25}{section.7.1}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{25}{section.7.1}
+\contentsline {chapter}{\numberline {8}Conclusiones}{27}{chapter.8}
+\contentsline {section}{\numberline {8.1}Concluciones}{27}{section.8.1}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{27}{section.8.1}
+\contentsline {chapter}{\numberline {9}Objetivos cumplidos}{29}{chapter.9}
+\contentsline {section}{\numberline {9.1}Objetivos cumplidos}{29}{section.9.1}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{29}{section.9.1}
+\contentsline {chapter}{\numberline {10}Trabajo Futuro}{31}{chapter.10}
+\contentsline {section}{\numberline {10.1}Trabajo futuro}{31}{section.10.1}
+\contentsline {section}{En el pr\'oximo cap\IeC {\'\i }tulo}{31}{section.10.1}
+\contentsline {part}{IV\hspace {1em}Ap\'endices}{33}{part.4}
+\contentsline {chapter}{\numberline {A}As\IeC {\'\i } se hizo...}{35}{appendix.Alph1}
+\contentsline {section}{\numberline {A.1}Introducci\'on}{35}{section.Alph1.1}
+\contentsline {part}{Bibliograf\IeC {\'\i }a}{37}{appendix*.6}

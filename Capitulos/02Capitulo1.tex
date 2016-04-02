@@ -1,0 +1,70 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 1
+%
+%---------------------------------------------------------------------
+
+\chapter{Mapa}
+
+\begin{FraseCelebre}
+\begin{Frase}
+...
+\end{Frase}
+\begin{Fuente}
+...
+\end{Fuente}
+\end{FraseCelebre}
+
+\begin{resumen}
+Resumen sobre lo que se va a contar en el capitulo...
+\end{resumen}
+
+
+%-------------------------------------------------------------------
+\section{Un nuevo mapa}
+%-------------------------------------------------------------------
+\label{cap21:sec:objetivos}
+
+El anterior mapa del TFG era un plano muy sencillo, con apenas 3 localizaciones conectadas entre s\'i en las que siempre ocurrian las mismas cosas de la misma manera, el drag\'on iba al castillo, se llevaba a la princesa a la monta\'na y los caballeros acudian desde el pueblo hasta que finalmente alguno lograba llevarla de vuelta al castillo. 
+Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planificador, para ver como lidiaba con un problema y trataba de resolverlo, de manera que desconectamos la monta\'na del pueblo e interpusimos entre el castillo y la monta\'na dos nuevas localizaciones, el bosque y el lago. Asi, si se queria ir del castillo a la monta\'na, o viceversa, los agentes tenian dos posibles caminos porque localizacion lo harian, y nuestro planificador se encargo de elegir entre el bosque y el lago de manera aleatoria.
+(INSERTAR IMAGEN AQUI, mapa con pueblo, castillo, lago bosque y monta\'na).
+
+La siguiente prueba que le hicimos a nuestro planificador fue saber como escogia las localizaciones por las cuales se moverian nuestros agentes. Tras diversas pruebas probando localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador siempre escogia el camino mas corto posible para cada agente, si habia dos iguales, elegia indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localizacion entre dos posibles a la vuelta elegia la otra.Esto nos permitio conocer en profundidad como actuaba nuestro planificador, y nos daba paso a poder hacer el mapa real.
+
+\section{El mapa real}
+
+Cuando nos planteamos el nuevo concepto de mapa decidimos darle un aire fantastico a nuestra historia, asi que nos propusimos crear un mundo al viejo estilo de las novelas fantasticas, como las de Tolkien, con nombres especificos que representasen reinos y civilizaciones, para darle un aire mas personal a nuestras posibles historias, buscando un sentido de pertenencia parecido al que debio tener el propio Tolkien al crear su mundo.
+Para ello, creamos un archipielago de islas donde tres islas peque\'nas coronaban una isla mayor,  que a su vez se dividia en otras tres partes, dividiendo asi nuestro mundo en seis regiones.
+
+Con el objetivo de que cada region fuese unica y no tuviesemos sencillamente seis cachos de tierra con nombres distintos, decidimos proporcionar a cada una un elemento distintivo, que la diferenciase de las demas. 
+
+Asi por ejemplo, decidimos que solo en dos regiones habria castillos, lo cual a su vez limitaba a que solo hubiese dos reinos en nuestro mapa, pues solo en un castillo podria vivir un rey.
+
+De igual manera, habria localizaciones muy especificas en ciertas regiones, por ejemplo en una de ellas estaria la herreria, en otra la taberna, en otra el cruce…Estas localizaciones cumplirian las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en el. Asi, en estos sitios, aguardarian estos nuevos personajes que creamos, como en este caso serian el herrero el tabernero o el avaricioso trol.
+
+Otra utilidad que le encontramos a la division en regiones fue el ayudarnos a situar a nuestros distintos personajes en el comienzo de la historia. Asi asignamos a cada personaje una raza, que les proporcionaban unas caracteristicas mas especiales, y a cada raza una region natural de la misma. Esto nos facilitaba enormemente el hecho de introducir un nuevo personaje en la historia, pues asi un personaje de la raza X apareceria en una localizacion aleatoria Z situada dentro de la region Y asignada a esta raza X en especifico.
+
+Una vez ya habiamos decidido la funcionalidad que tendria nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digitalizarlo, para lo cual usamos la herramienta “GIMP”.
+
+Una vez correctamente digitalizado nuestro flamante mapa, lo introdujimos en la GUI y por fin estaba listo para usarse.
+
+Muchas regiones, dos castillos, nuevos elementos, elementos especificos en los que poner ciertos personajes (taberna tabernero), regiones separadas con influencia a la hora de crear personajes (por raza), dibujando el mapa con GIMP y transformacion visual a la GUI
+(INSERTAR IMAGEN AQUI, mapa final, con las distintas regiones y todo, impacto visual importante, que se aprecie la mejoria)
+
+%-------------------------------------------------------------------
+\section*{\ProximoCapitulo}
+%-------------------------------------------------------------------
+\TocProximoCapitulo
+
+...
+
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:
+
+
+
