@@ -1,9 +1,9 @@
 #Archivos de texis
-*.aux
-*.blg
-*.toc
-*.pdf
-*.log
+/*.aux
+/*.blg
+/*.toc
+/*.pdf
+/*.log
 
 # Windows image file caches
 Thumbs.db
