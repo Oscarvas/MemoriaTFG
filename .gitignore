@@ -39,12 +39,12 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 
-*.aux
-*.blg
-*.log
-*.out
-*.pdf
-*.toc
+.aux
+.blg
+.log
+.out
+.pdf
+.toc
 /Tesis.ilg
 /Tesis.ind
 /Tesis.bbl
