@@ -5,7 +5,7 @@
 %
 %---------------------------------------------------------------------
 
-\chapter{Multi-objetivo}
+\chapter{Multiobjetivo}
 
 \begin{FraseCelebre}
 \begin{Frase}
@@ -16,10 +16,6 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-\begin{resumen}
-Resumen sobre lo que se va a contar en el capitulo...
-\end{resumen}
-
 
 %-------------------------------------------------------------------
 \section{Nada es lo que parece}
@@ -27,51 +23,33 @@ Resumen sobre lo que se va a contar en el capitulo...
 \label{cap22:sec:objetivos}
 
 Para poder crear historias distintas uno de nuestros principales objetivos era que dos agentes que representaban el mismo tipo de personaje, pudiesen actuar de manera distinta, eligiendo de una manera aleatoria entre un abanico de posibles objetivos cual iba a ser el suyo cada vez.
-Afrontar este problema fue un arduo proceso que comenzo cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad, sencillamente era transportada de un lugar a otro, o bien por un dragon o por un caballero, y no realizaba acciones propias.
-Nuestro primer objetivo fue cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla. Debido a la construccion del anterior TFG, la construccion y correcto funcionamiento de un agente clave como la princesa escapaba de nuestro conocimiento sobre agentes, asi que debimos cambiar de objetivo a uno menos ambicioso.
+Afrontar este problema fue un arduo proceso que comenzó cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad, sencillamente era transportada de un lugar a otro, o bien por un dragón o por un caballero, y no realizaba acciones propias.
+Nuestro primer objetivo fue cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla. Debido a la construcción del anterior TFG, la construcción y correcto funcionamiento de un agente clave como la princesa escapaba de nuestro conocimiento sobre agentes, así que debimos cambiar de objetivo a uno menos ambicioso.
 
 
 \section{La figura del villano}
 
-Fue aqui cuando decidimos que el agente que mejor se amoldaba a nuestra busqueda del agente con varios objetivos era el caballero.
+Fue aquí cuando decidimos que el agente que mejor se amoldaba a nuestra búsqueda del agente con varios objetivos era el caballero.
 El caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
-Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y asi surgi\'o el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragon en vez de salvar a la princesa decidiese secuestrarla y asi otro caballero debia venir a salvarla, y con una idea tan simple habiamos aumentado significantemente nuestra capacidad de crear historias variadas.
+Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y así surgió el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragón en vez de salvar a la princesa decidiese secuestrarla y así otro caballero debía venir a salvarla, y con una idea tan simple habíamos aumentado significantemente nuestra capacidad de crear historias variadas.
 
-Sin embargo esto no fue tan sencillo, nuestro planificador no podia soportar tener que elegir aleatoriamente entre dos caballeros distintos, y, bajo nuestro entendimiento del codigo ya disponible, no se podia crear un caballero de manera sencilla que en el punto de inflexion para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
+Sin embargo esto no fue tan sencillo, nuestro planificador no podía soportar tener que elegir aleatoriamente entre dos caballeros distintos, y, bajo nuestro entendimiento del código ya disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
 
-Como primera solucion decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegia aleatoriamente si este iba a ser caballero o villano desde el principio, asi cuando llegase el momento actuarian de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar multiples historias y distintas.
+Como primera solución decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegía aleatoriamente si este iba a ser caballero o villano desde el principio, así cuando llegase el momento actuarían de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar múltiples historias y distintas.
 
-El problema fue que la aplicacion no estaba pensada para soportar esto. Las batallas siempre debian ser entre un dragon y un caballero, le costaba adaptar el rol del caballero para que fuese dragon, el planificador no se entendia con los cambiosâ€¦ Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteandonos el TFG desde cero, siempre partiendo de la base del antiguo, pero reciclando el las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitabamos y replanteando y depurando el codigo para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas logica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no metodos sueltos, y en definitiva fuese mas entendible para la comprension del programador.
+El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios? Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando el TFG desde cero, siempre partiendo de la base del antiguo, pero reciclando el las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
 
 \section{Empezando desde cero}
 
-Rehaciendo el c\'odigo, abriendo un nuevo proyecto, que queremos, podemos usar, concepto de gui, mejora visual, ahora lo entendemos, to palante. 
-Un nuevo rey, una nueva princesa, el dragon al uso, el caballero al uso.
+Rehaciendo el código, abriendo un nuevo proyecto, que queremos, podemos usar, concepto de GUI, mejora visual, ahora lo entendemos, to palante. 
+Un nuevo rey, una nueva princesa, el dragón al uso, el caballero al uso.
 
-Esto nos permitio satisfacer nuestra necesidad del multiobjetivo, y asi pudimos transformar a nuestros agentes en personajes mas profundos, con una serie de posibles objetivos:
-(INTRODUCIR TABLA AQUI, o bien mintiendo y poniendo solo los posibles objetivos de la princesa y caballero o bien introducir la tocho tabla con los distintos objetivos de cada tipo de personaje)
+Esto nos permitió satisfacer nuestra necesidad del multiobjetivo, y así pudimos transformar a nuestros agentes en personajes mas profundos, con una serie de posibles objetivos:
+(INTRODUCIR TABLA AQUÍ, o bien mintiendo y poniendo solo los posibles objetivos de la princesa y caballero o bien introducir la tocho tabla con los distintos objetivos de cada tipo de personaje)
 
-Hasta que por fin, y ahora si, podiamos tener caballeros que actuasen como villanos y princesas que actuasen y permitiendonos finales distintos.
+Hasta que por fin, y ahora si, podíamos tener caballeros que actuasen como villanos y princesas que actuasen y permitiéndonos finales distintos.
 
 
 \section{Ahora que ya estamos donde queremos}
-Era el momento de ponernos ambiciosos, asi que nos propusimos crear muchos mas personajes, rellenar el mapa con nuevos monstruos, e incluso poner algunos personajes totalmente secundarios que sencillamente le diesen un toque picante a la historia
-
-
-%-------------------------------------------------------------------
-\section*{\ProximoCapitulo}
-%-------------------------------------------------------------------
-\TocProximoCapitulo
-
-...
-
-% Variable local para emacs, para  que encuentre el fichero maestro de
-% compilacion y funcionen mejor algunas teclas rapidas de AucTeX
-%%%
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "../Tesis.tex"
-%%% End:
-
-
+Era el momento de ponernos ambiciosos, así que nos propusimos crear muchos mas personajes, rellenar el mapa con nuevos monstruos, e incluso poner algunos personajes totalmente secundarios que sencillamente le diesen un toque picante a la historia
 
