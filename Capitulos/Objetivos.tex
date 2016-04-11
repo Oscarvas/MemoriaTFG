@@ -1,4 +1,4 @@
-\chapter{Objetivos del trabajo}
+\chapter{Objetivos}
 
 \begin{FraseCelebre}
 \begin{Frase}
@@ -11,14 +11,38 @@
 
 
 %-------------------------------------------------------------------
-\section{Automatización}
+\section{Motivaciones}
 %-------------------------------------------------------------------
-\label{cap3:sec:objetivos}
+Nuestra elección por este trabajo es debido a que despues de cursar las signaturas de inteligencia artificial durante el grado habían despertado nuestro interes en este campo, y con el trabajo podriamos profundizar aún más. También el hecho de tener el hobby de la lectura nos parecía un reto interesante conseguir hacer un generador de historias con el poder entretener a cualquier usuario, además de hacerle sentir parte fundamental en la historia.
 
+Por último el reto de ser un proyecto tan amplio es una motivación extra ya que no pone barreras a poder incluir cualquier idea que tengamos.
+
+%-------------------------------------------------------------------
+\section{Objetivos}
+%-------------------------------------------------------------------
+
+Nuestro principal objetivo es el de desarollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Estas simulaciones de historias queremos que tengan un bajo factor de repetición y así conseguir que cada historia sea totalmente "única". Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear los personajes que particiaran en la historia.
+
+Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un Sistema Multiagentes. Cada personaje tiene un objetivo que cumplir y que nos servirá como guión en nuestra historia, para poder simular estos objetivos utilizaremos un planificador.
+
+Al tener un trabajo previo, es posible que haya reutilización de código, todo lo reutilizado se ve en el punto 4 en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos en los objetivos dicen "que al aumentar el trabajo se observarian variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
+
+Por ello los objetivos que nos marcamos son:
 \begin{itemize}
-	\item Personajes
-	\item Mapa
-	\item Objetos
-	\item Objetivos
-	\item Frases
+	\item Diseñar un generador de historias, en el cual cada historia sea "única" y no tenga un final predefinido. Para ello:
+	\begin{itemize}
+		\item Haremos que todos los personajes puedan realizar acciones.
+		\item Ampliaremos el mapa.
+		\item Introduciremos objetos.
+		\item Introduciremos NPC.
+	\end{itemize}
+	\item Diseñar una interfaz interactiva con la que queremos sumergir al usuario/lector en la historia.
+	\item Introducir replanificaciones en la historia cuando ocurran eventos significativos.
+	\item Crear archivos de configuración para favorecer a la aleatoriedad de las historias, guardando el mapa, los objetos, los NPCs.
+	\item Crear archivos de configuración que nos permita cambiar el ámbito de las historias generadas.
 \end{itemize}
+
+%-------------------------------------------------------------------
+\section{Reutilización}
+%-------------------------------------------------------------------
+Partimos de un trabajo reducido en el que siempre tenia una única introducción(El dragón secuestra a la princesa), con el mismo nudo(el rey contrata caballero) en bucle si se daba la condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos nosotros para el trabajo de generar diversidad en las historias.
