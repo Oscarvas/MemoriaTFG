@@ -8,16 +8,146 @@
 %\end{FraseCelebre}
 
 
+
 %-------------------------------------------------------------------
 \section{Mapa}
 %-------------------------------------------------------------------
 
+\subsection{Un nuevo mapa}
+El anterior mapa del TFG era un plano muy sencillo, con apenas 3 localizaciones conectadas entre sí en las que siempre ocurrían las mismas cosas de la misma manera, el dragón iba al castillo, se llevaba a la princesa a la montaña y los caballeros acudían desde el pueblo hasta que finalmente alguno lograba llevarla de vuelta al castillo. 
+Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planificador, para ver como lidiaba con un problema y trataba de resolverlo, de manera que desconectamos la montaña del pueblo e interpusimos entre el castillo y la montaña dos nuevas localizaciones, el bosque y el lago. Así, si se quería ir del castillo a la montaña, o viceversa, los agentes tenían dos posibles caminos porque localización lo harían, y nuestro planificador se encargo de elegir entre el bosque y el lago de manera aleatoria.
+(INSERTAR IMAGEN AQUÍ, mapa con pueblo, castillo, lago bosque y montaña).
+
+La siguiente prueba que le hicimos a nuestro planificador fue saber como escogía las localizaciones por las cuales se moverían nuestros agentes. Tras diversas pruebas probando localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador siempre escogía el camino mas corto posible para cada agente, si había dos iguales, elegía indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localización entre dos posibles a la vuelta elegía la otra.Esto nos permitió conocer en profundidad como actuaba nuestro planificador, y nos daba paso a poder hacer el mapa real.
+
+\subsection{El mapa real}
+Cuando nos planteamos el nuevo concepto de mapa decidimos darle un aire fantástico a nuestra historia, así que nos propusimos crear un mundo al viejo estilo de las novelas fantásticas, como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones, para darle un aire mas personal a nuestras posibles historias, buscando un sentido de pertenencia parecido al que debió tener el propio Tolkien al crear su mundo.
+
+Para ello, creamos un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor,  que a su vez se dividía en otras tres partes, dividiendo así nuestro mundo en seis regiones.
+
+Con el objetivo de que cada región fuese única y no tuviésemos sencillamente seis cachos de tierra con nombres distintos, decidimos proporcionar a cada una un elemento distintivo, que la diferenciase de las demás. 
+
+Así por ejemplo, decidimos que solo en dos regiones habría castillos, lo cual a su vez limitaba a que solo hubiese dos reinos en nuestro mapa, pues solo en un castillo podría vivir un rey.
+
+De igual manera, habría localizaciones muy especificas en ciertas regiones, por ejemplo en una de ellas estaría la herrería, en otra la taberna, en otra el cruce?Estas localizaciones cumplirían las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en el. Así, en estos sitios, aguardarían estos nuevos personajes que creamos, como en este caso serian el herrero el tabernero o el avaricioso trol.
+
+Otra utilidad que le encontramos a la división en regiones fue el ayudarnos a situar a nuestros distintos personajes en el comienzo de la historia. Así asignamos a cada personaje una raza, que les proporcionaban unas características mas especiales, y a cada raza una región natural de la misma. Esto nos facilitaba enormemente el hecho de introducir un nuevo personaje en la historia, pues así un personaje de la raza X aparecería en una localización aleatoria Z situada dentro de la región Y asignada a esta raza X en especifico.
+
+Una vez ya habíamos decidido la funcionalidad que tendría nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digital izarlo, para lo cual usamos la herramienta GIMP.
+
+Una vez correctamente digital izado nuestro flamante mapa, lo introdujimos en la GUI y por fin estaba listo para usarse.
+
+Muchas regiones, dos castillos, nuevos elementos, elementos específicos en los que poner ciertos personajes (taberna tabernero), regiones separadas con influencia a la hora de crear personajes (por raza), dibujando el mapa con GIMP y transformación visual a la GUI
+(INSERTAR IMAGEN AQUÍ, mapa final, con las distintas regiones y todo, impacto visual importante, que se aprecie la mejoría)
 
 %-------------------------------------------------------------------
-\section{Multiobjetivo}
+\section{Multiples objetivos}
 %-------------------------------------------------------------------
+
+\subsection{Nada es lo que parece}
+
+Para poder crear historias distintas uno de nuestros principales objetivos era que dos agentes que representaban el mismo tipo de personaje, pudiesen actuar de manera distinta, eligiendo de una manera aleatoria entre un abanico de posibles objetivos cual iba a ser el suyo cada vez.
+Afrontar este problema fue un arduo proceso que comenzó cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad, sencillamente era transportada de un lugar a otro, o bien por un dragón o por un caballero, y no realizaba acciones propias.
+Nuestro primer objetivo fue cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla. Debido a la construcción del anterior TFG, la construcción y correcto funcionamiento de un agente clave como la princesa escapaba de nuestro conocimiento sobre agentes, así que debimos cambiar de objetivo a uno menos ambicioso.
+
+
+\subsection{La figura del villano}
+
+Fue aquí cuando decidimos que el agente que mejor se amoldaba a nuestra búsqueda del agente con varios objetivos era el caballero.
+El caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
+Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y así surgió el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragón en vez de salvar a la princesa decidiese secuestrarla y así otro caballero debía venir a salvarla, y con una idea tan simple habíamos aumentado significantemente nuestra capacidad de crear historias variadas.
+
+Sin embargo esto no fue tan sencillo, nuestro planificador no podía soportar tener que elegir aleatoriamente entre dos caballeros distintos, y, bajo nuestro entendimiento del código ya disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
+
+Como primera solución decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegía aleatoriamente si este iba a ser caballero o villano desde el principio, así cuando llegase el momento actuarían de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar múltiples historias y distintas.
+
+El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios? Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando el TFG desde cero, siempre partiendo de la base del antiguo, pero reciclando el las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
+
+\subsection{Empezando desde cero}
+
+Rehaciendo el código, abriendo un nuevo proyecto, que queremos, podemos usar, concepto de GUI, mejora visual, ahora lo entendemos, to palante. 
+Un nuevo rey, una nueva princesa, el dragón al uso, el caballero al uso.
+
+Esto nos permitió satisfacer nuestra necesidad del multiobjetivo, y así pudimos transformar a nuestros agentes en personajes mas profundos, con una serie de posibles objetivos:
+(INTRODUCIR TABLA AQUÍ, o bien mintiendo y poniendo solo los posibles objetivos de la princesa y caballero o bien introducir la tocho tabla con los distintos objetivos de cada tipo de personaje)
+
+Hasta que por fin, y ahora si, podíamos tener caballeros que actuasen como villanos y princesas que actuasen y permitiéndonos finales distintos.
+
+
+\subsection{Ahora que ya estamos donde queremos}
+Era el momento de ponernos ambiciosos, así que nos propusimos crear muchos mas personajes, rellenar el mapa con nuevos monstruos, e incluso poner algunos personajes totalmente secundarios que sencillamente le diesen un toque picante a la historia
 
 
 %-------------------------------------------------------------------
 \section{Personajes}
 %-------------------------------------------------------------------
+
+\subsection{El concepto de clase}
+Nuestros héroes ya no son los de antes. Por decirlo de alguna manera han madurado, y es su momento de hacer frente a nuevos retos.
+Para ello debimos convertir con cuidado a los personajes del antiguo TFG en agentes mas sólidos. Esto implicaba que muchas de las acciones que realizaban debían convertirse a comportamientos, integrados dentro de la fantástica interfaz de JADE, y realizar un correcto traspaso de mensajes para que esto funcionase.
+Que esperamos de los héroes, las princesas, los monstruos, el rey y los villanos
+
+\begin{itemize}
+	\item Princesa. Lo primero era tratar a las princesas. En nuestra búsqueda de la princesa fuerte e independiente, lo primero que intentamos conseguir fue que escapara. Así que cuando los caballeros se demoraban demasiado la princesa se iba impacientando, evaluando sus posibilidades de éxito hasta que, finalmente, decidía emprender la huida por su cuenta.
+	\item Caballero. Para los caballeros pensamos que podía haber muchos y parecían todos iguales, nuestra idea fué incluirles varios objetivos, de manera que no existiese un solo tipo de caballero, sino que algunos fuesen nobles y justos, e intentasen erradicar todo el mal que encontrasen, otros fuesen codiciosos, e intentansen conseguir mucho oro y objetos legendarios de gran poder y otros que fuesen enamoradizos, y su verdadero objetivo fuese el de conquistar el corazón de la princesa.
+	\item Rey. Al principio solo había un Rey. Para hacer la historia más variada y poder tener conflictos entre regiones, decidimos incluir un nuevo reino con su correspondiente rey. Aparte, los reyes ya no se quedarían esperando pacientemente en su trono, sino que, poco a poco iban rumiando la idea de ir ellos mismos a salvar a las princesas o sencillamente cuando más caballeros no acudían a su llamada se decidían a hacerlo.
+	\item Dragón.
+\end{itemize}
+
+\subsection{Creando nuevos personajes}
+Nuevos Monstruos
+
+Lo primero que tuvimos claro es que, para nosotros, nuevos héroes significaban nuevos monstruos. Sin embargo, estos nuevos monstruos no podían ser simples dragones con distinta apariencia (no nos servía la idea de tener un grifo y un dragón y que los dos hiciesen lo mismo), y de igual manera no queríamos introducir un nuevo tipo de monstruo con la capacidad de suplantar a nuestro dragón como elemento primordial en nuestra historia.
+Nuestra primera idea fué la de incluir monstruos guardianes, es decir, monstruos que vigilasen un lugar específico del mapa y que castigasen a los aspirantes a héroes que decidiesen atravesar ese camino para completar su aventura. De esta manera, creamos localizaciones concretas y monstruos específicos para ellas.
+La primera localización elegida fué el lago. En el lago podría vivir una serpiente marina, aunque en este caso fuese de agua dulce, que atacase a los aventureros que se atreviesen a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansasen tranquilas siempre sin que nada las perturbara.
+La segunda localización aprobada fué el cruce. En este cruce de múltiples caminos, un avaricioso trol montaba guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros debían pagar o sino se enfrentarían a la ira del malvado troll.
+Como tampoco queríamos que nuestros nuevos monstruos se limitasen a no dejar pasar a los aspirantes a protagonista, decidimos introducir un nuevo monstruo que no interactuaba necesariamente con él, y así llego el concepto del fantasma.
+El fantasma sería el espíritu vengativo de un rey derrocado por hace tiempo que no pudo saciar sus ansias de poder. Así su cometido sería vagar por los castillos asustando a los miembros de la realeza hasta matar a alguno del susto completando así su venganza.
+\begin{itemize}
+	\item Troll
+	\item Serpiente
+	\item Fantasma
+\end{itemize}
+
+Nuevos Héroes
+
+Para enfrentarse a estas nuevas amenazas, decidimos incluir nuevos personajes capaces de ayudar a nuestro héroe. Por ejemplo, pensamos que un caballero, en una barca, en medio de un lago, y con una armadura que no es precisamente la equipación oficial de la natación, tendría pocas posibilidades contra una enorme sierpe acuática. 
+Así nacieron las figuras del mago y el druida.
+El mago sería un hombre calculador, que, con buenas intenciones, podría helar la superficie del lago para que así el caballero pudiese enfrentarse de una manera más justa a la serpiente, o el druida, que en sintonía con la naturaleza, podría transformarse en un gran águila y así hacer al caballero de turno escapar de la emboscada del trol.
+Para nosotros esto se traducía  en la programación en que a la hora de por ejemplo plantar batalla, el caballero tuviese una bonificación en sus atributos o que contase con la posibilidad de huir por el camino que más le convenía.
+
+Villanos:
+No contentos con esto decidimos que nuestro mundo tenía personajes muy definidos, los buenos eran muy buenos y los malos muy malos. Con ánimo de cambiar esto decidimos introducir el personaje del villano. Como ya explicamos anteriormente, el villano sería un héroe que, por circunstancias de la vida, no planeaba luchar más por el bien y la justicia sino todo lo contrario. Así nuestra primera idea de villano incluía caballeros que cuando podían salvar a la princesa decidían volver a raptarla, pero al final decidimos que preferíamos enfocarlos más como personajes que simplemente buscaban a los caballeros del mundo e intentaban conseguir que no cumpliesen sus objetivos.
+Tendríamos así villanos que buscaban otros caballeros para retarles en combates a muerte, magos traidores que se dejaban embaucar por las palabras engañosas de la gran sierpe, ....
+
+Tras esta última prueba, decidimos que nuestro número de personajes activos era suficiente, y pasamos a un nuevo tipo de caracterización para facilitar la distinción.
+\begin{itemize}
+	\item Mago
+	\item Druida
+\end{itemize}
+
+\subsection{Raza y atributos}
+La raza es una característica mas que le podemos dar a nuestros personajes.
+Como ya se explico en el mapa, la raza determinara en que lugar ?nacerá? cada personaje, en cierta medida, pues solo aclara la región, no determina en que localización especifica de esta, pero su funcionalidad no acaba aquí, pues también dará un impulso a los atributos de los personajes.
+Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron la vida, la fuerza, la destreza, la inteligencia y la codicia.
+Estos atributos representarían modificadores positivos a la hora de enfrentarse a un problema. Por ejemplo, la fuerza seria un multiplicador a la vida, que nos ayuda a enfrentarnos a un monstruo en una batalla, o la codicia representaría el precio que un héroe propondría para contratar sus servicios.
+
+La manera en que los atributos y las razas se relacionan, viene dado porque los personajes de ciertas razas tienen atributos mas acentuados que otros. Esto se representaría como que por ejemplo los personajes de la raza X fuesen especialmente fuertes y los de la raza Y especialmente inteligentes, lo cual no quiere decir sin embargo que no exista un personaje de la raza Y especialmente fuerte que supere a otro de la raza X que no tuvo la misma fortuna.
+
+De igual manera, la clase también afectara a estos atributos, ya que un caballero en principio tendría mas opciones de ser fuerte que una princesa, para poder llevar esa flamante armadura también hay que echar sus horas en el gimnasio, lo cual nuevamente no implica que no pueda haber una princesa especialmente fuerte, sino que ese caso seria una extraña variedad dentro de las múltiples historias que podemos formar.
+
+Las razas determinan el sitio donde empiezan (la región en la que empiezan y aleatoriamente un sitio dentro de la región), determinaran en cierta medida los atributos (porque un caballero en principio esta mas fuerte que una princesa, es decir, el tipo de personaje también influye en los atributos) y enumerarlas.
+
+\subsection{PNJ (Personaje No Jugador)}
+Nuestro numero de historias ya era altamente variado, pero aun así sentíamos que debíamos proponer mas. En busca de un nuevo aire que diese un nuevo toque a nuestras historias y aumentase en cantidad el numero posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambiasen ligeramente el curso de la historia o que sencillamente apareciesen en ella dándole un toque divertido a esta.
+Para ello nos propusimos crear numerosos personajes entre ellos:
+
+\begin{itemize}
+	\item El chaman: guía espiritual, podría guiar a un héroe hasta un objeto mágico de gran poder, otorgarle la bendición de los ancestros o invitarle a una seta sospechosa que menguase su capacidad de lucha.
+	\item El Granjero: tiene tierras y ganado. Aparecería en la historia como un personaje campechano que sencillamente desea buena suerte en su viaje al héroe, aunque quizá si ha tenido problemas le pide que rescate a sus ovejas...
+	\item El tabernero: un hombre trabajador que conoce las historias que le cuentan los múltiples viajeros que han pasado por su establecimiento, quizá solo te invite a una ociosa comida que restaure fuerzas, a cambio de un módico precio, o quizá te cuente la leyenda de una legendaria espada perdido hace tiempo ha en un solitario desierto.
+	\item El Chef:un hombre experto en comidas imposibles, aunque a veces algunas no salgan tan bien como desee.
+	\item La sastre: una mujer sencilla, que se gana la vida haciendo vestidos sencillos, o quizá una capa de viajante que le recuerde a una princesa su rebeldía.
+	\item El herrero: forjador de armaduras, quizá el tenga la clave para que un valiente héroe pueda resistir los golpes de un terrible monstruo.
+	\item La bibliotecaria: experta en múltiples historias, sabe numerosas leyendas sobre anillos y tomos poderosos que pueden convertir a un sencillo hombre en el héroe que necesita el reino.
+\end{itemize}
