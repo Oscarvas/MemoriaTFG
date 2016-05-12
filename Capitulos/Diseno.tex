@@ -107,9 +107,6 @@ El problema fue que la aplicación no estaba pensada para soportar esto. Las bata
 
 \subsection{Empezando desde cero}
 
-Rehaciendo el código, abriendo un nuevo proyecto, que queremos, podemos usar, concepto de GUI, mejora visual, ahora lo entendemos, to palante. 
-Un nuevo rey, una nueva princesa, el dragón al uso, el caballero al uso.
-
 El análisis y posterior uso del código anterior lo trataremos con mas detalle en el apartado de implementación. Lo que si teníamos claro, era que nuestro proyecto iba a incluir forzosamente personajes con múltiples objetivos y una GUI que diese un impacto visual claro a la ejecución de la aplicación.
 
 Para ello, y ahora que por fin eramos capaces, decidimos cambiar, a la princesa, de manera que en ocasiones si los caballeros se demoraban demasiado en su trabajo ella era capaz de escaparse de su raptor y volver al castillo por su propio pie.
@@ -128,18 +125,23 @@ Era el momento de ponernos ambiciosos, así que nos propusimos crear muchos mas p
 
 %-------------------------------------------------------------------
 \section{Personajes}
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes allá mas posibilidades tendrás en tu historia. 
+
+Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
+
+Sin embargo las posibles historias que podamos generar comparten siempre una misma base, pues no puede ser de otra manera. 
+Siempre aparecerá un monstruo que logrará secuestrar a la princesa, el rey pedirá ayuda a los distintos aspirantes a héroes y estos acudirán a su llamada intentando salvarla, a partir de lo cuál aparecerán distintos personajes.
 %-------------------------------------------------------------------
 
 \subsection{El concepto de clase}
 Nuestros héroes ya no son los de antes. Por decirlo de alguna manera han madurado, y es su momento de hacer frente a nuevos retos.
 Para ello debimos convertir con cuidado a los personajes del antiguo TFG en agentes mas sólidos. Esto implicaba que muchas de las acciones que realizaban debían convertirse a comportamientos, integrados dentro de la fantástica interfaz de JADE, y realizar un correcto traspaso de mensajes para que esto funcionase.
-Que esperamos de los héroes, las princesas, los monstruos, el rey y los villanos
 
 \begin{itemize}
-	\item Princesa. Lo primero era tratar a las princesas. En nuestra búsqueda de la princesa fuerte e independiente, lo primero que intentamos conseguir fue que escapara. Así que cuando los caballeros se demoraban demasiado la princesa se iba impacientando, evaluando sus posibilidades de éxito hasta que, finalmente, decidía emprender la huida por su cuenta.
-	\item Caballero. Para los caballeros pensamos que podía haber muchos y parecían todos iguales, nuestra idea fue incluirles varios objetivos, de manera que no existiese un solo tipo de caballero, sino que algunos fuesen nobles y justos, e intentasen erradicar todo el mal que encontrasen, otros fuesen codiciosos, e intentansen conseguir mucho oro y objetos legendarios de gran poder y otros que fuesen enamoradizos, y su verdadero objetivo fuese el de conquistar el corazón de la princesa.
-	\item Rey. Al principio solo había un Rey. Para hacer la historia más variada y poder tener conflictos entre regiones, decidimos incluir un nuevo reino con su correspondiente rey. Aparte, los reyes ya no se quedarían esperando pacientemente en su trono, sino que, poco a poco iban rumiando la idea de ir ellos mismos a salvar a las princesas o sencillamente cuando más caballeros no acudían a su llamada se decidían a hacerlo.
-	\item Dragón.
+	\item Princesa. Lo primero era tratar a las princesas. En nuestra búsqueda de la princesa fuerte e independiente, lo primero que intentamos conseguir fue que escapara. Así que, cuando los caballeros se demoraban demasiado la princesa se iba impacientando, evaluando sus posibilidades de éxito hasta que, finalmente, decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
+	\item Caballero. Como ya comentamos al principio, los caballeros eran siempre el mismo tipo de personajes y decidimos darla a la clase la opción de que algunos fuesen aspirantes a héroes e intentasen salvar a la princesa y otros fuesen villanos y tras derrotar al dragón también intentasen matar a la princesa.
+	\item Rey. Al principio solo había un Rey. Para hacer la historia más variada y poder tener conflictos entre regiones, decidimos incluir un nuevo reino con su correspondiente rey. Los reyes que no poseían hijas apenas aparecían en la historia, mientras que a aquellos a los que les habían secuestrado a la hija contrataba a distintos aspirantes a salvarla, buscando siempre el precio mas bajo, que era proporcionado por estos candidatos, pagandoles sus emolumentos hasta que o bien la princesa era salvada o bien al rey se le acababa el dinero.
+	\item Dragón. El Dragón sencillamente buscaba en el mundo princesas secuestrables, que eran básicamente aquellas que no estaban secuestradas, elegía una aleatoriamente, la secuestraba y se la llevaba a una zona predefinida en su dominio.
 \end{itemize}
 
 \subsection{Creando nuevos personajes}
