@@ -13,17 +13,50 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-En este capitulo hablaremos del trabajo de investigación que ha sido llevado a cabo durante la realización de nuestro proyecto, y explicaremos las bases que hemos utilizado durante su realización.
+%En este capitulo hablaremos del trabajo de investigación que ha sido llevado a cabo durante la realización de nuestro proyecto, y explicaremos las bases que hemos utilizado durante su realización.
 
-\section{Multiagentes}
+Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
+
+
+\section{Agente Software}
+¿Qué es un agente software?, bueno, a nuestro modo de ver una primera aproximación a este concepto lo podemos definir como una persona en la vida real, sólo que creado mediante software informático.
+
+Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirían como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
+
+Es importante saber que existen distintos tipos de agentes, y entre ellos podemos nombrar los siguientes:
+\begin{itemize}
+	\item Reactivos: Aquellos agentes que están a la espera de algún estímulo para poder realizar una acción.
+	\item Proactivos: Aquellos que por otra parte, son capaces de realizar acciones y comportamientos sin la necesidad de un estímulo que los active.
+\end{itemize}
+
+Para poder realizar una generación de historias más rica en contenido, calidad y diversidad, ha sido necesario usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos.
+
+De igual forma, un agente es capaz de interactuar con otros agentes o unidades software, que bien pueden ser otros elementos de su entorno como objetos, estructuras, etc.
+
+\section{Sistemas Multi-agente}
 %Revisar, solo esta copiado directamente del drive
 %Para nosotros un agente es una unidad software con capacidad de actuar en función y en conjunto o en contra de otras unidades software, como pueden ser otros agentes. Para ello están dotados de una falsa independencia, donde, siempre siguiendo las leyes de la programación, son capaces de actuar de una u otra forma.
+
+Una historia en la que sólo actúa un personaje a priori no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas.
+
 \section{Planificación}
+
+Si has buscado sobre el tema de agentes con anterioridad, habrás visto que en la misma línea o muy cerca de esa palabra se encuentran las palabras inteligencia artificial. Por supuesto como hemos dicho antes, a los agentes les hemos comparado de cierta manera con personas y ¿Qué son éstas sin inteligencia?, faltaría más que un agente software no disponga de inteligencia artificial.
+
+Pues bien, nuestros agentes no son inteligentes, Per se. Sólo hasta cierto punto disponen de una inteligencia basada en conocimiento y comportamientos que les ayudará a realizar las funciones de cada uno.
+
+Claro, es necesario que nuestros agentes puedan razonar de alguna manera para que sean capaces de realizar acciones, pero ¿si encontramos una forma en la que el usuario pueda modificar la forma como piensan sus agentes con cierta libertad ?. Por ello se ha delegado la parte de inteligencia a un planificador.
+
+El planificador es un sistema que permitirá a nuestros agentes razonar de una manera un tanto rudimentaria pero muy clara, ayudando a los agentes a encontrar una manera de cumplir sus objetivos. Imaginemos un caso sencillo que podamos aplicar nosotros y así poder entender como piensan nuestros agentes:
+
+Estamos en nuestro dormitorio y queremos ir a buscar una botella con agua en la cocina y llevarla a nuestra habitación. Lo que debemos hacer entonces será ir desde la habitación hasta la cocina, coger la botella de agua, y por último ir de nuevo a la habitación. Hemos llevado a cabo una planificación mediante un algoritmo por pasos muy sencillo que nos ha permitido cumplir nuestro objetivo de forma eficiente.
+
+Nuestros agentes actúan bajo el mismo principio, ellos conocen su objetivo pero desconocen la manera en que deben actuar para conseguirlo y para ello necesitamos un planificador que les indique los pasos necesarios a realizar en orden de que puedan conseguir su objetivo.
 
 \section{Sistemas}
 
 \subsection[Proyecto anterior]{Generador de historias basado en agentes}
-Este fue el primer sistema que estudiamos para empezar a plantear nuestro proyecto. Es proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid de la promoción de 2014. Este proyecto nos ha servido como base para empezar a desarrollar nuestro propio proyecto ya que utilizan un sistema de multiagentes como es Jade y usan un planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
+Este fue el primer sistema que estudiamos para empezar a plantear nuestro proyecto. Es proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid de la promoción de 2014. Este proyecto nos ha servido como base para empezar a desarrollar nuestro propio proyecto ya que utilizan un sistema de multi-agentes como es Jade y usan un planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
 
 Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El dragón secuestra a la princesa), con un nudo(el rey contrata caballero) en bucle si se cumplía una condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos para generar historias diversas y cada vez que se ejecute la aplicación genere una historia única.
 
