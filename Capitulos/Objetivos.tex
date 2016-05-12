@@ -7,7 +7,7 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Habiendo partido de una base generadora de historias muy sencilla y que apenas presentaba variedad en la cantidad de historias posibles que podía generar, primero habló la ambición: ¡Hagamos un sistema capaz de generar infinidad de historias!, luego habló la razón: ¿Disponemos del tiempo necesario para hacer embarcarnos en ese tipo de proyecto?, y por último habló la razón: Bueno, vamos a ir escalando las posibilidades del proyecto paso a paso en función de nuestros avances.
+Partiendo de una base generadora de historias muy sencilla y que apenas presentaba variedad en la cantidad de historias posibles que podía generar, primero habló la ambición: ¡Hagamos un sistema capaz de generar infinidad de historias!, luego habló la realidad: ¿Disponemos del tiempo necesario para hacer embarcarnos en ese tipo de proyecto?, y por último habló la razón: Bueno, vamos a ir escalando las posibilidades del proyecto paso a paso en función de nuestros avances.
 
 El primer paso fue decidir hacer un sistema capaz de generar historias variadas para un mismo entorno, es decir aumentar las acciones posibles y la probabilidad de que ciertas acciones ocurran o no, usando el mismo conjunto de personajes.
 
@@ -23,11 +23,11 @@ Por último el reto de ser un proyecto tan amplio es una motivación extra ya que 
 \section{Objetivos}
 %-------------------------------------------------------------------
 
-Nuestro principal objetivo es el de desarrollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Estas simulaciones de historias queremos que tengan un factor de repetición bajo y así conseguir que cada historia sea totalmente distintiva, "única". Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear y configurar ciertas parte de la historia, como los personajes que actuan en ella, el nombre de los lugares donde esta transcurre, que tipos de monstruos quiere que aparezcan en su mundo... Pero ya entraremos en eso mas adelante.
+Nuestro principal objetivo es el de desarrollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Estas simulaciones de historias queremos que tengan un factor de repetición bajo y así conseguir que cada historia sea totalmente distintiva, "única". Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear y configurar ciertas parte de la historia, como los personajes que actúan en ella, el nombre de los lugares donde esta transcurre, que tipos de monstruos quiere que aparezcan en su mundo... Pero ya entraremos en eso mas adelante.
 
 Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un Sistema Multiagentes. Cada personaje tiene unos  objetivos que intentar cumplir y la narración de todo el trascurso de acciones desde su creación hasta alcanzar su objetivo o morir en el intento nos proporcionará fragmentos de la historia generada. Para poder saber cual es el mejor camino para alcanzar los objetivos y evitar que nuestra historia pierda interés utilizaremos un planificador.
 
-Al tener un trabajo previo, es posible que haya reutilización de código,  en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos en los objetivos dicen "que al aumentar el trabajo se observarian variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
+Al tener un trabajo previo, es posible que haya reutilización de código,  en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos en los objetivos dicen "que al aumentar el trabajo se observarían variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
 
 Por ello los objetivos que nos marcamos son:
 \begin{itemize}
@@ -40,7 +40,7 @@ Por ello los objetivos que nos marcamos son:
 	\end{itemize}
 	\item Diseñar una interfaz interactiva con la que queremos sumergir al usuario/lector en la historia.
 	\item Introducir replanificaciones en la historia cuando ocurran eventos significativos.
-	\item Utilizar archivos de configuración para favorecer a la aleatoriedad de las historias, guardando el mapa, los objetos, los NPCs.
+	\item Utilizar archivos de configuración para favorecer a la aleatoriedad de las historias, guardando el mapa, los objetos, los PNJ's.
 	\item Utilizar archivos de configuración que nos permita cambiar el ámbito de las historias generadas.
 \end{itemize}
 
