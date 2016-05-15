@@ -19,8 +19,9 @@
 
 Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
 
+\section{Agentes}
 
-\section{Agente Software}
+\subsection{Agente Software}
 ¿Qué es un agente software?, bueno, a nuestro modo de ver una primera aproximación a este concepto lo podemos definir como una persona en la vida real, sólo que creado mediante software informático.
 
 Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirían como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
@@ -35,22 +36,24 @@ Para poder realizar una generación de historias más rica en contenido, calidad y
 
 De igual forma, un agente es capaz de interactuar con otros agentes o unidades software, que bien pueden ser otros elementos de su entorno como objetos, estructuras, etc.
 
-\section{Sistemas Multi-agente}
+\subsection{Sistemas Multi-agente}
 %Revisar, solo esta copiado directamente del drive
 %Para nosotros un agente es una unidad software con capacidad de actuar en función y en conjunto o en contra de otras unidades software, como pueden ser otros agentes. Para ello están dotados de una falsa independencia, donde, siempre siguiendo las leyes de la programación, son capaces de actuar de una u otra forma.
 
 Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas.
 
-\section{Foundation for Intelligent Physical Agents - FIPA}
+\subsection{Foundation for Intelligent Physical Agents - FIPA}
 
 Hemos hablado sobre que nuestros agentes coexisten bajo el mismo entorno y que son capaces de comunicarse entre sí pero ¿Cómo? la respuesta es simple, comunicándose.
 
-Los agentes han de ser capaces de comunicarse mediante el paso de mensajes entre ellos y especialmente para los sistemas basados en agentes, la \emph{FIPA} ha desarrollado estándares que especifican el formato y las características de los mensajes que los agentes deben usar para poder comincarse entre ellos.
+Los agentes han de ser capaces de comunicarse mediante el paso de mensajes entre ellos y especialmente para los sistemas basados en agentes, la \emph{FIPA} ha desarrollado estándares que especifican el formato y las características de los mensajes que los agentes deben usar para poder comunicarse entre ellos.
 
 
-\section{Java Agent Development Framework - JADE}
+\subsection{Java Agent Development Framework - JADE}
 
-\section{Planificación}
+\section{Planificadores}
+
+\subsection{Planificación}
 
 Si has buscado sobre el tema de agentes con anterioridad, habrás visto que en la misma línea o muy cerca de esa palabra se encuentran las palabras inteligencia artificial. Por supuesto como hemos dicho antes, a los agentes les hemos comparado de cierta manera con personas y ¿Qué son éstas sin inteligencia?, faltaría más que un agente software no disponga de inteligencia artificial.
 
@@ -64,9 +67,9 @@ Estamos en nuestro dormitorio y queremos ir a buscar una botella con agua en la 
 
 Nuestros agentes actúan bajo el mismo principio, ellos conocen su objetivo pero desconocen la manera en que deben actuar para conseguirlo y para ello necesitamos un planificador que les indique los pasos necesarios a realizar en orden de que puedan conseguir su objetivo.
 
-\section{Planning Domain Definition Language - PDDL}
+\subsection[PDDL]{Planning Domain Definition Language - PDDL}
 
-\section{Otros generadores de historias}
+\section{Narrativa Computacional}
 
 \subsection[Proyecto anterior]{Generador de historias basado en agentes}
 Este fue el primer sistema que estudiamos para empezar a plantear nuestro proyecto. Es proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid de la promoción de 2014. Este proyecto nos ha servido como base para empezar a desarrollar nuestro propio proyecto ya que utilizan un sistema de multi-agentes como es Jade y usan un planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
