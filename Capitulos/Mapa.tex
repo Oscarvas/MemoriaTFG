@@ -22,24 +22,32 @@ Tratando de dotar a nuestras historias de un mapa así de consistente, decidimos 
 \section{Diseño del Mapa}
 Cuando nos planteamos el nuevo concepto de mapa lo primero que teníamos claro era que queríamos darle un aire fantástico a nuestra historia, así que nos propusimos crear un mundo al viejo estilo de las novelas fantásticas, como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones, para darle un aire mas personal a nuestras posibles historias, buscando un sentido de pertenencia, nuestro y del usuario, que tratase de emular, salvando las distancias, al que debió tener el propio Tolkien al crear su mundo.
 
-\subsection{El Mapa del que partimos}
+\subsection{Conociendo lo que tenemos}
 El anterior mapa del TFG era un plano muy sencillo, con apenas 3 localizaciones conectadas entre sí en las que siempre ocurrían las mismas cosas de la misma manera, el dragón iba al castillo, se llevaba a la princesa a la montaña y los caballeros acudían desde el pueblo tratando de derrotar al dragón hasta que finalmente alguno lo lograba y podía llevarla de vuelta al castillo. 
 
 
 Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planificador, para ver como lidiaba con un problema y trataba de resolverlo, así cuando le presentásemos nuestro mapa sabríamos como se comportaría, de manera que desconectamos la montaña del pueblo e interpusimos entre el castillo y la montaña dos nuevas localizaciones, el bosque y el lago. Así, si se quería ir del castillo a la montaña, o viceversa, los agentes tenían dos posibles caminos e, incapaces de decidir por ellos mismos, nuestro planificador se encargaría de elegir entre el bosque y el lago de manera aleatoria.
-(INSERTAR IMAGEN AQUÍ, mapa con pueblo, castillo, lago bosque y montaña).
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/PreMapaTFG}
+	\caption{Mapa de primeras pruebas}
+	\label{fig:MapaPrimerasPruebas}
+\end{figure}
 
 La siguiente prueba que le hicimos a nuestro planificador fue saber como escogía las localizaciones por las cuales se moverían nuestros agentes. Tras diversas pruebas probando localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador siempre escogía el camino mas corto posible para cada agente, si había dos iguales, elegía indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localización entre dos posibles a la vuelta elegía la otra. Esto nos permitió conocer en profundidad como actuaba nuestro planificador, y nos daba paso a poder hacer el mapa que realmente queríamos tener.
 
-\subsubsection{Nuestro Mapa}
+\subsubsection{Creando el Mapa}
 Lo primero que debíamos hacer para empezar a desarrollar nuestro mapa era plantearlo geográficamente, de manera que un pequeño mapa empezase a tener forma para dar origen a uno mas grande.
 
 
 Para ello, creamos un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor,  que a su vez se dividía en otras tres partes, dividiendo así nuestro mundo en seis regiones, donde cada cual tenía un numero diferente de localizaciones. También, dotamos a cada una de estas regiones de un nombre para distinguirlas entre ellas.
 
 \begin{figure}[h]
-	\includegraphics{Imagenes/MiniMapaTFG}
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/MiniMapaTFG}
+	\caption{Mini Mapa Final}
+	\label{fig:MiniMapa}
 \end{figure}
 
 
@@ -58,10 +66,11 @@ Esta clasificación en tipos nos ayudaría a la hora de crear personajes, asignánd
 
 El orden final nos quedaría así:
 
+
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c|c}
-		$Clase o Monstruo$			& $Tipo Localización$ \\ \hline
+		$Clase / Monstruo$			& $Tipo Localización$ \\ \hline
 		Rey 					& Castillo \\
 		Princesa 				& Castillo (el del padre) \\
 		Caballero 				& Pueblo \\
@@ -73,6 +82,8 @@ El orden final nos quedaría así:
 		Monstruo Guardian 		& Lago \\
 		Monstruo Maligno		& Cualquiera \\ \hline
 	\end{tabular}
+	\caption{Tabla de Relacion Clase-Localización}
+	\label{fig:TablaRelacionLozalizaciones}
 \end{table}
 
 
@@ -80,19 +91,45 @@ Una vez ya habíamos decidido la funcionalidad que tendría nuestro mapa, era el m
 
 Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un gran impacto visual y dejándolo listo para usarse.
 
-\begin{figure}[h]
-	\includegraphics[scale=0.5]{Imagenes/MapaTFGMem}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/MapaTFGMem}
+	\caption{Mapa Final}
+	\label{fig:MapaCompleto}
 \end{figure}
 
 \section{Implementación del Mapa}
+Con el Mapa ya diseñado y teniendo en cuenta las ganas que teníamos de que toda la aplicación fuese configurable, decidimos que el Mapa también cargase sus datos de un archivo XML, y por tanto debimos realizar los cambios que esta modificación necesitaba.
 
-\subsection{Clase Mapa y Localizacion}
+De igual manera, para poder usar de manera correcta nuestro mapa, sabíamos que debía estar en el agente mundo, tal y como se explico en su capítulo (poner referencia aquí), creando las clases necesarias para ello.
+
+
 \subsection{Mapas configurables por el usuario}
-Sin embargo, llegado el momento de querer permitir a nuestra historia ser configurada a través de múltiples ficheros XML decidimos que el mapa también debía formar parte de estos elementos configurables. Para ello hubo que cambiarlo totalmente.
+El mapa original era un archivo XML lleno de Strings, que representaban los nombres de las distintas localizaciones, volcados en un XML, que se cargaba directamente en la aplicación.
 
-Al principio, nuestro mapa no era sino un montón de Strings volcados en un XML. Para cargar correctamente nuestro mapa le dimos a cada localización una matriz de adyacencia con respecto al resto de localizaciones, así, junto a una clase Loader capaz de interpretar correctamente los datos del fichero XML, a través de nuestra clase Mundo, nuestro agente director, se creaba un objeto Mapa con toda la información necesaria relativa a este, que el resto de agentes podían utilizar, y de hecho utilizaban, para conocer sus localizaciones, moverse o saber si compartían la misma localización con otro agente.
+Para poder usarlo de la manera correcta primero debía contar con un loader capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este loader dentro del propio agente, dándole a este la funcionalidad de CargarMapa().
 
-Con ánimo de aumentar la capacidad de configuración del mapa le dotamos a cada localización de un tipo, ya fuese bosque, lago, pueblo, que la clasificaba definiendo que tipo de localización era para un uso posterior, a la vez que le dábamos un nombre.
+La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localizacion> a partir de la cual cargaba nuevas localizaciones. 
+Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localizacion en la carga se buscaba la etiqueta <conectadoCon> donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
+
+Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante (incluir referencia).
+
+Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño.
+
+El problema que representaba esta implementación es que necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues sino la aplicación no funcionaría de una manera correcta.
+Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de como construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo.
+
+\begin{verbatim}
+	<region nombre="Isla Egeria">
+		<localizacion id="Egeria" tipo="Pueblo" > 
+			<conectadoCon>Tesqua Caligo</conectadoCon>
+		</localizacion>
+	</region>
+\end{verbatim}
+
 
 (Insertar imagen aquí, como es el archivo XML del mapa).
 
+\subsection{La Clase Mapa}
+
+\subsection{La Clase Localización}
