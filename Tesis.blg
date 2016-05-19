@@ -3,25 +3,27 @@ A level-1 auxiliary file: Cascaras/cover.aux
 A level-1 auxiliary file: Cascaras/dedicatoria.aux
 A level-1 auxiliary file: Cascaras/agradecimientos.aux
 A level-1 auxiliary file: Cascaras/resumen.aux
+A level-1 auxiliary file: Cascaras/abstract.aux
 A level-1 auxiliary file: TeXiS/TeXiS_toc.aux
-A level-1 auxiliary file: Capitulos/Parte1.aux
-A level-1 auxiliary file: Capitulos/01Capitulo1.aux
-A level-1 auxiliary file: Capitulos/01Capitulo2.aux
-A level-1 auxiliary file: Capitulos/01Capitulo3.aux
-A level-1 auxiliary file: Capitulos/Parte2.aux
-A level-1 auxiliary file: Capitulos/02Capitulo1.aux
-A level-1 auxiliary file: Capitulos/02Capitulo2.aux
-A level-1 auxiliary file: Capitulos/02Capitulo3.aux
-A level-1 auxiliary file: Capitulos/Parte3.aux
-A level-1 auxiliary file: Capitulos/03Capitulo1.aux
-A level-1 auxiliary file: Capitulos/03Capitulo2.aux
-A level-1 auxiliary file: Capitulos/03Capitulo3.aux
-A level-1 auxiliary file: Capitulos/03Capitulo4.aux
+A level-1 auxiliary file: Capitulos/Introduccion.aux
+A level-1 auxiliary file: Capitulos/EstadoDelArte.aux
+A level-1 auxiliary file: Capitulos/Objetivos.aux
+A level-1 auxiliary file: Capitulos/Arquitectura.aux
+A level-1 auxiliary file: Capitulos/Mapa.aux
+A level-1 auxiliary file: Capitulos/Personajes.aux
+A level-1 auxiliary file: Capitulos/Principal.aux
+A level-1 auxiliary file: Capitulos/Monstruo.aux
+A level-1 auxiliary file: Capitulos/PNJ.aux
+A level-1 auxiliary file: Capitulos/Objetos.aux
+A level-1 auxiliary file: Capitulos/Frases.aux
+A level-1 auxiliary file: Capitulos/Diseno.aux
+A level-1 auxiliary file: Capitulos/Simulacion.aux
+A level-1 auxiliary file: Capitulos/TrabajoIndividual.aux
+A level-1 auxiliary file: Capitulos/TrabajoFuturo.aux
+A level-1 auxiliary file: Capitulos/Conclusiones.aux
 A level-1 auxiliary file: Apendices/ParteApendices.aux
 A level-1 auxiliary file: Apendices/01ApendiceA.aux
 A level-1 auxiliary file: Cascaras/bibliografia.aux
 The style file: TeXiS/TeXiS.bst
 A level-1 auxiliary file: Cascaras/fin.aux
-Database file #1: nuestros.bib
-Database file #2: latex.bib
-Database file #3: otros.bib
+Database file #1: historiasbib.bib
