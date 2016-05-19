@@ -17,39 +17,50 @@
 
 %En este capitulo hablaremos del trabajo de investigación que ha sido llevado a cabo durante la realización de nuestro proyecto, y explicaremos las bases que hemos utilizado durante su realización.
 
-Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
+%Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
+
+La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas que se nombrarán en capítulos posteriores.Para ello se ha estructurado este capitulo en 3 partes fundamentales.
+
+La primera parte cuenta un resumen de los conceptos y las tecnologías referentes al sistema de agentes, explicando que es un agente, los sistemas multi-agente, el estándar de comunicación entre agentes y la herramienta usada para tener el funcionamiento del sistema.
+
+En la segunda parte describe los sistemas planificadores y el lenguaje que se ha usado para que los agentes software sean capaces de realizar una planificación.
+
+La última parte está dedicada a la narrativa computacional, en la cuál veremos otros sistemas \emph{storytelling} y artículos relacionados con el ámbito del proyecto.
 
 \section{Agentes}
 
 \subsection{Agente Software}
-\cite{Wooldridge} Un \emph{agente} es un sistema informático que se \emph{encuentra} en un \emph{entorno}, y que es capaz de realizar \emph{acciones autónomas} en este entorno con el fin de cumplir sus objetivos.
+\cite{Wooldridge} Define el concepto de agente de la siguiente manera: ``Un \emph{agente} es un sistema informático que se \emph{encuentra} en un \emph{entorno}, y que es capaz de realizar \emph{acciones autónomas} en este entorno con el fin de cumplir sus objetivos''.
 
+Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirán como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
 
-¿Qué es un agente software?, bueno, a nuestro modo de ver una primera aproximación a este concepto lo podemos definir como una persona en la vida real, sólo que creado mediante software informático.
+\subsection{Agentes Inteligentes}
 
-Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirían como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
+Considerar que un agente sea inteligente sugiere preguntarse, ¿Cuándo podemos considerar a un agente inteligente? \cite{Wooldridge} propone una lista de características que podemos esperar que posea un agente inteligente
 
-Es importante saber que existen distintos tipos de agentes, y entre ellos podemos nombrar los siguientes:
 \begin{itemize}
-	\item Reactivos: Aquellos agentes que están a la espera de algún estímulo para poder realizar una acción.
-	\item Proactivos: Aquellos que por otra parte, son capaces de realizar acciones y comportamientos sin la necesidad de un estímulo que los active.
+	\item Reactividad: Agentes inteligentes capaces de percibir su entorno y responder a los cambios que ocurren en éste con el fin de satisfacer sus objetivos.
+	\item Proactividad: Agentes inteligentes capaces de manifestar comportamientos \emph{orientado a objetivos} tomando la iniciativa con el fin de satisfacer sus objetivos .
+	\item Habilidades sociales: Agentes inteligentes capaces de interactuar con otros agentes (y posiblemente humanos) con el fin de satisfacer sus objetivos.
 \end{itemize}
 
-Para poder realizar una generación de historias más rica en contenido, calidad y diversidad, ha sido necesario usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos.
-
-De igual forma, un agente es capaz de interactuar con otros agentes o unidades software, que bien pueden ser otros elementos de su entorno como objetos, estructuras, etc.
+Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos.
 
 \subsection{Sistemas Multi-agente}
 %Revisar, solo esta copiado directamente del drive
 %Para nosotros un agente es una unidad software con capacidad de actuar en función y en conjunto o en contra de otras unidades software, como pueden ser otros agentes. Para ello están dotados de una falsa independencia, donde, siempre siguiendo las leyes de la programación, son capaces de actuar de una u otra forma.
 
+``Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos sistemas multi-agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses'' \cite{greenwood}.
+
 Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas.
 
 \subsection{Foundation for Intelligent Physical Agents - FIPA}
 
-Hemos hablado sobre que nuestros agentes coexisten bajo el mismo entorno y que son capaces de comunicarse entre sí pero ¿Cómo? la respuesta es simple, comunicándose.
+\cite{fipa} es una organización que promueve las tecnologías basadas en agentes y la interoperatividad de sus estándares con otras tecnologías.
 
-Los agentes han de ser capaces de comunicarse mediante el paso de mensajes entre ellos y especialmente para los sistemas basados en agentes, la \emph{FIPA} ha desarrollado estándares que especifican el formato y las características de los mensajes que los agentes deben usar para poder comunicarse entre ellos.
+En el libro \cite{anamas} mencionan sobre FIPA lo siguiente: \textit{El estándar FIPA define los servicios que debe proporcionar toda plataforma de agentes: un sistema encargado del transporte de mensajes (Internal Platform Message Transport), un sistema de gestión de agentes (Agent Management System), un servicio de páginas amarillas (Directory Facilator) y un canal de comunicaciones para los agentes (Agent Communication Channel). Cada uno de estos servicios , excepto el de transporte de mensajes, es suministrado por agentes especializados, lo cual supone que la comunicación con ellos será mediante mensajes ACL (Agent Communication Language) mediante la ontología definida para ese servicio}.
+
+Luego hablaremos de \cite{acl}
 
 
 \subsection{Java Agent Development Framework - JADE}
