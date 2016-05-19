@@ -28,7 +28,7 @@ Cuando nos planteamos el nuevo concepto de mapa lo primero que teníamos claro er
 El anterior mapa del TFG era un plano muy sencillo, con apenas 3 localizaciones conectadas entre sí en las que siempre ocurrían las mismas cosas de la misma manera, el dragón iba al castillo, se llevaba a la princesa a la montaña y los caballeros acudían desde el pueblo tratando de derrotar al dragón hasta que finalmente alguno lo lograba y podía llevarla de vuelta al castillo. 
 
 
-Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planificador, para ver como lidiaba con un problema y trataba de resolverlo, así cuando le presentásemos nuestro mapa sabríamos como se comportaría, de manera que desconectamos la montaña del pueblo e interpusimos entre el castillo y la montaña dos nuevas localizaciones, el bosque y el lago. Así, si se quería ir del castillo a la montaña, o viceversa, los agentes tenían dos posibles caminos e, incapaces de decidir por ellos mismos, nuestro planificador se encargaría de elegir entre el bosque y el lago de manera aleatoria.
+Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planificador, para ver como lidiaba con un problema y trataba de resolverlo, así cuando le presentásemos nuestro mapa sabríamos como se comportaría, de manera que desconectamos la montaña del pueblo e interpusimos entre el castillo y la montaña dos nuevas localizaciones como se ve el la figura \ref{fig:MapaPrimerasPruebas}, el bosque y el lago. Así, si se quería ir del castillo a la montaña, o viceversa, los agentes tenían dos posibles caminos e, incapaces de decidir por ellos mismos, nuestro planificador se encargaría de elegir entre el bosque y el lago de manera aleatoria.
 
 \begin{figure}[h]
 	\centering
@@ -43,7 +43,7 @@ La siguiente prueba que le hicimos a nuestro planificador fue saber como escogía
 Lo primero que debíamos hacer para empezar a desarrollar nuestro mapa era plantearlo geográficamente, de manera que un pequeño mapa empezase a tener forma para dar origen a uno mas grande.
 
 
-Para ello, creamos un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor,  que a su vez se dividía en otras tres partes, dividiendo así nuestro mundo en seis regiones, donde cada cual tenía un numero diferente de localizaciones. También, dotamos a cada una de estas regiones de un nombre para distinguirlas entre ellas.
+Para ello, creamos un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor,  que a su vez se dividía en otras tres partes, dividiendo así nuestro mundo en seis regiones, donde cada cual tenía un numero diferente de localizaciones. También, dotamos a cada una de estas regiones de un nombre para distinguirlas entre ellas. El boceto inicial ya estaba listo \ref{fig:MiniMapa}.
 
 \begin{figure}[h]
 	\centering
@@ -65,8 +65,7 @@ A través de esta nueva característica, buscamos clasificar nuestras localizacion
 De esta manera clasificamos las localizaciones en los siguientes tipos: castillo, pueblo, urbano (que se referían a las localizaciones específicas previamente comentadas como la herrería), bosque, lago, guarida y camino.
 
 Esta clasificación en tipos nos ayudaría a la hora de crear personajes, asignándole a cada clase o monstruo un tipo de localización en concreto, de forma que al crearse dicho personaje fuese situado aleatoriamente en una de las localizaciones que tuviesen el tipo al que dicha clase o monstruo pertenecían. De manera que si a la clase o monstruo X le asignabas el tipo de localización Y, a ese personaje se le cedería una localización específica Z que perteneciese al conjunto de localizaciones del tipo Y.
-
-El orden final nos quedaría así:
+El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizaciones}:
 
 
 \begin{table}[h!]
@@ -91,7 +90,7 @@ El orden final nos quedaría así:
 
 Una vez ya habíamos decidido la funcionalidad que tendría nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digitalizarlo, para lo cual usamos la herramienta GIMP.
 
-Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un gran impacto visual y dejándolo listo para usarse.
+Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un gran impacto visual y estando listo para consultar \ref{fig:MapaCompleto}.
 
 \begin{figure}[h!]
 	\centering
