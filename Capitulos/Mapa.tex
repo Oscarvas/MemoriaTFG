@@ -11,13 +11,15 @@
 	Ni el más sabio conoce el fin de todos los caminos.
 \end{Frase}
 \begin{Fuente}
-	Gandalf en La Comundidad del anillo por J.R.R.Tolkien
+	Gandalf en La Comunidad del anillo por J.R.R.Tolkien
 \end{Fuente}
 \end{FraseCelebre}
 
 Las mejores historias siempre se caracterizan por un mapa detrás que las da soporte, que compone los cimientos del mundo que el autor quiere introducir. Este mapa dotará a la historia de individualidad y servira para orientar al usuario, de manera que este sepa donde se produce la acción.
 
 Tratando de dotar a nuestras historias de un mapa así de consistente, decidimos cambiar el antiguo mapa y crear uno nuevo que se adecuase a nuestras necesidades:
+
+
 %-------------------------------------------------------------------
 \section{Diseño del Mapa}
 Cuando nos planteamos el nuevo concepto de mapa lo primero que teníamos claro era que queríamos darle un aire fantástico a nuestra historia, así que nos propusimos crear un mundo al viejo estilo de las novelas fantásticas, como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones, para darle un aire mas personal a nuestras posibles historias, buscando un sentido de pertenencia, nuestro y del usuario, que tratase de emular, salvando las distancias, al que debió tener el propio Tolkien al crear su mundo.
@@ -98,6 +100,8 @@ Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un g
 	\label{fig:MapaCompleto}
 \end{figure}
 
+
+%-------------------------------------------------------------------
 \section{Implementación del Mapa}
 Con el Mapa ya diseñado y teniendo en cuenta las ganas que teníamos de que toda la aplicación fuese configurable, decidimos que el Mapa también cargase sus datos de un archivo XML, y por tanto debimos realizar los cambios que esta modificación necesitaba.
 
@@ -109,27 +113,29 @@ El mapa original era un archivo XML lleno de Strings, que representaban los nomb
 
 Para poder usarlo de la manera correcta primero debía contar con un loader capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este loader dentro del propio agente, dándole a este la funcionalidad de CargarMapa().
 
-La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localizacion> a partir de la cual cargaba nuevas localizaciones. 
+La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders(referencia a la arquitectura, donde se expliquen los loaders), con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localizacion> a partir de la cual cargaba nuevas localizaciones. 
 Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localizacion en la carga se buscaba la etiqueta <conectadoCon> donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
 Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante (incluir referencia).
 
-Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño.
+Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Aparte estas localizaciones se guardaban en un ArrayList auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y tras realizar un random entre las localizaciones de ese tipo elegir finalmente en cual iban a empezar.
 
 El problema que representaba esta implementación es que necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues sino la aplicación no funcionaría de una manera correcta.
 Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de como construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo.
 
 \begin{verbatim}
-	<region nombre="Isla Egeria">
-		<localizacion id="Egeria" tipo="Pueblo" > 
-			<conectadoCon>Tesqua Caligo</conectadoCon>
+	<region nombre="[NombreRegion]">
+		<localizacion id="[NombreLocalizacion]" tipo="[TipoLocalizacion]" > 
+			<conectadoCon>[NombreRegiones con las que conecta]</conectadoCon>
 		</localizacion>
 	</region>
 \end{verbatim}
 
+\subsection{Las Clases Mapa y Localización}
+La clase Localización nos permitía trabajar con las localizaciones de una manera mas funcional, pudiendo ligar al String, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
 
-(Insertar imagen aquí, como es el archivo XML del mapa).
+De igual manera, la Clase Localización permitía al agente mundo conocer que personajes y objetos interactuaban con ella así como con que localizaciones estaba conectada.
 
-\subsection{La Clase Mapa}
+La Clase Mapa nos permitía tener un conjunto de localizaciones fácilmente accesible por el agente Mundo y acceder a localizaciones específicas de este.
 
-\subsection{La Clase Localización}
+%-------------------------------------------------------------------
