@@ -60,15 +60,40 @@ Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de ta
 
 En el libro \cite{anamas} mencionan sobre FIPA lo siguiente: \textit{El estándar FIPA define los servicios que debe proporcionar toda plataforma de agentes: un sistema encargado del transporte de mensajes (Internal Platform Message Transport), un sistema de gestión de agentes (Agent Management System), un servicio de páginas amarillas (Directory Facilator) y un canal de comunicaciones para los agentes (Agent Communication Channel). Cada uno de estos servicios , excepto el de transporte de mensajes, es suministrado por agentes especializados, lo cual supone que la comunicación con ellos será mediante mensajes ACL (Agent Communication Language) mediante la ontología definida para ese servicio}.
 
-Luego hablaremos de \cite{acl}
+En \cite{acl} disponemos de información detallada sobre los mensajes FIPA ACL.
 
+La figura \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracterizan a los mensajes FIPA ACL.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/tablaParametrosACL}
+	\caption{Parámetros de los mensajes FIPA ACL}
+	\label{fig:ACLParameters}
+\end{figure}
+
+Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}
+
+En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
 \subsection{Java Agent Development Framework - JADE}
+
+\cite{bellifemine2008white}, JADE es el middleware desarrollado por TILAB para el desarrollo de aplicaciones multi-agente distribuidas basadas en comunicación peer-to-peer. La inteligencia, la iniciativa, la información, los recursos y el control pueden ser totalmente distribuidos en terminales móviles así como en ordenadores en entornos cerrados. JADE está completamente desarrollado en Java y es la plataforma software que nos suministra las herramientas necesarias para poder desarrollar una aplicación basada en el paradigma de agentes.
+
+La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la arquitectura de una plataforma JADE \cite{greenwood}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/arquitecturaJade}
+	\caption{Relación entre los principales elementos de la arquitectura}
+	\label{fig:arquitecturaJade}
+\end{figure}
+
 
 \section{Planificadores}
 
 \subsection{Planificación}
-
+\cite{hoffmann}
+\cite{javaff}
 Si has buscado sobre el tema de agentes con anterioridad, habrás visto que en la misma línea o muy cerca de esa palabra se encuentran las palabras inteligencia artificial. Por supuesto como hemos dicho antes, a los agentes les hemos comparado de cierta manera con personas y ¿Qué son éstas sin inteligencia?, faltaría más que un agente software no disponga de inteligencia artificial.
 
 Pues bien, nuestros agentes no son inteligentes, \emph{Per se}. Sólo hasta cierto punto disponen de una inteligencia basada en conocimiento y comportamientos que les ayudará a realizar las funciones de cada uno.
