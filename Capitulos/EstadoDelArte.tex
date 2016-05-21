@@ -71,7 +71,7 @@ La figura \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracte
 	\label{fig:ACLParameters}
 \end{figure}
 
-Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}
+Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}.
 
 En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
@@ -89,22 +89,15 @@ La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 \end{figure}
 
 
-\section{Planificadores}
+\section{Planificación y Lenguaje}
 
 \subsection{Planificación}
-\cite{hoffmann}
-\cite{javaff}
-Si has buscado sobre el tema de agentes con anterioridad, habrás visto que en la misma línea o muy cerca de esa palabra se encuentran las palabras inteligencia artificial. Por supuesto como hemos dicho antes, a los agentes les hemos comparado de cierta manera con personas y ¿Qué son éstas sin inteligencia?, faltaría más que un agente software no disponga de inteligencia artificial.
 
-Pues bien, nuestros agentes no son inteligentes, \emph{Per se}. Sólo hasta cierto punto disponen de una inteligencia basada en conocimiento y comportamientos que les ayudará a realizar las funciones de cada uno.
+\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe sucintamente sistema de transición grandes, similares a redes de autómatas o máquinas de Turing.
 
-Claro, es necesario que nuestros agentes puedan razonar de alguna manera para que sean capaces de realizar acciones, pero ¿si encontramos una forma en la que el usuario pueda modificar la forma como piensan sus agentes con cierta libertad ?. Por ello se ha delegado la parte de inteligencia a un planificador.
 
-El planificador es un sistema que permitirá a nuestros agentes razonar de una manera un tanto rudimentaria pero muy clara, ayudando a los agentes a encontrar una manera de cumplir sus objetivos. Imaginemos un caso sencillo que podamos aplicar nosotros y así poder entender como piensan nuestros agentes:
-
-Estamos en nuestro dormitorio y queremos ir a buscar una botella con agua en la cocina y llevarla a nuestra habitación. Lo que debemos hacer entonces será ir desde la habitación hasta la cocina, coger la botella de agua, y por último ir de nuevo a la habitación. Hemos llevado a cabo una planificación mediante un algoritmo por pasos muy sencillo que nos ha permitido cumplir nuestro objetivo de forma eficiente.
-
-Nuestros agentes actúan bajo el mismo principio, ellos conocen su objetivo pero desconocen la manera en que deben actuar para conseguirlo y para ello necesitamos un planificador que les indique los pasos necesarios a realizar en orden de que puedan conseguir su objetivo.
+\subsection{JavaFF}
+\cite{javaff} JavaFF es una implementación en Java de la estructura básica de \cite{hoffmann2001ff}, basada en en código fuente de CRIKEY \cite{coles2009managing}\footnote{La referencia que se hace al código fuente es de un documento de Agosto de 2008 que estaba por ser publicado en un recopilatorio en Enero de 2009, el cual es el documento final del que ponemos referencia }.
 
 \subsection[PDDL]{Planning Domain Definition Language - PDDL}
 
@@ -117,6 +110,3 @@ Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El d
 
 \subsection{Computational Approaches to Storytelling and Creativity}
 Este artículo realizado por \cite{425} es importante para situarnos dentro del contexto histórico tanto de la \emph{Creatividad Computacional} como de los \emph{Sistemas de generación Narrativa}.
-
-
-
