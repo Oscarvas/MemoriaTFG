@@ -17,13 +17,13 @@
 
 Las mejores historias siempre se caracterizan por un mapa detrás que las da soporte, que compone los cimientos del mundo que el autor quiere introducir. Este mapa dotará a la historia de individualidad y servirá para orientar al usuario, de manera que este sepa donde se produce la acción.
 
-%La referencia de decidimos cambiar el antiguo mapa y tal.. da como mucha importancia al tfg anterior. (eliminar o cambiar)
-Tratando de dotar a nuestras historias de un mapa así de consistente, decidimos cambiar el antiguo mapa y crear uno nuevo que se adecuase a nuestras necesidades:
+Tratando de dotar a nuestras historias de un mapa así de consistente, decidimos crear un nuevo mapa que se adecuase a nuestras necesidades:
 
 
 %-------------------------------------------------------------------
 \section{Diseño del Mapa}
-Cuando nos planteamos el nuevo concepto de mapa lo primero que teníamos claro era que queríamos darle un aire fantástico a nuestra historia, así que nos propusimos crear un mundo al viejo estilo de las novelas fantásticas como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones para darle un aire mas personal a nuestras posibles historias, 
+Cuando nos planteamos el nuevo concepto de mapa lo primero que teníamos claro era que queríamos darle un aire fantástico a nuestra historia, así que nos propusimos crear un mundo al viejo estilo de las novelas fantásticas como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones para darle un aire mas personal a nuestras posibles historias, pero que a la vez fuese lo suficientemente claro y no estuviese sobrecargado de información nueva para el usuario.
+
 %esta parte a continuacion creo que es mejorable (y habria que eliminar las comas) 
 buscando un sentido de pertenencia, nuestro y del usuario, que tratase de emular, salvando las distancias, al que debió tener el propio Tolkien al crear su mundo.
 
@@ -41,17 +41,13 @@ Para nuestras primeras pruebas lo primero que hicimos fue hacer dudar al planifi
 	\label{fig:MapaPrimerasPruebas}
 \end{figure}
 
-La siguiente prueba que le hicimos a nuestro planificador fue saber como escogía las localizaciones por las cuales se moverían nuestros agentes. Tras diversas pruebas probando localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador siempre escogía el camino mas corto posible para cada agente
-% es falso que el el planificador siempre elija el camino mas corto
-, si había dos iguales, elegía indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localización entre dos posibles a la vuelta elegía la otra. Esto nos permitió conocer en profundidad como actuaba nuestro planificador, y nos daba paso a poder hacer el mapa que realmente queríamos tener.
+La siguiente prueba que le hicimos a nuestro planificador fue saber como escogía las localizaciones por las cuales se moverían nuestros agentes. Tras diversas pruebas probando localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador trataba de escoger el camino mas corto posible para cada agente, si había dos iguales, elegía indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localización entre dos posibles a la vuelta elegía la otra. Esto nos permitió conocer en profundidad como actuaba nuestro planificador, y nos daba paso a poder hacer el mapa que realmente queríamos tener.
 
 \subsubsection{Creando el Mapa}
 Lo primero que debíamos hacer para empezar a desarrollar nuestro mapa era plantearlo geográficamente, de manera que un pequeño mapa empezase a tener forma para dar origen a uno mas grande.
 
 
-Para ello, creamos un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor,  que a su vez se dividía en otras tres partes, dividiendo así nuestro mundo en seis regiones, donde cada cual tenía un numero diferente de localizaciones. También dotamos a cada una de estas regiones con un nombre para distinguirlas entre ellas. El boceto inicial ya estaba listo
-%(propuesta) Este boceto podemos verlo en la figura
- \ref{fig:MiniMapa}.
+Para ello, creamos un archipiélago de islas, consultable en la figura \ref{fig:MiniMapa}, donde tres islas pequeñas coronaban una isla mayor, que a su vez se dividía en otras tres partes dividiendo así nuestro mundo en seis regiones, donde cada cual tenía un numero diferente de localizaciones. También dotamos a cada una de estas regiones con un nombre para distinguirlas entre ellas.
 
 \begin{figure}[h]
 	\centering
@@ -120,8 +116,8 @@ El mapa original era un archivo XML lleno de Strings, que representaban los nomb
 
 Para poder usarlo de la manera correcta primero debía contar con un loader capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este loader dentro del propio agente, dándole a este la funcionalidad de CargarMapa().
 
-La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders(referencia a la arquitectura, donde se expliquen los loaders), con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localizacion> a partir de la cual cargaba nuevas localizaciones. 
-Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localizacion en la carga se buscaba la etiqueta <conectadoCon> donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
+La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders(referencia a la arquitectura, donde se expliquen los loaders), con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localización> a partir de la cual cargaba nuevas localizaciones. 
+Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización en la carga se buscaba la etiqueta <conectadoCon> donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
 Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante (incluir referencia).
 
