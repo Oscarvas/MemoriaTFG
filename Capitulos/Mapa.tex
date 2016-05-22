@@ -59,7 +59,7 @@ Para ello creamos un archipiélago de islas, consultable en la figura \ref{fig:Mi
 Para seguir aumentando el mapa, nuestro siguiente paso fue profundizar en el contenido de las regiones. Con el objetivo de que cada región fuese única y no tuviésemos sencillamente seis zonas con nombres distintos, decidimos proporcionar a cada una uno o varios elementos distintivos, que la diferenciase de las demás. 
 Así por ejemplo, decidimos que solo en dos regiones habría castillos, lo cual a su vez limitaba a que solo hubiese dos reinos en nuestro mapa, pues solo en un castillo podría vivir un rey.
 
-
+\label{cap5:sec:LocalizacionesPNJ}
 De igual manera habría localizaciones muy especificas en ciertas regiones, por ejemplo en una de ellas estaría la herrería, en otra la taberna, en otra el hospital... Estas localizaciones cumplirían las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en el. Así, en estos sitios, aguardarían estos nuevos personajes esperando el momento de su intervención, siendo estos personajes específicos ligados a cada localización, como en este caso serian el herrero, el tabernero o la amable enfermera.
 
 
@@ -90,6 +90,7 @@ El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizacion
 	\label{fig:TablaRelacionLozalizaciones}
 \end{table}
 
+Finalmente, decidimos que todas estas características pudiesen ser configuradas por el usuario, a través de un archivo XML, donde pudiese diseñar, siempre dentro de unos ciertos parámetros su propio mapa.
 
 Una vez ya habíamos decidido la funcionalidad que tendría nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digitalizarlo, para lo cual usamos la herramienta GIMP.
 
@@ -118,7 +119,7 @@ Para poder usarlo de la manera correcta primero debía contar con un loader capaz
 La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders(referencia a la arquitectura, donde se expliquen los loaders), con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localización> a partir de la cual cargaba nuevas localizaciones. 
 Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización en la carga se buscaba la etiqueta <conectadoCon> donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
-Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante (incluir referencia).
+Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante \ref{cap5:sec:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
 
 Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Aparte estas localizaciones se guardaban en un ArrayList auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y tras realizar un random entre las localizaciones de ese tipo elegir finalmente en cual iban a empezar.
 
@@ -134,6 +135,7 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 \end{verbatim}
 
 \subsection{Las Clases Mapa y Localización}
+\label{cap5:sec:ClaseMapaLocalizacion}
 La clase Localización nos permitía trabajar con las localizaciones de una manera mas funcional, pudiendo ligar al String, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
 
 De igual manera, la Clase Localización permitía al agente mundo conocer que personajes y objetos interactuaban con ella así como con que localizaciones estaba conectada.
