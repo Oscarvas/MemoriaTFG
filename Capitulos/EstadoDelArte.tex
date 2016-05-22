@@ -15,6 +15,8 @@
 \end{Fuente}
 \end{FraseCelebre}
 
+%Propongo frase celebre: El trabajo del maestro no consiste tanto en enseñar todo lo aprendible, como en producir en el alumno amor y estima por el conocimiento." (John Locke)
+
 %En este capitulo hablaremos del trabajo de investigación que ha sido llevado a cabo durante la realización de nuestro proyecto, y explicaremos las bases que hemos utilizado durante su realización.
 
 %Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
@@ -30,6 +32,7 @@ La última parte está dedicada a la narrativa computacional, en la cuál veremos o
 \section{Agentes}
 
 \subsection{Agente Software}
+%planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
 \cite{Wooldridge} Define el concepto de agente de la siguiente manera: ``Un \emph{agente} es un sistema informático que se \emph{encuentra} en un \emph{entorno}, y que es capaz de realizar \emph{acciones autónomas} en este entorno con el fin de cumplir sus objetivos''.
 
 Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirán como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
@@ -44,15 +47,15 @@ Considerar que un agente sea inteligente sugiere preguntarse, ¿Cuándo podemos co
 	\item Habilidades sociales: Agentes inteligentes capaces de interactuar con otros agentes (y posiblemente humanos) con el fin de satisfacer sus objetivos.
 \end{itemize}
 
-Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos.
+Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos. %no usamos sociales? (pnj)
 
 \subsection{Sistemas Multi-agente}
 %Revisar, solo esta copiado directamente del drive
 %Para nosotros un agente es una unidad software con capacidad de actuar en función y en conjunto o en contra de otras unidades software, como pueden ser otros agentes. Para ello están dotados de una falsa independencia, donde, siempre siguiendo las leyes de la programación, son capaces de actuar de una u otra forma.
-
+%planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
 ``Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos sistemas multi-agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses'' \cite{greenwood}.
 
-Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas.
+Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
 
 \subsection{Foundation for Intelligent Physical Agents - FIPA}
 
@@ -63,7 +66,7 @@ En el libro \cite{anamas} mencionan sobre FIPA lo siguiente: \textit{El estándar
 En \cite{acl} disponemos de información detallada sobre los mensajes FIPA ACL.
 
 La figura \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracterizan a los mensajes FIPA ACL.
-
+%quiza sea mejor currarse la tabla en español en vez de poner la imagen
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/tablaParametrosACL}
@@ -71,12 +74,12 @@ La figura \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracte
 	\label{fig:ACLParameters}
 \end{figure}
 
-Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}.
+Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}. %estan disponibles = son consultables? me parece mas apropiada la segunda
 
 En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
 \subsection{Java Agent Development Framework - JADE}
-
+%no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
 \cite{bellifemine2008white}, JADE es el middleware desarrollado por TILAB para el desarrollo de aplicaciones multi-agente distribuidas basadas en comunicación peer-to-peer. La inteligencia, la iniciativa, la información, los recursos y el control pueden ser totalmente distribuidos en terminales móviles así como en ordenadores en entornos cerrados. JADE está completamente desarrollado en Java y es la plataforma software que nos suministra las herramientas necesarias para poder desarrollar una aplicación basada en el paradigma de agentes.
 
 La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la arquitectura de una plataforma JADE \cite{greenwood}.
@@ -92,8 +95,9 @@ La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 \section{Planificación y Lenguaje}
 
 \subsection{Planificación}
-
-\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe sucintamente sistema de transición grandes, similares a redes de autómatas o máquinas de Turing.
+%no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
+\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe sucintamente sistema de transición grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
+, similares a redes de autómatas o máquinas de Turing.
 
 
 \subsection{JavaFF}
