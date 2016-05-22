@@ -112,5 +112,37 @@ Este fue el primer sistema narrativo que investigamos para empezar a plantear nu
 
 Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El dragón secuestra a la princesa), con un nudo(el rey contrata caballero) en bucle si se cumplía una condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos para generar historias diversas y cada vez que se ejecute la aplicación genere una historia única.
 
+\subsection{NOVEL WRITTER}
+De los sistemas generadores de narrativa el que presume de se el primero es el NOVEL WRITER de \cite{klein1973automatic}. Este sistema genera una historia de novela negra en la que se producen asesinatos en una fiesta durante un fin de semana. Para generar las historias utiliza un modelo de microsimulaciones en donde los comportamientos de los personajes y la sucesión de eventos que se producen son llevadas a cabo por normas probabilísticas que cambian constantemente el estado del mundo, mientras que la decisión de quien es el asesino o victima depende de los rasgos de entrada del personaje.
+
+\subsection{TALE-SPIN}
+Creado por \cite{Meehan:1977:TIP:1624435.1624452}, TALE-SPIN es un sistema que narra historias sobre la vida de las criaturas en el bosque. El sistema trabaja sobre planificaciones, por lo que cada personaje tiene un objetivo, en el cual puede participar más de un personaje para su resolución.Además estos objetivos sirven como desencadenadores de acciones de los personajes. El plan que desarrolla el sistema sirve como el hilo conductor de la historia. TALE-SPIN sirvió como punto de partida a proyectos como AUTHOR de \cite{Dehn:1981:SGA:1623156.1623160} o a UNIVERSE de \cite{lebowitz1985story}.
+
+\subsection{AUTHOR}
+Es un programa que genera historias que pretende simular la mente de un autor cuando inventa una historia. Las cuatro fuerzas principales que impulsan el proceso de generación de la historia, de acuerdo con el modelo AUTHOR, son:
+\begin{itemize}
+	\item La intencionalidad del autor.
+	\item La reformulación conpetual.
+	\item El recuerdo.
+	\item La oportunidad de mejorar los meta-objetivos.
+\end{itemize}
+
+\subsection{UNIVERSE} 
+Es el primer sistema generador de historias que centra en la narrativa en torno a los personajes. Esta enfocado en la generación de historias como pueden ser las telenovelas o seriales, en donde la historia se centra en las tramas entre  personajes más que en un objetivo final por lo que se generan historias extensas.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/UniversePersonaje}
+	\caption{Representacion de un personaje en UNIVERSE}
+	\label{fig:UniversePersonaje}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/UniverseTrama}
+	\caption{Representacion de una trama en UNIVERSE}
+	\label{fig:UniverseTrama}
+\end{figure}
+
 \subsection{Computational Approaches to Storytelling and Creativity}
-Este artículo realizado por \cite{425} es importante para situarnos dentro del contexto histórico tanto de la \emph{Creatividad Computacional} como de los \emph{Sistemas de generación Narrativa}.
+Es un artículo realizado por \cite{425}.
