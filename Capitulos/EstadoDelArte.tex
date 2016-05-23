@@ -8,18 +8,13 @@
 
 \begin{FraseCelebre}
 \begin{Frase}
-	El conocimiento es poder
+	El trabajo del maestro no consiste tanto en enseñar todo lo aprendible, como en producir en el alumno amor y estima por el conocimiento
 \end{Frase}
 \begin{Fuente}
-	Khadgar, World of Warcraft
+John Locke
 \end{Fuente}
 \end{FraseCelebre}
 
-%Propongo frase celebre: El trabajo del maestro no consiste tanto en enseñar todo lo aprendible, como en producir en el alumno amor y estima por el conocimiento." (John Locke)
-
-%En este capitulo hablaremos del trabajo de investigación que ha sido llevado a cabo durante la realización de nuestro proyecto, y explicaremos las bases que hemos utilizado durante su realización.
-
-%Para comprender con claridad la alta variedad de conceptos usados a lo largo de este proyecto, tanto en sus versiones previas como en su fase actual, es necesario que el lector de éste documento disponga de la base necesaria de conocimientos que le permitirá entender con mayor acierto la razón y el por qué de las características que posee la generación de historias que hemos desarrollado.
 
 La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas que se nombrarán en capítulos posteriores.Para ello se ha estructurado este capitulo en 3 partes fundamentales.
 
@@ -33,7 +28,7 @@ La última parte está dedicada a la narrativa computacional, en la cuál veremos o
 
 \subsection{Agente Software}
 %planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
-\cite{Wooldridge} Define el concepto de agente de la siguiente manera: ``Un \emph{agente} es un sistema informático que se \emph{encuentra} en un \emph{entorno}, y que es capaz de realizar \emph{acciones autónomas} en este entorno con el fin de cumplir sus objetivos''.
+\cite{Wooldridge} Define el concepto de agente de la siguiente manera: \textit{``Un \emph{agente} es un sistema informático que se \emph{encuentra} en un \emph{entorno}, y que es capaz de realizar \emph{acciones autónomas} en este entorno con el fin de cumplir sus objetivos''}.
 
 Con ésto queremos dar a ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirán como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
 
@@ -50,12 +45,10 @@ Considerar que un agente sea inteligente sugiere preguntarse, ¿Cuándo podemos co
 Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos. %no usamos sociales? (pnj)
 
 \subsection{Sistemas Multi-agente}
-%Revisar, solo esta copiado directamente del drive
-%Para nosotros un agente es una unidad software con capacidad de actuar en función y en conjunto o en contra de otras unidades software, como pueden ser otros agentes. Para ello están dotados de una falsa independencia, donde, siempre siguiendo las leyes de la programación, son capaces de actuar de una u otra forma.
 %planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
-``Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos sistemas multi-agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses'' \cite{greenwood}.
+\textit{``Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos sistemas multi-agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses''} \cite{greenwood}.
 
-Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí. Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
+Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí.% Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
 
 \subsection{Foundation for Intelligent Physical Agents - FIPA}
 
@@ -74,7 +67,7 @@ La figura \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracte
 	\label{fig:ACLParameters}
 \end{figure}
 
-Esta tabla y una explicación más detallada de todos los parámetros están disponibles en \cite{aclStructure}. %estan disponibles = son consultables? me parece mas apropiada la segunda
+Esta tabla y una explicación más detallada de todos los parámetros son consultables en \cite{aclStructure}. %estan disponibles = son consultables? me parece mas apropiada la segunda
 
 En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
@@ -96,7 +89,7 @@ La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 
 \subsection{Planificación}
 %no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
-\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe sucintamente sistema de transición grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
+\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe brevemente máquinas de estados grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
 , similares a redes de autómatas o máquinas de Turing.
 
 
@@ -108,7 +101,7 @@ La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 \section{Narrativa Computacional}
 
 \subsection[Proyecto anterior]{Generador de historias basado en agentes}
-Este fue el primer sistema narrativo que investigamos para empezar a plantear nuestro proyecto. Se trata de un proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid junto a un artículo para una conferencia en que explican brevemente el proyecto que realizaron \cite{556}. De esta investisgación hemos plantado las bases para empezar a desarrollar este proyecto, ya que utilizamos el mismo sistema multi-agentes, Jade, y el mismo planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
+Este fue el primer sistema narrativo que investigamos para empezar a plantear nuestro proyecto. Se trata de un proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid junto a un artículo para una conferencia en que explican brevemente el proyecto que realizaron \cite{556}. De esta investigación hemos plantado las bases para empezar a desarrollar este proyecto, ya que utilizamos el mismo sistema multi-agentes, Jade, y el mismo planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
 
 Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El dragón secuestra a la princesa), con un nudo(el rey contrata caballero) en bucle si se cumplía una condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos para generar historias diversas y cada vez que se ejecute la aplicación genere una historia única.
 
