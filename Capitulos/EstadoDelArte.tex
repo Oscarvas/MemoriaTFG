@@ -16,7 +16,7 @@ John Locke
 \end{FraseCelebre}
 
 
-La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas que se nombrarán en capítulos posteriores.Para ello se ha estructurado este capitulo en 3 partes fundamentales.
+La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas que se nombrarán en capítulos posteriores. Para ello se ha estructurado este capitulo en 3 partes fundamentales.
 
 La primera parte cuenta un resumen de los conceptos y las tecnologías referentes al sistema de agentes, explicando que es un agente, los sistemas multi-agente, el estándar de comunicación entre agentes y la herramienta usada para tener el funcionamiento del sistema.
 
@@ -50,7 +50,7 @@ Realizar una generación de historias rica en contenido, calidad y diversidad req
 
 Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes, siendo coexistir la palabra clave. Un sistema multi-agente podemos verlo como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí.% Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
 
-\subsection{Foundation for Intelligent Physical Agents - FIPA}
+\subsection[FIPA]{Foundation for Intelligent Physical Agents - FIPA}
 
 \cite{fipa} es una organización que promueve las tecnologías basadas en agentes y la interoperatividad de sus estándares con otras tecnologías.
 
@@ -71,7 +71,7 @@ Esta tabla y una explicación más detallada de todos los parámetros son consultab
 
 En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
-\subsection{Java Agent Development Framework - JADE}
+\subsection[JADE]{Java Agent Development Framework - JADE}
 %no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
 \cite{bellifemine2008white}, JADE es el middleware desarrollado por TILAB para el desarrollo de aplicaciones multi-agente distribuidas basadas en comunicación peer-to-peer. La inteligencia, la iniciativa, la información, los recursos y el control pueden ser totalmente distribuidos en terminales móviles así como en ordenadores en entornos cerrados. JADE está completamente desarrollado en Java y es la plataforma software que nos suministra las herramientas necesarias para poder desarrollar una aplicación basada en el paradigma de agentes.
 
@@ -89,18 +89,35 @@ La imágen \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 
 \subsection{Planificación}
 %no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
-\cite{hoffmann} La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe brevemente máquinas de estados grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
-, similares a redes de autómatas o máquinas de Turing.
+\textit{ La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe brevemente máquinas de estados grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
+, similares a redes de autómatas o máquinas de Turing.} \cite{hoffmann}
 
+Mediante el proceso de planificación conseguimos que los actores de nuestras historias logren disponer de una serie de acciones, que realizando sucesivamente, aseguran que se cumple el objetivo de cada personaje.
 
 \subsection{JavaFF}
-\cite{javaff} JavaFF es una implementación en Java de la estructura básica de \cite{hoffmann2001ff}, basada en en código fuente de CRIKEY \cite{coles2009managing}\footnote{La referencia que se hace al código fuente es de un documento de Agosto de 2008 que estaba por ser publicado en un recopilatorio en Enero de 2009, el cual es el documento final que referenciamos }.
+En el artículo \cite{hoffmann2001ff} \textit{The FF Planning System: Fast Plan Generation Through Heuristic Search}, se describen y evalúan las técnicas algorítmicas que son usadas en los sistemas de planificación FF \footnote{Fast Forward. En \cite{hoffmannff} nos explican con detalle este sistema.}
+
+En \cite{javaff} nos explican que JavaFF es una implementación en Java de la estructura básica de \cite{hoffmann2001ff}, basada en en código fuente de CRIKEY \cite{coles2009managing}\footnote{La referencia que se hace al código fuente es de un documento de Agosto de 2008 que estaba por ser publicado en un recopilatorio en Enero de 2009, el cual es el documento final que referenciamos }.
+
+El planificador usado para generar las historias está basado en la implementación antes mencionada, y más específicamente, en una leve modificación realizada en \cite{556} sobre esa implementación.
 
 \subsection[PDDL]{Planning Domain Definition Language - PDDL}
 
-\section{Narrativa Computacional}
+PDDL es un lenguaje para la especificación de problemas creado para la competición de planificadores AIPS-98. \cite{aeronautiques1998pddl} es un manual que explica la sintaxis y la semántica de este lenguaje. De igual manera cuenta que PDDL está hecho con la intención de expresar la ``física'' de un dominio, es decir, que predicados existen, que acciones son posibles y cuales son los efectos que ocurren tras cada acción.
 
-\subsection[Proyecto anterior]{Generador de historias basado en agentes}
+Un aspecto importante del funcionamiento de este lenguaje, en conjunto de un planificador que sea capaz de interpretar las instrucciones especificadas, es que necesariamente debemos especificar al menos 2 documentos:
+
+\begin{itemize}
+	\item Dominio: Es el documento que contendrá la especificación de las acciones, los tipos, requerimientos y predicados para poder resolver un problema dado. Es lo que se encarga de dar el conjunto de requerimientos que permiten al planificador procesar un plan.
+	
+	\item Problema: Es el documento que contiene el estado inicial, los objetos y la especificación de objetivos.
+\end{itemize}
+
+\section{Narrativa Computacional}
+Entre algunos de los proyectos relacionados, encontramos especial interés en los siguientes:
+
+\subsection{Generador de historias basado en agentes}
+%(oscar)esta seccion la cambiaría por el resumen del proyecto referenciado
 Este fue el primer sistema narrativo que investigamos para empezar a plantear nuestro proyecto. Se trata de un proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid junto a un artículo para una conferencia en que explican brevemente el proyecto que realizaron \cite{556}. De esta investigación hemos plantado las bases para empezar a desarrollar este proyecto, ya que utilizamos el mismo sistema multi-agentes, Jade, y el mismo planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
 
 Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El dragón secuestra a la princesa), con un nudo(el rey contrata caballero) en bucle si se cumplía una condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos para generar historias diversas y cada vez que se ejecute la aplicación genere una historia única.
