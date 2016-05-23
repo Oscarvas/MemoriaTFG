@@ -90,7 +90,7 @@ El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizacion
 	\label{fig:TablaRelacionLozalizaciones}
 \end{table}
 
-Finalmente, decidimos que todas estas características pudiesen ser configuradas por el usuario, a través de un archivo XML, donde pudiese diseñar, siempre dentro de unos ciertos parámetros su propio mapa.
+Finalmente, decidimos que todas estas características pudiesen ser configuradas por el usuario, a través de un archivo XML, donde pudiese diseñar siempre dentro de unos ciertos parámetros su propio mapa.
 
 Una vez ya habíamos decidido la funcionalidad que tendría nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digitalizarlo, para lo cual usamos la herramienta GIMP.
 
@@ -106,7 +106,8 @@ Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un g
 
 %-------------------------------------------------------------------
 \section{Implementación del Mapa}
-Con el Mapa ya diseñado y teniendo en cuenta las ganas que teníamos de que toda la aplicación fuese configurable, decidimos que el Mapa también cargase sus datos de un archivo XML, y por tanto debimos realizar los cambios que esta modificación necesitaba.
+Para que el mapa fuese configurable y pudiese cargar sus datos a través de un archivo XML fue necesaria una remodelación profunda del mismo, produciendo las modificaciones que se explicaran a continuación.
+%Con el Mapa ya diseñado y teniendo en cuenta las ganas que teníamos de que toda la aplicación fuese configurable, decidimos que el Mapa también cargase sus datos de un archivo XML, y por tanto debimos realizar los cambios que esta modificación necesitaba.
 
 De igual manera, para poder usar de manera correcta nuestro mapa, sabíamos que debía estar en el agente mundo, tal y como se explico en su capítulo (poner referencia aquí), creando las clases necesarias para ello.
 
@@ -116,14 +117,14 @@ El mapa original era un archivo XML lleno de Strings, que representaban los nomb
 
 Para poder usarlo de la manera correcta primero debía contar con un loader capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este loader dentro del propio agente, dándole a este la funcionalidad de CargarMapa().
 
-La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders(referencia a la arquitectura, donde se expliquen los loaders), con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localización>\space a partir de la cual cargaba nuevas localizaciones. 
+La función que actuaba como el loader del archivo del mapa funcionaba básicamente como el resto de loaders, \ref{cap4:sec:Loaders}, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un ArrayList de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta <localización>\space a partir de la cual cargaba nuevas localizaciones. 
 Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización en la carga se buscaba la etiqueta <conectadoCon>\space donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
 Para que estas cargas se pudiesen realizar correctamente fueron necesarias la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante \ref{cap5:sec:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
 
 Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Aparte estas localizaciones se guardaban en un ArrayList auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y tras realizar un random entre las localizaciones de ese tipo elegir finalmente en cual iban a empezar.
 
-El problema que representaba esta implementación es que necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues sino la aplicación no funcionaría de una manera correcta.
+El problema que representaba esta implementación es que al necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues sino la aplicación no funcionaría de una manera correcta.
 Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de como construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo.
 
 \begin{verbatim}

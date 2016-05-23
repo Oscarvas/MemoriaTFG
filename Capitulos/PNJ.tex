@@ -8,10 +8,13 @@
 
 \begin{FraseCelebre}
 \begin{Frase}
+	Lo que no le gustaba de los héroes es que resultaban suicidamente sombríos cuando estaban sobrios, y homicidamente locos cuando se emborrachaban. Además había demasiados.
 \end{Frase}
 \begin{Fuente}
+	Rincewind, en El Color de la Magia, por Terry Prachet.
 \end{Fuente}
 \end{FraseCelebre}
+%propongo otra: El verdadero héroe es héroe por error. Sueña con ser un cobarde honesto como todo el mundo. Umberto Eco.
 
 \textit{``Los PNJ's son personajes del juego que son controlados por el sistema y que son capaces de interactuar con el avatar del jugador intercambiar artículos e información''} \cite{GomezGauchiaPeinadoTIDSE06}. En el sistema hemos adaptado estos personajes de los juegos a la narrativa para conseguir mayor diversidad de historias generadas.
 %-------------------------------------------------------------------
@@ -22,11 +25,31 @@ Nuestro numero de historias ya era altamente variado, pero aun así sentíamos que
 Para ello nos propusimos crear numerosos personajes, que tuviesen como peculiaridad el interactuar con personajes principales cuando éstos pasaban por las localizaciones en las que estaban situados. En ese momento se produciría un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap11:sec:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaríamos como ``bufo''. Éste "bufo" bien podía ser un objeto que se consumía en el momento o una bendición, que afectaba al personaje modificando sus atributos, ya fuese de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
 
 Para terminar de definir los PNJ's pensamos que lo que mas encajaba dentro de nuestra propuesta de diseño es que éstos tuviesen un oficio. De esta manera, al crear los PNJ's propusimos que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que decidimos que nuestros PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap5:sec:LocalizacionesPNJ} vease la herrería, el hospital o la sastrería y proporcionasen este buffo con algo relacionado a su campo, por ejemplo el herrero podría forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acabaría representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
-De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pózima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentaran los atributos del personaje, y en otras los disminuirán.
+De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentaran los atributos del personaje, y en otras los disminuirán.
+
+Sin embargo, decidimos q ue este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, decidimos que los PNJ's también pudiesen ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
 
 
 
 %-------------------------------------------------------------------
 \section{Implementación de los PNJ's}
+La implementación de los PNJ trajo consigo numerosas adiciones de clases al proyecto. Cada una cumplía con una funcionalidad específica, y eran la mejor solución para cumplir satisfactoriamente el papel de los PNJ's dentro de la aplicación.
 
+\subsection{PNJ's configurables por el usuario}
+Para permitir la configuración de los PNJ's a través de los XML fue necesario, como de costumbre, un loader capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
+
+Este Loader seguía el diseño normal del resto \ref{cap4:sec:Loaders}, con la particularidad de que cargaba específicamente el fichero ``PNJs.XML'', donde recorría sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorría el nodo que representaba al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
+Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera tan concreta, consultable en \ref{ejemploXML:Pnjs}, por lo tanto se incluyen el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
+
+\label{ejemploXML:Pnjs}
+\begin{verbatim}
+	<pnj nombre="Thrall" sexo="M" oficio="Chaman" localizacion="Minas"/>
+\end{verbatim}
+
+\subsection{La Clase PNJ}
+Si bien el agente se iniciaba desde el loader, para poderse cargar de manera correcta necesitaba de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se creo la clase PNJ, que heredaba de la interfaz de personajes \ref{cap4:sec:InterfazPersonajes}, que incluía los métodos específicos que permitían el buen funcionamiento de los PNJ's.
+%-------------------------------------------------------------------
+
+\subsection{Los PNJ's y los objetos}
+%esto aun no esta diseñado, no se si será mas correcta su explicación aqui o en los propios objetos, dejo el hueco por si acaso.
 %-------------------------------------------------------------------
