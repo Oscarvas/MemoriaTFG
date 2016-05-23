@@ -17,10 +17,58 @@
 
 %-------------------------------------------------------------------
 \section{Diseño de los Monstruos}
+Para que la historia tuviese sentido siempre debía haber algo que motivase a los protagonistas a emprender sus acciones. Para cumplir este fín surge la figura del Monstruo, un personaje maligno con motivaciones que iban en contra de aquellas que definían a nuestros personajes.
 
+%que os parecería incluir la imagen de un dragón aquí? A mi me gusta. Lo ideal serían los 4 monstruos juntos pero eso es imposible.
+
+Los monstruos que ocuparían este lugar son:
+%-------------------------------------------------------------------
+\subsection{El dragón}
+El Dragón representa un personaje primordial en la aplicación. Al principio de la historia todo transcurre apaciblemente hasta que el dragón despierta, se inicia el agente, y busca una princesa que pueda secuestrar, en ese momento el dragón decide llevar a cabo el rapto dando a pie a todos los acontecimientos que se suceden después, provocando que el rey avise a los caballeros y estos se muevan a través del mapa, que conforman el nudo de nuestra historia.
+
+
+%-------------------------------------------------------------------
+\subsection{Creando nuevos Monstruos}
+Lo primero que tuvimos claro es que, para nosotros, nuevos héroes significaban nuevos monstruos. Sin embargo, estos nuevos monstruos no podían ser el mismo monstruo llamado de manera distinta (no nos servía la idea de tener un grifo y un dragón y que los dos hiciesen lo mismo), y de igual manera no queríamos introducir un nuevo tipo de monstruo con la capacidad de suplantar a nuestro dragón como elemento primordial en nuestra historia.
+
+Nuestra primera idea fue la de incluir monstruos guardianes, es decir, monstruos que vigilasen un lugar específico del mapa y que castigasen a los aspirantes a héroes que decidiesen atravesar ese camino para completar su aventura. De esta manera, creamos localizaciones concretas y monstruos específicos para ellas.
+
+La primera localización elegida fue el lago. En el lago podría vivir una serpiente marina, aunque en este caso fuese de agua dulce, que atacase a los aventureros que se atreviesen a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansasen tranquilas siempre sin que nada las perturbara.
+
+La segunda localización aprobada fue el cruce. En este cruce de múltiples caminos, un avaricioso trol montaba guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros debían pagar o sino se enfrentarían a la ira del malvado troll.
+
+Como tampoco queríamos que nuestros nuevos monstruos se limitasen a no dejar pasar a los aspirantes a héroe, decidimos introducir un nuevo monstruo que no interactuase necesariamente con ellos, y así llego el concepto del fantasma.
+El fantasma sería el espíritu vengativo de un rey derrocado hace tiempo que no pudo saciar sus ansias de poder. Así su cometido sería vagar por los castillos, buscando aquellos monarcas en los que la desesperación había hecho mella, aumentando su desesperación, lo que implicaba un descenso progresivo en sus puntos de vida.
+
+\subsection{Monstruos genéricos}
+Como sucede en otros diseños del poryecto, al tratar de darle un aire mas genérico a nuestros monstruos decidimos que estos también debían ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los monstruos dentro del proyecto cambió, y pasamos a tener monstruos secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y malignos(fantasma). Esta nueva clasificación haría que los monstruos trabajasen bajo las condiciones con las que antiguamente esdtaban diseñados pero que a su vez no tuviesen que ser un monstruo impuesto por nosotros.
+
+De esta manera el usuario a través del archivo XML, cuya construcción es consultable en \ref{ejemploXML:monstruos}, podría dictaminar el nombre del monstruo, que clase de monstruo dentro de nuestra clasificación específica era, cual era su especia y finalmente cual era su sexo. Así el usuario podría elegir que la princesa fuese secuestrada por el dragón Smaug o por la bruja Maléfica, por poner algunos ejemplos, o de la misma manera, que el dragón Smaug o bien secuestrase princesas en una simulación de la aplicación o bien emboscase a los viajeros que atravesaban cierta localización en otra.
+
+\label{ejemploXML:monstruos}
+\begin{verbatim}
+<monstruo nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
+
+<monstruo nombre="Casper" clase="Maligno" especie="Queso Azul Mortifero" sexo="M"/>
+
+<monstruo nombre="Jormundgander" clase="Guardian" especie="Gyarados" sexo="F"/>
+
+<monstruo nombre="Trundle" clase="Emboscador" especie="Troll" sexo="M"/>
+\end{verbatim}
 
 %-------------------------------------------------------------------
 \section{Implementación de los Monstruos}
 
+\subsection{Carga y configuración de los monstruos}
+
+\subsection{La Interfaz Monstruo}
+
+\subsection{El Monstruo Secuestrador}
+
+\subsection{El Monstruo Emboscador}
+
+\subsection{El Monstruo Guardián}
+
+\subsection{El Monstruo Maligno}
 
 %-------------------------------------------------------------------
