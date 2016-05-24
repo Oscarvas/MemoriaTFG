@@ -17,7 +17,7 @@
 
 %-------------------------------------------------------------------
 \section{Diseño de los Monstruos}
-Para que la historia tuviese sentido siempre debía haber algo que motivase a los protagonistas a emprender sus acciones. Para cumplir este fín surge la figura del Monstruo, un personaje maligno con motivaciones que iban en contra de aquellas que definían a nuestros personajes.
+Para que la historia tuviese sentido siempre debía haber algo que motivase a los protagonistas a emprender sus acciones. Para cumplir este fin surge la figura del Monstruo, un personaje maligno con motivaciones que iban en contra de aquellas que definían a nuestros personajes.
 
 %que os parecería incluir la imagen de un dragón aquí? A mi me gusta. Lo ideal serían los 4 monstruos juntos pero eso es imposible.
 
@@ -41,34 +41,54 @@ Como tampoco queríamos que nuestros nuevos monstruos se limitasen a no dejar pas
 El fantasma sería el espíritu vengativo de un rey derrocado hace tiempo que no pudo saciar sus ansias de poder. Así su cometido sería vagar por los castillos, buscando aquellos monarcas en los que la desesperación había hecho mella, aumentando su desesperación, lo que implicaba un descenso progresivo en sus puntos de vida.
 
 \subsection{Monstruos genéricos}
-Como sucede en otros diseños del poryecto, al tratar de darle un aire mas genérico a nuestros monstruos decidimos que estos también debían ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los monstruos dentro del proyecto cambió, y pasamos a tener monstruos secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y malignos(fantasma). Esta nueva clasificación haría que los monstruos trabajasen bajo las condiciones con las que antiguamente esdtaban diseñados pero que a su vez no tuviesen que ser un monstruo impuesto por nosotros.
+Como sucede en otros diseños del proyecto, al tratar de darle un aire mas genérico a nuestros monstruos decidimos que estos también debían ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los monstruos dentro del proyecto cambió, y pasamos a tener monstruos secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y malignos(fantasma). Esta nueva clasificación haría que los monstruos trabajasen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tuviesen que ser un monstruo impuesto por nosotros. el esquema final sería algo así:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c}
+		$Monstruo$			& $Objetivo$ \\ \hline
+		Monstruo Secuestrador	& Secuestrar Princesas \\
+		Monstruo Emboscador 	& Emboscar Héroes a cambio de dinero\\
+		Monstruo Guardian 		& Defender un lugar \\
+		Monstruo Maligno		& Atormentar Reyes \\ \hline
+	\end{tabular}
+	\caption{Tabla final de objetivos y tipos de Monstruos}
+	\label{fig:TablaObjetivosMonstruos}
+\end{table}
 
 De esta manera el usuario a través del archivo XML, cuya construcción es consultable en \ref{ejemploXML:monstruos}, podría dictaminar el nombre del monstruo, que clase de monstruo dentro de nuestra clasificación específica era, cual era su especia y finalmente cual era su sexo. Así el usuario podría elegir que la princesa fuese secuestrada por el dragón Smaug o por la bruja Maléfica, por poner algunos ejemplos, o de la misma manera, que el dragón Smaug o bien secuestrase princesas en una simulación de la aplicación o bien emboscase a los viajeros que atravesaban cierta localización en otra.
+
+
+
+%-------------------------------------------------------------------
+\section{Implementación de los Monstruos}
+Para implementar los Monstruos era necesario tratar con agentes y sus propiedades, a través del agente mundo nuestros agentes se comunicarían con los otros y recibirían la información que necesitan, pero sin embargo para el correcto funcionamiento de los Monstruos se necesitaban muchas más cosas.
+%-------------------------------------------------------------------
+\subsection{Carga y configuración de los monstruos}
+Al crear el loader de Monstruos, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido, \ref{cap4:sec:Loaders}, con la particularidad e recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada monstruo que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
 
 \label{ejemploXML:monstruos}
 \begin{verbatim}
 <monstruo nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
-
 <monstruo nombre="Casper" clase="Maligno" especie="Queso Azul Mortifero" sexo="M"/>
-
 <monstruo nombre="Jormundgander" clase="Guardian" especie="Gyarados" sexo="F"/>
-
 <monstruo nombre="Trundle" clase="Emboscador" especie="Troll" sexo="M"/>
 \end{verbatim}
 
 %-------------------------------------------------------------------
-\section{Implementación de los Monstruos}
-
-\subsection{Carga y configuración de los monstruos}
-
 \subsection{La Interfaz Monstruo}
+La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el loader de monstruo. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al monstruo, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de monstruos en específico.
+%-------------------------------------------------------------------
 
 \subsection{El Monstruo Secuestrador}
 
+%-------------------------------------------------------------------
 \subsection{El Monstruo Emboscador}
 
+%-------------------------------------------------------------------
 \subsection{El Monstruo Guardián}
 
+%-------------------------------------------------------------------
 \subsection{El Monstruo Maligno}
 
 %-------------------------------------------------------------------
