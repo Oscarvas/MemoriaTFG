@@ -81,6 +81,10 @@ La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente man
 %-------------------------------------------------------------------
 
 \subsection{El Monstruo Secuestrador}
+describir comportamiente principal de secuestro, que busca aquellos pj's con el servicio secuestrable, y si no existe nadie, se queda a la espera de que aparezca uno.
+Una vez encuentra al menos uno elige aleatoriamente entre los que son secuestrables. En ese momento se planifica, incorporando tras esto, el fallo secuestro y el fin planificación.
+
+Fin planificacion: recibe un mnsje de mundo con una confirmacion de que secuestra a la princesa, que cuando llega, añade el comportamiento de que la princesa se pueda escapar y el comportamiento, que basicamente es un rndm entre la cantidad de vida probable del monstruo que cuando supera la vida actual que tiene se escapa.
 
 %-------------------------------------------------------------------
 \subsection{El Monstruo Emboscador}
