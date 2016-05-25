@@ -138,20 +138,45 @@ Es un programa que genera historias que pretende simular la mente de un autor cu
 \end{itemize}
 
 \subsection{UNIVERSE} 
-Es el primer sistema generador de historias que centra en la narrativa en torno a los personajes. Esta enfocado en la generación de historias como pueden ser las telenovelas o seriales, en donde la historia se centra en las tramas entre  personajes más que en un objetivo final por lo que se generan historias extensas.
+Es el primer sistema generador de historias que centra la narrativa en torno a los personajes. Esta enfocado en la generación de historias como pueden ser las telenovelas o seriales televisivos, en donde la historia gira en las tramas que van surgiendo entre  personajes, más que en alcanzar un objetivo final, por lo que se generan historias que están en constante crecimiento.
+
+Un punto interesante en UNIVERSE es la forma de creación tanto de los personajes como de las tramas(Véase en las siguientes figuras).
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/UniversePersonaje}
-	\caption{Representacion de un personaje en UNIVERSE}
+	\caption{Representación de un personaje en UNIVERSE}
 	\label{fig:UniversePersonaje}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/UniverseTrama}
-	\caption{Representacion de una trama en UNIVERSE}
+	\caption{Representación de una trama en UNIVERSE}
 	\label{fig:UniverseTrama}
+\end{figure}
+
+\subsection{MINSTREL}
+\cite{IRIS:thesisTurner1992} en su tesis doctoral trata el tema de Creatividad Computacional y la generación de narrativa por ello realizó este programa el cual genera historias breves, de no más de una página, sobre los Caballeros de la Mesa Redonda del Rey Arturo. Para la generación de la historia primero se realiza una fase de planificación y a continuación una fase de la resolución del problema.
+
+Para la resolución del problema MINSTREL implementa una heurística denominada TRAM (Transform-Recall-Adapt Methods). Cada TRAM integra soluciones a problemas sencillos y al aplicar un conjunto de estas soluciones servirá para solucionar el problema inicial.
+
+\subsection{MEXICA}
+MEXICA es un modelo  computacional diseñado para estudiar el proceso creativo realizado por \cite{Mexica1999}. MEXICA genera historias cortas sobre los mexicas, lo primeros habitantes de Méjico. El programa consta dos rutinas, en la primera el usuario define un conjunto de historias anteriores mientras que en la segunda genera nuevo material, le impone restricciones y revisa que se cumplan estas restricciones para crear nuevas historias. Fue pionera dentro de la generación de narrativa ya que contemplaba, durante el transcurso de la historia, los vínculos emocionales, las tensiones y las posiciones entre los personajes. 
+
+\subsection{BRUTUS}
+BRUTUS es un programa capaz de generar historias de traición, intriga y algo de misterio en correcta prosa Inglesa.
+
+Sin embargo, gracias a la exposición de llevado a cabo por \cite{Bringsjord:1999:AIL:553698}, queda claro que BRUTUS no puede ser creativo sino que funciona utilizando ingeniería inversa.
+
+\subsection{VIRTUAL STORYTELLER}
+\cite{theune2003virtual} presenta un enfoque multi-agente para la generación de historias. Para guiar la  trama de la historia existe un \emph(agente director), el cual no podrá obligar al resto de agentes a llevar a cabo acciones pero si podrá influir en el entorno de los agentes. También existe un \emph(agente narrador) que está encargado de traducir a lenguaje natural los cambios en el estado y los eventos que tienen lugar.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/VirtualStoryArq}
+	\caption{Arquitectura de VIRTUAL STORYTELLER}
+	\label{fig:VirtualStoryArq}
 \end{figure}
 
 \subsection{Computational Approaches to Storytelling and Creativity}
