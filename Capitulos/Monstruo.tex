@@ -78,21 +78,43 @@ Al crear el loader de Monstruos, capaz de cargar los datos correctamente del arc
 %-------------------------------------------------------------------
 \subsection{La Interfaz Monstruo}
 La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el loader de monstruo. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al monstruo, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de monstruos en específico.
+
+A continuación entraremos en detalle a explicar como se implementó cada monstruo en específico.
+Para explicar de manera correcta como se comportaban este tipo de monstruos explicaremos que comportamientos y acciones es capaz de desarrollar como agente.
 %-------------------------------------------------------------------
 
 \subsection{El Monstruo Secuestrador}
-describir comportamiente principal de secuestro, que busca aquellos pj's con el servicio secuestrable, y si no existe nadie, se queda a la espera de que aparezca uno.
-Una vez encuentra al menos uno elige aleatoriamente entre los que son secuestrables. En ese momento se planifica, incorporando tras esto, el fallo secuestro y el fin planificación.
+Según se iniciaba el agente secuestrador este solicitaba informacion al agente Mundo. En este caso el Mundo le tenía que decir cuales eran aquellos agentes que proporcionaban el servicio secuestrables y, en caso de que no hubiese ninguno el agente se quedaba a la espera de que apareciese uno que cumpliese los requisitos solicitados.
 
-Fin planificacion: recibe un mnsje de mundo con una confirmacion de que secuestra a la princesa, que cuando llega, añade el comportamiento de que la princesa se pueda escapar y el comportamiento, que basicamente es un rndm entre la cantidad de vida probable del monstruo que cuando supera la vida actual que tiene se escapa.
+En caso de encontrar al menos de los agentes con el servicio secuestrable, escoge entre ellos de manera aleatoria cual será su objetivo, registrando el mensaje ACL "ObjetivoSecuestro". Una vez ha escogido el agente a secuestrar se planifica, incorporando a su funcionamiento los servicios de fallo secuestro, que entraba en acción cuando fallaba en el rapto, y fin de planificación, que se ejecutaba cuando el secuestro se realizaba correctamente.
 
+Cuando se ha producido un error durante el secuestro el agente informará al agente Mundo del mismo, a través de un Message Template, tras lo cual parará su ejecución y volverá al punto inicial, es decir que esperará a que aparezca algun agente secuestrable.
+
+Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador ha finalizado correctamente su ejecución. En ese momento informa al agente Mundo y registra el Mensaje ACL "Te secuestro", informando así al agente princesa secuestrado de que en efecto ha sido raptado. Por último, vuelve a su guarida, donde esperará con el agente princesa a que alguien venga a por él y finalmente registrará el comportamiento "HayQueJoderseConLaPrincesita".
+
+Este comportamiento permite al agente princesa secuestrada escaparse de su raptor. Para ello, la princesa ejecutará una tirada aleatoria entre los valores probables de vida de su captor. Cuando el resultado de su tirada sea mayor que la vida actual de éste escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
 %-------------------------------------------------------------------
 \subsection{El Monstruo Emboscador}
+El agente emboscador se registraba enviandole al mundo finalmente la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registraba los comportamientos de Emboscar y Acecho y finalmente se planificaba.
+
+El comportamiento de Emboscar era bastante complejo. 
+Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{capMapa:sec:LocalizacionesAleatoriasSegunClase}, que era el lugar donde emboscaba, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
+Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
+
+El agente emboscador le enviaba un mensaje template "SolicitarServicio" al mundo, a la vez que elegían un tipo de clase al cual iban a emboscar. Cada vez que un agente se movía, el mundo busca entre todos los agentes emboscadores, mandandoles la clase que desea cruzar en ese momento.
+En caso de que uno, o varios, agentes emboscadores busquen esta clase enviarían una propuesta al mundo junto a su localización. Si la localización de ambos agente no coincidía, no ocurría nada y el agente que se estaba moviendo seguía su camino. Si, sin embargo, la localizacion de ambos agentes era la misma, el mundo aceptaba la propuesta del agente emboscador y le proporcionaba la información del agente que se estaba desplazando por esa localización.
+
+Una vez que la propuesta del agente emboscador ha sido aceptada, da comienzo el comportamiento Acechar, gracias a que dentro de este comportamiento se necesita la respuesta al mensaje cruzar que proporciona el comportamiento anterior.
+
+En el comportamiento Acechar, el emboscador tiene los datos del agente al que esta emboscando, proporcionados por el agente Mundo. De esta manera genera un random con el dinero que le pedirá al otro agente, con el que inicia una conversación con el ID "Hacienda". Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el emboscador lo mata.
 
 %-------------------------------------------------------------------
 \subsection{El Monstruo Guardián}
+No lo entiendo bien, declara su tipo como guardian y no se planifica nunca? no entiendo bien, y sospecho que no tengo el ultimo pull (se me hace rarisimo) y por eso no me sale todo. (no puedo pullear, tengo cambios que no se que son y no puedo hacer rebase).
+
 
 %-------------------------------------------------------------------
 \subsection{El Monstruo Maligno}
+registra su tipo como maligno, busca un rey al que derrocar y se planifica.
 
 %-------------------------------------------------------------------
