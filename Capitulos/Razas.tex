@@ -18,8 +18,16 @@
 \section{Diseño de los Atributos y las Razas}
 
 %Como ya se explico en el mapa, la raza determinara en que lugar ?nacerá? cada personaje, en cierta medida, pues solo aclara la región, no determina en que localización especifica de esta, pero su funcionalidad no acaba aquí, pues también dará un impulso a los atributos de los personajes.
-Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron la vida, la fuerza, la destreza, la inteligencia y la codicia.
-Estos atributos representarían modificadores positivos a la hora de enfrentarse a un problema. Por ejemplo, la fuerza seria un multiplicador a la vida, que nos ayuda a enfrentarnos a un monstruo en una batalla, o la codicia representaría el precio que un héroe propondría a un rey para que este contratase sus servicios.
+Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron:
+\begin{itemize}
+	\item Vida: atributo referente a la capacidad de aguante de un personaje
+	\item Fuerza: atributo referente a la capacidad de combate del personaje. Util para los caballeros.
+	\item Destreza: atributo referente a la capacidad de combate del personaje. Util para los druidas.
+	\item Inteligencia: atributo referente a la capacidad de combate del personaje. Util para los magos.
+	\item Codicia: atributo que define el coste de contratar a dicho personaje.
+\end{itemize}
+
+Estos atributos representarían modificadores positivos a la hora de enfrentarse a un problema. Por ejemplo, la fuerza seria un factor diferencial que dictamina nuestras posibilidades de victoria a la hora de enfrentarnos a un monstruo en una batalla, o la codicia que representaría el precio que un héroe propondría a un rey para que este contratase sus servicios.
 
 De la misma forma, se propuso el concepto de raza, que es una característica mas que le podemos dar a los personajes protagonistas.
 Esta nueva característica modificará según ciertos multiplicadores los atributos que un personaje posee, haciendo así que dos héroes de razas distintas muy probablemente tengan atributos distintos.
@@ -32,5 +40,28 @@ De igual manera, la clase también afectara a estos atributos, ya que un caballer
 
 %-------------------------------------------------------------------
 \section{Implementación de los Atributos y las Razas}
+Para explicar la implementación de los Atributos es necesario comprender bien la clase personaje.
+Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características.
+Para el caso de los Monstruos sin embargo, sólo nos interesaba el atributo Vida, que era el atributo que necesitábamos conocer para que un personaje pueda o no derrotarlos.
+Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ
+
+Las razas sin embargo, venían dictaminadas de un archivo de configuración XML donde se especificaban el nombre de la raza y los distintos multiplicadores a atributos que esta representaba
+%-------------------------------------------------------------------
+\subsection{Razas configurables}
+Para realizar correctamente la configuración de las Razas a través de un archivo XML necesitábamos, nuevamente, un Loader capaz de cargar e interpretar los datos.
+
+Este Loader, que seguía el patrón normal de todos los Loaders \ref{cap4:sec:Loaders}, tenía la particularidad de que cargaba el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave raza a partir de la cual cargaba las características específicas de esta, que eran enviados a un objeto Raza, que explicaremos más adelante, e introducido a una liste de las distintas Razas.
+
+La configuración específica que debía tener este fichero para que la aplicación funcionase correctamente debía seguirse a rajatabla, por lo tanto junto al archivo de configuración incluíamos un prototipo propio de configuración de razas que también podía usarse como ejemplo, aparte de una pequeña guía de como ha de construirse el archivo, consultable en \ref{ejemploXML:Razas}.
+
+\label{ejemploXML:Razas}
+\begin{verbatim}
+<raza nombre="EGERIAN" vida="5" fuerza="5" destreza="2" inteligencia="2"  codicia="1"/>
+\end{verbatim}
+%-------------------------------------------------------------------
+\subsection{La Clase Raza y como interactúa en la carga del personaje}
+La Clase Raza nos permitía interactuar con los atributos específicos de cada raza a la vez que guardaba todos aquellos relativos a una.
+
+Cuando un protagonista se creaba, accedía a la interfaz vocabulario, donde existía un HashMap de razas en el cual cada nombre de raza iba ligado a su objeto raza específico. Así, el protagonista accedía al nombre de la raza a la que pertenecía, atributo que le venia dado por su configuración XML, y cargaba ese objeto raza. Finalmente, a la hora de crear sus propios atributos, accedía a aquellos atributos que le venían dados por su configuración XML y los multiplicaba por los modificadores que le venían por su raza, dando esta operación las cifras finales de los atributos que poseería. 
 
 %-------------------------------------------------------------------

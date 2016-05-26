@@ -136,12 +136,14 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 	</region>
 \end{verbatim}
 
-\subsection{Las Clases Mapa y Localización}
+\subsection{Las Clases Mapa y Localización y como localizr personajes}
 \label{cap5:sec:ClaseMapaLocalizacion}
 La clase Localización nos permitía trabajar con las localizaciones de una manera más funcional, pudiendo ligar al String, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
 
 De igual manera, la Clase Localización permitía al agente mundo conocer que personajes y objetos interactuaban con ella así como con que localizaciones estaba conectada.
 
 La Clase Mapa nos permitía tener un conjunto de localizaciones fácilmente accesible por el agente Mundo y acceder a localizaciones específicas de este.
+
+De igual manera, para localizar a los personajes debimos crear la Interfaz vocabulario junto al enumerado Mitología, que nos permitía ligar clases a tipos de localizaciones específicas como se explico en el diseño, para posteriormente elegir mediante un Random dentro de la lista de localizaciones específica de cada clase cual sería su localización definitiva. 
 
 %-------------------------------------------------------------------
