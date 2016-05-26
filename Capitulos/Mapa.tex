@@ -128,13 +128,13 @@ Para introducir también la relación entre clases y localizaciones, al archivo XM
 El problema que representaba esta implementación es que al necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues sino la aplicación no funcionaría de una manera correcta.
 Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de como construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo.
 
-\begin{verbatim}
+\begin{lstlisting}
 	<region nombre="[NombreRegion]">
 		<localizacion id="[NombreLocalizacion]" tipo="[TipoLocalizacion]" > 
 			<conectadoCon>[NombreRegiones con las que conecta]</conectadoCon>
 		</localizacion>
 	</region>
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Las Clases Mapa y Localización y como localizr personajes}
 \label{cap5:sec:ClaseMapaLocalizacion}
