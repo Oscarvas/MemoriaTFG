@@ -33,14 +33,14 @@ Como primera solución decidimos crear al personaje villano, de manera que cuando
 
 El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios...
 
- Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando el TFG desde cero, siempre partiendo de la base del antiguo, pero reciclando cierta parte del código y en definitiva las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
+ Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando la aplicación desde cero, siempre partiendo de la base del antiguo, pero reciclando cierta parte del código y en definitiva las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
 
 \subsection{Empezando desde cero}
 
 El análisis y posterior uso del código anterior lo trataremos con mas detalle en el apartado de implementación. Lo que si teníamos claro, era que nuestro proyecto iba a incluir forzosamente personajes con múltiples objetivos y una GUI que diese un impacto visual claro a la ejecución de la aplicación.
 
-Para ello, y ahora que por fin eramos capaces, decidimos cambiar, a la princesa, de manera que en ocasiones si los caballeros se demoraban demasiado en su trabajo ella era capaz de escaparse de su raptor y volver al castillo por su propio pie.
-También modificamos al caballero, de manera que alguno ahora podía ser villano, donde estos, si lograban vencer al dragón entablaban una nueva batalla con la princesa con el objetivo de eliminarla. 
+Para ello, y ahora que por fin eramos capaces, decidimos cambiar a la princesa, de manera que en ocasiones si los caballeros se demoraban demasiado en su trabajo ella era capaz de escaparse de su raptor y volver al castillo por su propio pie.
+También modificamos al caballero, de manera que alguno ahora podía ser villano donde estos, si lograban vencer al dragón, entablaban una nueva batalla con la princesa con el objetivo de eliminarla. 
 
 
 Esto nos permitió satisfacer nuestra necesidad del multiobjetivo, y así pudimos transformar a nuestros agentes en personajes mas profundos, con una serie de posibles objetivos:
@@ -55,7 +55,7 @@ Era el momento de ponernos ambiciosos, así que nos propusimos crear muchos mas p
 
 %-------------------------------------------------------------------
 \section{Personajes}
-Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes allá mas posibilidades tendrás en tu historia. 
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes allá mas posibilidades tendrás de crear diferentes historias, ya que cada uno puede actuar de manera distinta en cada ejecución. 
 
 Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
 
