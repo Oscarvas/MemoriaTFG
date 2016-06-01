@@ -13,29 +13,56 @@
 \end{Fuente}
 \end{FraseCelebre}
 
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes haya mas posibilidades tendrás de crear diferentes historias, ya que cada uno puede actuar de manera distinta en cada ejecución. 
 
+Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
+Sin embargo las posibles historias que podamos generar comparten siempre una misma estructura, pues no puede ser de otra manera. 
+Siempre aparecerá un monstruo que logrará secuestrar a la princesa, el rey pedirá ayuda a los distintos aspirantes a héroes y estos acudirán a su llamada intentando salvarla, a partir de lo cuál aparecerán distintos personajes.
+Para poder diseñar correctamente estos diversos personajes lo primero que debíamos hacer era concretar unos tipos que definiesen en cierta medida cual sería su manera de participar en la historia. De esta manera decidimos dividir a nuestros posibles personajes en tres tipos concretos, que serían: \texttt{Protagonistas}, \texttt{Antagonistas} y \texttt{Personajes no Jugadores} o \texttt{PNJs}.
+
+De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los "buenos" dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de "malos" en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
+
+%aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
 
 \section{Protagonistas}
+Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
+
 \subsection{Diseño de los Protagonistas}
+En la busqueda de unos protagonistas que satisfaciesen nuestras necesidades para cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
+De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap11:Objetos}.
+Las distintas clases a las que un portagonista puede pertenecer son:
 
 \subsubsection{La Princesa}
+La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
+Sin embargo, nuestra idea del personaje "Princesa" no acababa ahí, sino que también quisiesemos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así que, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando, evaluando sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
 
 \subsubsection{El Rey}
+El Rey cumplía un papel mas formal dentro de la historia. Su principal uso era el de tener un personaje intermedió para que los distintos personajes pudieses comunicarse entre sí, pero no por ello era menos importante, ya que sin su ayuda la historia no podría transcurrir de manera fluida.
+La empresa del rey era la de contratar a los distintos caballeros del reino cuando alguna de sus hijas era secuestrada. Así, el Rey les pedía ayuda a estos aspirantes a héroes con la esperanza de que alguno pudiese rescatar a su preciada hija.
 
-\subsubsection{Los Héroes}
-
-% No se puede hacer subsubsubsection. Poner en una lista.
-\subsubsection{El Caballero}
+\subsubsection{Los Caballeros}
+El propósito de los Caballeros en la historia era el de cumplir el papel de héroes. Para ello debían emprender su camino con el objetivode rescatar a la princesa de su malvado secuestrador, enfrentándose por el camino a las distintas pruebas propuestas por el resto de los antagonistas.
+En estas pruebas el caballero deberá hacer uso de los diversos recursos que tenga a su alcance o incluso necesitará ayuda de otros personajes para poder superarlas.
 
 \subsubsection{El Mago}
+El Mago cumplirá el papel del personaje que ayuda en un momento crucial de la historia al héroe de la misma. La forma de funcionar de este personaje, se entiende cuando el caballero tiene un encuentro con un antagonista en específico, en este caso el guardián.
+El caballero, que por si solo no es capaz de enfrentarse al guardián, pedirá apoyo a un mago, el cual acudirá en su ayuda bajo el precio de poder quedarse con el objeto que este antagonista guardián mantiene vigilado.
 
-\subsubsection{El Druida}
+\subsubsection{EL Héroe Caído o Villano}
+El concepto de héroe caído, como ya se menciono antes, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:3:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en "buenos" y "malos", pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
 
-\subsubsection{EL héroe caído}
-
-\subsection{Diseño de los Protagonistas}
+\subsection{Implementación de los Protagonistas}
 
 \section{Antagonistas}
+Para que la historia tuviese sentido siempre debía haber algo que motivase a los protagonistas a emprender sus acciones. Para cumplir este fin surge la figura del Monstruo, un personaje maligno con motivaciones que iban en contra de aquellas que definían la manera de actuar de los protagonistas.
+
+\subsection{Diseño de los Antagonistas}
+Para diseñar los antagonistas decidimos también 
+
+
+
+
+\subsection{Implementacion de los Antagonistas}
 
 \section{PNJ}
 \begin{quote}
