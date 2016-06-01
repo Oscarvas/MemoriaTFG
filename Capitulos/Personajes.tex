@@ -13,7 +13,7 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes haya mas posibilidades tendrás de crear diferentes historias, ya que cada uno puede actuar de manera distinta en cada ejecución. 
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes haya más posibilidades tendrás de crear diferentes historias, ya que cada uno puede actuar de manera distinta en cada ejecución. 
 
 Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
 Sin embargo las posibles historias que podamos generar comparten siempre una misma estructura, pues no puede ser de otra manera. 
@@ -23,6 +23,10 @@ Para poder diseñar correctamente estos diversos personajes lo primero que debíam
 De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los "buenos" dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de "malos" en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
 
 %aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
+
+
+
+
 
 \section{Protagonistas}
 Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
@@ -51,18 +55,50 @@ El caballero, que por si solo no es capaz de enfrentarse al guardián, pedirá apo
 \subsubsection{EL Héroe Caído o Villano}
 El concepto de héroe caído, como ya se menciono antes, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:3:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en "buenos" y "malos", pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
 
+\subsection{Protagonistas Adaptables}
+Como se explicó en el capitulo de objetivos, una de nuestras aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
+Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo nos brindó la oportunidad de crear clases menos específicas, que se adaptasen a mas entornos y en definitiva fuesen mas genéricas, para ello cambiamos el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la figura \ref{fig:TablaClasesProtagonistas}.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c}
+		Clase Protagonista				& Papel en la Historia  \\ \hline
+		Damísela en apuros (Princesa)	& Será secuestrada en las historias \\
+		Allegado a la damisela (Rey) 	& Pedirá que rescaten a la damisela\\
+		Aspirante a Héroe (Caballero) 	& Irá al rescate de la damisela \\
+		Ayudante del Héroe (Mago)		& Ayudará al héroe en un momento crítico \\ \hline
+	\end{tabular}
+	\caption{Tabla final de Clases de Protagonistas y su papel en la historia}
+	\label{fig:TablaClasesProtagonistas}
+\end{table}
+
+Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar los parámetros de su historia, de manera que puede elegir que uno de los héroes en su historia sea el caballero Don Quijote embarcado en el peligroso rescate de la princesa Dulcinea o que el samurai Kenshin deba rescatar a la hija del emperador Chihiro. 
+
+%-------------------------------------------------------------------
+
+
 \subsection{Implementación de los Protagonistas}
+
+%-------------------------------------------------------------------
+
+
+
 
 \section{Antagonistas}
 Para que la historia tuviese sentido siempre debía haber algo que motivase a los protagonistas a emprender sus acciones. Para cumplir este fin surge la figura del Monstruo, un personaje maligno con motivaciones que iban en contra de aquellas que definían la manera de actuar de los protagonistas.
 
+%-------------------------------------------------------------------
+
 \subsection{Diseño de los Antagonistas}
 Para diseñar los antagonistas decidimos también 
 
-
-
-
+%-------------------------------------------------------------------
 \subsection{Implementacion de los Antagonistas}
+
+%-------------------------------------------------------------------
+
+
+
 
 \section{PNJ}
 \begin{quote}
@@ -80,7 +116,6 @@ Para terminar de definir los PNJ's pensamos que lo que mas encajaba dentro de nu
 De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentaran los atributos del personaje, y en otras los disminuirán.
 
 Sin embargo, decidimos q ue este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, decidimos que los PNJ's también pudiesen ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
-
 
 
 %-------------------------------------------------------------------
