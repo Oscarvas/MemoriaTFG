@@ -1,0 +1,51 @@
+%---------------------------------------------------------------------
+%
+%                          Capítulo 5
+%
+%---------------------------------------------------------------------
+
+\chapter{Primeros Pasos}
+
+\begin{FraseCelebre}
+\begin{Frase}
+	Caminante, no hay camino, se hace camino al andar.
+\end{Frase}
+\begin{Fuente}
+	Antonio Machado
+\end{Fuente}
+\end{FraseCelebre}
+
+Para empezar nuestro proyecto lo primero que debimos hacer fue entender de donde partíamos y ver, si con esto, eramos capaces de satisfacer nuestras necesidades, las cuales se explican en \ref{cap:3:Objetivos}. Para entender como se realizó nuestro proyecto y porque se implemento de la manera en la cual se hizo es necesario entrar ligeramente por esta vertiente.
+
+%-------------------------------------------------------------------
+\section{Multiples Objetivos}
+Para satisfacer el poder crear historias distintas uno de nuestros principales objetivos como ya se explicó era que dos agentes que representaban el mismo tipo de personaje, pudiesen actuar de manera distinta, eligiendo de una manera aleatoria entre un abanico de posibles objetivos cual iba a ser el suyo cada vez.
+
+Con ánimo de poner esta idea en práctica, buscamos la manera de que nuestros personajes fueran capaces de elegir entre varios objetivos distintos. Con este objetivo en mente empezaron nuestras primeras pruebas sobre el anterior proyecto.
+%-------------------------------------------------------------------
+
+\subsection{Primeras pruebas}
+Afrontar este problema fue un arduo proceso que comenzó cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad,
+sencillamente ella se movía de un lugar a otro, o bien secuestrada por un dragón o bien rescatada por un caballero, y no era capaz de realizar acciones por su propia iniciativa.
+Nuestro primer objetivo fue por tanto cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla.
+
+Sin embargo, nuestros conocimientos en las primeras exploraciones del proyecto eran mas ambiguos y un agente clave como la princesa y un estilo muy propio para que se moviese era un objetivo demasiado ambicioso que nos llevó a buscar un problema más sencillo que cumpliese nuestra necesidad del agente con múltiples objetivos.
+
+\subsection{La figura del villano}
+
+Fue aquí cuando decidimos que el que mejor se amoldaba a nuestra búsqueda del agente con varios objetivos era el caballero.
+El caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
+Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y así surgió el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragón en vez de salvar a la princesa decidiese secuestrarla y así otro caballero debía venir a salvarla, y con una idea tan simple habíamos aumentado significativamente nuestra capacidad de crear historias variadas.
+
+Sin embargo esto no fue tan sencillo, nuestro planificador no podía soportar tener que elegir aleatoriamente entre dos caballeros en principio iguales cual iba a ser distinto e iba a ser villano, y, bajo nuestro entendimiento del código disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
+
+Como primera solución decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegía aleatoriamente si este iba a ser caballero o villano desde el principio, así cuando llegase el momento actuarían de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar múltiples y distintas.
+
+El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios...
+
+Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando la aplicación desde cero, siempre partiendo de la base del antiguo, pero reciclando cierta parte del código y en definitiva las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
+
+%-------------------------------------------------------------------
+\section{Empezando desde cero}
+
+%-------------------------------------------------------------------

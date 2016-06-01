@@ -65,7 +65,7 @@ De esta manera el usuario a través del archivo XML, cuya construcción es consult
 Para implementar los Monstruos era necesario tratar con agentes y sus propiedades, a través del agente mundo nuestros agentes se comunicarían con los otros y recibirían la información que necesitan, pero sin embargo para el correcto funcionamiento de los Monstruos se necesitaban muchas más cosas.
 %-------------------------------------------------------------------
 \subsection{Carga y configuración de los monstruos}
-Al crear el loader de Monstruos, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido, \ref{cap4:sec:Loaders}, con la particularidad e recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada monstruo que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
+Al crear el SCD de Monstruos, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido, \ref{cap4:sec:Loaders}, con la particularidad e recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada monstruo que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
 
 \label{ejemploXML:monstruos}
 \begin{lstlisting}[basicstyle=\tiny]
@@ -77,7 +77,7 @@ Al crear el loader de Monstruos, capaz de cargar los datos correctamente del arc
 
 %-------------------------------------------------------------------
 \subsection{La Interfaz Monstruo}
-La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el loader de monstruo. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al monstruo, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de monstruos en específico.
+La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el SCD de monstruo. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al monstruo, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de monstruos en específico.
 
 A continuación entraremos en detalle a explicar como se implementó cada monstruo en específico.
 Para explicar de manera correcta como se comportaban este tipo de monstruos explicaremos que comportamientos y acciones es capaz de desarrollar como agente.

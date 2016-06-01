@@ -10,30 +10,7 @@
 
 
 %-------------------------------------------------------------------
-\section{Multiples objetivos}
-Para poder crear historias distintas uno de nuestros principales objetivos era que dos agentes que representaban el mismo tipo de personaje, pudiesen actuar de manera distinta, eligiendo de una manera aleatoria entre un abanico de posibles objetivos cual iba a ser el suyo cada vez.7
 
-Con ánimo de poner esta idea en práctica, buscamos la manera de que nuestros personajes fueran capaces de elegir entre varios objetivos distintos.
-%-------------------------------------------------------------------
-
-\subsection{Primeras pruebas}
-Afrontar este problema fue un arduo proceso que comenzó cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad, sencillamente era transportada de un lugar a otro, o bien por un dragón o por un caballero, y no realizaba acciones propias.
-Nuestro primer objetivo fue cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla. Debido a la construcción del anterior TFG, la construcción y correcto funcionamiento de un agente clave como la princesa escapaba de nuestro conocimiento sobre agentes, así que debimos cambiar de objetivo a uno menos ambicioso.
-
-
-\subsection{La figura del villano}
-
-Fue aquí cuando decidimos que el agente que mejor se amoldaba a nuestra búsqueda del agente con varios objetivos era el caballero.
-El caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
-Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y así surgió el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragón en vez de salvar a la princesa decidiese secuestrarla y así otro caballero debía venir a salvarla, y con una idea tan simple habíamos aumentado significativamente nuestra capacidad de crear historias variadas.
-
-Sin embargo esto no fue tan sencillo, nuestro planificador no podía soportar tener que elegir aleatoriamente entre dos caballeros en principio iguales cual iba a ser distinto e iba a ser villano, y, bajo nuestro entendimiento del código ya disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
-
-Como primera solución decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegía aleatoriamente si este iba a ser caballero o villano desde el principio, así cuando llegase el momento actuarían de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar múltiples y distintas historias.
-
-El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios...
-
- Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando la aplicación desde cero, siempre partiendo de la base del antiguo, pero reciclando cierta parte del código y en definitiva las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen behaviours de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
 
 \subsection{Empezando desde cero}
 
