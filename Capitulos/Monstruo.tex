@@ -22,98 +22,9 @@
 
 Los monstruos que ocuparían este lugar son:
 %-------------------------------------------------------------------
-\subsection{El dragón}
-El Dragón representa un personaje primordial en la aplicación. Al principio de la historia todo transcurre apaciblemente hasta que el dragón despierta, se inicia el agente, y busca una princesa que pueda secuestrar, en ese momento el dragón decide llevar a cabo el rapto dando a pie a todos los acontecimientos que se suceden después, provocando que el rey avise a los caballeros y estos se muevan a través del mapa, que conforman el nudo de nuestra historia.
 
-
-%-------------------------------------------------------------------
-\subsection{Creando nuevos Monstruos}
-Lo primero que tuvimos claro es que, para nosotros, nuevos héroes significaban nuevos monstruos. Sin embargo, estos nuevos monstruos no podían ser el mismo monstruo llamado de manera distinta (no nos servía la idea de tener un grifo y un dragón y que los dos hiciesen lo mismo), y de igual manera no queríamos introducir un nuevo tipo de monstruo con la capacidad de suplantar a nuestro dragón como elemento primordial en nuestra historia.
-
-Nuestra primera idea fue la de incluir monstruos guardianes, es decir, monstruos que vigilasen un lugar específico del mapa y que castigasen a los aspirantes a héroes que decidiesen atravesar ese camino para completar su aventura. De esta manera, creamos localizaciones concretas y monstruos específicos para ellas.
-
-La primera localización elegida fue el lago. En el lago podría vivir una serpiente marina, aunque en este caso fuese de agua dulce, que atacase a los aventureros que se atreviesen a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansasen tranquilas siempre sin que nada las perturbara.
-
-La segunda localización aprobada fue el cruce. En este cruce de múltiples caminos, un avaricioso trol montaba guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros debían pagar o sino se enfrentarían a la ira del malvado troll.
-
-Como tampoco queríamos que nuestros nuevos monstruos se limitasen a no dejar pasar a los aspirantes a héroe, decidimos introducir un nuevo monstruo que no interactuase necesariamente con ellos, y así llego el concepto del fantasma.
-El fantasma sería el espíritu vengativo de un rey derrocado hace tiempo que no pudo saciar sus ansias de poder. Así su cometido sería vagar por los castillos, buscando aquellos monarcas en los que la desesperación había hecho mella, aumentando su desesperación, lo que implicaba un descenso progresivo en sus puntos de vida.
-
-\subsection{Monstruos genéricos}
-Como sucede en otros diseños del proyecto, al tratar de darle un aire mas genérico a nuestros monstruos decidimos que estos también debían ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los monstruos dentro del proyecto cambió, y pasamos a tener monstruos secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y malignos(fantasma). Esta nueva clasificación haría que los monstruos trabajasen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tuviesen que ser un monstruo impuesto por nosotros. El esquema final sería algo así:
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{c|c}
-		Monstruo				& Objetivo \\ \hline
-		Monstruo Secuestrador	& Secuestrar Princesas \\
-		Monstruo Emboscador 	& Emboscar Héroes a cambio de dinero\\
-		Monstruo Guardian 		& Proteger un Objeto \\
-		Monstruo Maligno		& Atormentar Reyes \\ \hline
-	\end{tabular}
-	\caption{Tabla final de objetivos y tipos de Monstruos}
-	\label{fig:TablaObjetivosMonstruos}
-\end{table}
-
-De esta manera el usuario a través del archivo XML, cuya construcción es consultable en \ref{ejemploXML:monstruos}, podría dictaminar el nombre del monstruo, que clase de monstruo dentro de nuestra clasificación específica era, cual era su especie y finalmente cual era su sexo. Así el usuario podría elegir que la princesa fuese secuestrada por el dragón Smaug o por la bruja Maléfica, por poner algunos ejemplos, o de la misma manera, que el dragón Smaug o bien secuestrase princesas en una simulación de la aplicación o bien emboscase a los viajeros que atravesaban cierta localización en otra.
 
 
 
 %-------------------------------------------------------------------
 \section{Implementación de los Monstruos}
-Para implementar los Monstruos era necesario tratar con agentes y sus propiedades, a través del agente mundo nuestros agentes se comunicarían con los otros y recibirían la información que necesitan, pero sin embargo para el correcto funcionamiento de los Monstruos se necesitaban muchas más cosas.
-%-------------------------------------------------------------------
-\subsection{Carga y configuración de los monstruos}
-Al crear el SCD de Monstruos, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido, \ref{cap4:sec:Loaders}, con la particularidad e recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada monstruo que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
-
-\label{ejemploXML:monstruos}
-\begin{lstlisting}[basicstyle=\tiny]
-<monstruo nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
-<monstruo nombre="Casper" clase="Maligno" especie="Queso Azul Mortifero" sexo="M"/>
-<monstruo nombre="Jormundgander" clase="Guardian" especie="Gyarados" sexo="F"/>
-<monstruo nombre="Trundle" clase="Emboscador" especie="Troll" sexo="M"/>
-\end{lstlisting}
-
-%-------------------------------------------------------------------
-\subsection{La Interfaz Monstruo}
-La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el SCD de monstruo. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al monstruo, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de monstruos en específico.
-
-A continuación entraremos en detalle a explicar como se implementó cada monstruo en específico.
-Para explicar de manera correcta como se comportaban este tipo de monstruos explicaremos que comportamientos y acciones es capaz de desarrollar como agente.
-%-------------------------------------------------------------------
-
-\subsection{El Monstruo Secuestrador}
-Según se iniciaba el agente secuestrador este solicitaba informacion al agente Mundo. En este caso el Mundo le tenía que decir cuales eran aquellos agentes que proporcionaban el servicio secuestrables y, en caso de que no hubiese ninguno el agente se quedaba a la espera de que apareciese uno que cumpliese los requisitos solicitados.
-
-En caso de encontrar al menos de los agentes con el servicio secuestrable, escoge entre ellos de manera aleatoria cual será su objetivo, registrando el mensaje ACL "ObjetivoSecuestro". Una vez ha escogido el agente a secuestrar se planifica, incorporando a su funcionamiento los servicios de fallo secuestro, que entraba en acción cuando fallaba en el rapto, y fin de planificación, que se ejecutaba cuando el secuestro se realizaba correctamente.
-
-Cuando se ha producido un error durante el secuestro el agente informará al agente Mundo del mismo, a través de un Message Template, tras lo cual parará su ejecución y volverá al punto inicial, es decir que esperará a que aparezca algun agente secuestrable.
-
-Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador ha finalizado correctamente su ejecución. En ese momento informa al agente Mundo y registra el Mensaje ACL "Te secuestro", informando así al agente princesa secuestrado de que en efecto ha sido raptado. Por último, vuelve a su guarida, donde esperará con el agente princesa a que alguien venga a por él y finalmente registrará el comportamiento "HayQueJoderseConLaPrincesita".
-
-Este comportamiento permite al agente princesa secuestrada escaparse de su raptor. Para ello, la princesa ejecutará una tirada aleatoria entre los valores probables de vida de su captor. Cuando el resultado de su tirada sea mayor que la vida actual de éste escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
-%-------------------------------------------------------------------
-\subsection{El Monstruo Emboscador}
-El agente emboscador se registraba enviandole al mundo finalmente la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registraba los comportamientos de Emboscar y Acecho y finalmente se planificaba.
-
-El comportamiento de Emboscar era bastante complejo. 
-Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{capMapa:sec:LocalizacionesAleatoriasSegunClase}, que era el lugar donde emboscaba, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
-Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
-
-El agente emboscador le enviaba un mensaje template "SolicitarServicio" al mundo, a la vez que elegían un tipo de clase al cual iban a emboscar. Cada vez que un agente se movía, el mundo busca entre todos los agentes emboscadores, mandandoles la clase que desea cruzar en ese momento.
-En caso de que uno, o varios, agentes emboscadores busquen esta clase enviarían una propuesta al mundo junto a su localización. Si la localización de ambos agente no coincidía, no ocurría nada y el agente que se estaba moviendo seguía su camino. Si, sin embargo, la localizacion de ambos agentes era la misma, el mundo aceptaba la propuesta del agente emboscador y le proporcionaba la información del agente que se estaba desplazando por esa localización.
-
-Una vez que la propuesta del agente emboscador ha sido aceptada, da comienzo el comportamiento Acechar, gracias a que dentro de este comportamiento se necesita la respuesta al mensaje cruzar que proporciona el comportamiento anterior.
-
-En el comportamiento Acechar, el emboscador tiene los datos del agente al que esta emboscando, proporcionados por el agente Mundo. De esta manera genera un random con el dinero que le pedirá al otro agente, con el que inicia una conversación con el ID "Hacienda". Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el emboscador lo mata.
-
-%-------------------------------------------------------------------
-\subsection{El Monstruo Guardián}
-No lo entiendo bien, declara su tipo como guardian y no se planifica nunca? no entiendo bien, y sospecho que no tengo el ultimo pull (se me hace rarisimo) y por eso no me sale todo. (no puedo pullear, tengo cambios que no se que son y no puedo hacer rebase).
-
-
-%-------------------------------------------------------------------
-\subsection{El Monstruo Maligno}
-registra su tipo como maligno, busca un rey al que derrocar y se planifica.
-
-%-------------------------------------------------------------------
