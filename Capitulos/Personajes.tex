@@ -22,6 +22,8 @@ Para poder diseñar correctamente estos diversos personajes lo primero que debíam
 
 De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los "buenos" dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de "malos" en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
 
+También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable entender bien el capitulo \ref{cap4:sec:Planificador}.
+
 %aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
 
 
@@ -41,7 +43,7 @@ La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella sie
 Sin embargo, nuestra idea del personaje "Princesa" no acababa ahí, sino que también quisiesemos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así que, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando, evaluando sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
 
 \subsubsection{El Rey}
-El Rey cumplía un papel mas formal dentro de la historia. Su principal uso era el de tener un personaje intermedió para que los distintos personajes pudieses comunicarse entre sí, pero no por ello era menos importante, ya que sin su ayuda la historia no podría transcurrir de manera fluida.
+El Rey cumplía un papel mas formal dentro de la historia. Su principal uso era el de tener un personaje intermedio para que los distintos personajes pudiesen comunicarse entre sí, pero no por ello era menos importante, ya que sin su ayuda la historia no podría transcurrir de manera fluida.
 La empresa del rey era la de contratar a los distintos caballeros del reino cuando alguna de sus hijas era secuestrada. Así, el Rey les pedía ayuda a estos aspirantes a héroes con la esperanza de que alguno pudiese rescatar a su preciada hija.
 
 \subsubsection{Los Caballeros}
@@ -92,14 +94,24 @@ El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploX
 \end{lstlisting}
  
 \subsubsection{La Interfaz Protagonistas}
-Para poder ejecutar correctamente a los portagonistas necesitábamos de una interfaz común para poder tratarlos a todos como el tipo de personajes que eran.
-Esta interfaz interpretaba correctamente los datos qcargados desde el SCD de Protagonistas, para posteriormente envíarselos a cada clase en específico. Esta clase, que heredaba a su vez de la interfaz de personajes \ref{cap4:sec:InterfazPersonajes}, tenía los atributos específicos de los Protagonistas, y representaba una gran ayuda a la hora de la implementación de estos.
+Para poder ejecutar correctamente a los protagonistas necesitábamos de una interfaz común para poder tratarlos a todos como el tipo de personajes que eran.
+Esta interfaz interpretaba correctamente los datos cargados desde el SCD de Protagonistas, para posteriormente enviárselos a cada clase en específico. Esta clase, que heredaba a su vez de la interfaz de personajes \ref{cap4:sec:InterfazPersonajes}, tenía los atributos específicos de los Protagonistas, y representaba una gran ayuda a la hora de la implementación de estos.
 %aquí pondría el diagrama de esta interfaz
 Una vez entendido bien el por que necesitábamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
 
 
 \subsubsection{La Víctima}
 %se crea cargando todos sus atributos y datos, elige un padre aleatorriamente para ella, reyenando un array con aquellos de tipo rey, tras lo cual se declara secuestrable. A continuacion realiza un comportamiento que la permite moverse mientras esta siendo secuestrada, siguiendo a su secuestrador respondiendo al mensaje mover-princesa. Otro comportamiento para avisar a su padre de que ha sido secuestrada cuando llega a la guarida del dragon, pues esta esperando al mensaje "te secuestro". En este mismo behaviour lanzara el mensaje mujer independiente cada cierto tiempo, que realiza una tirada aleatoria entre todas las posibles vidas del monstruo, tras lo cual si la tirada es mayor se escapa. Por ultimo tiene un comportamiento para cuando es rescatada en el que informa de que ha sido rescatada y acaba su ejecucion como agente. 
+La ejecución de la clase empezaba cargando los atributos y datos específicos del agente. Tras esto, era necesario imponer a la víctima un pariente, que se escogía se manera aleatoria accediendo a un \textit{String} donde estaban todos aquellos agentes de la clase pariente, tras lo cual la princesa se declarará del tipo secuestrable. 
+Aparte de esto poseía tres comportamientos.
+
+El comporamiento \texttt{mover-secuestrada} permitía a la princesa moverse con su secuestrado, respondiendo al mensaje mover princesa. Aunque a los ojos de la historia es el captor el que manda moverse a la víctima, el agente solo podía relocalizarse en el mapa a sí mismo, así que realmente se movía por su propio pie, aunque, eso si, siguiendo las ordenes de su captor.
+
+Cuando la víctima era capturada, llegaba un momento en el que su captor la mandaba el mensaje "Te Secuestro". que la confirmaba que en efecto había sido raptada. En ese momento la víctima lanzaba una petición de ayuda que era recogida por el pariente al iniciarse se la había ligado.
+Una vez esto ocurría la víctima intentaría escaparse por sus propios medios. Para ello, le lanzaba la petición \texttt{mujerIndependiente} a su secuestrador y se añadia otro comportamiento dentro de este, en el que cada cierto tiempo, un tic de reloj, la princesa generaba un numero aleatorio entre todos los posibles valores de vida que podía tener su captor. Así, si este número era mayor que la vida actual de su captor, ya que ante un secuestrador malherido, contaría con muchas mas posibilidades de escapar, la víctima conseguía liberarse y lanzaba el mensaje de "liberada". Tras esto, la princesa se planificaba, con el objetivo de volver a casa.
+
+Por último, tenía el comportamiento \texttt{rescatada}, que se ejecutaba cuando era salvada. En ese momento su salvador la mandaba el mensaje "rescatada" que indicaba a la princesa que su ejecución había acabado y el agente "moría". 
+
 \subsubsection{El Allegado a la Víctima}
 
 \subsubsection{El Aspirante a Héroe}
