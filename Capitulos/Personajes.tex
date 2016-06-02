@@ -98,11 +98,14 @@ Esta interfaz interpretaba correctamente los datos qcargados desde el SCD de Pro
 Una vez entendido bien el por que necesitábamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
 
 
-\subsubsection{La Damisela en Apuros}
+\subsubsection{La Víctima}
 %se crea cargando todos sus atributos y datos, elige un padre aleatorriamente para ella, reyenando un array con aquellos de tipo rey, tras lo cual se declara secuestrable. A continuacion realiza un comportamiento que la permite moverse mientras esta siendo secuestrada, siguiendo a su secuestrador respondiendo al mensaje mover-princesa. Otro comportamiento para avisar a su padre de que ha sido secuestrada cuando llega a la guarida del dragon, pues esta esperando al mensaje "te secuestro". En este mismo behaviour lanzara el mensaje mujer independiente cada cierto tiempo, que realiza una tirada aleatoria entre todas las posibles vidas del monstruo, tras lo cual si la tirada es mayor se escapa. Por ultimo tiene un comportamiento para cuando es rescatada en el que informa de que ha sido rescatada y acaba su ejecucion como agente. 
-\subsubsection{El Allegado a la Damisela}
+\subsubsection{El Allegado a la Víctima}
 
 \subsubsection{El Aspirante a Héroe}
+%El Caballero se inicia con todos sus atributos y registra el el tipo Matadragones. Tras esto registrara el comportamiento Ofrecer Servicios, en el que espera un mensaje del tipo Solocitar Servicio, si escucha este mensaje enviará su propuesta. Si esta propuiesta es aceptada accedera a su sigueinte comportamiento, que se llama aceptar oferta de rescate. Le llega el array de Strings contratos proporcionados por mundo (creo pero no lo encuentro) que contiene los datos del dragon y la princesa que ha de salvar. en ese momento inorma conel mensaje objetivosecuestro que va a intentar salvar a la princesa. Tras esto se planifica y añade el comprotamiento fin planificacion.En la planificación debera cumplir sus objetivos de objetivos.xml tal y como se explican en el apartado del planificador.
+%En el comportamiento fin planificacion se contemplan ambos casos, tanto que el caballero haya muerto en su aventura, en cuyo caso el agente sera eliminado, como que ha tenido éxito. Sino informara con el mensaje rescate del buen hacer de su empresa y el planificador le hara ejecutar el comportamiento convertirse en héroe, que simplemente es informativo. Tras esto, el caballero habra acabadosu planificacion y se borrará.
+%Todas las cosas que ocurren se mostrarán en la historia.
 
 \subsubsection{El Ayudante del Héroe}
 
@@ -203,12 +206,12 @@ En el comportamiento Acechar, el emboscador tiene los datos del agente al que es
 
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Guardián}
-No lo entiendo bien, declara su tipo como guardian y no se planifica nunca? no entiendo bien, y sospecho que no tengo el ultimo pull (se me hace rarisimo) y por eso no me sale todo. (no puedo pullear, tengo cambios que no se que son y no puedo hacer rebase).
+%Declara su tipo como guardian y se planifica, yendo a buscar un pobjeto aleatorio para custodiarlo. En ese momento espera el encuentro con un caballero y es que, cuando un caballero pase por su guarida, el guardian se enfrentara a el para protegercon recelo su objeto. En ese momento el guardian despertara la actividad del mago que vendra en ayuda del caballero.
 
 
 %-------------------------------------------------------------------
-\subsubsection{El Antagonista Maligno}
-registra su tipo como maligno, busca un rey al que derrocar y se planifica.
+\subsubsection{El Antagonista Asesino}
+%registra su tipo como asesino, añade el comportamiento maldad a partir del cual lanzara el mensaje derrocar, el rey cuya princesa ha sido secuestrada esta debil y es por tanto derrocable, asi que en ese momento el asesino se planifica.
 
 
 %-------------------------------------------------------------------
