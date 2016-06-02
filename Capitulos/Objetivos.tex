@@ -46,22 +46,59 @@ Resumiendo, se quiere crear un sistema que sea capaz de generar historias. Esta 
 
 Nuestro principal objetivo es el de desarrollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Estas simulaciones de historias queremos que tengan un factor de repetición bajo y así conseguir que cada historia sea totalmente distintiva, ``única'' Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear y configurar ciertas parte de la historia, como los personajes que actúan en ella, el nombre de los lugares donde esta transcurre, que tipos de monstruos quiere que aparezcan en su mundo... Pero ya entraremos en eso mas adelante.
 
-Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un Sistema Multiagentes. Cada personaje tiene unos  objetivos que intentar cumplir y la narración de todo el trascurso de acciones desde su creación hasta alcanzar su objetivo o morir en el intento nos proporcionará fragmentos de la historia generada. Para poder saber cual es el mejor camino para alcanzar los objetivos y evitar que nuestra historia pierda interés utilizaremos un planificador.
+Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un SMA. Cada personaje tiene unos  objetivos que intentar cumplir y la narración de todo el transcurso de acciones desde su creación hasta alcanzar su objetivo o morir en el intento nos proporcionará fragmentos de la historia generada. Para poder saber cual es el mejor camino para alcanzar los objetivos y evitar que nuestra historia pierda interés utilizaremos un planificador.
 
 Al tener un trabajo previo, es posible que haya reutilización de código,  en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos en los objetivos dicen "que al aumentar el trabajo se observarían variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
 
-Por ello los objetivos que nos marcamos son:
+\newpage
+%Por ello los objetivos que nos marcamos son:
+Los objetivos planteados para este proyecto figuran como sigue:
+
 \begin{itemize}
-	\item Diseñar un generador de historias, en el cual cada historia sea "única" y no tenga un final predefinido. Para ello:
+	
+	\item Ampliar la cantidad de personajes que de personajes que interactúan en la historia. Para ello se agregaran nuevos arquetipos de personajes en la historia.
+	
+	\item Minimizar el nivel de acoplamiento del sistema. Si se quiere crear un sistema generador que sea altamente configurable, es necesario tener un sistema robusto pero que permita al usuario editar tantos aspectos del sistema como este desee para poder generar gran variedad de historias.
+	
+	\item Tener un sistema que permita generar variedad de historias bajo diferentes entornos. Esto es ofrecer al usuario la posibilidad de generar historias de personajes en el espacio, en el salvaje oeste, o en Gotham.
+	
+	\item Diseñar una interfaz gráfica que permita al usuario ver cómo se genera la historia. Esta interfaz además debe permitir al usuario interactuar con la historia. Tener la posibilidad de introducir nuevos elementos a la historia que afecten el transcurso de esta.
+	
+	\item Incluir nuevos elementos a la generación, cómo en el caso de objetos que afecten a los personajes ó a sus objetivos.
+	
+	\item Dotar a los personajes de un sistema de razas y características similares a las que se pueden encontrar en juegos de rol. Esto permite diferenciar aún más a dos personajes del mismo arquetipo.
+	
+	\item Dar al usuario el control sobre las frases que usarán los personajes.
+	
+	\item Disponer de archivos que permitan al usuario configurar:
+	
 	\begin{itemize}
-		\item Ampliaremos el mapa.
-		\item Todos los personajes principales podrán realizar acciones.		
-		\item Introduciremos objetos.
-		\item Introduciremos PNJ.
+		\item La escenografía.
+		\item Los personajes y sus objetivos.
+		\item Las frases de los personajes.
+		\item Las razas y sus atributos.
+		\item Los objetos de la historia.
 	\end{itemize}
-	\item Diseñar una interfaz interactiva con la que queremos sumergir al usuario/lector en la historia.
-	\item Introducir replanificaciones en la historia cuando ocurran eventos significativos.
-	\item Utilizar archivos de configuración para favorecer a la aleatoriedad de las historias, guardando el mapa, los objetos, los PNJ's.
-	\item Utilizar archivos de configuración que nos permita cambiar el ámbito de las historias generadas.
+	 
 \end{itemize}
+
+
+%\begin{itemize}
+%	\item Diseñar un generador de historias, en el cual cada historia sea "única" y no tenga un final predefinido. Para ello:
+%	
+%	\begin{itemize}
+%		\item Ampliaremos el mapa.
+%		\item Todos los personajes principales podrán realizar acciones.		
+%		\item Introduciremos objetos.
+%		\item Introduciremos PNJ.
+%	\end{itemize}
+%	
+%	\item Diseñar e implementar una interfaz interactiva con la que queremos sumergir al usuario/lector en la historia.
+%	
+%	\item Introducir replanificaciones en la historia cuando ocurran eventos significativos.
+%	
+%	\item Utilizar archivos de configuración para favorecer a la aleatoriedad de las historias, guardando el mapa, los objetos, los PNJ's.
+%	
+%	\item Utilizar archivos de configuración que nos permita cambiar el ámbito de las historias generadas.
+%\end{itemize}
 
