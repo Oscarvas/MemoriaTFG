@@ -8,14 +8,42 @@
 
 \begin{FraseCelebre}
 \begin{Frase}
+	Comentar el código es como limpiar el cuarto de baño; nadie quiere hacerlo, pero el resultado es siempre una experiencia más agradable para uno mismo y sus invitados
 \end{Frase}
 \begin{Fuente}
+	Ryan Campbell
 \end{Fuente}
 \end{FraseCelebre}
 
-No olvidar introducción del capitulo
+Al momento de empezar a crear una historia podemos plantearnos diferentes enfoques con el fin de abordar esta cuestión de la manera mas sencilla posible. Para nosotros, el aspecto mas importante de esto son los personajes. Queremos hacer historias que se centren en estos ya que serán estos quienes al momento de interactuar entre si, generarán la historia que deseemos.
+
+Para hacer que existan los personajes dentro del sistema es necesario definirlos y darles las herramientas necesarias para que estos puedan interactuar. Dicho esto, los personajes deben existir dentro del sistema multi-agente.
+
+El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE, este sistema nos permite controlar la existencia de los agentes y poder manipularlos como tal.
+
+El siguiente enfoque tiene mas que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Necesitamos ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
+
+El Mundo, o agente Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada, visto de otra forma, es como si todos estuviesen en una habitación en blanco, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
+
+La existencia del Mundo como nueva dimensión espacial aporta a los personajes la capacidad de existir en un plano. Los personajes dejan de conocer la situación de otros y llegan a la necesidad de interactuar con su entorno para poder realizar acciones relevantes en una historia.
+
+(hablamos del planificador)
+
+(hablamos del logger)
+
+(hablamos de la interfaz)
+
 %-------------------------------------------------------------------
 \section{Diagrama de la arquitectura}
+
+Para tener una referencia que nos permita visualizar de manera sencilla la arquitectura del proyecto, podemos fijarnos en la figura \ref{fig:ArquitecturaProyecto}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/arquitectura}
+	\caption{Arquitectura del proyecto}
+	\label{fig:ArquitecturaProyecto}
+\end{figure}
 
 %-------------------------------------------------------------------
 \section{El Agente Mundo}
