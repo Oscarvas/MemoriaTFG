@@ -16,7 +16,7 @@
 %-------------------------------------------------------------------
 
 \section{Diseño de los Atributos y las Razas}
-\label{CapAtryRazas}
+\label{cap:AtributosRazas}
 %Como ya se explico en el mapa, la raza determinara en que lugar ?nacerá? cada personaje, en cierta medida, pues solo aclara la región, no determina en que localización especifica de esta, pero su funcionalidad no acaba aquí, pues también dará un impulso a los atributos de los personajes.
 Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron:
 \begin{itemize}
@@ -50,7 +50,7 @@ Las razas sin embargo, venían dictaminadas de un archivo de configuración XML do
 \subsection{Razas configurables}
 Para realizar correctamente la configuración de las Razas a través de un archivo XML necesitábamos, nuevamente, un Loader capaz de cargar e interpretar los datos.
 
-Este Loader, que seguía el patrón normal de todos los Loaders \ref{cap4:sec:Loaders}, tenía la particularidad de que cargaba el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave raza a partir de la cual cargaba las características específicas de esta, que eran enviados a un objeto Raza, que explicaremos más adelante, e introducido a una liste de las distintas Razas.
+Este Loader, que seguía el patrón normal de todos los Loaders \ref{cap:Arquitectura:Loaders}, tenía la particularidad de que cargaba el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave raza a partir de la cual cargaba las características específicas de esta, que eran enviados a un objeto Raza, que explicaremos más adelante, e introducido a una liste de las distintas Razas.
 
 La configuración específica que debía tener este fichero para que la aplicación funcionase correctamente debía seguirse a rajatabla, por lo tanto junto al archivo de configuración incluíamos un prototipo propio de configuración de razas que también podía usarse como ejemplo, aparte de una pequeña guía de como ha de construirse el archivo, consultable en \ref{ejemploXML:Razas}.
 

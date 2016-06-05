@@ -5,6 +5,7 @@
 %---------------------------------------------------------------------
 
 \chapter{El Mapa}
+\label{cap:Mapa}
 
 \begin{FraseCelebre}
 \begin{Frase}
@@ -59,7 +60,7 @@ Para ello creamos un archipiélago de islas donde tres islas pequeñas coronaban u
 Para seguir aumentando el mapa, nuestro siguiente paso fue profundizar en el contenido de las regiones. Con el objetivo de que cada región fuese única y no tuviésemos sencillamente seis zonas con nombres distintos, decidimos proporcionar a cada una uno o varios elementos distintivos, que la diferenciase de las demás. 
 Así por ejemplo, decidimos que sólo en dos regiones habría castillos, lo cual a su vez limitaba a que solo hubiese dos reinos en nuestro mapa, pues solo en un castillo podría vivir un rey.
 
-\label{cap5:sec:LocalizacionesPNJ}
+\label{cap:Mapa:LocalizacionesPNJ}
 De igual manera habría localizaciones muy especificas en ciertas regiones. Por ejemplo, en una de ellas estaría la herrería, en otra la taberna, en otra el hospital... Estas localizaciones cumplirían las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en él. Así, en estos sitios, aguardarían estos nuevos personajes esperando el momento de su intervención, estando estos personajes ligados a una localización particular en específico, como en este caso serian el herrero, el tabernero o la amable enfermera.
 
 
@@ -67,7 +68,7 @@ Con el fin de dotar al resto de personajes de lugares en los que entrar en la hi
 A través de esta nueva característica, buscamos clasificar nuestras localizaciones según un elemento común. Así, de todas aquellas localizaciones en el mapa que fuesen bosques sabríamos que lo eran y podríamos interpretarlas correctamente para trabajar con ellas en conjunto. 
 De esta manera clasificamos las localizaciones en los siguientes tipos: castillo, pueblo, urbano (que se referían a las localizaciones específicas previamente comentadas como la herrería), bosque, lago, guarida y camino.
 
-\label{capMapa:sec:LocalizacionesAleatoriasSegunClase}
+\label{cap:Mapa:LocalizacionesAleatoriasSegunClase}
 Esta clasificación en tipos nos ayudaría a la hora de crear personajes, asignándole a cada clase o monstruo un tipo de localización en concreto, de forma que al crearse dicho personaje fuese situado aleatoriamente en una de las localizaciones que tuviesen el tipo al que dicha clase o monstruo pertenecían. De esta manera, si a la clase o monstruo X le asignabas el tipo de localización Y, a ese personaje se le cedería una localización específica Z que perteneciese al conjunto de localizaciones del tipo Y.
 El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizaciones}:
 
@@ -109,7 +110,7 @@ Una vez correctamente digitalizado, lo introdujimos en la GUI, aportándonos un g
 \section{Implementación del Mapa}
 Para que el mapa fuese configurable y pudiese cargar sus datos a través de un archivo XML fue necesaria una remodelación profunda del mismo, produciendo las modificaciones que se explicaran a continuación.
 
-De igual manera, para poder usar de manera correcta nuestro mapa, sabíamos que debía estar en el agente mundo, tal y como se explico en su capítulo \ref{cap4:sec:AgenteMundo}, creando las clases necesarias para ello.
+De igual manera, para poder usar de manera correcta nuestro mapa, sabíamos que debía estar en el agente mundo, tal y como se explico en su capítulo \ref{cap:Arquitectura:AgenteMundo}, creando las clases necesarias para ello.
 
 
 \subsection{Mapas configurables por el usuario}
@@ -117,10 +118,10 @@ El mapa original era un archivo XML lleno de \textit{Strings}, que representaban
 
 Para poder usarlo de la manera correcta, primero debía contar con un sistema cargador de datos (SCD) capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este SCD dentro del propio agente, dándole a este la funcionalidad de \texttt{CargarMapa()}.
 
-La función que actuaba como el SCD del archivo del mapa funcionaba básicamente como el resto de SCD's, ver apartado \ref{cap4:sec:Loaders}, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un \textit{ArrayList} de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual cargaba nuevas localizaciones. 
+La función que actuaba como el SCD del archivo del mapa funcionaba básicamente como el resto de SCD's, ver apartado \ref{cap:Arquitectura:Loaders}, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un \textit{ArrayList} de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual cargaba nuevas localizaciones. 
 Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización, en la carga se buscaba la etiqueta \texttt{<conectadoCon>} donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
-Para que estas cargas se pudiesen realizar correctamente fue necesaria la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante \ref{cap5:sec:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
+Para que estas cargas se pudiesen realizar correctamente fue necesaria la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante \ref{cap:Mapa:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
 
 Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Estas localizaciones se guardaban en un \textit{ArrayList} auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y decidir de manera aleatoria entre las localizaciones de ese tipo finalmente en cual iban a empezar.
 
@@ -136,7 +137,7 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 \end{lstlisting}
 
 \subsection{Las Clases Mapa y Localización y cómo localizar personajes}
-\label{cap5:sec:ClaseMapaLocalizacion}
+\label{cap:Mapa:ClaseMapaLocalizacion}
 La clase Localización nos permitía trabajar con las localizaciones de una manera más funcional, pudiendo ligar al \textit{String}, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
 
 De igual manera, la Clase Localización permitía al agente mundo conocer que personajes y objetos interactuaban con ella así como con que localizaciones estaba conectada.

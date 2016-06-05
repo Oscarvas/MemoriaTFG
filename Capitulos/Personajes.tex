@@ -5,6 +5,7 @@
 %---------------------------------------------------------------------
 
 \chapter{Los Personajes}
+\label{cap:Personajes}
 
 \begin{FraseCelebre}
 \begin{Frase}
@@ -22,7 +23,7 @@ Para poder diseñar correctamente estos diversos personajes lo primero que debíam
 
 De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los "buenos" dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de "malos" en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
 
-También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender bien el capitulo \ref{cap4:sec:Planificador}.
+También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender bien el capitulo \ref{cap:Arquitectura:Planificador}.
 
 %aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
 
@@ -35,19 +36,19 @@ Para que la historia fuese rica necesitábamos de no solo uno sino varios persona
 
 \subsection{Diseño de los Protagonistas}
 En la busqueda de unos protagonistas que satisfaciesen nuestras necesidades para cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
-De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap11:Objetos}.
+De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap:Objetos}.
 Las distintas clases a las que un portagonista puede pertenecer son:
 
 \subsubsection{La Princesa}
 La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
-Sin embargo, nuestra idea del personaje "Princesa" no acababa ahí, sino que también quisiesemos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así que, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando, evaluando sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
+Sin embargo, nuestra idea del personaje "Princesa" no acababa ahí, sino que también quisiésemos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así que, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando, evaluando sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
 
 \subsubsection{El Rey}
 El Rey cumplía un papel mas formal dentro de la historia. Su principal uso era el de tener un personaje intermedio para que los distintos personajes pudiesen comunicarse entre sí, pero no por ello era menos importante, ya que sin su ayuda la historia no podría transcurrir de manera fluida.
 La empresa del rey era la de contratar a los distintos caballeros del reino cuando alguna de sus hijas era secuestrada. Así, el Rey les pedía ayuda a estos aspirantes a héroes con la esperanza de que alguno pudiese rescatar a su preciada hija.
 
 \subsubsection{Los Caballeros}
-El propósito de los Caballeros en la historia era el de cumplir el papel de héroes. Para ello debían emprender su camino con el objetivode rescatar a la princesa de su malvado secuestrador, enfrentándose por el camino a las distintas pruebas propuestas por el resto de los antagonistas.
+El propósito de los Caballeros en la historia era cumplir el papel de héroes. Para ello debían emprender su camino con el objetivo de rescatar a la princesa de su malvado secuestrador, enfrentándose por el camino a las distintas pruebas propuestas por el resto de los antagonistas.
 En estas pruebas el caballero deberá hacer uso de los diversos recursos que tenga a su alcance o incluso necesitará ayuda de otros personajes para poder superarlas.
 
 \subsubsection{El Mago}
@@ -55,7 +56,7 @@ El Mago cumplirá el papel del personaje que ayuda en un momento crucial de la hi
 El caballero, que por si solo no es capaz de enfrentarse al guardián, pedirá apoyo a un mago, el cual acudirá en su ayuda bajo el precio de poder quedarse con el objeto que este antagonista guardián mantiene vigilado.
 
 \subsubsection{EL Héroe Caído o Villano}
-El concepto de héroe caído, como ya se menciono antes, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:3:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en "buenos" y "malos", pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
+El concepto de héroe caído, como ya se menciono antes, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en "buenos" y "malos", pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
 
 \subsubsection{Protagonistas Adaptables}
 Como se explicó en el capitulo de objetivos, una de nuestras aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
@@ -63,7 +64,7 @@ Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{c|c}
+	\begin{tabular}{l|l}
 		Clase Protagonista				& Papel en la Historia  \\ \hline
 		Damísela en apuros (Princesa)	& Será secuestrada en las historias \\
 		Allegado a la Damisela (Rey) 	& Pedirá que rescaten a la damisela\\
@@ -80,14 +81,15 @@ Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar lo
 
 
 \subsection{Implementación de los Protagonistas}
-Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partiamos de cero, tal y como se explicó en el capitulo \ref{Capitulo4:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan.
+Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capitulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan.
 
-De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{capFrases}.
+De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{cap:Frases}.
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema Cargador de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap4:sec:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero "Personajes.XML", a través del cual cogía las características concernientes a cada Protagonista en específico y proporcionar al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave <personaje>.
+Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carg de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero "Personajes.XML", a través del cual cogía las características concernientes a cada Protagonista en específico y proporcionar al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave <personaje>.
 El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploXML:protagonistas}.
+
 \label{ejemploXML:protagonistas}
 \begin{lstlisting}[basicstyle=\tiny]
 	<personaje nombre="Felipe" clase="Rey" raza="LUCS" vida="100" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
@@ -97,7 +99,7 @@ El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploX
  
 \subsubsection{La Interfaz Protagonistas}
 Para poder ejecutar correctamente a los protagonistas necesitábamos de una interfaz común para poder tratarlos a todos como el tipo de personajes que eran.
-Esta interfaz interpretaba correctamente los datos cargados desde el SCD de Protagonistas, para posteriormente enviárselos a cada clase en específico. Esta clase, que heredaba a su vez de la interfaz de personajes \ref{cap4:sec:InterfazPersonajes}, tenía los atributos específicos de los Protagonistas, y representaba una gran ayuda a la hora de la implementación de estos.
+Esta interfaz interpretaba correctamente los datos cargados desde el SCD de Protagonistas, para posteriormente enviárselos a cada clase en específico. Esta clase, que heredaba a su vez de la interfaz de personajes \ref{cap:Arquitectura:InterfazPersonajes}, tenía los atributos específicos de los Protagonistas, y representaba una gran ayuda a la hora de la implementación de estos.
 %aquí pondría el diagrama de esta interfaz
 Una vez entendido bien el por que necesitábamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
 
@@ -122,7 +124,7 @@ Por último, tenía el comportamiento \texttt{rescatada}, que se ejecutaba cuando 
 %Todas las cosas que ocurren se mostrarán en la historia.
 Al iniciarse un nuevo héroe, éste cargaba todos sus atributos, registraba el tipo "Matadragones" y se localizaba dentro del mapa.  El héroe registra dos comportamientos principales que son \texttt{OfrecerServicios()} y \texttt{AceptarOfertaRescate()}.
 
-En el comportamiento \texttt{OfrecerServicio()} el héroe espera un mensaje del tipo SolicitarServicio, que mandará el allegado a la víctia cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responderá enviando una propuesta con el precio que cuesta contratar sus servicios, que viene determinado por su codicia (\ref{CapAtryRazas}).
+En el comportamiento \texttt{OfrecerServicio()} el héroe espera un mensaje del tipo SolicitarServicio, que mandará el allegado a la víctia cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responderá enviando una propuesta con el precio que cuesta contratar sus servicios, que viene determinado por su codicia (\ref{cap:AtributosRazas}).
 
 Si esta propuesta es aceptada accederá a su siguiente comportamiento, \texttt{AceptarOfertaRescate}. En este momento le llega una lista de \textit{Strings} que contiene la información necesaria para cumplir el contrato, véase los datos del Secuestrador y de la Víctima que ha de salvar. En ese momento informa con el mensaje \texttt{ObjetivoSecuestro} que emprende la marcha para intentar salvar a la víctima. En ese momento se planifica, donde sus objetivos serán estar con la princesa en su casa y posteriormente convertirse en héroe, para lo que debe volver a la suya propia, que simplemente es informativo.
 Tras convertirse en héroe el caballero habrá acabado su planificación y el agente terminará.
@@ -166,12 +168,12 @@ Como sucede en otros diseños del proyecto, al tratar de darle un aire mas genéri
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{c|c}
+	\begin{tabular}{l|l}
 		Antagonista					& Objetivo \\ \hline
-		Antagonista Secuestrador	& Secuestrar Princesas \\
-		Antagonista Emboscador 		& Emboscar Héroes a cambio de dinero\\
-		Antagonista Guardian 		& Proteger un Objeto \\
-		Antagonista Maligno			& Atormentar Reyes \\ \hline
+		Secuestrador				& Secuestrar Princesas \\
+		Emboscador 					& Emboscar Héroes a cambio de dinero\\
+		Guardian 					& Proteger un Objeto \\
+		Maligno						& Atormentar Reyes \\ \hline
 	\end{tabular}
 	\caption{Tabla final de objetivos y tipos de Monstruos}
 	\label{fig:TablaObjetivosMonstruos}
@@ -183,19 +185,32 @@ De esta manera el usuario a través del archivo XML, cuya construcción es consult
 Para implementar los Antagonistas era necesario tratar con agentes y sus propiedades. A través del agente mundo nuestros agentes se comunicarían con los otros y recibirían la información que necesitaban, pero sin embargo para el correcto funcionamiento de los Antagonistas se necesitaban muchas más cosas.
 %-------------------------------------------------------------------
 \subsubsection{Carga y configuración de los antagonistas}
-Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido, \ref{cap4:sec:Loaders}, con la particularidad de recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada antagonista que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
+Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'' seguimos el patrón preestablecido en el capítulo \ref{cap:Arquitectura:Loaders}, con la particularidad de recorrer los nodos con la palabra clave <monstruo> que contenían los atributos específicos de cada antagonista que queríamos introducir en la historia, los cuales eran almacenados para crear un nuevo agente. El archivo XML seguía mas o menos esta estructura.
+
+
 
 \label{ejemploXML:monstruos}
-\begin{lstlisting}[basicstyle=\tiny]
-<monstruo nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
-<monstruo nombre="Casper" clase="Maligno" especie="Queso Azul Mortifero" sexo="M"/>
-<monstruo nombre="Jormundgander" clase="Guardian" especie="Gyarados" sexo="F"/>
-<monstruo nombre="Trundle" clase="Emboscador" especie="Troll" sexo="M"/>
+\begin{lstlisting}[basicstyle=\footnotesize, language=xml]
+<monstruo 
+	nombre ="[nombrePersonaje]" 
+	clase ="[Secuestrador|Emboscador|Guardian|Maligno]" 
+	especie ="[nombreEspecie]" 
+	sexo ="[M|F]"/>
+	
+Ejemplo:
+<monstruo 
+	nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
+
 \end{lstlisting}
+%<monstruo nombre="Smaug" clase="Secuestrador" especie="Dragon" sexo="F"/>
+%<monstruo nombre="Casper" clase="Maligno" especie="Queso Azul Mortifero" sexo="M"/>
+%<monstruo nombre="Jormundgander" clase="Guardian" especie="Gyarados" sexo="F"/>
+%<monstruo nombre="Trundle" clase="Emboscador" especie="Troll" sexo="M"/>
+
 
 %-------------------------------------------------------------------
 \subsubsection{La Interfaz Antagonistas}
-La Interfaz Mostruo era aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta Interfaz a su vez necesitaba de la Interfaz Personaje \ref{cap4:sec:InterfazPersonajes}, donde conseguía cargar todos los atributos relativos al antagonista, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de antagonistas en específico.
+La Interfaz Monstruo era aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta Interfaz a su vez necesitaba de la Interfaz Personaje (ver capítulo \ref{cap:Arquitectura:InterfazPersonajes}), donde conseguía cargar todos los atributos relativos al antagonista, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo antagonistas en específico.
 %aquí pondría el diagrama de esta interfaz
 A continuación entraremos en detalle a explicar como se implementó cada antagonista en específico.
 Para explicar de manera correcta como se comportaban este tipo de antagonistas explicaremos que comportamientos y acciones es capaz de desarrollar como agente.
@@ -216,7 +231,7 @@ Este comportamiento permite al agente princesa secuestrada escaparse de su rapto
 El agente emboscador se registraba enviandole al mundo finalmente la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registraba los comportamientos de Emboscar y Acecho y finalmente se planificaba.
 
 El comportamiento de Emboscar era bastante complejo. 
-Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{capMapa:sec:LocalizacionesAleatoriasSegunClase}, que era el lugar donde emboscaba, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
+Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase}, que era el lugar donde emboscaba, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
 Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
 
 El agente emboscador le enviaba un mensaje template "SolicitarServicio" al mundo, a la vez que elegían un tipo de clase al cual iban a emboscar. Cada vez que un agente se movía, el mundo busca entre todos los agentes emboscadores, mandandoles la clase que desea cruzar en ese momento.
@@ -252,9 +267,9 @@ En el sistema hemos adaptado estos personajes de los juegos a la narrativa para 
 \subsection{Diseño de los PNJ's}
 Nuestro numero de historias ya era altamente variado, pero aun así sentíamos que debíamos proponer mas. En busca de un nuevo aire que diese un toque distinto a nuestras historias y aumentase en cantidad el numero posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambiasen ligeramente el curso de la historia o que sencillamente apareciesen en ella dándole un toque divertido a ésta.
 
-Para ello nos propusimos crear numerosos personajes, que tuviesen como peculiaridad el interactuar con personajes principales cuando éstos pasaban por las localizaciones en las que estaban situados. En ese momento se produciría un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap11:sec:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaríamos como ``bufo''. Éste "bufo" bien podía ser un objeto que se consumía en el momento o una bendición, que afectaba al personaje modificando sus atributos, ya fuese de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
+Para ello nos propusimos crear numerosos personajes, que tuviesen como peculiaridad el interactuar con personajes principales cuando éstos pasaban por las localizaciones en las que estaban situados. En ese momento se produciría un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaríamos como ``bufo''. Éste ``bufo'' bien podía ser un objeto que se consumía en el momento o una bendición, que afectaba al personaje modificando sus atributos, ya fuese de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
 
-Para terminar de definir los PNJ's pensamos que lo que mas encajaba dentro de nuestra propuesta de diseño es que éstos tuviesen un oficio. De esta manera, al crear los PNJ's propusimos que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que decidimos que nuestros PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap5:sec:LocalizacionesPNJ} vease la herrería, el hospital o la sastrería y proporcionasen este buffo con algo relacionado a su campo, por ejemplo el herrero podría forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acabaría representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
+Para terminar de definir los PNJ's pensamos que lo que mas encajaba dentro de nuestra propuesta de diseño es que éstos tuviesen un oficio. De esta manera, al crear los PNJ's propusimos que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que decidimos que nuestros PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap:Mapa:LocalizacionesPNJ} vease la herrería, el hospital o la sastrería y proporcionasen este buffo con algo relacionado a su campo, por ejemplo el herrero podría forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acabaría representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
 De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentaran los atributos del personaje, y en otras los disminuirán.
 
 Sin embargo, decidimos q ue este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, decidimos que los PNJ's también pudiesen ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
@@ -267,13 +282,16 @@ La implementación de los PNJ trajo consigo numerosas adiciones de clases al proy
 \subsubsection{PNJ's configurables por el usuario}
 Para permitir la configuración de los PNJ's a través de los XML fue necesario, como de costumbre, un loader capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
 
-Este Loader seguía el diseño normal del resto \ref{cap4:sec:Loaders}, con la particularidad de que cargaba específicamente el fichero ``PNJs.XML'', donde recorría sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorría el nodo que representaba al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
+Este Loader seguía el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que cargaba específicamente el fichero ``PNJs.XML'', donde recorría sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorría el nodo que representaba al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
 Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera tan concreta, consultable en \ref{ejemploXML:Pnjs}, por lo tanto se incluyen el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
 
 \label{ejemploXML:Pnjs}
 \begin{lstlisting}[basicstyle=\tiny]
+<pnj nombre="[nombrePersonaje]" sexo="[M|F]" oficio="[nombreOficio]" localizacion="[localizacionMapa]"/>
+
+Ejemplo:
 <pnj nombre="Thrall" sexo="M" oficio="Chaman" localizacion="Minas"/>
 \end{lstlisting}
 
 \subsubsection{La Clase PNJ}
-Si bien el agente se iniciaba desde el loader, para poderse cargar de manera correcta necesitaba de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se creo la clase PNJ, que heredaba de la interfaz de personajes \ref{cap4:sec:InterfazPersonajes}, que incluía los métodos específicos que permitían el buen funcionamiento de los PNJ's.
+Si bien el agente se iniciaba desde el loader, para poderse cargar de manera correcta necesitaba de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se creo la clase PNJ, que heredaba de la interfaz de personajes \ref{cap:Arquitectura:InterfazPersonajes}, que incluía los métodos específicos que permitían el buen funcionamiento de los PNJ's.
