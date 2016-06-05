@@ -21,18 +21,23 @@ Para hacer que existan los personajes dentro del sistema es necesario definirlos
 
 El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE, este sistema nos permite controlar la existencia de los agentes y poder manipularlos como tal.
 
-El siguiente enfoque tiene mas que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Necesitamos ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
+El siguiente enfoque tiene mas que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Es necesario ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
 
-El Mundo, o agente Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada, visto de otra forma, es como si todos estuviesen en una habitación en blanco, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
+El Mundo, o agente Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada, visto de otra forma, es como si todos estuviesen en una habitación vacía, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
 
 La existencia del Mundo como nueva dimensión espacial aporta a los personajes la capacidad de existir en un plano. Los personajes dejan de conocer la situación de otros y llegan a la necesidad de interactuar con su entorno para poder realizar acciones relevantes en una historia.
 
-(hablamos del planificador)
+Ahora que ya tenemos un ecosistema creado con los personajes y su entorno, necesitamos de un sistema capaz de otorgar la lógica o inteligencia a los personajes. Dicho sistema es el planificador. El planificador es el componente que permite a los personajes "pensar" en la secuencia de acciones que deben realizar para poder cumplir sus objetivos dentro de la historia. Estas acciones ayudarán al personaje desde decidir a cual dirección moverse hasta en que momento pelear con otro personaje.
 
-(hablamos del logger)
+Con todo esto tenemos descrito el núcleo importante de nuestro sistema. Se han juntado los componentes mínimos para poder generar una historia. Aún así, todavía el usuario no está incluido dentro de todo esto, y no tiene sentido tener un sistema que trabaje para sí en lugar de dejarle a un usuario una copia de los resultados obtenidos.
 
-(hablamos de la interfaz)
+Es necesario el uso de algún componente ó sistema que nos permita recoger el flujo de historia final. Saber cuáles han sido los mensajes que intercambiaron los personajes y las acciones que realizaron. Usar un \textit{logger} nos permite guardar un registro del momento en el que ocurre cada eventos de la historia.
 
+Sin embargo, al ser un sistema pensado para ser utilizado por un usuario, falta disponer de una capa que permita a este interactuar con el sistema. La interfaz gráfica otorga al usuario la capacidad de visualizar información adicional durante el momento de la simulación. Es mediante esta capa, que el usuario puede también añadir nuevos elementos a la generación de historias.
+
+A continuación hablaremos con más detalle sobre cada uno de estos componentes y sobre otras partes del sistema necesarias ó que se ven afectadas por estos.
+
+\newpage
 %-------------------------------------------------------------------
 \section{Diagrama de la arquitectura}
 
