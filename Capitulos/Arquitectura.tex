@@ -65,34 +65,39 @@ Generalmente, por no decir en todas las historias, siempre existe un personaje q
 Teniendo muy presente que ésto es un factor clave al momento de diseñar un sistema capaz de generar diferentes tipos y temáticas de historias, se plantea la siguiente estructura:
 
 \begin{itemize}
-	\item Personaje.
+	\item \textbf{Personaje}.
 	Clase que nos permite modelar las características comunes de todos los agentes. Aspectos como la vida del personaje, localización, sexo, clase de personaje se contemplan en este nivel.
 	
 		\begin{itemize}
-			\item Protagonistas.
+			\item \textbf{Protagonistas}.
 			Son personajes que disponen de atributos especiales (fuerza, inteligencia...) y que tienen la capacidad de usar ciertos objetos. Entre estos personajes disponemos de:
 			
 			\begin{itemize}
-				\item Salvador
-				\item Victima
-				\item (padre/familiar/contratista) de la victima
-				\item Compañero
+				\item \textbf{Víctima}. Este personaje será objeto de secuestro por parte de uno de los antagonistas.
+				
+				\item \textbf{Salvador}. El principal, el posible héroe, que intentará rescatar a la víctima y dejarla a salvo.
+				
+				\item \textbf{Mentor}. Este personaje es quien se encarga de pedir ayuda al salvador para rescatar a la víctima.
+				
+				\item \textbf{Compañero}. Su labor es ayudar al salvador en los posibles obstáculos que éste encuentre en su travesía.
+				
+				\item \textbf{Especialista}. Un personaje que sabe como lidiar con los ``Cazatesoros'' e inspeccionar la integridad de los objetos de la historia.
 			\end{itemize}
 			
-			\item Antagonistas.
+			\item \textbf{Antagonistas}.
 			Estos son los personajes que se encargarán de poner a prueba las habilidades de los protagonistas, poniendo obstáculos en su camino o intentando eliminarlos. Se proporcionan los siguientes tipos:
 			
 			\begin{itemize}
-				\item Secuestrador. Este personaje se encarga de raptar a la víctima y ocultarla del protagonista.
+				\item \textbf{Secuestrador}. Este personaje se encarga de raptar a la víctima y ocultarla del protagonista.
 				
-				\item Emboscador. El emboscador es un personaje que tratará de impedir el paso a cierto tipo de protagonista. Merodea a través del mapa a la espera de que un protagonista se cruce en su camino.
+				\item \textbf{Emboscador}. El emboscador es un personaje que tratará de impedir el paso a cierto tipo de protagonista. Merodea a través del mapa a la espera de que un protagonista se cruce en su camino.
 				
-				\item Guardián. También puede verse como el ``Cazador de tesoros''. Es un personaje que va en la búsqueda de algún objeto dentro de la historia.
+				\item \textbf{Guardián}. También puede verse como el ``Cazador de tesoros''. Es un personaje que va en la búsqueda de algún objeto dentro de la historia.
 				
-				\item Asesino. La representación tácita del mal. Un personaje que busca acabar con la vida de otro.
+				\item \textbf{Asesino}. La representación tácita del mal. Un personaje que busca acabar con la vida de otro.
 			\end{itemize}
 			
-			\item Personajes No Jugadores (PNJ's). Estos son personajes que no tienen un objetivo que cumplir como tal, pero sirven como generadores de recursos para los protagonistas que se encuentren con ellos.
+			\item \textbf{Personajes No Jugadores (PNJ's)}. Estos son personajes que no tienen un objetivo que cumplir como tal, pero sirven como generadores de recursos para los protagonistas que se encuentren con ellos.
 			
 		\end{itemize}
 		
