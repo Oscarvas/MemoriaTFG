@@ -54,6 +54,58 @@ Para tener una referencia que nos permita visualizar de manera sencilla la arqui
 \section{Personajes y SMA}
 \label{cap:Arquitectura:PersonajesSMA}
 
+Cada uno de los personajes es implementado como agente software usando la plataforma JADE. Esto permite que los personajes puedan usar los estándares definidos por FIPA e interactuar con otros personajes.
+
+Cada agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes.
+
+Estudiando diferentes tipos de historias, de diferentes autores y temáticas variadas, se puede observar en la gran mayoría de los casos que existe un factor en común para estas historias. Hablamos sobre los arquetipos de personajes que existen en las historias.
+
+Generalmente, por no decir en todas las historias, siempre existe un personaje que es el protagonista, ó varios personajes. Siempre hay una figura contraria, un villano. Suele haber uno o varios personajes que sirven de motivación para que el protagonista se desenvuelva dentro de la historia. Y también hay personajes que si bien no son ``relevantes'' para la historia, de alguna manera y en algún momento interactúan con el protagonista para guiarle o alterar el curso de su historia.
+
+Teniendo muy presente que ésto es un factor clave al momento de diseñar un sistema capaz de generar diferentes tipos y temáticas de historias, se plantea la siguiente estructura:
+
+\begin{itemize}
+	\item Personaje.
+	Clase que nos permite modelar las características comunes de todos los agentes. Aspectos como la vida del personaje, localización, sexo, clase de personaje se contemplan en este nivel.
+	
+		\begin{itemize}
+			\item Protagonistas.
+			Son personajes que disponen de atributos especiales (fuerza, inteligencia...) y que tienen la capacidad de usar ciertos objetos. Entre estos personajes disponemos de:
+			
+			\begin{itemize}
+				\item Salvador
+				\item Victima
+				\item (padre/familiar/contratista) de la victima
+				\item Compañero
+			\end{itemize}
+			
+			\item Antagonistas.
+			Estos son los personajes que se encargarán de poner a prueba las habilidades de los protagonistas, poniendo obstáculos en su camino o intentando eliminarlos. Se proporcionan los siguientes tipos:
+			
+			\begin{itemize}
+				\item Secuestrador. Este personaje se encarga de raptar a la víctima y ocultarla del protagonista.
+				
+				\item Emboscador. El emboscador es un personaje que tratará de impedir el paso a cierto tipo de protagonista. Merodea a través del mapa a la espera de que un protagonista se cruce en su camino.
+				
+				\item Guardián. También puede verse como el ``Cazador de tesoros''. Es un personaje que va en la búsqueda de algún objeto dentro de la historia.
+				
+				\item Asesino. La representación tácita del mal. Un personaje que busca acabar con la vida de otro.
+			\end{itemize}
+			
+			\item Personajes No Jugadores (PNJ's). Estos son personajes que no tienen un objetivo que cumplir como tal, pero sirven como generadores de recursos para los protagonistas que se encuentren con ellos.
+			
+		\end{itemize}
+		
+\end{itemize}
+
+En el capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
+
+\subsection{Estado de los Agentes}
+\subsection{Comportamientos JADE}
+\subsection{Mensajes FIPA}
+
+
+
 %-------------------------------------------------------------------
 \section{El Agente Mundo}
 \label{cap:Arquitectura:AgenteMundo}
