@@ -137,7 +137,7 @@ Un \textbf{Message Transport Service (MTS)} es el método de comunicación por def
 
 Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes pueden ser desarrollados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
 
-El diseño interno de un AP es una labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
+El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
 \subsection{Identificación de los agentes}
 Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
@@ -161,7 +161,72 @@ Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporc
 
 \textbf{Unknown:} El MTS bien almacena en un buffer los mensajes o los rechaza, dependiendo de la política del MTS y de los requerimientos de transporte del mensaje.
 
-\subsection{Comportamientos/Behaviours JADE}
+Un agente en JADE dispone de 2 métodos fundamentales:
+\begin{itemize}
+	\item \texttt{setup()}: Método que se invoca al momento que se crea el agente, cuando el agente pasa a los estados de \textit{iniciado} y \textit{activo}. Dentro de este método se especifican las instrucciones y los comportamientos de los que dispondrá el agente.
+	
+	\item \texttt{takeDown()}: Método invocado automáticamente al momento que se destruye el agente. Principalmente nos permite liberar recursos usados por el agente antes de que deje de existir en la AP. 
+\end{itemize}
+
+\subsection{Comportamientos JADE}
+
+Los agentes en JADE se especifican mediante comportamientos. Los comportamientos definen la forma de actuar para cada agente ante un problema dado. Cada comportamiento se encarga de resolver una tarea, comunicarse, o evaluar alguna condición del agente.
+
+Cada agente dispone a su vez de una cola de comportamientos en la cual ser irán incluyendo los comportamientos agregados con \verb|addBehaviour()|. Cuando llega el turno de ejecución de un comportamiento, este intenta realizar su tarea y al finalizar es removido y eliminado de la cola. Existen comportamientos que en función del tipo que sean, al finalizar su tarea intentarán añadirse nuevamente a la cola.
+
+Los tipos de comportamientos en JADE son los siguientes:
+
+\begin{itemize}
+	\item \textbf{Behaviour}. Comportamiento básico que proporciona los métodos \verb|action()| \footnote{Dentro se especifican las tareas que va a realizar el comportamiento.} y \verb|done()|\footnote{Devuelve \texttt{true} si el comportamiento ha finalizado su ejecución.}.
+	\begin{itemize}
+		
+			\item \textbf{SimpleBehaviour}. Comportamientos que realizan tarea simples.
+			
+			\begin{itemize}
+				\item \textbf{OneShotBehaviour}. Tipo de comportamiento que su método \verb|action()| se ejecuta una única vez.
+				
+				\item \textbf{TickerBehaviour}. Comportamiento de ejecución periódica.
+				
+				\item \textbf{WakerBehaviour}. Es una variación del OneShotBehaviour que inicia su ejecución después de un tiempo especificado.
+				
+				\item \textbf{CyclicBehaviour}. Comportamiento cuyo método \verb|done()| siempre devuelve \verb|false|, por tanto al terminar su \verb|action()| vuelve a la cola de comportamientos.
+				
+			\end{itemize}
+			
+			\item \textbf{CompositeBehaviour}. Nos permite integrar dentro de su estructura múltiples comportamientos.
+			
+			\begin{itemize}
+				
+				\item \textbf{ParallelBehaviour}. Este tipo permite la ejecución en paralelo de varios comportamientos.
+				
+				\item \textbf{SerialBehaviour}. Nos permite representar sucesiones de comportamientos.
+				
+				\begin{itemize}
+					\item \textbf{SequentialBehaviour}. Obliga a los comportamientos que lo integran a ejecutarse en un orden especificado.
+					
+					\item \textbf{FSMBehaviour}. Nos permite emular una máquina de estados finita basada en comportamientos.
+				\end{itemize}
+			\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+La figura \ref{fig:JerarquiaComportamientos} nos muestra un diiagrama detallado de los comportamientos en JADE.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/jerarquiaComportamientos}
+	\caption{Diagrama de jerarquía de los comportamientos en JADE}
+	\label{fig:JerarquiaComportamientos}
+\end{figure}
+
+Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/ejecucionAgenteTraducido}
+	\caption{Flujo de ejecución de un agente y sus comportamientos en JADE}
+	\label{fig:DiagramaFlujoAgentes}
+\end{figure}
 
 
 \subsection{Mensajes FIPA}
