@@ -113,18 +113,37 @@ http://www.fipa.org/specs/fipa00023/XC00023H.html
 \subsection{Modelo del gestor de agentes}
 (ref) explica que el gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
 
-Las entidades contenidas en la figura \ref{fig:modeloReferencia} son una configuración lógica y no implica ninguna configuración física.
+Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/agentmanagementReference}
 	\caption{Modelo de referencia del gestor de agentes}
-	\label{fig:modeloReferencia}
+	\label{fig:ModeloReferencia}
 \end{figure}
 
+El \textbf{Directory Facilitator (DF)} es un componente esencial del AP. El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/paginasAmarillas}
+	\caption{Servicio de páginas amarillas}
+	\label{fig:PaginasAmarillas}
+\end{figure}
+
+El \textbf{Agent Management System (AMS)} es un componente esencial del AP. El AMS ejerce control de supervisión sobre el acceso y uso del AP. Sólo un AMS debe existir para cada AP. El AMS mantiene un directorio de AIDs (Agent Identifications) que contienen direcciones de transporte (entre otras cosas) para los agentes registrados en el AP. El AMS ofrece un servicio de \textit{páginas blancas} para otros agentes. Cada agente debe registrarse en el AMS para poder obtener un AID válido.
+
+Un \textbf{Message Transport Service (MTS)} es el método de comunicación por defecto entre agentes a través de diferentes APs.
+
+Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes pueden ser desarrollados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
+
+El diseño interno de un AP es una labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
+
+\subsection{Identificación de los agentes}
+Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
 
 \subsection{Ciclo de vida de los agentes}
-Los agentes como producto software
+Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la figura \ref{fig:CicloVidaAgentes}.
 
 \begin{figure}[h]
 	\centering
@@ -133,7 +152,18 @@ Los agentes como producto software
 	\label{fig:CicloVidaAgentes}
 \end{figure}
 
+\textbf{Active:} El MTS entrega mensajes al agente con normalidad.
+
+\textbf{Initiated/Waiting/Suspended:} El MTS bien almacena en un buffer los mensajes hasta que el agente vuelva al estado activo ó reenvía los mensajes a una nueva localización (si el reenvío está disponible para el agente)
+
+\textbf{Transit:} El MTS bien almacena en un buffer los mensajes hasta que el agente vuelva a estar activo (eso es, la función mover a fallado en la AP original ó el agente a iniciado satisfactoriamente en la AP destino) ó reenvía los mensajes a una nueva localización (si el reenvío está disponible para el agente). Téngase en cuenta que sólo los agentes móviles pueden entrar en estado de tránsito. Esto asegura que un agente estático ejecuta todas sus instrucciones en el nodo donde fue invocado.
+
+
+\textbf{Unknown:} El MTS bien almacena en un buffer los mensajes o los rechaza, dependiendo de la política del MTS y de los requerimientos de transporte del mensaje.
+
 \subsection{Comportamientos/Behaviours JADE}
+
+
 \subsection{Mensajes FIPA}
 
 
