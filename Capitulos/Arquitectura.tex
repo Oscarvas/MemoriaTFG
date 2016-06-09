@@ -170,6 +170,7 @@ Un agente en JADE dispone de 2 métodos fundamentales:
 
 \subsection{Comportamientos JADE}
 
+
 Los agentes en JADE se especifican mediante comportamientos. Los comportamientos definen la forma de actuar para cada agente ante un problema dado. Cada comportamiento se encarga de resolver una tarea, comunicarse, o evaluar alguna condición del agente.
 
 Cada agente dispone a su vez de una cola de comportamientos en la cual ser irán incluyendo los comportamientos agregados con \verb|addBehaviour()|. Cuando llega el turno de ejecución de un comportamiento, este intenta realizar su tarea y al finalizar es removido y eliminado de la cola. Existen comportamientos que en función del tipo que sean, al finalizar su tarea intentarán añadirse nuevamente a la cola.
@@ -282,16 +283,38 @@ En el fragmento de código \ref{mensajeRequest} podemos ver un ejemplo del conten
 \section{El Agente Mundo}
 \label{cap:Arquitectura:AgenteMundo}
 
+Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de un mundo para nuestros personajes. El mundo tiene la función de servir como una plataforma en la cual los personajes se apoyan para poder desarrollar su funcionalidad. Más allá de sólo encargarse de la interacción de los personajes con la escenografía en la que se encuentren, el mundo el encargado de gestionar los siguientes aspectos:
+
+\begin{itemize}
+	\item Activar y gestionar las llamadas al SCD (\textit{Sistema de Carga de Datos}). Veremos qué es esto en la sección \ref{cap:Arquitectura:Loaders}.
+	\item Actualizar el estado actual de cada personaje.
+	\item Gestionar ciertos eventos entre personajes.
+	\item Controlar las acciones tomadas contra la interfaz gráfica. Véase más adelante la sección \ref{cap:Arquitectura:InterfazPersonajes}.
+	\item Proporcionar a los personajes los archivos necesarios para poder usar el planificador, que veremos en la sección \ref{cap:Arquitectura:Planificador}.
+\end{itemize}
+
+Aunque la implementación del mundo se hace como un agente\footnote{Este es un agente especial del tipo GUIAgent, lo que permite la interacción con una interfaz gráfica. Más información de esto la tenemos en \cite{greenwood}.}, debido a la naturaleza de éste, no se considera su pertenencia al SMA.
+
+Al ser un agente, la forma en la que gestiona la mayoría de funciones mencionadas anteriormente es a través de comportamientos JADE. Específicamente usando el tipo CyclicBehaviour. El motivo por el que todos los comportamientos que debe usar este agente sean cíclicos es que principalmente este un agente que debe estar en una escucha continua de peticiones por parte de todos los demás agentes. Por tanto, modelar el funcionamiento de este agente debe hacerse mediante un conjunto de comportamientos que estén constantemente evaluando si se han recibido peticiones nuevas.
+
+Respecto a la interacción con la interfaz, el agente mundo funciona como el controlador al cual la vista envía la información recibida por el usuario y se encarga de validar ésta.
+
 %-------------------------------------------------------------------
 \section{El Planificador}
 \label{cap:Arquitectura:Planificador}
 
 %-------------------------------------------------------------------
-\section{Sistema de Carga de Datos o SCD}
+\section{Sistema de Carga de Datos}
 \label{cap:Arquitectura:Loaders}
 
 %-------------------------------------------------------------------
-\section{Interfaz Personaje}
+\section{Interfaz Gráfica del Sistema}
 \label{cap:Arquitectura:InterfazPersonajes}
 
+%-------------------------------------------------------------------
+\section{El Logger}
+\label{cap:Arquitectura:Logger}
+
+%-------------------------------------------------------------------
 \section{Archivos de Configuración}
+\label{cap:Arquitectura:ArchivosXML}
