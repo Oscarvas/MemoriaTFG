@@ -135,7 +135,7 @@ El \textbf{Agent Management System (AMS)} es un componente esencial del AP. El A
 
 Un \textbf{Message Transport Service (MTS)} es el método de comunicación por defecto entre agentes a través de diferentes APs.
 
-Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes pueden ser desarrollados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
+Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes son desplegados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
 
 El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
@@ -210,7 +210,7 @@ Los tipos de comportamientos en JADE son los siguientes:
 	\end{itemize}
 \end{itemize}
 
-La figura \ref{fig:JerarquiaComportamientos} nos muestra un diiagrama detallado de los comportamientos en JADE.
+La figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado de los comportamientos en JADE.
 
 \begin{figure}[h]
 	\centering
@@ -230,7 +230,52 @@ Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de f
 
 
 \subsection{Mensajes FIPA}
+En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters}, hemos visto cuáles son los parámetros que caracterizan a los mensajes FIPA ACL. Cuando los agentes se comunican, identificar el tipo de mensajes que se envían es muy importante de cara al control y tipo de tareas que quieren realizar los agentes. La tabla \ref{fig:Performatives} contiene algunos de los diferentes tipos de comunicación que nos ofrece el campo \texttt{performative}:
 
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{!{\vrule width 2pt}l!{\vrule width 2pt}l!{\vrule width 2pt}} 
+		\noalign{\hrule height 2pt}
+		\textbf{Acto comunicativo}		& \textbf{Descripción} \\ 
+		\noalign{\hrule height 2pt}
+		
+		\texttt{Accept Proposal} 	& \parbox[t]{8cm}{La acción de aceptar una propuesta} \\ \hline
+		\texttt{Call for Proposal}	& \parbox[t]{8cm}{La acción de hacer propuestas para realizar cierta acción }\\ \hline
+		\texttt{Confirm}			& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es cierta }\\ \hline
+		\texttt{Disconfirm}			& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es falsa} \\ \hline
+		\texttt{Failure}			& \parbox[t]{8cm}{La acción de indicar a otro agente que se intentó realizar una acción pero este intento falló} \\ \hline
+		\texttt{Inform}				& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es cierta }\\ \hline
+		\texttt{Propose}			& \parbox[t]{8cm}{La acción de enviar una propuesta para realizar cierta acción, dadas ciertas precondiciones} \\ \hline
+		\texttt{Refuse}				& \parbox[t]{8cm}{La acción de rehusarse a realizar una acción dada, y explicando la razón por la cual no se realiza la acción }\\ \hline
+		\texttt{Reject Proposal}	& \parbox[t]{8cm}{La acción de rechazar la propuesta de realizar cierta acción durante la negociación} \\ \hline
+		\texttt{Request}			& \parbox[t]{8cm}{El emisor solicita al receptor a realizar cierta acción. Una importancia de \texttt{Request} es que solicita al receptor realizar otro acto comunicativo }\\ \hline
+		
+		
+		\noalign{\hrule height 2pt}
+	\end{tabular}
+	\caption{Tipos de actos comunicativos definidos en \texttt{performative}}
+	\label{fig:Performatives}
+\end{table}
+
+En el fragmento de código \ref{mensajeRequest} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
+
+%basicstyle=\scriptsize o footnotesize
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de mensaje FIPA ACL},label=mensajeRequest]
+(request
+	:sender (agent-identifier :name alice@mydomain.com)
+	:receiver (agent-identifier :name bob@yourdomain.com)
+	:ontology travel-assistant
+	:language FIPA-SL
+	:protocol fipa-request
+	:content
+		""((action
+			(agent-identifier :name bob@yourdomain.com)
+			(book-hotel :arrival 15/10/2006
+						:departure 05/07/2002 ... )
+		))""
+)
+\end{lstlisting}
 
 
 %-------------------------------------------------------------------
