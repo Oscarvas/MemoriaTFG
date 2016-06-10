@@ -305,7 +305,40 @@ Respecto a la interacción con la interfaz, el agente mundo funciona como el cont
 
 El planificador es el componente del sistema que se encarga de aportar inteligencia a los personajes. Recordemos que la intención de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
 
-La solución a un problema u objetivo dado al planificador vendrá dada por la información es éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo )
+La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de fichero domain.pddl},label=pddlDomain]
+
+(define (domain briefcase-world)
+	(:requirements :strips :equality :typing :conditional-effects)
+	(:types location physob)
+	(:constants (B - physob))
+	(:predicates 
+		(at ?x - physob ?l - location)
+		(in ?x ?y - physob)
+	)
+	(:action take-out)
+		:parameters (?x - physob)
+		:precondition (not (= ?x B))
+		:effect (not (in ?x)) 
+	)
+	...
+)
+\end{lstlisting}
+
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de fichero problema.pddl},label=pddlProblema]
+
+(define (problem get-paid)
+	(:domain briefcase-world)
+	(:init (place home) (place office)
+	(object p) (object d) (object b)
+	(at B home) (at P home) (at D home) (in P))
+	(:goal (and (at B office) (at D office) (at P home)) )
+)
+\end{lstlisting}
 
 %-------------------------------------------------------------------
 \section{Sistema de Carga de Datos}
