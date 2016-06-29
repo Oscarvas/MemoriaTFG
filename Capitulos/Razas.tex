@@ -13,11 +13,14 @@
 \end{Fuente}
 \end{FraseCelebre}
 
+En una historia no debería haber dos héroes iguales, donde uno fracasa otro debe tener la oportunidad de vencer y viceversa. Los mismos héroes de distintos lugares no debían ser iguales, parecidos, sí, pero no iguales, e incluso los de la misma zona, pues siempre hay héroes que destacan mas en la batalla que otros
+
+Para cumplir este objetivo, tratamos de que nuestros personajes se distinguiesen entre sus iguales a traves del concepto de atributos y razas.
 %-------------------------------------------------------------------
 
 \section{Diseño de los Atributos y las Razas}
 \label{cap:AtributosRazas}
-%Como ya se explico en el mapa, la raza determinara en que lugar ?nacerá? cada personaje, en cierta medida, pues solo aclara la región, no determina en que localización especifica de esta, pero su funcionalidad no acaba aquí, pues también dará un impulso a los atributos de los personajes.
+
 Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron:
 \begin{itemize}
 	\item Vida: atributo referente a la capacidad de aguante de un personaje
@@ -43,7 +46,7 @@ De igual manera, la clase también afectara a estos atributos, ya que un caballer
 Para explicar la implementación de los Atributos es necesario comprender bien la clase personaje.
 Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características.
 Para el caso de los Monstruos sin embargo, sólo nos interesaba el atributo Vida, que era el atributo que necesitábamos conocer para que un personaje pueda o no derrotarlos.
-Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ
+Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ.
 
 Las razas sin embargo, venían dictaminadas de un archivo de configuración XML donde se especificaban el nombre de la raza y los distintos multiplicadores a atributos que esta representaba
 %-------------------------------------------------------------------
