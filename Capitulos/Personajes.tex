@@ -85,11 +85,11 @@ Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar lo
 \subsection{Implementación de los Protagonistas}
 Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capitulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan.
 
-De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{cap:Frases}.
+De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{cap:Simulaciones}.
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carg de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero "Personajes.XML", a través del cual cogía las características concernientes a cada Protagonista en específico y proporcionar al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave <personaje>.
+Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carga de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual cogía las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
 El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploXML:protagonistas}.
 
 \label{ejemploXML:protagonistas}
@@ -113,10 +113,10 @@ Aparte de esto poseía tres comportamientos.
 
 El comportamiento \texttt{mover-secuestrada} permitía a la princesa moverse con su secuestrado, respondiendo al mensaje mover princesa. Aunque a los ojos de la historia es el captor el que manda moverse a la víctima, el agente solo podía relocalizarse en el mapa a sí mismo, así que realmente se movía por su propio pie, aunque, eso si, siguiendo las ordenes de su captor.
 
-Cuando la víctima era capturada, llegaba un momento en el que su captor la mandaba el mensaje "Te Secuestro". que la confirmaba que en efecto había sido raptada. En ese momento la víctima lanzaba una petición de ayuda que era recogida por el pariente al iniciarse se la había ligado.
-Una vez esto ocurría la víctima intentaría escaparse por sus propios medios. Para ello, le lanzaba la petición \texttt{mujerIndependiente} a su secuestrador y se añadia otro comportamiento dentro de este, en el que cada cierto tiempo, un tic de reloj, la princesa generaba un numero aleatorio entre todos los posibles valores de vida que podía tener su captor. Así, si este número era mayor que la vida actual de su captor, ya que ante un secuestrador malherido, contaría con muchas mas posibilidades de escapar, la víctima conseguía liberarse y lanzaba el mensaje de "liberada". Tras esto, la princesa se planificaba, con el objetivo de volver a casa.
+Cuando la víctima era capturada, llegaba un momento en el que su captor la mandaba el mensaje ``Te Secuestro''. que la confirmaba que en efecto había sido raptada. En ese momento la víctima lanzaba una petición de ayuda que era recogida por el pariente al iniciarse se la había ligado.
+Una vez esto ocurría la víctima intentaría escaparse por sus propios medios. Para ello, le lanzaba la petición \texttt{mujerIndependiente} a su secuestrador y se añadia otro comportamiento dentro de este, en el que cada cierto tiempo, un tic de reloj, la princesa generaba un numero aleatorio entre todos los posibles valores de vida que podía tener su captor. Así, si este número era mayor que la vida actual de su captor, ya que ante un secuestrador malherido, contaría con muchas mas posibilidades de escapar, la víctima conseguía liberarse y lanzaba el mensaje de ``liberada''. Tras esto, la princesa se planificaba, con el objetivo de volver a casa.
 
-Por último, tenía el comportamiento \texttt{rescatada}, que se ejecutaba cuando era salvada. En ese momento su salvador la mandaba el mensaje "rescatada" que indicaba a la princesa que su ejecución había acabado y el agente "moría". 
+Por último, tenía el comportamiento \texttt{rescatada}, que se ejecutaba cuando era salvada. En ese momento su salvador la mandaba el mensaje "rescatada" que indicaba a la princesa que su ejecución había acabado y el agente ``moría''. 
 
 \subsubsection{El Allegado a la Víctima}
 
