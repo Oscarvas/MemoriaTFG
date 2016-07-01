@@ -220,6 +220,8 @@ La figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado d
 	\label{fig:JerarquiaComportamientos}
 \end{figure}
 
+(hablar sobre la factoria de comportamientos y como nos permite crear nuevos comportamientos en hilos independientes para solventar problemas de paralelismo)
+
 Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
 
 \begin{figure}[h]
@@ -258,7 +260,7 @@ En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters},
 	\label{fig:Performatives}
 \end{table}
 
-En el fragmento de código \ref{mensajeRequest} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
+En el cuadro de código \ref{mensajeRequest} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
 
 %basicstyle=\scriptsize o footnotesize
 \lstset{frameround=fttt}
@@ -303,9 +305,62 @@ Respecto a la interacción con la interfaz, el agente mundo funciona como el cont
 \section{El Planificador}
 \label{cap:Arquitectura:Planificador}
 
-El planificador es el componente del sistema que se encarga de aportar inteligencia a los personajes. Recordemos que la intención de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
+El planificador es el componente del sistema que se encarga de aportar ``inteligencia'' a los personajes. Recordemos que el propósito de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
 
 La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
+
+Para la generación de historias, el fichero de dominio va a contener el tipo de elementos que existen dentro de estas, las acciones que serán capaces de realizar cada uno de los personajes y alguna otra información clave que indique al planificador cómo actuar. Todo esto significa que es en este fichero donde realmente se le da forma al tipo historia que se desea generar, se definen las características del universo de la historia.
+
+Aquí se presenta gran parte de la complejidad al momento de definir una base para poder generar historias. La calidad y riqueza de cada historia se ve afectada implícitamente por la variedad, complejidad y el nivel de abstracción con el que se programe el dominio. Para tener una idea de todo esto, podemos imaginar que implicaría la creación un \textit{universo} con las siguientes restricciones:
+
+\begin{itemize}
+	\item Sólo existen personas, objetos y habitaciones.
+	\item Una persona es capaz de cambiar de habitación.
+	\item Una persona es capaz de recoger un objeto.
+	\item Una persona es capaz de soltar un objeto.
+\end{itemize}
+
+Definir un universo tan simple acota la cantidad de permutaciones que se pueden realizar con las acciones, y básicamente habremos creado un universo en el que las personas sólo pueden transportar objetos de una habitación a otra.
+
+Por el contrario, cuanto más se profundiza en las características deseadas dentro del universo que se quiere crear, por ejemplo definiendo aspectos cómo:
+
+\begin{itemize}
+	\item Mover pie/brazo derecho/izquierdo, ojo derecho/izquierdo.
+	\item Color del pelo, piel y ojos.
+	\item Personas, animales, insectos, objetos, paisajes.
+	\item Temperatura, altitud, latitud...
+	\item Saltar obstáculo pequeño, esquivar obstáculo grande...
+\end{itemize} 
+
+Se amplían las herramientas que se pueden usar para dar vida a los personajes y definir una mayor variedad de comportamientos para estos o su entorno si así se desea.
+
+Hay que tener en cuenta que realizar una acción implica el cumplimiento de una serie de precondiciones y efectos especificados en función de la acción. La sucesión de un conjunto de acciones en cierto orden deben asegurar que se consiguen los efectos que hacen cumplir un objetivo dado.
+
+Nótese que esto también conlleva un aumento considerable de la complejidad de los problemas a resolver, y el tiempo que tarda el planificador en poder encontrar una solución plausible a los problemas propuestos.
+
+Por otra parte, el llamado fichero del problema contiene la información del estado actual de las características definidas en el dominio que cada personaje conoce y que, basándose en el estado de estas, saber si existe una solución al problema que intenta resolver.
+
+Usando el ejemplo del universo simple que se comentó antes, el fichero problema contendría por ejemplo la siguiente información:
+
+\begin{itemize}
+	\item La habitación \textbf{A} está junto a la \textbf{B}.
+	\item El objeto \textbf{X} se encuentra en la habitación \textbf{A}.
+	\item La persona \textbf{P} está en la habitación \textbf{B}.
+	\item Objetivo de P: \textit{el objeto X debe estar en la habitación B}.
+\end{itemize}
+
+Cuando el planificador recibe este fichero problema, lo que hace es buscar en el dominio para saber cuáles son las acciones que \textbf{puede} realizar la persona para lograr su objetivo. Una vez evaluadas las diferentes posibilidades, el planificador devuelve el plan de acción (la planificación) que debe llevar a cabo el personaje en estricto orden para conseguir que su objetivo se cumpla. La salida que devolvería el planificador en este caso puede ser algo como lo siguiente:
+
+\begin{enumerate}
+	\item Mover P a la habitación A.
+	\item Recoger el objeto X.
+	\item Mover P a la habitación B.
+	\item Soltar el objeto X.
+\end{enumerate}
+
+La ejecución ordenada de la planificación devuelta por el planificador asegura (teóricamente) al personaje que logra conseguir con éxito su objetivo.
+
+Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema} nos muestran un ejemplo sencillo de cómo se estructura cada fichero y cómo es la sintaxis de PDDL.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de fichero domain.pddl},label=pddlDomain]
