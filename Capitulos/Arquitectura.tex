@@ -226,7 +226,7 @@ Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de f
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{Imagenes/ejecucionAgenteTraducido}
+	\includegraphics[width=0.7\textwidth]{Imagenes/ejecucionAgenteTraducido}
 	\caption{Flujo de ejecución de un agente y sus comportamientos en JADE}
 	\label{fig:DiagramaFlujoAgentes}
 \end{figure}
@@ -307,7 +307,7 @@ Respecto a la interacción con la interfaz, el agente mundo funciona como el cont
 
 El planificador es el componente del sistema que se encarga de aportar ``inteligencia'' a los personajes. Recordemos que el propósito de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
 
-La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
+La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en la sección \ref{cap:EstadoDeLaCuestion:PDDL}).
 
 Para la generación de historias, el fichero de dominio va a contener el tipo de elementos que existen dentro de estas, las acciones que serán capaces de realizar cada uno de los personajes y alguna otra información clave que indique al planificador cómo actuar. Todo esto significa que es en este fichero donde realmente se le da forma al tipo historia que se desea generar, se definen las características del universo de la historia.
 
@@ -349,7 +349,7 @@ Usando el ejemplo del universo simple que se comentó antes, el fichero problema 
 	\item Objetivo de P: \textit{el objeto X debe estar en la habitación B}.
 \end{itemize}
 
-Cuando el planificador recibe este fichero problema, lo que hace es buscar en el dominio para saber cuáles son las acciones que \textbf{puede} realizar la persona para lograr su objetivo. Una vez evaluadas las diferentes posibilidades, el planificador devuelve el plan de acción (la planificación) que debe llevar a cabo el personaje en estricto orden para conseguir que su objetivo se cumpla. La salida que devolvería el planificador en este caso puede ser algo como lo siguiente:
+Cuando el planificador recibe este fichero problema, lo que hace es buscar en el dominio para saber cuáles son las acciones que \textit{puede} realizar la persona para lograr su objetivo. Una vez evaluadas las diferentes posibilidades, el planificador devuelve el plan de acción (la planificación) que debe llevar a cabo el personaje en estricto orden para conseguir que su objetivo se cumpla. La salida que devolvería el planificador en este caso puede ser algo como lo siguiente:
 
 \begin{enumerate}
 	\item Mover P a la habitación A.
@@ -395,9 +395,154 @@ Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema} nos muestran un ejem
 )
 \end{lstlisting}
 
+
+%-------------------------------------------------------------------
+\section{Archivos de Configuración}
+\label{cap:Arquitectura:ArchivosXML}
+
+Además de los archivos pddl usados para la planificación, crear un sistema capaz de permitir al usuario alterar la mayor cantidad de aspectos posible al momento de generar nuevas historias, exige que cierta información del sistema sea configurable fuera de la compilación.
+
+Esta funcionalidad es la que permite al usuario indicar al sistema cuáles son los actores y el entorno donde se van  a generar las diferentes historias y le da la libertad de cambiar los diferentes aspectos que éste hubiese planteado.
+
+Con vistas en esto, el sistema permite al usuario definir y modificar con alta libertad los siguientes aspectos:
+
+\begin{itemize}
+	\item Escenografía.
+	\item Personajes protagonistas.
+	\item Personajes antagonistas.
+	\item Frases de los personajes.
+	\item Objetivos que han de cumplir los personajes.
+	\item Objetos de la historia.
+	\item Razas y atributos.
+	\item Personajes no jugadores (PNJ's).
+\end{itemize}
+
+Estos ficheros están programados en XML\footnote{EXtensible Markup Language}.Este es un lenguaje que nos permite diseñar con mayor simpleza el esquema de los datos que el usuario puede modificar en cada uno de los aspectos que se han mencionado anteriormente. Algunas restricciones, recomendaciones y comentarios generales que influyen en todos los archivos son:
+
+\begin{itemize}
+	\item Los atributos \textit{nombreX} deben ser atómicos; una sola palabra.
+	\item Los valores numéricos en los atributos, salvo para la vida, mayormente deben estar comprendidos entre 0 y 10.
+	\item Es importante la distinción entre mayúsculas y minúsculas para los nombres que se elijan puesto que el sistema en algunos puntos hace distinción de caracteres, y esto puede producir error en el sistema.
+	\item Algunos atributos de las etiquetas XML necesariamente tienen que tomar un valor de entre ciertos propuestos.
+	\item Aunque se encuentre en dos ficheros diferentes, un mismo nombre es único para todos, por ejemplo en el caso de las localizaciones.
+\end{itemize}
+
+Para configurar la escenografía se ha diseñado un esquema XML que emulase en cierta manera el aspecto de un mapamundi político. Este diseño nos permite crear múltiples regiones comprendidas por una o más localizaciones. Dejar que el usuario sea omnipotente al momento de configurar el sistema añade un factor de complejidad y coste muy alto al hacer el diseño de todo el sistema generador de historias, así que se decide poner ciertas limitaciones con vistas a mantener un control razonable del sistema mientras se hace diseña. Estas limitaciones se ven reflejadas en los tipos de localizaciones que el usuario puede usar, teniendo este que elegir entre una serie de tipos propuestos predefinidos. El usuario puede usar cualquier nombre desee para las regiones y localizaciones.
+
+El diseño visto en plano de este fichero puede verse como un mapa de adyacencias, esto significa, las conexiones de cada localización representan un camino dirigido en lo que puede ser un grafo. Por tanto, para decir que existe un camino bidireccional entre dos localizaciones es necesario que cada una incluya el nombre de la otra en su etiqueta \textit{conectadoCon}. Dentro de esta etiqueta van separados por espacios los nombres de todas las localizaciones con las que existe un camino A$\rightarrow$B. Tenemos en el cuadro de código \ref{escenografiaXML} el esquema que toma el XML de la escenografía.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la escenografía},label=escenografiaXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapa>
+	<region nombre="[nombreRegión]">
+		<localizacion id="[nombreLocalización]" 
+			tipo="[Pueblo|Bosque|Guarida|Urbano|Castillo|Lago]" >
+			
+			<conectadoCon>[nombreLocalización [nombreLocalización ...]]
+				</conectadoCon>
+		</localizacion>    
+	</region>
+</Mapa>
+
+\end{lstlisting}
+
+Siguiendo el patrón que nos ofrece el diseño del archivo de configuración para los protagonistas, añadir multitud de protagonistas a la historia sólo requiere copiar y modificar múltiples instancias de la etiqueta \textit{personaje}. El cuadro de código \ref{protagonistasXML} muestra el diseño que sigue este archivo.
+
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los protagonistas},label=protagonistasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<personaje nombre="[nombrePersonaje]" clase="[nombreClase]"
+		raza="[nombreRaza]" vida="[#]" 
+			fuerza="[#]" destreza="[#]" inteligencia="[#]" 
+				codicia="[#]"/>
+</Actores>
+\end{lstlisting}
+
+Al igual que en los protagonistas, cada antagonista se define mediante nuevas entradas de la etiqueta \textit{monstruo}. Aquí aparecen ya, atributos cuyo valor debe encontrarse entre los predefinidos, como viene a ser la clase y sexo del antagonista. Esto es para que el sistema pueda tener un mayor control sobre la entrada recibida. El esquema usado se puede ver en el cuadro \ref{antagonistasXML}.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<monstruo nombre="[nombreAntagonista]" 
+		clase="[Secuestrador|Guardian|Emboscador|Asesino]"
+			especie="[nombreEspecie]" sexo="[M|F]"/>
+</Actores>
+\end{lstlisting}
+
+
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las frases de los personajes},label=frasesXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Frases>
+	<personaje tipo="[nombreClase]" >
+		<frase id="[Inicio|Combate...]">[fraseADecir]</frase>
+	</personaje>
+</Frases>
+\end{lstlisting}
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetivos},label=objetivosXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Objetivos>
+	<personaje tipo="[nombreClase]" >
+		<objetivo>([códigoPddlObjetivo])</objetivo>
+	</personaje>
+</Objetivos>
+\end{lstlisting}
+\lstset{frameround=fttt}
+
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Objetos>
+	<tipo tipo="clave">
+		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
+			localizacion="[nombreLocalización]"/>
+	</tipo>
+	
+	<tipo tipo="consumible">
+		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
+			vida="[#]" fuerza="[#]" destreza="[#]" inteligencia="[#]" 
+				codicia="[#]"/>
+	</tipo>
+</Objetos>
+\end{lstlisting}
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<raza nombre="[nombreRaza]" vida="[#]" fuerza="[#]" destreza="[#]" 
+		inteligencia="[#]"  codicia="[#]"/>
+</Actores>
+\end{lstlisting}
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<pnj nombre="[nombrePNJ]" sexo="[M|H]" oficio="[nombreOficio]" 
+		localizacion="[nombreLocalización]"/>
+</Actores>
+\end{lstlisting}
+
+
 %-------------------------------------------------------------------
 \section{Sistema de Carga de Datos}
 \label{cap:Arquitectura:Loaders}
+
+
 
 %-------------------------------------------------------------------
 \section{Interfaz Gráfica del Sistema}
@@ -406,7 +551,3 @@ Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema} nos muestran un ejem
 %-------------------------------------------------------------------
 \section{El Logger}
 \label{cap:Arquitectura:Logger}
-
-%-------------------------------------------------------------------
-\section{Archivos de Configuración}
-\label{cap:Arquitectura:ArchivosXML}
