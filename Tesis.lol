@@ -6,6 +6,6 @@
 \contentsline {lstlisting}{\numberline {5.6}Formato XML de los antagonistas}{37}{lstlisting.5.6}
 \contentsline {lstlisting}{\numberline {5.7}Formato XML de las frases de los personajes}{37}{lstlisting.5.7}
 \contentsline {lstlisting}{\numberline {5.8}Formato XML de los objetivos}{37}{lstlisting.5.8}
-\contentsline {lstlisting}{\numberline {5.9}Formato XML de los objetos}{37}{lstlisting.5.9}
-\contentsline {lstlisting}{\numberline {5.10}Formato XML de las razas y atributos}{38}{lstlisting.5.10}
-\contentsline {lstlisting}{\numberline {5.11}Formato XML de los PNJ's}{38}{lstlisting.5.11}
+\contentsline {lstlisting}{\numberline {5.9}Formato XML de los objetos}{38}{lstlisting.5.9}
+\contentsline {lstlisting}{\numberline {5.10}Formato XML de las razas y atributos}{39}{lstlisting.5.10}
+\contentsline {lstlisting}{\numberline {5.11}Formato XML de los PNJ's}{39}{lstlisting.5.11}

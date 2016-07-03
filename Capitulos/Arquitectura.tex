@@ -476,6 +476,7 @@ Al igual que en los protagonistas, cada antagonista se define mediante nuevas en
 </Actores>
 \end{lstlisting}
 
+La oportunidad de personalizar las frases y la forma de hablar que tiene cada arquetipo de personaje es uno de los aspectos más importantes del sistema. Especificando el arquetipo en \textit{nombreClase} se indica el bloque de frases para ese tipo de personajes. El sistema trata los textos conversacionales en función de ciertos estados para que así el usuario indique las frases que debe usar un arquetipo dependiendo de la situación en la que se encuentre, por ejemplo, las frases que dice cuando está combate, recién se incorpora a la historia ó cambia de localización. Se pueden especificar multitud de frases diferentes para una misma situación, ya que el sistema elije aleatoriamente la frase a decir para cada fase que este atravesando ese personaje. Es importante que estas frases sean impersonales puesto que van a ser usadas por todos los personajes dentro de un mismo arquetipo. El cuadro \ref{frasesXML} nos muestra el esquema de este archivo.
 
 
 \lstset{frameround=fttt}
@@ -489,6 +490,8 @@ Al igual que en los protagonistas, cada antagonista se define mediante nuevas en
 </Frases>
 \end{lstlisting}
 
+El archivo de configuración para objetivos contiene una lista de los posibles objetivos por cada arquetipo de personaje. El sistema se encarga de cargar sólo una de las entradas de la etiqueta \textit{objetivo} cuando necesita completar el archivo del problema para un personaje dado, esto implica que el contenido de la etiqueta debe estar codificado en lenguaje pddl (véase el contenido de \verb|(:goal )|  en el cuadro \ref{pddlProblema} ejemplo del fichero problema). El esquema de este archivo se ve en el cuadro de código \ref{objetivosXML}.
+
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetivos},label=objetivosXML]
 
@@ -500,6 +503,13 @@ Al igual que en los protagonistas, cada antagonista se define mediante nuevas en
 </Objetivos>
 \end{lstlisting}
 \lstset{frameround=fttt}
+
+Siendo quizá un diseño algo diferente a los demás, en el archivo de objetos el sistema diferencia entre 2 tipos de objeto : clave y consumible.
+
+Los objetos clave son aquellos que pueden representar cierta importancia para la historia ó algún personaje, pero que no alteran a los atributos de éste (vida, fuerza...). Un ejemplo de este tipo de objetos es la mítica Excalibur, la espada otorgaría a la persona que la blandiese el título de Rey. Es necesario especificar la localización de cada objeto clave.
+
+Por otra parte, los objetos consumibles generalmente no otorgan tanto juego a la historia ni definen objetivos, pero ayudan a los personajes a evolucionar en el transcurso de la historia. Estos carecen de localización específica puesto se carga un objeto en una localización aleatoria de la escenografía. Los consumibles son capaces de alterar cada uno de los atributos de aquel personaje que los encuentre de forma positiva o negativa dependiendo de cómo se definiesen los valores numéricos de cada objeto en este archivo (los atributos vida, fuerza, etc... pueden tomar valores negativos). El cuadro \ref{objetosXML} muestra el esquema que sigue este archivo.
+
 
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
 
@@ -518,6 +528,13 @@ Al igual que en los protagonistas, cada antagonista se define mediante nuevas en
 </Objetos>
 \end{lstlisting}
 
+
+Usando como inspiración juegos de rol del tipo \textit{D\&D}\footnote{Dungeons \& Dragons: Mítico referente de esta familia de juegos.}, el archivo de razas y atributos se diseña para que se parezca a las hojas de razas que se encuentran en los libros del \textit{Game Master}\footnote{Libro que sirve de referencia a la persona guía una partida de D\&D.} pero mucho más simple. Basta definir un nombre de raza e indicar los atributos base modificadores asociados a esa raza.
+
+Este aspecto permite generar diversidad entre personajes de un mismo arquetipo, puesto se puede tener un Caballero más fuerte que otro, una raza que sea más avara y exija cantidades de dinero superiores ó razas más estudiosas que disponen de una mayor inteligencia.
+
+Todos los valores numéricos han de ser necesariamente positivos y preferiblemente no mayores de 10. Esquema en el cuadro \ref{razasXML}.
+
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
 
@@ -527,6 +544,8 @@ Al igual que en los protagonistas, cada antagonista se define mediante nuevas en
 		inteligencia="[#]"  codicia="[#]"/>
 </Actores>
 \end{lstlisting}
+
+Por último, añadir personajes al sistema mantiene la simpleza de diseño y agrega un pnj por entrada de la etiqueta \textit{pnj}. Es importante un nombre para la localización válido definido previamente en el archivo de la escenografía. El cuadro \ref{pnjsXML} muestra este esquema.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
