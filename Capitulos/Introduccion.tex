@@ -13,6 +13,36 @@
 \end{Fuente}
 \end{FraseCelebre}
 
+
+%contar un poco los problemas de la generación de historias, lo que hace realmente dificil este trabajo de investigacion.
+La generación de historias de manera artifical siempre planteó algunos problemas que se resumen, sobre todo, en saber hasta que punto es capaz de imitar la inteligencia artificial a la inteligencia humana.
+Mas concretamente, y como ya comentamos, la característica humana que mas destaca a la hora de crear una historia es la creatividad. La creatividad como tal, es un concepto abstracto difícil de explicar, según la RAe es ``la capacidad de crear'', que seimpre esta en constante movimiento y debe innovarse y reciclarse cada pocos años. Es por tanto, una característica difícil de encontrar y reproducir entre las propias pesonas, pues no todas tienen la capacidad de ser creativas y, mucho menos, de narrar una historia interesante.
+
+¿Es pues la creatividad una característica que podemos aportar a la inteligencia artificial?
+Si y no. La inteligencia artificial como tal no es capaz de crear por si sola, pues siempre esta parametrizada y limitada por las características que le proporcionó su programador. La creatividad como tal no se puede conseguir en la inteligencia artificial, pero si que se puede simular. A través de simular la creatividad, se pretenden crear historias variadas con una sola aplicación. Y para crear las diferentes historias tenemos numerosas opciones
+
+La primera manera de simular la creatividad es haciendo que se creen historias completamente distintas, proponiendo por ejemplo, lugares distintos, como puede ser un mundo medieval fantástico o uno con características tipo \textit{Western}, o personajes totalmente distintos, siguiendo el ejemplo, en uno habría caballeros y dragones y en el otro \textit{sherifs} y 		bandidos. Gracias a esta manera el numero posible de historias a generar crece soberanamente.
+%segunda manera
+Sin embargo no es la única manera de conseguir esto, también se busca que dos historias con las mismas premisas resulten distintas.
+Si todas las historias tienen las mismas características la única manera posible de hacer que produzcan resultados diferentes es buscar un momento en el cual divergan. Este momento consideramos que debe producirse cuando los personajes entran en conflicto en la historia, así, según las características de cada personaje o si simplemente aparecieron en el momento mas oportuno, la historia tomará un curso u otro. 
+
+%que proponemos sobre la investigacion como solucion a este problema
+Bajo estas premisas, y con ánimo de aportar nuestras soluciones, propusimos una aplicación c
+
+Ante estas posibilidades, propusimos dos soluciones. La primera, era proponer una aplicación altamente configurable donde el usuario pudiese elegir los detalles de la historia, como los nombres de los personajes, el mundo planteado. De la misma manera, proponer un gran numero de personajes distintos, a través de la división en clases, de manera que distintos personajes se comportasen de distintas maneras y produjesen historias nuevas.
+
+La segunda, era conseguir que cada elemento de la aplicación fuese único. Para ello, dotamos a los personajes de características propias que los hacían diferentes entre sus iguales, así de como la posibilidad de conseguir objetos que les pudiesen ayudar en los distintos conflictos en los que se viesen envueltos. Gracias a estos cambios, introdujimos en los conflictos entre personajes, poniendo una batalla como el ejemplo mas típico, tiradas de dados al mas puro estilo rolero que se veían modificadas por estas cualidades. De esta manera ciertamente algunos personajes tenían mas posibilidades de vencer que otros y el factor ``suerte'' siempre dotaba de una particularidad especial a cada historia.
+
+Para poder reproducir esta idea, necesitábamos de Agentes Inteligentes, unidades software con una avanzada inteligencia a los cuales se les puede proponer un objetivo que siempre intentarán cumplir, que harían nuestras veces de personajes. Para que estos Agentes pudiesen ser capaces de entender su objetivo e interpretarlo con respecto al mundo en el que simulan vivir, requeríamos de un planificador, una herramienta capaz de proponerle a cada Agente en específico el los pasos que debía seguir en pos de cumplir su objetivo. 
+En numerosas ocasiones esto llevaba a que los Agentes entrasen en conflictos, pues a veces los objetivos de un Agente eran opuestos a los de otro. Para paliar este problema, se decidió contar con la ayuda de un simulador, una herramienta capaz de simular, por ejemplo, una batalla entre distintos personajes para poder ver así cual saldría vencedor y por tanto, seguir con su plan para cumplir su objetivo.
+Enfocandolo de una manera mas simple, imaginemos que nuestra historia es como el rodaje de una película. Nuestros agentes conformarían los personajes o actores de esta, cada uno con sus propios intereses y motivaciones, el planificador, sería nuestro equipo de guionistas, decidiendo que camino debería tomar cada personaje para cumplir su cometido en la historia y la simulación, haría las veces de director, pudiendo decidir en las escenas importantes que personaje seguirá para adelante en nuestra historia y que personaje será descartado (por ejemplo, en una batalla en cada simulación el bando victorioso puede variar) centrando a partir de ahí nuestra historia otra vez en los personajes que siguen disponibles y pidiéndole a nuestro equipo de guionistas, el planificador, que determinen cuál sería el siguiente camino a tomar, hasta que nuevamente tengamos que volver a simular o dirigir.
+
+%bajo estas premisas, se produjo al desarrollo de una aplicación capaz de cumplir con nuestras espectativas
+Así pues, se explican a continuación las características de nuestro proyecto, así como todo el material necesario para comprender su funcionamiento y las cualidades necesarias que debimos proporcionar con el ánimo de que este fuese capaz de cumplir nuestras expectativas. 
+
+
+A PARTIR DE AQUI EL ANTERIOR, NO BORRO POR SI NO GUSTA
+
 El problema sobre la dificultad de generar una historia y que además esta sea interesante afecta directamente al proyecto, por lo que en primer lugar había que responder algunas preguntas:\\
 \\
 \textbf{\textit{¿Cómo recrear una cualidad como la creatividad?}}\\
