@@ -14,33 +14,31 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes haya más posibilidades tendrás de crear diferentes historias, ya que cada uno podría actuar de manera distinta en cada ejecución. 
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos más personajes haya más posibilidades se tendrá de crear diferentes historias, ya que cada uno podría actuar de manera distinta en cada ejecución. 
 
-Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
-Sin embargo las posibles historias que podamos generar comparten siempre una misma estructura, ya que no puede ser de otra manera. 
-Siempre aparecerá un antagonista que logrará secuestrar a la princesa, el rey pedirá ayuda a los distintos aspirantes a héroes y estos acudirán a su llamada intentando salvarla, a partir de lo cuál aparecerán distintos personajes.
-Para poder diseñar correctamente estos diversos personajes lo primero que debíamos hacer era concretar unos tipos que definiesen en cierta medida cual sería su manera de participar en la historia. De esta manera decidimos dividir a nuestros posibles personajes en tres tipos concretos, que serían: \texttt{Protagonistas}, \texttt{Antagonistas} y \texttt{Personajes no Jugadores} o \texttt{PNJs}.
+Con este objetivo en mente se definió un nuevo diseño para los personajes. Sin embargo las posibles historias que se pueden generar comparten siempre una misma estructura. 
+El hilo principal desencadenante de la historia es que siempre aparecerá un antagonista que logra secuestrar a la princesa por lo que el rey pedirá ayuda a todos los aspirantes a héroes disponibles y estos acudirán a su llamada para ir a por la princesa, a partir de este momento lo que sucede en la historia es aleatorio.
+Para poder diseñar correctamente los diversos personajes que participan en la historia lo primero que se debe hacer es recoger unos tipos para los personajes que definiesen cual sería su importancia y la manera de participar en la historia. De esta manera dividimos a los personajes en tres bloques específicos: \texttt{Protagonistas}, \texttt{Antagonistas} y \texttt{Personajes No Jugadores} o \texttt{PNJs}.
 
-De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los ``buenos'' dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de ``malos'' en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
+Así los \texttt{Protagonistas} serán los encargados de llevar el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los ``buenos'' dentro de la narración. Por su parte los \texttt{Antagonistas} actuaran en contra de los intereses de los protagonistas, ocasionando problemas que estos deben resolver durante el transcurso de la historia y asumiendo el papel de ``malos'' en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin tener un papel protagonista en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas y puediendo llegar a ser claves en la clonclusiones de los conflictos.
 
-También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender bien el capitulo \ref{cap:Arquitectura:Planificador}.
+También es importante indicar que todos los personajes se planifican en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender el capitulo \ref{cap:Arquitectura:Planificador}.
 
 %aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
 
 %para las comillas ``inteligencia''
 
 
-
 \section{Protagonistas}
-Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
+Para que la historia fuese rica se necesitará de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias se podran crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que dentro de los propios protagonistas se establece una nueva división de tipos.
 
 \subsection{Diseño de los Protagonistas}
-En la búsqueda de unos protagonistas para nuestras historias decidimos partir de aquellos ya planteados, como se ve en \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
-De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap:Objetos}.
+En la búsqueda de unos protagonistas para nuestras historias decidimos partir de aquellos ya planteados, como se ve en \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases ayudaran a parametrizar los pasos que seguirá cada clase de personajes dentro de la historia y así darle a cada clase ciertas funcionalidades específicas. 
+Por tanto es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap:Objetos}.
 Las distintas clases a las que un protagonista puede pertenecer son:
 
 \subsubsection{La Princesa}
-La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
+La Princesa cumple un rol muy importante dentro de la historia. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
 Sin embargo, nuestra idea del personaje ``Princesa'' no acababa ahí, sino que también queríamos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando mientras evaluaba sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
 
 \subsubsection{El Rey}
@@ -61,8 +59,8 @@ Para encontrar un ejemplo mas gráfico, imaginen una historia en la que el caball
 El concepto de héroe caído, como ya se menciono antes, \ref{cap:PrimerosPasos}, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en ``buenos'' y ``malos'', pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
 
 \subsubsection{Protagonistas Adaptables}
-Como se explicó en el capítulo de objetivos, una de nuestras aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
-Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo nos brindó la oportunidad de crear clases menos específicas, que se adaptasen a mas entornos y en definitiva fuesen mas genéricas, para ello cambiamos el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la figura \ref{fig:TablaClasesProtagonistas}.
+Como se explicó en el capítulo de objetivos, unos de estos ha sido conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
+Para ello, se decide que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo brinda la oportunidad de crear clases menos específicas y que se adaptasen a mas entornos, en definitiva que fuesen mas genéricas. Con este motivo en mente se cambió el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la figura \ref{fig:TablaClasesProtagonistas}.
 
 \begin{table}[h!]
 	\centering
@@ -77,19 +75,17 @@ Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un
 	\label{fig:TablaClasesProtagonistas}
 \end{table}
 
-Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar los parámetros de su historia, de manera que puede elegir que uno de los héroes en su historia sea el caballero Don Quijote embarcado en el peligroso rescate de la princesa Dulcinea o que el samurai Kenshin deba rescatar a Mulán, la hija del emperador. 
+Esta forma permitirá al usuario tener mayor flexibilidad a la hora de concretar los parámetros y el ámbito de la historia, de manera que puede elegir que uno de los héroes en su historia sea el caballero Don Quijote embarcado en el peligroso rescate de la princesa Dulcinea o que el samurai Kenshin deba rescatar a Mulán, la hija del emperador. 
 
 %-------------------------------------------------------------------
 
 
 \subsection{Implementación de los Protagonistas}
-Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capitulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan.
-
-De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{cap:Simulaciones}.
+Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte partíamos de cero, tal y como se explicó en el capitulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan. Cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia(ver con detalle en \ref{cap:Simulaciones}).
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carga de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual cogía las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
+Al tener unos Protagonistas tan diversos se necesita de ``algo'' capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carga de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD es capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual se cogen las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
 El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploXML:protagonistas}.
 
 \label{ejemploXML:protagonistas}
