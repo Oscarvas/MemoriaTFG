@@ -117,10 +117,10 @@ El mapa original era un archivo XML lleno de \textit{Strings}, que representaban
 
 Para poder usarlo de la manera correcta, primero debía contar con un sistema cargador de datos (SCD) capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el agente Mundo y por tanto integramos este SCD dentro del propio agente, dándole a este la funcionalidad de \texttt{CargarMapa()}.
 
-La función que actuaba como el SCD del archivo del mapa funcionaba básicamente como el resto de SCD's, ver apartado \ref{cap:Arquitectura:Loaders}, con la particularidad de que este iniciaba un objeto de la clase Mapa, que venía a ser un \textit{ArrayList} de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual cargaba nuevas localizaciones. 
+La función que actuaba como el SCD del archivo del mapa funcionaba básicamente como el resto de SCD's, ver apartado \ref{cap:Arquitectura:Loaders}, con la particularidad de que este iniciaba un objeto de la clase \texttt{Mapa}, que venía a ser un \textit{ArrayList} de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual cargaba nuevas localizaciones. 
 Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino también se debía cargar la matriz de adyacencia de estas, de manera que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización, en la carga se buscaba la etiqueta \texttt{<conectadoCon>} donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
 
-Para que estas cargas se pudiesen realizar correctamente fue necesaria la inclusión de dos nuevas clases, la clase Mapa y la clase Localización, que explicaremos en detalle mas adelante \ref{cap:Mapa:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
+Para que estas cargas se pudiesen realizar correctamente fue necesaria la inclusión de dos nuevas clases, la clase \texttt{Mapa} y la clase \texttt{Localización}, que explicaremos en detalle mas adelante \ref{cap:Mapa:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
 
 Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Estas localizaciones se guardaban en un \textit{ArrayList} auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y decidir de manera aleatoria entre las localizaciones de ese tipo finalmente en cual iban a empezar.
 
@@ -138,7 +138,7 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 
 \subsection{Las Clases Mapa y Localización y cómo localizar personajes}
 \label{cap:Mapa:ClaseMapaLocalizacion}
-La clase Localización nos permitía trabajar con las localizaciones de una manera más funcional, pudiendo ligar al \textit{String}, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
+La clase \texttt{Localización} nos permitía trabajar con las localizaciones de una manera más funcional, pudiendo ligar al \textit{String}, que era realmente el elemento identificativo de la localización, a su tipo, de manera que supiésemos de cada localización si eran un bosque, un lago,...
 
 De igual manera, la Clase Localización permitía al agente mundo conocer que personajes y objetos interactuaban con ella así como con que localizaciones estaba conectada.
 
