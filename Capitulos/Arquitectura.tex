@@ -58,50 +58,50 @@ Cada uno de los personajes es implementado como agente software usando la plataf
 
 Cada agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes.
 
-Estudiando diferentes tipos de historias, de diferentes autores y temáticas variadas, se puede observar en la gran mayoría de los casos que existe un factor en común para estas historias. Hablamos sobre los arquetipos de personajes que existen en las historias.
-
-Generalmente, por no decir en todas las historias, siempre existe un personaje que es el protagonista, ó varios personajes. Siempre hay una figura contraria, un villano. Suele haber uno o varios personajes que sirven de motivación para que el protagonista se desenvuelva dentro de la historia. Y también hay personajes que si bien no son ``relevantes'' para la historia, de alguna manera y en algún momento interactúan con el protagonista para guiarle o alterar el curso de su historia.
-
-Teniendo muy presente que éste es un factor clave al momento de diseñar un sistema capaz de generar diferentes tipos y temáticas de historias, se plantea la siguiente estructura:
-
-\begin{itemize}
-	\item \textbf{Personaje}.
-	Clase que nos permite modelar las características comunes de todos los agentes. Aspectos como la vida del personaje, localización, sexo, clase de personaje se contemplan en este nivel.
-	
-		\begin{itemize}
-			\item \textbf{Protagonistas}.
-			Son personajes que disponen de atributos especiales (fuerza, inteligencia...) y que tienen la capacidad de usar ciertos objetos. Entre estos personajes disponemos de:
-			
-			\begin{itemize}
-				\item \textbf{Víctima}. Este personaje será objeto de secuestro por parte de uno de los antagonistas.
-				
-				\item \textbf{Salvador}. El principal, el posible héroe, que intentará rescatar a la víctima y dejarla a salvo.
-				
-				\item \textbf{Mentor}. Este personaje es quien se encarga de pedir ayuda al salvador para rescatar a la víctima.
-				
-				\item \textbf{Compañero}. Su labor es ayudar al salvador en los posibles obstáculos que éste encuentre en su travesía.
-				
-				\item \textbf{Especialista}. Un personaje que sabe como lidiar con los ``Cazatesoros'' e inspeccionar la integridad de los objetos de la historia.
-			\end{itemize}
-			
-			\item \textbf{Antagonistas}.
-			Estos son los personajes que se encargarán de poner a prueba las habilidades de los protagonistas, poniendo obstáculos en su camino o intentando eliminarlos. Se proporcionan los siguientes tipos:
-			
-			\begin{itemize}
-				\item \textbf{Secuestrador}. Este personaje se encarga de raptar a la víctima y ocultarla del protagonista.
-				
-				\item \textbf{Emboscador}. El emboscador es un personaje que tratará de impedir el paso a cierto tipo de protagonista. Merodea a través del mapa a la espera de que un protagonista se cruce en su camino.
-				
-				\item \textbf{Guardián}. También puede verse como el ``Cazatesoros''. Es un personaje que va en la búsqueda de algún objeto dentro de la historia.
-				
-				\item \textbf{Asesino}. La representación tácita del mal. Un personaje que busca acabar con la vida de otro.
-			\end{itemize}
-			
-			\item \textbf{Personajes No Jugadores (PNJ's)}. Estos son personajes que no tienen un objetivo que cumplir como tal, pero sirven como generadores de recursos para los protagonistas que se encuentren con ellos.
-			
-		\end{itemize}
-		
-\end{itemize}
+%Estudiando diferentes tipos de historias, de diferentes autores y temáticas variadas, se puede observar en la gran mayoría de los casos que existe un factor en común para estas historias. Hablamos sobre los arquetipos de personajes que existen en las historias.
+%
+%Generalmente, por no decir en todas las historias, siempre existe un personaje que es el protagonista, ó varios personajes. Siempre hay una figura contraria, un villano. Suele haber uno o varios personajes que sirven de motivación para que el protagonista se desenvuelva dentro de la historia. Y también hay personajes que si bien no son ``relevantes'' para la historia, de alguna manera y en algún momento interactúan con el protagonista para guiarle o alterar el curso de su historia.
+%
+%Teniendo muy presente que éste es un factor clave al momento de diseñar un sistema capaz de generar diferentes tipos y temáticas de historias, se plantea la siguiente estructura:
+%
+%\begin{itemize}
+%	\item \textbf{Personaje}.
+%	Clase que nos permite modelar las características comunes de todos los agentes. Aspectos como la vida del personaje, localización, sexo, clase de personaje se contemplan en este nivel.
+%	
+%		\begin{itemize}
+%			\item \textbf{Protagonistas}.
+%			Son personajes que disponen de atributos especiales (fuerza, inteligencia...) y que tienen la capacidad de usar ciertos objetos. Entre estos personajes disponemos de:
+%			
+%			\begin{itemize}
+%				\item \textbf{Víctima}. Este personaje será objeto de secuestro por parte de uno de los antagonistas.
+%				
+%				\item \textbf{Salvador}. El principal, el posible héroe, que intentará rescatar a la víctima y dejarla a salvo.
+%				
+%				\item \textbf{Mentor}. Este personaje es quien se encarga de pedir ayuda al salvador para rescatar a la víctima.
+%				
+%				\item \textbf{Compañero}. Su labor es ayudar al salvador en los posibles obstáculos que éste encuentre en su travesía.
+%				
+%				\item \textbf{Especialista}. Un personaje que sabe como lidiar con los ``Cazatesoros'' e inspeccionar la integridad de los objetos de la historia.
+%			\end{itemize}
+%			
+%			\item \textbf{Antagonistas}.
+%			Estos son los personajes que se encargarán de poner a prueba las habilidades de los protagonistas, poniendo obstáculos en su camino o intentando eliminarlos. Se proporcionan los siguientes tipos:
+%			
+%			\begin{itemize}
+%				\item \textbf{Secuestrador}. Este personaje se encarga de raptar a la víctima y ocultarla del protagonista.
+%				
+%				\item \textbf{Emboscador}. El emboscador es un personaje que tratará de impedir el paso a cierto tipo de protagonista. Merodea a través del mapa a la espera de que un protagonista se cruce en su camino.
+%				
+%				\item \textbf{Guardián}. También puede verse como el ``Cazatesoros''. Es un personaje que va en la búsqueda de algún objeto dentro de la historia.
+%				
+%				\item \textbf{Asesino}. La representación tácita del mal. Un personaje que busca acabar con la vida de otro.
+%			\end{itemize}
+%			
+%			\item \textbf{Personajes No Jugadores (PNJ's)}. Estos son personajes que no tienen un objetivo que cumplir como tal, pero sirven como generadores de recursos para los protagonistas que se encuentren con ellos.
+%			
+%		\end{itemize}
+%		
+%\end{itemize}
 
 En el capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
 
@@ -397,8 +397,8 @@ Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema} nos muestran un ejem
 
 
 %-------------------------------------------------------------------
-\section{Archivos de Configuración}
-\label{cap:Arquitectura:ArchivosXML}
+\section{Carga de Datos y Archivos de Configuración}
+\label{cap:Arquitectura:Loaders}
 
 Además de los archivos pddl usados para la planificación, crear un sistema capaz de permitir al usuario alterar la mayor cantidad de aspectos posible al momento de generar nuevas historias, exige que cierta información del sistema sea configurable fuera de la compilación.
 
@@ -427,148 +427,175 @@ Estos ficheros están programados en XML\footnote{EXtensible Markup Language}.Est
 	\item Aunque se encuentre en dos ficheros diferentes, un mismo nombre es único para todos, por ejemplo en el caso de las localizaciones.
 \end{itemize}
 
-Para configurar la escenografía se ha diseñado un esquema XML que emulase en cierta manera el aspecto de un mapamundi político. Este diseño nos permite crear múltiples regiones comprendidas por una o más localizaciones. Dejar que el usuario sea omnipotente al momento de configurar el sistema añade un factor de complejidad y coste muy alto al hacer el diseño de todo el sistema generador de historias, así que se decide poner ciertas limitaciones con vistas a mantener un control razonable del sistema mientras se hace diseña. Estas limitaciones se ven reflejadas en los tipos de localizaciones que el usuario puede usar, teniendo este que elegir entre una serie de tipos propuestos predefinidos. El usuario puede usar cualquier nombre desee para las regiones y localizaciones.
+El Sistema de Carga de Datos (SCD de ahora en adelante) que se encarga de cargar la información de cada fichero de configuración en el sistema tiene una serie de restricciones específicas para cada uno de estos que se verán con más detalle en los capítulos correspondientes.
 
-El diseño visto en plano de este fichero puede verse como un mapa de adyacencias, esto significa, las conexiones de cada localización representan un camino dirigido en lo que puede ser un grafo. Por tanto, para decir que existe un camino bidireccional entre dos localizaciones es necesario que cada una incluya el nombre de la otra en su etiqueta \textit{conectadoCon}. Dentro de esta etiqueta van separados por espacios los nombres de todas las localizaciones con las que existe un camino A$\rightarrow$B. Tenemos en el cuadro de código \ref{escenografiaXML} el esquema que toma el XML de la escenografía.
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la escenografía},label=escenografiaXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Mapa>
-	<region nombre="[nombreRegión]">
-		<localizacion id="[nombreLocalización]" 
-			tipo="[Pueblo|Bosque|Guarida|Urbano|Castillo|Lago]" >
-			
-			<conectadoCon>[nombreLocalización [nombreLocalización ...]]
-				</conectadoCon>
-		</localizacion>    
-	</region>
-</Mapa>
-
-\end{lstlisting}
-
-Siguiendo el patrón que nos ofrece el diseño del archivo de configuración para los protagonistas, añadir multitud de protagonistas a la historia sólo requiere copiar y modificar múltiples instancias de la etiqueta \textit{personaje}. El cuadro de código \ref{protagonistasXML} muestra el diseño que sigue este archivo.
-
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los protagonistas},label=protagonistasXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Actores>
-	<personaje nombre="[nombrePersonaje]" clase="[nombreClase]"
-		raza="[nombreRaza]" vida="[#]" 
-			fuerza="[#]" destreza="[#]" inteligencia="[#]" 
-				codicia="[#]"/>
-</Actores>
-\end{lstlisting}
-
-Al igual que en los protagonistas, cada antagonista se define mediante nuevas entradas de la etiqueta \textit{monstruo}. Aquí aparecen ya, atributos cuyo valor debe encontrarse entre los predefinidos, como viene a ser la clase y sexo del antagonista. Esto es para que el sistema pueda tener un mayor control sobre la entrada recibida. El esquema usado se puede ver en el cuadro \ref{antagonistasXML}.
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Actores>
-	<monstruo nombre="[nombreAntagonista]" 
-		clase="[Secuestrador|Guardian|Emboscador|Asesino]"
-			especie="[nombreEspecie]" sexo="[M|F]"/>
-</Actores>
-\end{lstlisting}
-
-La oportunidad de personalizar las frases y la forma de hablar que tiene cada arquetipo de personaje es uno de los aspectos más importantes del sistema. Especificando el arquetipo en \textit{nombreClase} se indica el bloque de frases para ese tipo de personajes. El sistema trata los textos conversacionales en función de ciertos estados para que así el usuario indique las frases que debe usar un arquetipo dependiendo de la situación en la que se encuentre, por ejemplo, las frases que dice cuando está combate, recién se incorpora a la historia ó cambia de localización. Se pueden especificar multitud de frases diferentes para una misma situación, ya que el sistema elije aleatoriamente la frase a decir para cada fase que este atravesando ese personaje. Es importante que estas frases sean impersonales puesto que van a ser usadas por todos los personajes dentro de un mismo arquetipo. El cuadro \ref{frasesXML} nos muestra el esquema de este archivo.
-
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las frases de los personajes},label=frasesXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Frases>
-	<personaje tipo="[nombreClase]" >
-		<frase id="[Inicio|Combate...]">[fraseADecir]</frase>
-	</personaje>
-</Frases>
-\end{lstlisting}
-
-El archivo de configuración para objetivos contiene una lista de los posibles objetivos por cada arquetipo de personaje. El sistema se encarga de cargar sólo una de las entradas de la etiqueta \textit{objetivo} cuando necesita completar el archivo del problema para un personaje dado, esto implica que el contenido de la etiqueta debe estar codificado en lenguaje pddl (véase el contenido de \verb|(:goal )|  en el cuadro \ref{pddlProblema} ejemplo del fichero problema). El esquema de este archivo se ve en el cuadro de código \ref{objetivosXML}.
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetivos},label=objetivosXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Objetivos>
-	<personaje tipo="[nombreClase]" >
-		<objetivo>([códigoPddlObjetivo])</objetivo>
-	</personaje>
-</Objetivos>
-\end{lstlisting}
-\lstset{frameround=fttt}
-
-Siendo quizá un diseño algo diferente a los demás, en el archivo de objetos el sistema diferencia entre 2 tipos de objeto : clave y consumible.
-
-Los objetos clave son aquellos que pueden representar cierta importancia para la historia ó algún personaje, pero que no alteran a los atributos de éste (vida, fuerza...). Un ejemplo de este tipo de objetos es la mítica Excalibur, la espada otorgaría a la persona que la blandiese el título de Rey. Es necesario especificar la localización de cada objeto clave.
-
-Por otra parte, los objetos consumibles generalmente no otorgan tanto juego a la historia ni definen objetivos, pero ayudan a los personajes a evolucionar en el transcurso de la historia. Estos carecen de localización específica puesto se carga un objeto en una localización aleatoria de la escenografía. Los consumibles son capaces de alterar cada uno de los atributos de aquel personaje que los encuentre de forma positiva o negativa dependiendo de cómo se definiesen los valores numéricos de cada objeto en este archivo (los atributos vida, fuerza, etc... pueden tomar valores negativos). El cuadro \ref{objetosXML} muestra el esquema que sigue este archivo.
-
-
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Objetos>
-	<tipo tipo="clave">
-		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
-			localizacion="[nombreLocalización]"/>
-	</tipo>
-	
-	<tipo tipo="consumible">
-		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
-			vida="[#]" fuerza="[#]" destreza="[#]" inteligencia="[#]" 
-				codicia="[#]"/>
-	</tipo>
-</Objetos>
-\end{lstlisting}
-
-
-Usando como inspiración juegos de rol del tipo \textit{D\&D}\footnote{Dungeons \& Dragons: Mítico referente de esta familia de juegos.}, el archivo de razas y atributos se diseña para que se parezca a las hojas de razas que se encuentran en los libros del \textit{Game Master}\footnote{Libro que sirve de referencia a la persona guía una partida de D\&D.} pero mucho más simple. Basta definir un nombre de raza e indicar los atributos base modificadores asociados a esa raza.
-
-Este aspecto permite generar diversidad entre personajes de un mismo arquetipo, puesto se puede tener un Caballero más fuerte que otro, una raza que sea más avara y exija cantidades de dinero superiores ó razas más estudiosas que disponen de una mayor inteligencia.
-
-Todos los valores numéricos han de ser necesariamente positivos y preferiblemente no mayores de 10. Esquema en el cuadro \ref{razasXML}.
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
-
-<?xml version="1.0" encoding="UTF-8"?>
-<Actores>
-	<raza nombre="[nombreRaza]" vida="[#]" fuerza="[#]" destreza="[#]" 
-		inteligencia="[#]"  codicia="[#]"/>
-</Actores>
-\end{lstlisting}
-
-Por último, añadir personajes al sistema mantiene la simpleza de diseño y agrega un pnj por entrada de la etiqueta \textit{pnj}. Es importante un nombre para la localización válido definido previamente en el archivo de la escenografía. El cuadro \ref{pnjsXML} muestra este esquema.
-
-\lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
-<?xml version="1.0" encoding="UTF-8"?>
-<Actores>
-	<pnj nombre="[nombrePNJ]" sexo="[M|H]" oficio="[nombreOficio]" 
-		localizacion="[nombreLocalización]"/>
-</Actores>
-\end{lstlisting}
-
-
-%-------------------------------------------------------------------
-\section{Sistema de Carga de Datos}
-\label{cap:Arquitectura:Loaders}
-
+%
+%
+%Para configurar la escenografía se ha diseñado un esquema XML que emulase en cierta manera el aspecto de un mapamundi político. Este diseño nos permite crear múltiples regiones comprendidas por una o más localizaciones. Dejar que el usuario sea omnipotente al momento de configurar el sistema añade un factor de complejidad y coste muy alto al hacer el diseño de todo el sistema generador de historias, así que se decide poner ciertas limitaciones con vistas a mantener un control razonable del sistema mientras se hace diseña. Estas limitaciones se ven reflejadas en los tipos de localizaciones que el usuario puede usar, teniendo este que elegir entre una serie de tipos propuestos predefinidos. El usuario puede usar cualquier nombre desee para las regiones y localizaciones.
+%
+%El diseño visto en plano de este fichero puede verse como un mapa de adyacencias, esto significa, las conexiones de cada localización representan un camino dirigido en lo que puede ser un grafo. Por tanto, para decir que existe un camino bidireccional entre dos localizaciones es necesario que cada una incluya el nombre de la otra en su etiqueta \textit{conectadoCon}. Dentro de esta etiqueta van separados por espacios los nombres de todas las localizaciones con las que existe un camino A$\rightarrow$B. Tenemos en el cuadro de código \ref{escenografiaXML} el esquema que toma el XML de la escenografía.
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la escenografía},label=escenografiaXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Mapa>
+%	<region nombre="[nombreRegión]">
+%		<localizacion id="[nombreLocalización]" 
+%			tipo="[Pueblo|Bosque|Guarida|Urbano|Castillo|Lago]" >
+%			
+%			<conectadoCon>[nombreLocalización [nombreLocalización ...]]
+%				</conectadoCon>
+%		</localizacion>    
+%	</region>
+%</Mapa>
+%
+%\end{lstlisting}
+%
+%Siguiendo el patrón que nos ofrece el diseño del archivo de configuración para los protagonistas, añadir multitud de protagonistas a la historia sólo requiere copiar y modificar múltiples instancias de la etiqueta \textit{personaje}. El cuadro de código \ref{protagonistasXML} muestra el diseño que sigue este archivo.
+%
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los protagonistas},label=protagonistasXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Actores>
+%	<personaje nombre="[nombrePersonaje]" clase="[nombreClase]"
+%		raza="[nombreRaza]" vida="[#]" 
+%			fuerza="[#]" destreza="[#]" inteligencia="[#]" 
+%				codicia="[#]"/>
+%</Actores>
+%\end{lstlisting}
+%
+%Al igual que en los protagonistas, cada antagonista se define mediante nuevas entradas de la etiqueta \textit{monstruo}. Aquí aparecen ya, atributos cuyo valor debe encontrarse entre los predefinidos, como viene a ser la clase y sexo del antagonista. Esto es para que el sistema pueda tener un mayor control sobre la entrada recibida. El esquema usado se puede ver en el cuadro \ref{antagonistasXML}.
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Actores>
+%	<monstruo nombre="[nombreAntagonista]" 
+%		clase="[Secuestrador|Guardian|Emboscador|Asesino]"
+%			especie="[nombreEspecie]" sexo="[M|F]"/>
+%</Actores>
+%\end{lstlisting}
+%
+%La oportunidad de personalizar las frases y la forma de hablar que tiene cada arquetipo de personaje es uno de los aspectos más importantes del sistema. Especificando el arquetipo en \textit{nombreClase} se indica el bloque de frases para ese tipo de personajes. El sistema trata los textos conversacionales en función de ciertos estados para que así el usuario indique las frases que debe usar un arquetipo dependiendo de la situación en la que se encuentre, por ejemplo, las frases que dice cuando está combate, recién se incorpora a la historia ó cambia de localización. Se pueden especificar multitud de frases diferentes para una misma situación, ya que el sistema elije aleatoriamente la frase a decir para cada fase que este atravesando ese personaje. Es importante que estas frases sean impersonales puesto que van a ser usadas por todos los personajes dentro de un mismo arquetipo. El cuadro \ref{frasesXML} nos muestra el esquema de este archivo.
+%
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las frases de los personajes},label=frasesXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Frases>
+%	<personaje tipo="[nombreClase]" >
+%		<frase id="[Inicio|Combate...]">[fraseADecir]</frase>
+%	</personaje>
+%</Frases>
+%\end{lstlisting}
+%
+%El archivo de configuración para objetivos contiene una lista de los posibles objetivos por cada arquetipo de personaje. El sistema se encarga de cargar sólo una de las entradas de la etiqueta \textit{objetivo} cuando necesita completar el archivo del problema para un personaje dado, esto implica que el contenido de la etiqueta debe estar codificado en lenguaje pddl (véase el contenido de \verb|(:goal )|  en el cuadro \ref{pddlProblema} ejemplo del fichero problema). El esquema de este archivo se ve en el cuadro de código \ref{objetivosXML}.
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetivos},label=objetivosXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Objetivos>
+%	<personaje tipo="[nombreClase]" >
+%		<objetivo>([códigoPddlObjetivo])</objetivo>
+%	</personaje>
+%</Objetivos>
+%\end{lstlisting}
+%\lstset{frameround=fttt}
+%
+%Siendo quizá un diseño algo diferente a los demás, en el archivo de objetos el sistema diferencia entre 2 tipos de objeto : clave y consumible.
+%
+%Los objetos clave son aquellos que pueden representar cierta importancia para la historia ó algún personaje, pero que no alteran a los atributos de éste (vida, fuerza...). Un ejemplo de este tipo de objetos es la mítica Excalibur, la espada otorgaría a la persona que la blandiese el título de Rey. Es necesario especificar la localización de cada objeto clave.
+%
+%Por otra parte, los objetos consumibles generalmente no otorgan tanto juego a la historia ni definen objetivos, pero ayudan a los personajes a evolucionar en el transcurso de la historia. Estos carecen de localización específica puesto se carga un objeto en una localización aleatoria de la escenografía. Los consumibles son capaces de alterar cada uno de los atributos de aquel personaje que los encuentre de forma positiva o negativa dependiendo de cómo se definiesen los valores numéricos de cada objeto en este archivo (los atributos vida, fuerza, etc... pueden tomar valores negativos). El cuadro \ref{objetosXML} muestra el esquema que sigue este archivo.
+%
+%
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Objetos>
+%	<tipo tipo="clave">
+%		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
+%			localizacion="[nombreLocalización]"/>
+%	</tipo>
+%	
+%	<tipo tipo="consumible">
+%		<objeto nombre="[nombreObjeto]" descripcion="[descripciónObjeto]" 
+%			vida="[#]" fuerza="[#]" destreza="[#]" inteligencia="[#]" 
+%				codicia="[#]"/>
+%	</tipo>
+%</Objetos>
+%\end{lstlisting}
+%
+%
+%Usando como inspiración juegos de rol del tipo \textit{D\&D}\footnote{Dungeons \& Dragons: Mítico referente de esta familia de juegos.}, el archivo de razas y atributos se diseña para que se parezca a las hojas de razas que se encuentran en los libros del \textit{Game Master}\footnote{Libro que sirve de referencia a la persona guía una partida de D\&D.} pero mucho más simple. Basta definir un nombre de raza e indicar los atributos base modificadores asociados a esa raza.
+%
+%Este aspecto permite generar diversidad entre personajes de un mismo arquetipo, puesto se puede tener un Caballero más fuerte que otro, una raza que sea más avara y exija cantidades de dinero superiores ó razas más estudiosas que disponen de una mayor inteligencia.
+%
+%Todos los valores numéricos han de ser necesariamente positivos y preferiblemente no mayores de 10. Esquema en el cuadro \ref{razasXML}.
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
+%
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Actores>
+%	<raza nombre="[nombreRaza]" vida="[#]" fuerza="[#]" destreza="[#]" 
+%		inteligencia="[#]"  codicia="[#]"/>
+%</Actores>
+%\end{lstlisting}
+%
+%Por último, añadir personajes al sistema mantiene la simpleza de diseño y agrega un pnj por entrada de la etiqueta \textit{pnj}. Es importante un nombre para la localización válido definido previamente en el archivo de la escenografía. El cuadro \ref{pnjsXML} muestra este esquema.
+%
+%\lstset{frameround=fttt}
+%\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
+%<?xml version="1.0" encoding="UTF-8"?>
+%<Actores>
+%	<pnj nombre="[nombrePNJ]" sexo="[M|H]" oficio="[nombreOficio]" 
+%		localizacion="[nombreLocalización]"/>
+%</Actores>
+%\end{lstlisting}
 
 
 %-------------------------------------------------------------------
 \section{Interfaz Gráfica del Sistema}
 \label{cap:Arquitectura:InterfazPersonajes}
 
+La inclusión de un módulo que aporta un componente visual al sistema ayuda a incorporar ciertas funcionalidades de una manera sencilla a éste mucho más allá del factor estético.
+
+La figura \ref{fig:Gui} muestra la pantalla principal de la interfaz. Los mensajes producidos por los agentes se muestran en esta pantalla para ir creando el hilo de historia.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/gui}
+	\caption{Pantalla principal de la interfaz}
+	\label{fig:Gui}
+\end{figure}
+
+La barra de menús contiene tres botones que nos permiten interactuar con el sistema:
+
+\begin{itemize}
+	\item Personajes: ofrece cuadros de herramientas que permiten incorporar nuevos personajes a la historia (como en la figura \ref{fig:NuevoPersonaje}).
+	\item Mapa: permite seleccionar diferentes imágenes referentes a la escenografía (estas imágenes podemos verlas en el capítulo \ref{cap:Mapa}).
+	\item Iniciar: botón que empieza la ejecución de los personajes incorporados usando el cuadro de herramientas.
+\end{itemize}
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.3\textwidth]{Imagenes/nuevoPersonaje}
+	\caption{Herramienta para incorporar nuevos personajes}
+	\label{fig:NuevoPersonaje}
+\end{figure}
+
+
+\newpage
 %-------------------------------------------------------------------
 \section{El Logger}
 \label{cap:Arquitectura:Logger}
 
-Como último componente del sistema pero no menos importante, tenemos el logger. Aunque en la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de un parte del sistema que se encargue de registrar
+Como último componente del sistema pero no menos importante, tenemos el logger. Aunque en la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de una parte del sistema que se encargue de registrar todo lo sucedido en un fichero.
