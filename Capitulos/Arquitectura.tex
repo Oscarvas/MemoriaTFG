@@ -141,7 +141,7 @@ Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los 
 El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
 \subsection{Identificación de los agentes}
-Es oportuno comentar que para que un agente disponga de AID\footnote{Agent IDentifaction} válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
+Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
 
 \subsection{Ciclo de vida de los agentes}
 Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la figura \ref{fig:CicloVidaAgentes}.
@@ -221,7 +221,7 @@ La figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado d
 	\label{fig:JerarquiaComportamientos}
 \end{figure}
 
-Al momento de diseñar el comportamiento de un agente es probable que se requiera de comportamientos que sean capaces de ejecutarse en paralelo y al mismo tiempo. El tipo ParallelBehaviour hace una ejecución en paralelo de dos ó más comportamientos pero lo que hace realmente es ejecutar un método \texttt{action()} a la vez, del comportamiento que toque, y luego va alternando con los demás comportamientos.
+Al momento de diseñar el comportamiento de un agente es probable que se requiera de comportamientos que sean capaces de ejecutarse en paralelo y al mismo tiempo. El tipo \texttt{ParallelBehaviour} hace una ejecución en paralelo de dos ó más comportamientos pero lo que hace realmente es ejecutar un método \texttt{action()} a la vez, del comportamiento que toque, y luego va alternando con los demás comportamientos.
 
 Esto se debe a que el manejo de los comportamientos no sigue una política de expulsión, es decir, cuando se está ejecutando el método \texttt{action()} de un comportamiento éste nunca se ve interrumpido para que otro inicie su ejecución. Sólo cuando ése método termina y devuelve la salida \texttt{done()} como \texttt{true} se otorga el control al \texttt{action()} del siguiente comportamiento en la cola.
 
