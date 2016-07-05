@@ -107,11 +107,12 @@ En el capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo 
 
 Comprender cómo está estructurado el SMA y por qué funciona requiere que se hable con una terminología más técnica y que indaguemos con más profundidad en las prestaciones que nos ofrecen los agentes, JADE y los estándares FIPA.
 
-http://www.fipa.org/specs/fipa00023/XC00023H.html
+%http://www.fipa.org/specs/fipa00023/XC00023H.html
 
 
 \subsection{Modelo del gestor de agentes}
-(ref) explica que el gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
+%(ref) explica que e
+El gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
 
 Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
 
@@ -122,7 +123,7 @@ Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configu
 	\label{fig:ModeloReferencia}
 \end{figure}
 
-El \textbf{Directory Facilitator (DF)} es un componente esencial del AP. El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
+El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
 
 \begin{figure}[h]
 	\centering
@@ -140,7 +141,7 @@ Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los 
 El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
 \subsection{Identificación de los agentes}
-Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
+Es oportuno comentar que para que un agente disponga de AID\footnote{Agent IDentifaction} válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
 
 \subsection{Ciclo de vida de los agentes}
 Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la figura \ref{fig:CicloVidaAgentes}.
@@ -220,7 +221,13 @@ La figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado d
 	\label{fig:JerarquiaComportamientos}
 \end{figure}
 
-(hablar sobre la factoria de comportamientos y como nos permite crear nuevos comportamientos en hilos independientes para solventar problemas de paralelismo)
+Al momento de diseñar el comportamiento de un agente es probable que se requiera de comportamientos que sean capaces de ejecutarse en paralelo y al mismo tiempo. El tipo ParallelBehaviour hace una ejecución en paralelo de dos ó más comportamientos pero lo que hace realmente es ejecutar un método \texttt{action()} a la vez, del comportamiento que toque, y luego va alternando con los demás comportamientos.
+
+Esto se debe a que el manejo de los comportamientos no sigue una política de expulsión, es decir, cuando se está ejecutando el método \texttt{action()} de un comportamiento éste nunca se ve interrumpido para que otro inicie su ejecución. Sólo cuando ése método termina y devuelve la salida \texttt{done()} como \texttt{true} se otorga el control al \texttt{action()} del siguiente comportamiento en la cola.
+
+JADE ofrece una solución bastante sencilla si necesitamos que dos comportamientos tengan la oportunidad de realmente ejecutarse a la vez, esto es asignando comportamientos a hilos dedicados.
+
+La clase \texttt{ThreadedBehaviourFactory} dispone de un método \texttt{wrap()} que se encarga de encapsular el comportamiento en un hilo dedicado cuando se añade éste a un agente.
 
 Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
 
@@ -233,6 +240,8 @@ Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de f
 
 
 \subsection{Mensajes FIPA}
+\label{cap:Arquitectura:SMA:FIPA}
+
 En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters}, hemos visto cuáles son los parámetros que caracterizan a los mensajes FIPA ACL. Cuando los agentes se comunican, identificar el tipo de mensajes que se envían es muy importante de cara al control y tipo de tareas que quieren realizar los agentes. La tabla \ref{fig:Performatives} contiene algunos de los diferentes tipos de comunicación que nos ofrece el campo \texttt{performative}:
 
 \begin{table}[h!]
@@ -579,11 +588,14 @@ La figura \ref{fig:Gui} muestra la pantalla principal de la interfaz. Los mensaj
 La barra de menús contiene tres botones que nos permiten interactuar con el sistema:
 
 \begin{itemize}
-	\item Personajes: ofrece cuadros de herramientas que permiten incorporar nuevos personajes a la historia (como en la figura \ref{fig:NuevoPersonaje}).
+	\item Personajes: ofrece cuadros de herramientas que permiten incorporar nuevos personajes a la historia.
 	\item Mapa: permite seleccionar diferentes imágenes referentes a la escenografía (estas imágenes podemos verlas en el capítulo \ref{cap:Mapa}).
 	\item Iniciar: botón que empieza la ejecución de los personajes incorporados usando el cuadro de herramientas.
 \end{itemize}
 
+La figura \ref{fig:NuevoPersonaje} es un ejemplo del cuadro de herramientas que permite al usuario agregar nuevos personajes a la historia mientras ésta se está desarrollando.
+
+El usuario puede ir añadiendo personajes continuamente en cualquier momento del transcurso de la historia y todos estos sólo empezarán a ejecutarse cuando se pulse el botón de Iniciar de la pantalla principal. Esto se hace así para dar algo de margen y mantener cierto control a la hora de empezar la ejecución de personajes nuevos.
 
 \begin{figure}[h]
 	\centering
@@ -598,4 +610,6 @@ La barra de menús contiene tres botones que nos permiten interactuar con el sist
 \section{El Logger}
 \label{cap:Arquitectura:Logger}
 
-Como último componente del sistema pero no menos importante, tenemos el logger. Aunque en la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de una parte del sistema que se encargue de registrar todo lo sucedido en un fichero.
+Aunque la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de una parte del sistema que se encargue de registrar todo lo sucedido en un fichero.
+
+Este componente registra toda la información que generan los agentes, incluyendo el emisor del mensaje, el momento de emisión y el mensaje en sí. No obstante, existen ciertos mensajes que no son registrados en el logger ya que restarían claridad al archivo, estos son los mensajes de control que usan los agentes para comunicarse entre ellos, como los visto antes en la sección \ref{cap:Arquitectura:SMA:FIPA}.
