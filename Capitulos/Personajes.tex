@@ -35,9 +35,9 @@ También es importante indicar que todos los personajes se planificarán en algún 
 Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
 
 \subsection{Diseño de los Protagonistas}
-En la búsqueda de unos protagonistas para nuestras historias decidimos partir de aquellos ya planteados, como se ve en \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
-De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo de objetos \ref{cap:Objetos}.
-Las distintas clases a las que un protagonista puede pertenecer son:
+En la búsqueda de unos protagonistas para nuestras historias decidimos partir de aquellos ya planteados, como se ve en el capítulo \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
+De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo \ref{cap:Objetos} referente a los objetos.
+A continuación veremos los diferentes tipos de protagonistas.
 
 \subsubsection{La Princesa}
 La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
@@ -57,20 +57,20 @@ El caballero, que por si solo no es capaz de enfrentarse al guardián, pedirá apo
 
 Para encontrar un ejemplo mas gráfico, imaginen una historia en la que el caballero ha de cruzar un lago en el que vive una gran sierpe que ha roto el puente. En ese momento un mago aparece en escena, congelando el lago junto a la serpiente, permitiendo al caballero cruzar el lugar tras lo cual el mago derrotará a la sierpe y encontrará entre los huevos que custodiaba un mágico amuleto de aspecto siniestro.
 
-\subsubsection{EL Héroe Caído o Villano}
-El concepto de héroe caído, como ya se menciono antes, \ref{cap:PrimerosPasos}, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capitulo de \ref{cap:Objetivos}, es el de no clasificar automáticamente a nuestros personajes en ``buenos'' y ``malos'', pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
+\subsubsection{EL Héroe Caído ó Villano}
+El concepto de héroe caído, como ya se menciono antes en el capítulo \ref{cap:PrimerosPasos}, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capítulo \ref{cap:Objetivos}, es el de no clasificar automáticamente a los personajes en ``buenos'' y ``malos'', pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
 
 \subsubsection{Protagonistas Adaptables}
 Como se explicó en el capítulo de objetivos, una de nuestras aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
-Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo nos brindó la oportunidad de crear clases menos específicas, que se adaptasen a mas entornos y en definitiva fuesen mas genéricas, para ello cambiamos el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la figura \ref{fig:TablaClasesProtagonistas}.
+Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo nos brindó la oportunidad de crear clases menos específicas, que se adaptasen a mas entornos y en definitiva fuesen mas genéricas, para ello cambiamos el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la tabla \ref{fig:TablaClasesProtagonistas}.
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l|l}
 		Clase Protagonista				& Papel en la Historia  \\ \hline
-		Damísela en apuros (Princesa)	& Será secuestrada en las historias \\
-		Allegado a la Damisela (Rey) 	& Pedirá que rescaten a la damisela\\
-		Aspirante a Héroe (Caballero) 	& Irá al rescate de la damisela \\
+		Víctima (Princesa)	& Será secuestrada en las historias \\
+		Allegado a la Víctima (Rey) 	& Pedirá que rescaten a la víctima\\
+		Aspirante a Héroe (Caballero) 	& Irá al rescate de la víctima \\
 		Ayudante del Héroe (Mago)		& Ayudará al héroe en un momento crítico \\ \hline
 	\end{tabular}
 	\caption{Tabla final de Clases de Protagonistas y su papel en la historia}
@@ -83,50 +83,86 @@ Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar lo
 
 
 \subsection{Implementación de los Protagonistas}
-Para poder desarrollar de manera eficiente los Protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capitulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que a continuación se detallan.
+Para poder desarrollar de manera eficiente los protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capítulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que se explican a lo largo del capítulo.
 
-De igual manera, cada acción que aquí se comenta, como que la princesa pide ser rescatada, aparecerá en la historia, peor eso se ve con detalle en \ref{cap:Simulaciones}.
+De igual manera, cada acción que aquí se comenta, como que la víctima pide ser rescatada, aparecerá en la historia, pero eso se ve con detalle en \ref{cap:Simulaciones}.
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos Protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Así nació el concepto del Sistema de Carga de Datos (SCD), cuyo diseño se puede ver en profundidad en el capitulo \ref{cap:Arquitectura:Loaders}. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual cogía las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
-El archivo de configuración tenía al final el aspecto de la figura \ref{ejemploXML:protagonistas}.
+Para poder tener unos protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Para ello se uso un SCD. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual cogía las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
+El archivo de configuración tenía al final el aspecto del cuadro \ref{protagonistasXML}.
 
-\label{ejemploXML:protagonistas}
-\begin{lstlisting}[basicstyle=\tiny]
-	<personaje nombre="Felipe" clase="Rey" raza="LUCS" vida="100" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
-	<personaje nombre="Leia" clase="Princesa" raza="LUCS" vida="10" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
-	<personaje nombre="Alonso" clase="Caballero" raza="TESQ" vida="10" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los protagonistas},label=protagonistasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<personaje nombre="[nombrePersonaje]" clase="[nombreClase]"
+		raza="[nombreRaza]" vida="[#]" 
+			fuerza="[#]" destreza="[#]" inteligencia="[#]" 
+				codicia="[#]"/>
+</Actores>
 \end{lstlisting}
+%\label{ejemploXML:protagonistas}
+%\begin{lstlisting}[basicstyle=\tiny]
+%	<personaje nombre="Felipe" clase="Rey" raza="LUCS" vida="100" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
+%	<personaje nombre="Leia" clase="Princesa" raza="LUCS" vida="10" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
+%	<personaje nombre="Alonso" clase="Caballero" raza="TESQ" vida="10" fuerza="10" destreza="1" inteligencia="1" codicia="1"/>
+%\end{lstlisting}
  
-\subsubsection{La Interfaz Protagonistas}
-Para poder ejecutar correctamente a los protagonistas necesitábamos de una interfaz común para poder tratarlos a todos como el tipo de personajes que eran.
-Esta interfaz interpretaba correctamente los datos cargados desde el SCD de Protagonistas, para posteriormente enviárselos a cada clase en específico. Esta clase, que heredaba a su vez de la interfaz de personajes \ref{cap:Arquitectura:InterfazPersonajes}, tenía los atributos específicos de los Protagonistas, y representaba una gran ayuda a la hora de la implementación de estos.
+\subsubsection{La Clase Protagonistas}
+Para poder ejecutar correctamente a los protagonistas se necesita de una interfaz común para poder tratarlos a todos como el tipo de personajes que son.
+Esta interfaz interpreta correctamente los datos cargados desde el SCD de los protagonistas, para posteriormente enviarlos a cada clase en específico. Esta clase, que hereda a su vez de la clase de personajes, tiene los atributos específicos de los protagonistas, y representa una gran ayuda a la hora de la implementación de estos.
 %aquí pondría el diagrama de esta interfaz
-Una vez entendido bien el por que necesitábamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
+Una vez entendido bien el por que necesitamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
 
 
 \subsubsection{La Víctima}
 %se crea cargando todos sus atributos y datos, elige un padre aleatorriamente para ella, reyenando un array con aquellos de tipo rey, tras lo cual se declara secuestrable. A continuacion realiza un comportamiento que la permite moverse mientras esta siendo secuestrada, siguiendo a su secuestrador respondiendo al mensaje mover-princesa. Otro comportamiento para avisar a su padre de que ha sido secuestrada cuando llega a la guarida del dragon, pues esta esperando al mensaje "te secuestro". En este mismo behaviour lanzara el mensaje mujer independiente cada cierto tiempo, que realiza una tirada aleatoria entre todas las posibles vidas del monstruo, tras lo cual si la tirada es mayor se escapa. Por ultimo tiene un comportamiento para cuando es rescatada en el que informa de que ha sido rescatada y acaba su ejecucion como agente. 
-La ejecución de la clase empezaba cargando los atributos y datos específicos del agente. Tras esto, era necesario imponer a la víctima un pariente, que se escogía se manera aleatoria accediendo a un \textit{String} donde estaban todos aquellos agentes de la clase pariente, tras lo cual la princesa declarará del tipo secuestrable. %la princesa se localiza en el castillo del padre?
+La ejecución de la clase empieza cargando los atributos y datos específicos del agente. Tras esto, es necesario imponer a la víctima un pariente, consultando al DF por aquellos agentes que registraron el servicio \texttt{Rey}, tras lo cual la víctima registra el servicio \texttt{Secuestrable} en el DF. %la princesa se localiza en el castillo del padre?
 Aparte de esto poseía tres comportamientos.
 
-El comportamiento \texttt{mover-secuestrada} permitía a la princesa moverse con su secuestrado, respondiendo al mensaje mover princesa. Aunque a los ojos de la historia es el captor el que manda moverse a la víctima, el agente solo podía relocalizarse en el mapa a sí mismo, así que realmente se movía por su propio pie, aunque, eso si, siguiendo las ordenes de su captor.
+El comportamiento \texttt{mover-secuestrada} permite a la princesa moverse con su secuestrador, respondiendo al mensaje ACL \texttt{mover princesa}. Aunque a los ojos de la historia es el captor el que manda moverse a la víctima, el agente solo puede relocalizarse en el mapa a sí mismo, así que realmente se mueve por su propio pie, aunque, eso si, siguiendo las ordenes de su captor.
 
-Cuando la víctima era capturada, llegaba un momento en el que su captor la mandaba el mensaje ``Te Secuestro''. que la confirmaba que en efecto había sido raptada. En ese momento la víctima lanzaba una petición de ayuda que era recogida por el pariente al iniciarse se la había ligado.
-Una vez esto ocurría la víctima intentaría escaparse por sus propios medios. Para ello, le lanzaba la petición \texttt{mujerIndependiente} a su secuestrador y se añadia otro comportamiento dentro de este, en el que cada cierto tiempo, un tic de reloj, la princesa generaba un numero aleatorio entre todos los posibles valores de vida que podía tener su captor. Así, si este número era mayor que la vida actual de su captor, ya que ante un secuestrador malherido, contaría con muchas mas posibilidades de escapar, la víctima conseguía liberarse y lanzaba el mensaje de ``liberada''. Tras esto, la princesa se planificaba, con el objetivo de volver a casa.
+Cuando la víctima es capturada, llega un momento en el que su captor la manda el mensaje ACL \texttt{Te Secuestro}, que le confirma que en efecto ha sido raptada. En ese momento la víctima lanza una petición de ayuda que es recogida por el pariente que se le había asignado.
+Una vez esto ocurre la víctima intenta escaparse por sus propios medios. 
+Para ello la víctima usa un comportamiento \texttt{TickerBehaviour} que envía cada X periodo de tiempo la petición \texttt{mujerIndependiente}, a través de un mensaje ACL del tipo \texttt{Request} a su secuestrador. Este mensaje contiene un numero aleatorio generado en cada periodo, que se encuentra en el rango de los valores de vida de su captor. Cuando el captor recibe el mensaje, evalúa si el numero recibido es mayor que su valor de vida actual ya que ante un secuestrador malherido, contaría con muchas más posibilidades de escapar. Si finalmente el número es mayor, la víctima consigue liberarse y se planifica, tras lo que termina su ejecución.
 
-Por último, tenía el comportamiento \texttt{rescatada}, que se ejecutaba cuando era salvada. En ese momento su salvador la mandaba el mensaje "rescatada" que indicaba a la princesa que su ejecución había acabado y el agente ``moría''. 
+Por último, tiene el comportamiento \texttt{rescatada}, que se ejecuta cuando es salvada, es decir, no se ejecuta cuando escapa por su propio pie. En este comportamiento, la víctima espera un mensaje ACL del tipo \texttt{Inform} con el ID \texttt{Rescatada}, que será lanzado por su salvador, indicando a la víctima el fin de su ejecución. 
+
 
 \subsubsection{El Allegado a la Víctima}
 % contar como se inicia y carga sus datos. Funciona como una maquina de estados (mirar en la otra memoria)
+Al iniciarse el agente se cargaban sus datos específicos de la manera general,con la particularidad de que también se cargaba el salario, cualidad que usaba el agente para contratar los servicios de los héroes que quería que intentasen salvar a la víctima. 
+%quitable la siguiente frase
+También recopila los datos referentes al numero de víctimas a las que esta llegado y se localiza, tras lo que registra su tipo como ``Rey'' y comienza su ejecución, registrando un FSMBehaviour.
+A partir de aquí el funcionamiento del rey es ciertamente delicado. Su ejecución se asemeja a la de una máquina de estados,%esto es verdad?
+ donde cada comportamiento se ejecutará una única vez y da paso al siguiente. Para poder ejecutarse correctamente ha de registrar los estados, añadiendo su comportamiento correspondiente al estado junto al nombre del estado que lo identifica, y despues añadirá las transiciones, de manera que el agente pueda proseguir con du funcionamiento (ver la figura )
+Los diferentes estados por los que puede pasar el agente son:
+\begin{itemize}
+	\item Atento: En el estado atento, el agente esta esperando a recibir un ACLMessage del tipo Request proveniente de la víctima. Cuando este mensaje se produce, el agente activa a los antagonistas del tipo Asesino a través de un ACLMessage del tipo INFORM con la ID ``Derrocar''.
+	\item Rescate: En este estado el agente activará buscará de las paginas amarillas a aquellos agentes del tipo ``Matadragones'', que serán los aspirantes a héroes, buscando al menos uno disponible.
+	\item Pedir Ayuda: Aquí se registrá un ACLMessage del tipo CFP, que se enviara a todos aquellos agentes encontrados en el estado anterior a través del MessageTemplate ``Solicitar Servicio''.
+	\item Recibir Oferta: El agente recibirá la respuesta de cada aspirante a héroe a la petición del estado anterior a través de un ACLMessage. En este mensaje, ira incluido el precio por contratar sus servicios de cada aspirante, tras lo que el Allegado elegirá aquel con la mejor oferta, el precio mas bajo. Sino posee suficiente salario para pagar a un uevo aspirante, volverá a buscar aspirantes nuevos para ver si cumplen los requisitos de los que dispone.
+	\item Aceptar Oferta: Al aspirante seleccionado finalmente en el anterior estado, el Allegado le mandará un ACLMessage del tipo ACCEPT PROPOSAL, en el que le proporciona los datos de la víctima y el secuestrador, de manera que el aspirante a héroe sea capaz de planificarse para rescatar a la víctima. Tras esto esperará una respuesta del aspirante en forma de ACLMessage. Si este mensaje es del tipo ``Inform'' implicará que el aspirante tuvo éxito en su empresa. Sino, significará que fallo, y el Allegado volverá a buscar nuevos aspirantes.
+	\item Víctima Salvada: En este estado el Allegado enviará un ACLMessage de tipo Inform a la víctima, indicandola que ha sido rescatada, y eliminandola de la lista de víctimas a la que el Allegado esta ligado. Si esta lista de víctimas queda vacía o el rey se queda sin salario su ejecución terminará. Sino volvera al estado inicial.
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/DiagramaEstadosRey}
+	\caption{Diagrama de transición autómata del Allegado}
+	\label{fig:DiagramaEstadosRey}
+\end{figure}
+
+
 
 
 \subsubsection{El Aspirante a Héroe}
 %El Caballero se inicia con todos sus atributos y registra el el tipo Matadragones. Tras esto registrara el comportamiento Ofrecer Servicios, en el que espera un mensaje del tipo Solocitar Servicio, si escucha este mensaje enviará su propuesta. Si esta propuiesta es aceptada accedera a su sigueinte comportamiento, que se llama aceptar oferta de rescate. Le llega el array de Strings contratos proporcionados por mundo (creo pero no lo encuentro) que contiene los datos del dragon y la princesa que ha de salvar. en ese momento inorma conel mensaje objetivosecuestro que va a intentar salvar a la princesa. Tras esto se planifica y añade el comprotamiento fin planificacion.En la planificación debera cumplir sus objetivos de objetivos.xml tal y como se explican en el apartado del planificador.
 %En el comportamiento fin planificacion se contemplan ambos casos, tanto que el caballero haya muerto en su aventura, en cuyo caso el agente sera eliminado, como que ha tenido éxito. Sino informara con el mensaje rescate del buen hacer de su empresa y el planificador le hara ejecutar el comportamiento convertirse en héroe, que simplemente es informativo. Tras esto, el caballero habra acabadosu planificacion y se borrará.
 %Todas las cosas que ocurren se mostrarán en la historia.
-Al iniciarse un nuevo héroe, éste cargaba todos sus atributos, registraba el tipo "Matadragones" y se localizaba dentro del mapa.  El héroe registra dos comportamientos principales que son \texttt{OfrecerServicios()} y \texttt{AceptarOfertaRescate()}.
+Al iniciarse un nuevo aspirante, éste cargaba todos sus atributos, registraba el tipo "Matadragones" y se localizaba dentro del mapa.  El héroe registra dos comportamientos principales que son \texttt{OfrecerServicios()} y \texttt{AceptarOfertaRescate()}.
 
 En el comportamiento \texttt{OfrecerServicio()} el héroe espera un mensaje del tipo SolicitarServicio, que mandará el allegado a la víctia cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responderá enviando una propuesta con el precio que cuesta contratar sus servicios, que viene determinado por su codicia (véase el capitulo \ref{cap:AtributosRazas}).
 
@@ -223,16 +259,16 @@ Para explicar de manera correcta como se comportaban este tipo de antagonistas e
 \subsubsection{El Antagonista Secuestrador}
 Según se iniciaba el agente secuestrador este solicitaba información al agente Mundo. En este caso el Mundo le tenía que decir cuales eran aquellos agentes que proporcionaban el servicio secuestrables y, en caso de que no hubiese ninguno el agente se quedaba a la espera de que apareciese uno que cumpliese los requisitos solicitados.
 
-En caso de encontrar al menos de los agentes con el servicio secuestrable, escoge entre ellos de manera aleatoria cual será su objetivo, registrando el mensaje ACL "ObjetivoSecuestro". Una vez ha escogido el agente a secuestrar se planifica, incorporando a su funcionamiento los servicios de fallo secuestro, que entraba en acción cuando fallaba en el rapto, y fin de planificación, que se ejecutaba cuando el secuestro se realizaba correctamente.
+En caso de encontrar al menos uno de los agentes con el servicio secuestrable, escoge entre ellos de manera aleatoria cual será su objetivo, registrando el mensaje ACL "ObjetivoSecuestro". Una vez ha escogido el agente a secuestrar se planifica, incorporando a su funcionamiento los servicios de fallo secuestro, que entraba en acción cuando fallaba en el rapto, y fin de planificación, que se ejecutaba cuando el secuestro se realizaba correctamente.
 
 Cuando se ha producido un error durante el secuestro el agente informará al agente Mundo del mismo, a través de un Message Template, tras lo cual parará su ejecución y volverá al punto inicial, es decir que esperará a que aparezca algún agente secuestrable.
 
-Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador ha finalizado correctamente su ejecución. En ese momento informa al agente Mundo y registra el Mensaje ACL "Te secuestro", informando así al agente princesa secuestrado de que en efecto ha sido raptado. Por último, vuelve a su guarida, donde esperará con el agente princesa a que alguien venga a por él y finalmente registrará el comportamiento "HayQueJoderseConLaPrincesita".
+Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador ha finalizado correctamente su ejecución. En ese momento informa al agente Mundo y registra el Mensaje ACL "Te secuestro", informando así al agente princesa secuestrado de que en efecto ha sido raptado. Por último, vuelve a su guarida, donde esperará con el agente princesa a que alguien venga a por él y finalmente registrará el comportamiento ``HayQueJoderseConLaPrincesita''.
 
-Este comportamiento permite al agente princesa secuestrada escaparse de su raptor. Para ello, la princesa ejecutará una tirada aleatoria entre los valores probables de vida de su captor. Cuando el resultado de su tirada sea mayor que la vida actual de éste escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
+Este comportamiento permite al agente víctima secuestrada escaparse de su raptor. Para ello, la víctima ejecutará una tirada aleatoria entre los valores probables de vida de su captor. Cuando el resultado de su tirada sea mayor que la vida actual de éste escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Emboscador}
-El agente emboscador se registraba enviandole al mundo finalmente la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registraba los comportamientos de Emboscar y Acecho y finalmente se planificaba.
+El agente emboscador se registraba enviandole al mundo la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registraba los comportamientos de Emboscar y Acecho y finalmente se planificaba.
 
 El comportamiento de Emboscar es bastante complejo. 
 Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase}, que era la localización donde realizaba sus emboscadas, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
