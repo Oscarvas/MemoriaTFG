@@ -18,37 +18,38 @@
 \label{cap:Objetivos}
 
 %hay que cambiar esta introduccion
-Al disponer de un sistema base capaz de generar historias sencillas, es necesario realizar un estudio completo del sistema. El propósito de este estudio es determinar con exactitud las herramientas y posibilidades que nos ofrece el sistema, y así poder planificar las mejoras que hiciesen falta realizar sobre el mismo.%quiero escribir algo mas aqui
+Al disponer de un sistema base capaz de generar historias sencillas, es necesario realizar un estudio completo del sistema. El propósito de este estudio es determinar con exactitud las herramientas y posibilidades que nos ofrece el sistema, y así poder planificar las mejoras necesarias sobre el mismo.%quiero escribir algo mas aqui
 
 
 %-------------------------------------------------------------------
 \section{Motivaciones}
 %-------------------------------------------------------------------
 
-A medida que se van haciendo diferentes pruebas sobre el sistema del que partimos, varias carencias y posibilidades de mejora se hacen presentes:
+A medida que se van haciendo diferentes pruebas sobre el sistema del que partimos, varias carencias y posibilidades de mejora se hacen patentes:
 \begin{itemize}
-	\item Nos encontramos frente a un sistema altamente cerrado. La posibilidad de ampliar o modificar la funcionalidad del sistema se encuentra fuertemente ligada al código, y no se dispone de una forma sencilla para introducir pequeños cambios sin tener que modificar el código. Si queremos aumentar la escala del sistema, es primordial reducir drásticamente la cantidad de ataduras que existen con el código.
+	\item Nos encontramos frente a un sistema altamente cerrado. La posibilidad de ampliar o modificar la funcionalidad del sistema se encuentra fuertemente ligada al código, impidiendo que se disponga de una forma sencilla para introducir pequeños cambios sin tener que modificar el código. Si queremos aumentar la escala del sistema, es primordial reducir drásticamente la cantidad de ataduras que existen con el código.
 	
-	\item Carencia de variedad en la generación de historias. La sencillez del sistema afecta que no exista mucha diversidad en las posibles historias que se generan. 
+	\item Carencia de variedad en la generación de historias. La sencillez del sistema provoca que no exista mucha diversidad en las posibles historias que se generan. 
 	
-	\item ¿Siempre tendríamos que ver el mismo entorno de historia?. En relación a lo comentado anteriormente, no es posible variar el entorno de la historia, con lo cual estamos obligados a ver que todas las historias ocurren en el mismo entorno (medieval).
+	\item ¿Siempre tendríamos que ver el mismo entorno de historia? En relación a lo comentado anteriormente, no es posible variar el entorno de la historia, con lo cual estamos obligados a ver que todas las historias ocurren en el mismo entorno (medieval fantástico).
 	
-	\item ¿Generar más contenido sobre lo mismo? ó ¿Generar diferentes tipos de historias sencillas?. Son algunas de las primeras cuestiones planteadas y sobre las cuales hubo un largo período de discusión. 
+	\item ¿Generar más contenido sobre lo mismo ó generar diferentes tipos de historias sencillas? Son algunas de las primeras cuestiones planteadas y sobre las cuales hubo un largo período de discusión. 
 	
 \end{itemize}
 
 
-Resumiendo, se quiere crear un sistema que sea capaz de generar historias. Esta aplicación debe estar basada en el paradigma de agentes y a su vez usar un sistema de planificación que permita a los agentes interactuar y crear la historia. Tenemos un sistema que usa todo lo anterior, pero es un sistema muy básico que principalmente genera la misma historia siempre, con pequeñas modificaciones. Ahora necesitamos un sistema que permita al usuario poder generar historias dinámicas, que disponga de la oportunidad de poder cambiar el entorno de la historia, que el usuario sea capaz de incluir nuevos elementos durante la trama, que éste tenga la posibilidad de crear nuevos personajes y alterar la cantidad de personajes que van a interactuar en cada historia generada. Un sistema que se adapte a la creatividad de cada usuario.
+Resumiendo, se quiere crear un sistema que sea capaz de generar historias. Esta aplicación debe estar basada en el paradigma de agentes y a su vez usar un sistema de planificación que permita a los agentes interactuar y crear la historia. Tenemos un sistema que usa todo lo anterior, pero es un sistema muy básico que principalmente genera la misma historia siempre, con pequeñas modificaciones. Ahora necesitamos un sistema que permita al usuario poder generar historias dinámicas, que posibilite cambiar el entorno de la historia, que consienta al usuario incluir nuevos elementos durante la trama, como la posibilidad de crear nuevos personajes y alterar la cantidad de personajes que van a interactuar en cada historia generada. Un sistema que se adapte a la creatividad de cada usuario.
 
 %-------------------------------------------------------------------
 \section{Objetivos}
 %-------------------------------------------------------------------
 
-Nuestro principal objetivo es el de desarrollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Estas simulaciones de historias queremos que tengan un factor de repetición bajo y así conseguir que cada historia sea totalmente distintiva, ``única'' Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear y configurar ciertas parte de la historia, como los personajes que actúan en ella, el nombre de los lugares donde esta transcurre, que tipos de monstruos quiere que aparezcan en su mundo... Pero ya entraremos en eso mas adelante.
+Nuestro principal objetivo es el de desarrollar una aplicación capaz de generar historias centradas en los personajes mediante simulaciones. Queremos que estas simulaciones de historia tengan un factor de repetición bajo y así conseguir que cada historia sea totalmente distintiva, ``única''. Además para poder tener mayor complicidad con el usuario/lector, tendrá la opción de crear y configurar ciertas partes de la historia, como los personajes que actúan en ella, el nombre de los lugares donde esta transcurre, que tipos de monstruos quiere que aparezcan en su mundo... Pero ya entraremos en eso mas adelante.
 
-Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un SMA. Cada personaje tiene unos  objetivos que intentar cumplir y la narración de todo el transcurso de acciones desde su creación hasta alcanzar su objetivo o morir en el intento nos proporcionará fragmentos de la historia generada. Para poder saber cual es el mejor camino para alcanzar los objetivos y evitar que nuestra historia pierda interés utilizaremos un planificador.
+Todos los personajes que se utilizan en las simulaciones son agentes, que trataremos a través de un SMA. Cada personaje tiene unos  objetivos que intenta cumplir y, la narración de todo el transcurso de acciones, desde su creación hasta alcanzar su objetivo o morir en el intento, nos proporcionará fragmentos de la historia generada. Para poder saber cual es el mejor camino para alcanzar los objetivos y evitar que nuestra historia pierda interés utilizaremos un planificador.
 
-Al tener un trabajo previo, es posible que haya reutilización de código,  en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos en los objetivos dicen "que al aumentar el trabajo se observarían variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
+Al tener un trabajo previo, es posible que haya reutilización de código,  en el apartado de reutilización. Aunque hay algo que si queremos diferenciar desde el principio y es que ellos %quienes ellos?
+ en los objetivos dicen "que al aumentar el trabajo se observarían variaciones en la historia, aunque el fin fuese el mismo", y nosotros queremos evitar eso.
 
 \newpage
 %Por ello los objetivos que nos marcamos son:
@@ -56,24 +57,24 @@ Los objetivos planteados para este proyecto figuran como sigue:
 
 \begin{itemize}
 	
-	\item Ampliar la cantidad de personajes que de personajes que interactúan en la historia. Para ello se agregaran nuevos arquetipos de personajes en la historia.
+	\item Ampliar la cantidad de personajes que personajes interactúan en la historia. Para ello se agregaran nuevos arquetipos de personajes en la historia.
 	
 	\item Minimizar el nivel de acoplamiento del sistema. Si se quiere crear un sistema generador que sea altamente configurable, es necesario tener un sistema robusto pero que permita al usuario editar tantos aspectos del sistema como este desee para poder generar gran variedad de historias.
 	
 	\item Tener un sistema que permita generar variedad de historias bajo diferentes entornos. Esto es ofrecer al usuario la posibilidad de generar historias de personajes en el espacio, en el salvaje oeste, o en Gotham.
 	
-	\item Diseñar una interfaz gráfica que permita al usuario ver cómo se genera la historia. Esta interfaz además debe permitir al usuario interactuar con la historia. Tener la posibilidad de introducir nuevos elementos a la historia que afecten el transcurso de esta.
+	\item Diseñar una interfaz gráfica que permita al usuario ver cómo se genera la historia. Esta interfaz además debe permitir al usuario interactuar con la historia, al proporcionarle la posibilidad de introducir nuevos elementos a la historia que afecten el transcurso de esta.
 	
 	\item Incluir nuevos elementos a la generación, cómo en el caso de objetos que afecten a los personajes ó a sus objetivos.
 	
-	\item Dotar a los personajes de un sistema de razas y características similares a las que se pueden encontrar en juegos de rol. Esto permite diferenciar aún más a dos personajes del mismo arquetipo.
+	\item Dotar a los personajes de un sistema de razas y características similares a las que se pueden encontrar en los juegos de rol. Esto permite diferenciar aún más a dos personajes del mismo arquetipo.
 	
 	\item Dar al usuario el control sobre las frases que usarán los personajes.
 	
 	\item Disponer de archivos que permitan al usuario configurar:
 	
 	\begin{itemize}
-		\item La escenografía.
+		\item La escenografía o mapa.
 		\item Los personajes y sus objetivos.
 		\item Las frases de los personajes.
 		\item Las razas y sus atributos.
