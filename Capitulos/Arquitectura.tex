@@ -107,11 +107,12 @@ En el capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo 
 
 Comprender cómo está estructurado el SMA y por qué funciona requiere que se hable con una terminología más técnica y que indaguemos con más profundidad en las prestaciones que nos ofrecen los agentes, JADE y los estándares FIPA.
 
-http://www.fipa.org/specs/fipa00023/XC00023H.html
+%http://www.fipa.org/specs/fipa00023/XC00023H.html
 
 
 \subsection{Modelo del gestor de agentes}
-(ref) explica que el gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
+%(ref) explica que e
+El gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
 
 Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
 
@@ -122,7 +123,7 @@ Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configu
 	\label{fig:ModeloReferencia}
 \end{figure}
 
-El \textbf{Directory Facilitator (DF)} es un componente esencial del AP. El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
+El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
 
 \begin{figure}[h]
 	\centering
@@ -140,7 +141,7 @@ Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los 
 El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
 \subsection{Identificación de los agentes}
-Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
+Es oportuno comentar que para que un agente disponga de AID\footnote{Agent IDentifaction} válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
 
 \subsection{Ciclo de vida de los agentes}
 Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la figura \ref{fig:CicloVidaAgentes}.
@@ -226,7 +227,7 @@ Esto se debe a que el manejo de los comportamientos no sigue una política de exp
 
 JADE ofrece una solución bastante sencilla si necesitamos que dos comportamientos tengan la oportunidad de realmente ejecutarse a la vez, esto es asignando comportamientos a hilos dedicados.
 
-La clase \textbf{ThreadedBehaviourFactory} dispone de un método \texttt{wrap()} que se encarga de encapsular el comportamiento en un hilo dedicado cuando se añade éste a un agente.
+La clase \texttt{ThreadedBehaviourFactory} dispone de un método \texttt{wrap()} que se encarga de encapsular el comportamiento en un hilo dedicado cuando se añade éste a un agente.
 
 Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
 
