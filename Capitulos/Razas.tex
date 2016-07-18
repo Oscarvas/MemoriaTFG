@@ -44,7 +44,23 @@ De igual manera, la clase también afectara a estos atributos, ya que un caballer
 %-------------------------------------------------------------------
 \section{Implementación de los Atributos y las Razas}
 Para explicar la implementación de los Atributos es necesario comprender bien la clase personaje.
-Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características.
+Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características. Cada tipo de personaje tenía un atributo principal, que representaba su manera de afrontar la batalla, por ejemplo, un aspirante a héroe emplearía la fuerza para luchar mientras que una víctima usaría la destreza. La tabla final quedaría de la siguiente forma:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l}
+		Clase de Personaje		& Atributo Principal \\ \hline
+		Víctima					& Aleatorio \\
+		Allegado a la Víctima	& Codicia \\
+		Aspirante a Héroe		& Fuerza \\
+		Ayudante del Héroe		& Inteligencia ó Destreza (el mayor) \\
+		Antagonistas			& Vida \\
+	\end{tabular}
+	\caption{Tabla de Atributos Principales}
+	\label{fig:TablaAtributosPrincipales}
+\end{table}
+
+
 Para el caso de los Monstruos sin embargo, sólo nos interesaba el atributo Vida, que era el atributo que necesitábamos conocer para que un personaje pueda o no derrotarlos.
 Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ.
 

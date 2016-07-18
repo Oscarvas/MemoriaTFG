@@ -125,7 +125,7 @@ El comportamiento \texttt{mover-secuestrada} permite a la princesa moverse con s
 
 La víctima será raptada por un antagonista del tipo \textit{Secuestrador}. Cuando la víctima es secuestrada, llega un momento en el que su captor la manda el mensaje ACL \texttt{Te Secuestro}, que le confirma que en efecto ha sido raptada. En ese momento la víctima lanza una petición de ayuda que es recogida por el pariente que se le había asignado.
 Una vez esto ocurre la víctima intenta escaparse por sus propios medios. 
-Para ello la víctima usa un comportamiento \texttt{TickerBehaviour} que envía cada X periodo de tiempo la petición \texttt{mujerIndependiente}, a través de un mensaje ACL del tipo \texttt{Request} a su secuestrador. Este mensaje contiene un numero aleatorio generado en cada periodo, que se encuentra en el rango de los valores de vida de su captor. Cuando el captor recibe el mensaje, evalúa si el numero recibido es mayor que su valor de vida actual ya que ante un secuestrador malherido, contaría con muchas más posibilidades de escapar. Si finalmente el número es mayor, la víctima consigue liberarse y se planifica, tras lo que termina su ejecución.
+Para ello la víctima usa un comportamiento \texttt{TickerBehaviour} que envía cada X periodo de tiempo la petición \texttt{mujerIndependiente}, a través de un mensaje ACL del tipo \texttt{Request} a su secuestrador. Este mensaje contiene un numero aleatorio generado en cada periodo, que se encuentra en el rango de los valores de vida de su captor. Cuando el captor recibe el mensaje, evalúa si el numero recibido es mayor que su valor de vida actual ya que ante un secuestrador malherido, contaría con muchas más posibilidades de escapar. Si finalmente el número es mayor, la víctima consigue liberarse, informa al \textit{Aspirante a Héroe} de que ya no necesita ser salvada y se planifica, tras lo que termina su ejecución.
 
 Por último, tiene el comportamiento \texttt{rescatada}, que se ejecuta cuando es salvada, es decir, no se ejecuta cuando escapa por su propio pie. En este comportamiento, la víctima espera un mensaje ACL del tipo \texttt{Inform} con el ID \texttt{Rescatada}, que será lanzado por su salvador, indicando a la víctima el fin de su ejecución. 
 
@@ -164,17 +164,29 @@ Los diferentes estados por los que puede pasar el agente son:
 %El Caballero se inicia con todos sus atributos y registra el el tipo Matadragones. Tras esto registrara el comportamiento Ofrecer Servicios, en el que espera un mensaje del tipo Solocitar Servicio, si escucha este mensaje enviará su propuesta. Si esta propuiesta es aceptada accedera a su sigueinte comportamiento, que se llama aceptar oferta de rescate. Le llega el array de Strings contratos proporcionados por mundo (creo pero no lo encuentro) que contiene los datos del dragon y la princesa que ha de salvar. en ese momento inorma conel mensaje objetivosecuestro que va a intentar salvar a la princesa. Tras esto se planifica y añade el comprotamiento fin planificacion.En la planificación debera cumplir sus objetivos de objetivos.xml tal y como se explican en el apartado del planificador.
 %En el comportamiento fin planificacion se contemplan ambos casos, tanto que el caballero haya muerto en su aventura, en cuyo caso el agente sera eliminado, como que ha tenido éxito. Sino informara con el mensaje rescate del buen hacer de su empresa y el planificador le hara ejecutar el comportamiento convertirse en héroe, que simplemente es informativo. Tras esto, el caballero habra acabadosu planificacion y se borrará.
 %Todas las cosas que ocurren se mostrarán en la historia.
-Al iniciarse un nuevo aspirante, éste carga todos sus atributos, registra el servicio "\texttt{Matadragones}" y se localiza dentro del mapa.  El héroe registra dos comportamientos principales que son \texttt{OfrecerServicios()} y \texttt{AceptarOfertaRescate()}.
+Al iniciarse un nuevo aspirante, éste carga todos sus atributos, registra el servicio \texttt{Matadragones} y se localiza dentro del mapa.  El agente registra dos comportamientos principales que son el comportamiento \texttt{OfrecerServicios()} y el comportamiento \texttt{AceptarOfertaRescate()}.
 
-En el comportamiento \texttt{OfrecerServicio()} el héroe espera un mensaje ACL del tipo \texttt{SolicitarServicio}, que mandará el \textit{Allegado a la Víctima} cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responderá enviando una propuesta con el precio que cuesta contratar sus servicios, que viene determinado por su codicia (véase el capitulo \ref{cap:AtributosRazas}).
+En el comportamiento \texttt{OfrecerServicio()}, el héroe espera un mensaje ACL del tipo \texttt{SolicitarServicio} que mandará el \textit{Allegado a la Víctima} cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responde enviando una propuesta, en forma de mensaje ACL del tipo \texttt{Propose}, indicando cuanto cuesta contratar sus servicios, que viene determinado por su codicia (véase el capitulo \ref{cap:AtributosRazas}).
 
-Si esta propuesta es aceptada accederá a su siguiente comportamiento, \texttt{AceptarOfertaRescate}. En este momento le llega una lista de \textit{Strings} que contiene la información necesaria para cumplir el contrato, véase los datos del \textit{Secuestrador} y de la \textit{Víctima} que ha de salvar. En ese momento informa con el mensaje ACL \texttt{ObjetivoSecuestro} que emprende la marcha para intentar salvar a la víctima. Tras esto se planifica, donde sus objetivos serán estar con la princesa en su casa y posteriormente convertirse en héroe, para lo que debe volver a su propia casa, que simplemente es informativo.
-Tras convertirse en héroe el agente acaba su planificación y termina su ejecución.
+Si esta propuesta es aceptada accederá a su siguiente comportamiento, \texttt{AceptarOfertaRescate}. En este momento le llega la información necesaria para cumplir el contrato, véase los datos del \textit{Secuestrador} y de la \textit{Víctima} que ha de salvar. Tras esto, informa con el mensaje ACL \texttt{ObjetivoSecuestro}, un mensaje de control del entorno que refleja que víctima salvará el héroe, y se planifica.
+%donde sus objetivos serán estar con la princesa en su casa y posteriormente convertirse en héroe, para lo que debe volver a su propia casa.
+Será dependiendo de su planificación cuando se decide si el aspirante a héroe acaba siendo un héroe o si sin embargo, harto de la princesa, decide convertirse en villano.
 
-También es importante indicar que cada vez que el héroe se mueve por el mapa de una localización a otra, el mundo le pregunta a los antagonistas \textit{Guardianes} y \textit{Emboscadores} si les interesa esta nueva localización. Esto se ve con mas detalle en sus capítulos respectivos.
+Si decide convertirse en héroe, el agente deberá enfrentarse al \textit{Secuestrador} en batalla y en caso de vencer escoltará a la \textit{Víctima} hasta su hogar, tras lo que el aspirante vuelve a su propia casa y se convierte finalmente en héroe.
+
+Si decide convertirse en villano, el agente deberá enfrentarse al \textit{Secuestrador} en batalla y en caso de vencer entablará batalla con la \textit{Víctima} intentando acabar con ella, donde si lo consigue se convierte finalmente en villano.
+
+Independientemente de la elección el agente acaba su planificación y termina su ejecución.
+
+Si en algún momento la víctima logra escapar por si sola, el agente parará su ejecución y se replanificará con el objetivo de volver a casa.
+
+Para el funcionamiento de la batalla, los personajes restan la suma de su vida y su atributo principal a la vida de su contrincante, mientras que los antagonistas restan directamente su vida. Aquel que consigue que la vida de su oponente sea menor que cero sería el vencedor. En caso de que ambos lo consigan, ambos mueren.
+
+También es importante indicar que cada vez que el agente se mueve por el mapa de una localización a otra, el entorno consulta a los antagonistas \textit{Guardianes} y \textit{Emboscadores} si les interesa interactuar en esta nueva localización con este agente. Esto se ve con mas detalle en sus capítulos respectivos.
 
 \subsubsection{El Ayudante del Héroe}
-
+%recoge datos, servicio cazamagia
+%1 solo comportamiento, en el que espera que alguien le avise, y en ese momento se planifica
 %-------------------------------------------------------------------
 
 
