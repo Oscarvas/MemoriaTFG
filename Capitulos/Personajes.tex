@@ -273,15 +273,15 @@ Este comportamiento permite al agente \textit{Víctima} secuestrado escaparse de 
 El agente emboscador se registra enviándole al mundo la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registra los comportamientos de Emboscar y Acecho y finalmente se planifica.
 
 El comportamiento de Emboscar es bastante complejo. 
-Lo primero que debemos contemplar es que el agente emboscador había sido colocado en el mundo gracias al Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase}, que era la localización donde realizaba sus emboscadas, y que solo emboscaba a personajes de una clase en específico, en este caso cualquier tipo de héroe (caballero, mago o druida).
+Lo primero que se debe contemplar es que el agente \textit{Emboscador} ha sido colocado en el mundo, consultar el capitulo de Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase} para conocer como, en la localización donde realiza sus emboscadas y que solo embosca a personajes de una clase en específico, en este caso los \textit{Aspirantes a Héroe}.
 Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
 
-El agente emboscador le enviaba un mensaje template "SolicitarServicio" al mundo, a la vez que elegían un tipo de clase al cual iban a emboscar. Cada vez que un agente se movía, el mundo busca entre todos los agentes emboscadores, mandandoles la clase que desea cruzar en ese momento.
-En caso de que uno, o varios, agentes emboscadores busquen esta clase enviarían una propuesta al mundo junto a su localización. Si la localización de ambos agente no coincidía, no ocurría nada y el agente que se estaba moviendo seguía su camino. Si, sin embargo, la localizacion de ambos agentes era la misma, el mundo aceptaba la propuesta del agente emboscador y le proporcionaba la información del agente que se estaba desplazando por esa localización.
+El agente emboscador le envia el \texttt{MessageTemplate Solicitar Servicio} al mundo, a la vez que elegía un tipo de clase de protagonista a la cual iba a emboscar. Cada vez que un agente se mueve, el agente \textit{Mundo} busca entre todos los agentes emboscadores, mandandoles la clase del agente que acaba de moverse.
+En caso de que uno o varios agentes emboscadores busquen esta clase, enviarán una propuesta, a través de un mensaje ACL del tipo \texttt{Propossal}, al \textit{Mundo} junto a su localización. Si la localización de ambos agente no coincide, no ocurrirá nada y el agente que se esta moviendo sigue su camino. Si, sin embargo, la localización de ambos agentes es la misma, el \textit{Mundo} acepta la propuesta del agente \textit{Emboscador} y le proporciona la información del agente que se esta desplazando por esa localización.
 
-Una vez que la propuesta del agente emboscador ha sido aceptada, da comienzo el comportamiento Acechar, gracias a que dentro de este comportamiento se necesita la respuesta al mensaje cruzar que proporciona el comportamiento anterior.
+Una vez que la propuesta del agente \textit{Emboscador} ha sido aceptada, da comienzo el comportamiento \texttt{Acechar}, gracias a que dentro de este comportamiento se necesita la respuesta al mensaje cruzar que proporciona el comportamiento anterior, que viene en forma de \texttt{MessageTemplate}.
 
-En el comportamiento Acechar, el emboscador tiene los datos del agente al que esta emboscando, proporcionados por el agente Mundo. De esta manera genera un random con el dinero que le pedirá al otro agente, con el que inicia una conversación con el ID "Hacienda". Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el emboscador lo mata.
+En el comportamiento Acechar, el \textit{Emboscador} tiene los datos del agente al que esta emboscando, proporcionados por el agente \textit{Mundo}. De esta manera genera un random con el dinero que le pedirá al otro agente, con el que inicia una conversación con el ID \texttt{Hacienda}. Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el \textit{Emboscador} lo mata.
 
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Guardián}
@@ -307,33 +307,34 @@ En el sistema hemos adaptado estos personajes de los juegos a la narrativa para 
 %-------------------------------------------------------------------
 
 \subsection{Diseño de los PNJ's}
-Nuestro numero de historias ya era altamente variado, pero aun así sentíamos que debíamos proponer mas. En busca de un nuevo aire que diese un toque distinto a nuestras historias y aumentase en cantidad el numero posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambiasen ligeramente el curso de la historia o que sencillamente apareciesen en ella dándole un toque divertido a ésta.
+Nuestro numero de historias ya es altamente variado, pero aun así sentimos que debemos proponer más. En busca de un nuevo aire que diese un toque distinto a las historias y aumentase en cantidad el número posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambien ligeramente el curso de la historia o que sencillamente aparezcan en ella dándole un toque divertido a ésta.
 
-Para ello nos propusimos crear numerosos personajes, que tuviesen como peculiaridad el interactuar con personajes principales cuando éstos pasaban por las localizaciones en las que estaban situados. En ese momento se produciría un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaríamos como ``bufo''. Éste ``bufo'' bien podía ser un objeto que se consumía en el momento o una bendición, que afectaba al personaje modificando sus atributos, ya fuese de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
+Para ello se propuso crear numerosos personajes, que tuviesen como peculiaridad el interactuar con los protagonistas cuando éstos pasan por las localizaciones en las que están situados. En ese momento se producirá un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaremos como \texttt{bufo}. Éste \texttt{bufo} bien puede ser un objeto que se consume en el momento o una bendición que afecta al personaje modificando sus atributos, ya sea de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
 
-Para terminar de definir los PNJ's pensamos que lo que mas encajaba dentro de nuestra propuesta de diseño es que éstos tuviesen un oficio. De esta manera, al crear los PNJ's propusimos que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que decidimos que nuestros PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap:Mapa:LocalizacionesPNJ} vease la herrería, el hospital o la sastrería y proporcionasen este buffo con algo relacionado a su campo, por ejemplo el herrero podría forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acabaría representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
-De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentaran los atributos del personaje, y en otras los disminuirán.
+Para terminar de definir los PNJ's pensamos que lo que mas encaja dentro de nuestra propuesta de diseño es que éstos tengan un oficio. De esta manera, al crear los PNJ's se propone que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que se pecide que los PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap:Mapa:LocalizacionesPNJ} véase la herrería, el hospital o la sastrería y proporcionen este \texttt{bufo} con algo relacionado a su campo, por ejemplo el herrero puede forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acaba representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
+De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentarán los atributos del personaje, y en otras los disminuirán.
 
-Sin embargo, decidimos q ue este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, decidimos que los PNJ's también pudiesen ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
+Sin embargo, decidimos que este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, se decide que los PNJ's también puedan ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
 
 
 %-------------------------------------------------------------------
 \subsection{Implementación de los PNJ's}
-La implementación de los PNJ trajo consigo numerosas adiciones de clases al proyecto. Cada una cumplía con una funcionalidad específica, y eran la mejor solución para cumplir satisfactoriamente el papel de los PNJ's dentro de la aplicación.
+La implementación de los PNJ trajo consigo numerosas adiciones de clases al proyecto. Cada una cumple con una funcionalidad específica, y eran la mejor solución para cumplir satisfactoriamente el papel de los PNJ's dentro de la aplicación.
 
 \subsubsection{PNJ's configurables por el usuario}
-Para permitir la configuración de los PNJ's a través de los XML fue necesario, como de costumbre, un loader capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
+Para permitir la configuración de los PNJ's a través de los XML se necesito, como de costumbre, de un SCD capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
 
-Este Loader seguía el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que cargaba específicamente el fichero ``PNJs.XML'', donde recorría sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorría el nodo que representaba al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
-Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera tan concreta, consultable en \ref{ejemploXML:Pnjs}, por lo tanto se incluyen el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
+Este SCD seguía el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
+Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera concreta, consultable en \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
 
-\label{ejemploXML:Pnjs}
-\begin{lstlisting}[basicstyle=\tiny]
-<pnj nombre="[nombrePersonaje]" sexo="[M|F]" oficio="[nombreOficio]" localizacion="[localizacionMapa]"/>
-
-Ejemplo:
-<pnj nombre="Thrall" sexo="M" oficio="Chaman" localizacion="Minas"/>
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+	<pnj nombre="[nombrePNJ]" sexo="[M|H]" oficio="[nombreOficio]" 
+		localizacion="[nombreLocalización]"/>
+</Actores>
 \end{lstlisting}
 
 \subsubsection{La Clase PNJ}
-Si bien el agente se iniciaba desde el loader, para poderse cargar de manera correcta necesitaba de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se creo la clase PNJ, que heredaba de la interfaz de personajes \ref{cap:Arquitectura:InterfazPersonajes}, que incluía los métodos específicos que permitían el buen funcionamiento de los PNJ's.
+Si bien el agente se inicia desde el SCD, para poderse cargar de manera correcta se necesita de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se crea la clase PNJ, que hereda de la Case Personajes \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
