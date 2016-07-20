@@ -25,11 +25,19 @@ De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, repr
 
 También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender bien el capitulo \ref{cap:Arquitectura:Planificador}.
 
-%aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
+
 
 %para las comillas ``inteligencia''
 
+%IMPORTANTE
+\section{La Clase Personaje}
+\label{cap:Personajes:ClasePersonaje}
 
+%contar con diseño por que necesitamos una super clase. al final de aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
+%contar la implementacion de la clase
+
+\subsection{Acciones comunes a varios personajes}
+%contar acciones como defender, batalla, mover con objeto, entrando un poco en detalle de implementacion, poner que personajes participan en ella
 
 \section{Protagonistas}
 Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
@@ -112,7 +120,7 @@ El archivo de configuración tenía al final el aspecto del cuadro \ref{protagonis
  
 \subsubsection{La Clase Protagonistas}
 Para poder ejecutar correctamente a los protagonistas se necesita de una interfaz común para poder tratarlos a todos como el tipo de personajes que son.
-Esta interfaz interpreta correctamente los datos cargados desde el SCD de los protagonistas, para posteriormente enviarlos a cada clase en específico. Esta clase, que hereda a su vez de la clase de personajes, tiene los atributos específicos de los protagonistas, y representa una gran ayuda a la hora de la implementación de estos.
+Esta interfaz interpreta correctamente los datos cargados desde el SCD de los protagonistas, para posteriormente enviarlos a cada clase en específico. Esta clase, que hereda a su vez de la clase \texttt{Personaje}, consultable en \ref{cap:Personajes:ClasePersonaje}, tiene los atributos específicos de los protagonistas, y representa una gran ayuda a la hora de la implementación de estos.
 %aquí pondría el diagrama de esta interfaz
 Una vez entendido bien el por que necesitamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
 
@@ -209,14 +217,14 @@ El primer enfoque explora el incluir antagonistas ligados a un lugar, es decir, 
 
 La primera localización elegida es el lago. En el lago puede vivir una Serpiente Marina, aunque en este caso fuese de agua dulce, que ataque a los aventureros que se atrevan a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansen tranquilas siempre sin que nada las perturbe.
 
-La segunda localización que aprobada es el cruce. En este cruce de múltiples caminos, un avaricioso Trol monta guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros deben pagar el tributo o sino se enfrentarán a la ira del malvado Trol.
+La segunda localización que aprobada es el cruce. En este cruce de múltiples caminos, un avaricioso Trol monta guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros deben pagar el tributo o sino se enfrentarán a la ira del malvado Trol. Tras esto el Trol cambiara de lugar en el que emboscar, ya que si no, se esperarían su siguiente emboscada.
 
 Como tampoco se busca que los nuevos antagonistas se limiten a no dejar pasar a los aspirantes a héroe, se introduce un nuevo antagonista que no interactua necesariamente con ellos, y así nace el concepto del Fantasma.
 
 El Fantasma es el espíritu vengativo de un rey derrocado hace tiempo que no pudo saciar sus ansias de poder. Así su cometido será vagar por los castillos, buscando aquellos monarcas en los que la desesperación ha hecho mella, como aquellos con una hija secuestrada, alimentándose de su desesperación y conduciéndolos a la locura, lo que implicaba un descenso progresivo en sus puntos de vida.
 
 \subsubsection{Antagonistas genéricos}
-Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas decidimos que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y pasamos a tener antagonistas secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. El esquema final sería algo así:
+Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas decidimos que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y pasamos a tener antagonistas secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. De la misma manera, los antagonistas que actuan sobre una localización inicial, pueden reconfigurarla para que se adapte a los requerimientos del usuario. El esquema final sería algo así:
 
 \begin{table}[h!]
 	\centering
@@ -231,13 +239,13 @@ Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a l
 	\label{fig:TablaObjetivosMonstruos}
 \end{table}
 
-De esta manera el usuario a través del archivo XML, cuya construcción es consultable en el esquema \ref{antagonistasXML}, podrá dictaminar el nombre del antagonista, que clase de antagonista dentro de los tipos propuestos quiere que sea, que especie desea otorgarle y finalmente definir su sexo. Así, por poner algunos ejemplos, el usuario podrá elegir que la princesa Rapunzel sea secuestrada por el dragón Smaug o por la bruja Maléfica, o, de la misma manera, que el dragón Smaug secuestre princesas en una simulación del sistema o bien embosque a los viajeros que atraviesan la Montaña Solitaria.
+De esta manera el usuario a través del archivo XML, cuya construcción es explicada mas adelante., podrá dictaminar el nombre del antagonista, que clase de antagonista dentro de los tipos propuestos quiere que sea, que especie desea otorgarle y finalmente definir su sexo. Así, por poner algunos ejemplos, el usuario podrá elegir que la princesa Rapunzel sea secuestrada por el dragón Smaug o por la bruja Maléfica, o, de la misma manera, que el dragón Smaug secuestre princesas en una simulación del sistema o bien embosque a los viajeros que atraviesan la Montaña Solitaria.
 %-------------------------------------------------------------------
 \subsection{Implementación de los Antagonistas}
 Para implementar los Antagonistas se necesita tratar con agentes y sus propiedades. A través del agente mundo los agentes se comunican con otros agentes y reciben la información que necesitan. Pero sin embargo para el correcto funcionamiento de los Antagonistas se necesitan muchas más cosas.
 %-------------------------------------------------------------------
 \subsubsection{Carga y configuración de los antagonistas}
-Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'', se sigue el patrón preestablecido en el capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave <monstruo>, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. El archivo XML seguía mas o menos esta estructura:
+Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'', se sigue el patrón preestablecido en el capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave \texttt{<monstruo>}, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. La estructura del archivo XML se detalla en el cuadro \ref{antagonistasXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
@@ -253,36 +261,36 @@ Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del arc
 
 %-------------------------------------------------------------------
 \subsubsection{La Clase Antagonistas}
-La Clase Antagonistas es aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta Clase a su vez necesita de la Clase Personaje (ver capítulo \ref{cap:Arquitectura:InterfazPersonajes}), donde conseguía cargar todos los atributos relativos al antagonista, como que era, donde estaba o cuanta vida tenía, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo antagonistas en específico.
+La clase \texttt{Antagonistas} es aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta clase a su vez hereda de la clase \texttt{Personaje}, consultable en la sección \ref{cap:Personajes:ClasePersonaje}, donde consigue cargar todos los atributos relativos al antagonista, como su especie, su localización y su vida, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de antagonistas en concreto.
 %aquí pondría el diagrama de esta interfaz
-A continuación entraremos en detalle a explicar como se implementó cada antagonista en específico.
-Para explicar de manera correcta como se comportaban este tipo de antagonistas explicaremos que comportamientos y acciones es capaz de desarrollar como agente.
+A continuación se entrará en detalle a explicar la implementación de cada antagonista en concreto, especificando que comportamientos y acciones es capaz de desarrollar como agente.
 %-------------------------------------------------------------------
 
 \subsubsection{El Antagonista Secuestrador}
-Según se inicia el agente secuestrador este solicita información al agente Mundo. En este caso el Mundo le tiene que indicar cuales son aquellos agentes que proporcionan el servicio \texttt{Secuestrables} y, en caso de que no hubiese ninguno el agente se queda a la espera de que aparezca uno que cumpla los requisitos solicitados.
+Al iniciarse el agente Secuestrador, carga todos sus atributos, localizandose en el mundo y añadiendo el comportamiento \texttt{Secuestro}.
 
-En caso de encontrar al menos uno de los agentes con el servicio secuestrable, escoge entre ellos de manera aleatoria eligiendo será su objetivo, registrando el mensaje ACL \texttt{ObjetivoSecuestro}. Una vez ha escogido el agente a secuestrar se planifica, incorporando a su funcionamiento los servicios de \texttt{FalloSecuestro}, que entra en acción cuando falla en el rapto, y \texttt{FinDePlanificación}, que se ejecuta cuando el secuestro se realiza correctamente.
+Según se inicia el comportamiento \texttt{Secuestro}, el agente secuestrador solicita información al agente Mundo. En este caso el Mundo le tiene que indicar cuales son aquellos agentes que proporcionan el servicio \texttt{Secuestrables} y, en caso de que no haya ninguno, el agente se queda a la espera de que aparezca uno que cumpla los requisitos solicitados.
 
-Cuando se ha producido un error durante el secuestro el agente informará al agente Mundo del mismo, a través de un \texttt{MessageTemplate}, tras lo cual parará su ejecución y volverá al punto inicial, es decir que esperará a que aparezca algún agente secuestrable.
+En caso de encontrar al menos uno de los agentes con el servicio secuestrable, escoge uno de manera aleatoria eligiendo así su objetivo, indicando al entorno mediante el mensaje ACL \texttt{ObjetivoSecuestro} quien es la víctima elegida. Una vez ha escogido el agente a secuestrar se planifica, y al finalizar incorpora a su funcionamiento los comportamientos de \texttt{FalloSecuestro}, que entra en acción cuando falla en el rapto, y \texttt{FinDePlanificación}, que se ejecuta cuando el secuestro se realiza correctamente.
 
-Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador finaliza correctamente su ejecución. En ese momento informa al agente Mundo y registra el mensaje ACL \texttt{Te secuestro}, informando así al agente \textit{Víctima} que ha secuestrado de que en efecto ha sido raptado. Por último, vuelve a su guarida, donde esperará con el agente \textit{Víctima} a que alguien venga a por él y finalmente registrará el comportamiento \texttt{HayQueJoderseConLaPrincesita}.
+Cuando se ha producido un error durante el secuestro, el agente informa al agente Mundo del mismo a través de un mensaje ACL del tipo \texttt{Failure} que indica al entorno el fallo, tras lo cual el agente detiene su ejecución y vuelve al punto inicial, es decir que esperará a que aparezca algún agente secuestrable.
 
-Este comportamiento permite al agente \textit{Víctima} secuestrado escaparse de su raptor. Para ello, la víctima ejecuta una tirada aleatoria entre los valores posibles de vida de su captor. Cuando el resultado de su tirada es mayor que la vida actual de éste escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
+Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador se dispone a finalizar correctamente su ejecución. En ese momento informa al agente Mundo del rapto y a través de un mensaje ACL del tipo \texttt{Inform}, notifica al agente \textit{Víctima} que ha secuestrado que en efecto ha sido raptado, provocando que la víctima avise al allegado al que esta ligado. Por último, vuelve a su guarida, arrastrando consigo al agente \textit{Víctima}, donde esperará a que alguien venga a por él y finalmente incorporará el comportamiento \texttt{VigilaTuEspalda}.
+
+Este comportamiento permite al agente \textit{Víctima} secuestrado escaparse de su raptor. Para ello, la víctima genera un número aleatorio entre los posibles valores de vida de su captor. Cuando el número generado es mayor que la vida actual de éste, escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Emboscador}
-El agente emboscador se registra enviándole al mundo la información relativa a su tipo, a través de un DFAgentDescription que lo identificaba como "emboscador", tras lo cual registra los comportamientos de Emboscar y Acecho y finalmente se planifica.
+El agente emboscador carga todos sus datos y registra el servicio \texttt{Emboscador} en el DF que le permitirá actuar como tal, tras lo cual añade los comportamientos de \texttt{Emboscar} y \texttt{Acecho}, y finalmente se planifica.
 
-El comportamiento de Emboscar es bastante complejo. 
+El comportamiento de \texttt{Emboscar} es bastante complejo. 
 Lo primero que se debe contemplar es que el agente \textit{Emboscador} ha sido colocado en el mundo, consultar el capitulo de Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase} para conocer como, en la localización donde realiza sus emboscadas y que solo embosca a personajes de una clase en específico, en este caso los \textit{Aspirantes a Héroe}.
 Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
 
-El agente emboscador le envia el \texttt{MessageTemplate Solicitar Servicio} al mundo, a la vez que elegía un tipo de clase de protagonista a la cual iba a emboscar. Cada vez que un agente se mueve, el agente \textit{Mundo} busca entre todos los agentes emboscadores, mandandoles la clase del agente que acaba de moverse.
-En caso de que uno o varios agentes emboscadores busquen esta clase, enviarán una propuesta, a través de un mensaje ACL del tipo \texttt{Propossal}, al \textit{Mundo} junto a su localización. Si la localización de ambos agente no coincide, no ocurrirá nada y el agente que se esta moviendo sigue su camino. Si, sin embargo, la localización de ambos agentes es la misma, el \textit{Mundo} acepta la propuesta del agente \textit{Emboscador} y le proporciona la información del agente que se esta desplazando por esa localización.
+Emboscar realmente es una negociación entre el agente emboscador y el agente mundo. Cada vez que un personaje se mueve de una localización a otra, el agente mundo le manda un mensaje ACL al agente emboscador del tipo \texttt{CFP} con la información relativa al tipo de agente que esta cruzando. Si este tipo de agente no interesa al emboscador, este respondera con un mensaje ACL del tipo \texttt{Refuse}. En caso contrario, responderá con un mensaje ACL del tipo \texttt{Propose} en el que enviará su localización. Si ambas localizaciones coinciden, el agente mundo aceptará la propuesta proporcionandole al agente emboscador la información específica del agente que se ha desplazado a esa localización.
+En caso de haber varios agentes emboscadores, el mundo elegirá uno aleatoriamente y negociará con ellos por orden.
 
-Una vez que la propuesta del agente \textit{Emboscador} ha sido aceptada, da comienzo el comportamiento \texttt{Acechar}, gracias a que dentro de este comportamiento se necesita la respuesta al mensaje cruzar que proporciona el comportamiento anterior, que viene en forma de \texttt{MessageTemplate}.
-
-En el comportamiento Acechar, el \textit{Emboscador} tiene los datos del agente al que esta emboscando, proporcionados por el agente \textit{Mundo}. De esta manera genera un random con el dinero que le pedirá al otro agente, con el que inicia una conversación con el ID \texttt{Hacienda}. Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el \textit{Emboscador} lo mata.
+Una vez que la propuesta del agente \textit{Emboscador} ha sido aceptada, da comienzo el comportamiento \texttt{Acechar}.
+En el comportamiento Acechar, el \textit{Emboscador} tiene los datos del agente al que esta emboscando, proporcionados por el agente \textit{Mundo}. De esta manera genera un numero aleatorio con el dinero que le pedirá al otro agente, a través de un mensaje ACL del tipo \texttt{Request}. Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el \textit{Emboscador} lo mata. Independientemente del resultado, el \textit{Emboscador} se planifica, resituándose dentro del mapa en una nueva localización en la que emboscar.
 
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Guardián}
@@ -310,7 +318,7 @@ En el sistema hemos adaptado estos personajes de los juegos a la narrativa para 
 \subsection{Diseño de los PNJ's}
 Nuestro numero de historias ya es altamente variado, pero aun así sentimos que debemos proponer más. En busca de un nuevo aire que diese un toque distinto a las historias y aumentase en cantidad el número posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambien ligeramente el curso de la historia o que sencillamente aparezcan en ella dándole un toque divertido a ésta.
 
-Para ello se propuso crear numerosos personajes, que tuviesen como peculiaridad el interactuar con los protagonistas cuando éstos pasan por las localizaciones en las que están situados. En ese momento se producirá un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaremos como \texttt{bufo}. Éste \texttt{bufo} bien puede ser un objeto que se consume en el momento o una bendición que afecta al personaje modificando sus atributos, ya sea de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
+Para ello se propone crear numerosos personajes, que tuviesen como peculiaridad el interactuar con los protagonistas cuando éstos pasan por las localizaciones en las que están situados. En ese momento se producirá un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaremos como \texttt{bufo}. Éste \texttt{bufo} bien puede ser un objeto que se consume en el momento o una bendición que afecta al personaje modificando sus atributos, ya sea de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
 
 Para terminar de definir los PNJ's pensamos que lo que mas encaja dentro de nuestra propuesta de diseño es que éstos tengan un oficio. De esta manera, al crear los PNJ's se propone que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que se pecide que los PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap:Mapa:LocalizacionesPNJ} véase la herrería, el hospital o la sastrería y proporcionen este \texttt{bufo} con algo relacionado a su campo, por ejemplo el herrero puede forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acaba representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
 De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentarán los atributos del personaje, y en otras los disminuirán.
@@ -325,7 +333,7 @@ La implementación de los PNJ trajo consigo numerosas adiciones de clases al proy
 \subsubsection{PNJ's configurables por el usuario}
 Para permitir la configuración de los PNJ's a través de los XML se necesito, como de costumbre, de un SCD capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
 
-Este SCD seguía el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
+Este SCD sigue el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
 Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera concreta, consultable en \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
 
 \lstset{frameround=fttt}
