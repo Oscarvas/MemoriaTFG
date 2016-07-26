@@ -328,13 +328,13 @@ Sin embargo, decidimos que este diseño limitaba a los PNJ's a unos personajes mu
 
 %-------------------------------------------------------------------
 \subsection{Implementación de los PNJ's}
-La implementación de los PNJ trajo consigo numerosas adiciones de clases al proyecto. Cada una cumple con una funcionalidad específica, y eran la mejor solución para cumplir satisfactoriamente el papel de los PNJ's dentro de la aplicación.
+La implementación de los PNJ implica numerosas adiciones de clases nuevas al proyecto. Cada una cumple con una funcionalidad específica, y son la mejor solución para cumplir satisfactoriamente el papel de los PNJ's dentro de la aplicación.
 
 \subsubsection{PNJ's configurables por el usuario}
-Para permitir la configuración de los PNJ's a través de los XML se necesito, como de costumbre, de un SCD capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
+Para permitir la configuración de los PNJ's a través de los XML se necesita, como de costumbre, de un SCD capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
 
 Este SCD sigue el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
-Como con todos los archivos XML, esta configuración exige que el fichero este creado de una manera concreta, consultable en \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
+Como con todos los archivos XML, esta configuración exige que el fichero esté creado de una manera concreta, consultable en \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
