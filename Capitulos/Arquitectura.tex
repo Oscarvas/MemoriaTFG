@@ -19,29 +19,29 @@ Al momento de empezar a crear una historia podemos plantearnos diferentes enfoqu
 
 Para hacer que existan los personajes dentro del sistema es necesario definirlos y darles las herramientas necesarias para que estos puedan interactuar. Dicho esto, los personajes deben existir dentro del sistema multi-agente.
 
-El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE, este sistema nos permite controlar la existencia de los agentes y poder manipularlos como tal.
+El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE\footnote{http://jade.tilab.com/}, este sistema nos permite controlar la existencia de los agentes y poder manipularlos como tal.
 
-El siguiente enfoque tiene mas que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Es necesario ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
+El siguiente enfoque tiene más que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Es necesario ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
 
-El Mundo, o agente Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada, visto de otra forma, es como si todos estuviesen en una habitación vacía, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
+El Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada. Visto de otra forma, es como si todos estuviesen en una habitación vacía, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
 
 La existencia del Mundo como nueva dimensión espacial aporta a los personajes la capacidad de existir en un plano. Los personajes dejan de conocer la situación de otros y llegan a la necesidad de interactuar con su entorno para poder realizar acciones relevantes en una historia.
 
-Ahora que ya tenemos un ecosistema creado con los personajes y su entorno, necesitamos de un sistema capaz de otorgar la lógica o inteligencia a los personajes. Dicho sistema es el planificador. El planificador es el componente que permite a los personajes "pensar" en la secuencia de acciones que deben realizar para poder cumplir sus objetivos dentro de la historia. Estas acciones ayudarán al personaje desde decidir a cual dirección moverse hasta en que momento pelear con otro personaje.
+Ahora que ya tenemos un ecosistema creado con los personajes y su entorno, necesitamos de un sistema capaz de otorgar la lógica o inteligencia a los personajes. Dicho sistema es el planificador. El planificador es el componente que permite a los personajes ``pensar'' en la secuencia de acciones que deben realizar para poder cumplir sus objetivos dentro de la historia. Estas acciones ayudarán al personaje desde decidir a cual dirección moverse hasta en qué momento pelear con otro personaje.
 
 Con todo esto tenemos descrito el núcleo importante de nuestro sistema. Se han juntado los componentes mínimos para poder generar una historia. Aún así, todavía el usuario no está incluido dentro de todo esto, y no tiene sentido tener un sistema que trabaje para sí en lugar de dejarle a un usuario una copia de los resultados obtenidos.
 
-Es necesario el uso de algún componente ó sistema que nos permita recoger el flujo de historia final. Saber cuáles han sido los mensajes que intercambiaron los personajes y las acciones que realizaron. Usar un \textit{logger} nos permite guardar un registro del momento en el que ocurre cada eventos de la historia.
+Es necesario el uso de algún componente o sistema que nos permita recoger el flujo de historia final. Saber cuáles han sido los mensajes que intercambiaron los personajes y las acciones que realizaron. Usar un \textit{logger} nos permite guardar un registro del momento en el que ocurre cada eventos de la historia.
 
 Sin embargo, al ser un sistema pensado para ser utilizado por un usuario, falta disponer de una capa que permita a este interactuar con el sistema. La interfaz gráfica otorga al usuario la capacidad de visualizar información adicional durante el momento de la simulación. Es mediante esta capa, que el usuario puede también añadir nuevos elementos a la generación de historias.
 
-A continuación hablaremos con más detalle sobre cada uno de estos componentes y sobre otras partes del sistema necesarias ó que se ven afectadas por estos.
+A continuación hablaremos con más detalle sobre cada uno de estos componentes y sobre otras partes del sistema necesarias o que se ven afectadas por estos.
 
 \newpage
 %-------------------------------------------------------------------
-\section{Diagrama de la arquitectura}
+\section{Descripción de la arquitectura}
 
-Para tener una referencia que nos permita visualizar de manera sencilla la arquitectura del proyecto, podemos fijarnos en la figura \ref{fig:ArquitecturaProyecto}.
+Para tener una referencia que nos permita visualizar de manera sencilla la arquitectura del proyecto, podemos fijarnos en la Figura \ref{fig:ArquitecturaProyecto}.
 
 \begin{figure}[h]
 	\centering
@@ -112,23 +112,27 @@ Comprender cómo está estructurado el SMA y por qué funciona requiere que se habl
 
 \subsection{Modelo del gestor de agentes}
 %(ref) explica que e
-El gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización,comunicación,migración y retiro de los agentes.
+El gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización, comunicación, migración y retiro de los agentes.
 
-Las entidades contenidas en la figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
+Las entidades contenidas en la Figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/agentmanagementReference}
-	\caption{Modelo de referencia del gestor de agentes}
+	\caption{Modelo de referencia del gestor de agentes.}
+	\caption*{Recuperado de http://www.fipa.org/specs/fipa00023/XC00023H.html.}
 	\label{fig:ModeloReferencia}
 \end{figure}
 
-El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
+Una \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes son desplegados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
+
+El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La Figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/paginasAmarillas}
-	\caption{Servicio de páginas amarillas}
+	\caption{Servicio de páginas amarillas.}
+	\caption*{Recuperado de \cite{greenwood}.}
 	\label{fig:PaginasAmarillas}
 \end{figure}
 
@@ -136,20 +140,19 @@ El \textbf{Agent Management System (AMS)} es un componente esencial del AP. El A
 
 Un \textbf{Message Transport Service (MTS)} es el método de comunicación por defecto entre agentes a través de diferentes APs.
 
-Un \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes son desplegados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
-
 El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
 
 \subsection{Identificación de los agentes}
 Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
 
 \subsection{Ciclo de vida de los agentes}
-Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la figura \ref{fig:CicloVidaAgentes}.
+Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la Figura \ref{fig:CicloVidaAgentes}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/cicloVidaAgentes}
-	\caption{Ciclo de vida de los agentes FIPA}
+	\caption{Ciclo de vida de los agentes FIPA.}
+	\caption*{Recuperado de http://www.fipa.org/specs/fipa00023/XC00023H.html.}
 	\label{fig:CicloVidaAgentes}
 \end{figure}
 
@@ -212,12 +215,13 @@ Los tipos de comportamientos en JADE son los siguientes:
 	\end{itemize}
 \end{itemize}
 
-La figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado de los comportamientos en JADE.
+La Figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado de los comportamientos en JADE.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\textwidth]{Imagenes/jerarquiaComportamientos}
-	\caption{Diagrama de jerarquía de los comportamientos en JADE}
+	\caption{Diagrama de jerarquía de los comportamientos en JADE.}
+	\caption*{Recuperado de \cite{greenwood}.}
 	\label{fig:JerarquiaComportamientos}
 \end{figure}
 
@@ -229,12 +233,12 @@ JADE ofrece una solución bastante sencilla si necesitamos que dos comportamiento
 
 La clase \texttt{ThreadedBehaviourFactory} dispone de un método \texttt{wrap()} que se encarga de encapsular el comportamiento en un hilo dedicado cuando se añade éste a un agente.
 
-Por último, en la figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
+Por último, en la Figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\textwidth]{Imagenes/ejecucionAgenteTraducido}
-	\caption{Flujo de ejecución de un agente y sus comportamientos en JADE}
+	\caption{Flujo de ejecución de un agente y sus comportamientos en JADE. Recuperado de \cite{greenwood}.}
 	\label{fig:DiagramaFlujoAgentes}
 \end{figure}
 
@@ -269,7 +273,7 @@ En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters},
 	\label{fig:Performatives}
 \end{table}
 
-En el cuadro de código \ref{mensajeRequest} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
+En el cuadro de código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwood}} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
 
 %basicstyle=\scriptsize o footnotesize
 \lstset{frameround=fttt}
@@ -304,7 +308,7 @@ Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de 
 	\item Proporcionar a los personajes los archivos necesarios para poder usar el planificador, que veremos en la sección \ref{cap:Arquitectura:Planificador}.
 \end{itemize}
 
-Aunque la implementación del mundo se hace como un agente\footnote{Este es un agente especial del tipo GUIAgent, lo que permite la interacción con una interfaz gráfica. Más información de esto la tenemos en \cite{greenwood}.}, debido a la naturaleza de éste, no se considera su pertenencia al SMA.
+Aunque la implementación del mundo se hace como un agente\footnote{Este es un agente especial del tipo GUIAgent, lo que permite la interacción con una interfaz gráfica. Más información de esto la tenemos en \cite{greenwood}.}, debido a la naturaleza de éste no se considera su pertenencia al SMA.
 
 Al ser un agente, la forma en la que gestiona la mayoría de funciones mencionadas anteriormente es a través de comportamientos JADE. Específicamente usando el tipo CyclicBehaviour. El motivo por el que todos los comportamientos que debe usar este agente sean cíclicos es que principalmente este un agente que debe estar en una escucha continua de peticiones por parte de todos los demás agentes. Por tanto, modelar el funcionamiento de este agente debe hacerse mediante un conjunto de comportamientos que estén constantemente evaluando si se han recibido peticiones nuevas.
 
@@ -316,7 +320,7 @@ Respecto a la interacción con la interfaz, el agente mundo funciona como el cont
 
 El planificador es el componente del sistema que se encarga de aportar ``inteligencia'' a los personajes. Recordemos que el propósito de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
 
-La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en la sección \ref{cap:EstadoDeLaCuestion:PDDL}).
+La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
 
 Para la generación de historias, el fichero de dominio va a contener el tipo de elementos que existen dentro de estas, las acciones que serán capaces de realizar cada uno de los personajes y alguna otra información clave que indique al planificador cómo actuar. Todo esto significa que es en este fichero donde realmente se le da forma al tipo historia que se desea generar, se definen las características del universo de la historia.
 
@@ -369,7 +373,7 @@ Cuando el planificador recibe este fichero problema, lo que hace es buscar en el
 
 La ejecución ordenada de la planificación devuelta por el planificador asegura (teóricamente) al personaje que logra conseguir con éxito su objetivo.
 
-Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema} nos muestran un ejemplo sencillo de cómo se estructura cada fichero y cómo es la sintaxis de PDDL.
+Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema}\footnote{Recuperados de \cite{greenwood}} nos muestran un ejemplo sencillo de cómo se estructura cada fichero y cómo es la sintaxis de PDDL.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de fichero domain.pddl},label=pddlDomain]
@@ -426,7 +430,7 @@ Con vistas en esto, el sistema permite al usuario definir y modificar con alta l
 	\item Personajes no jugadores (PNJ's).
 \end{itemize}
 
-Estos ficheros están programados en XML\footnote{EXtensible Markup Language}.Este es un lenguaje que nos permite diseñar con mayor simpleza el esquema de los datos que el usuario puede modificar en cada uno de los aspectos que se han mencionado anteriormente. Algunas restricciones, recomendaciones y comentarios generales que influyen en todos los archivos son:
+Estos ficheros están codificados en XML\footnote{eXtensible Markup Language}.Este es un lenguaje que nos permite diseñar con mayor simpleza el esquema de los datos que el usuario puede modificar en cada uno de los aspectos que se han mencionado anteriormente. Algunas restricciones, recomendaciones y comentarios generales que influyen en todos los archivos son:
 
 \begin{itemize}
 	\item Los atributos \textit{nombreX} deben ser atómicos; una sola palabra.
@@ -576,7 +580,7 @@ El Sistema de Carga de Datos (SCD de ahora en adelante) que se encarga de cargar
 
 La inclusión de un módulo que aporta un componente visual al sistema ayuda a incorporar ciertas funcionalidades de una manera sencilla a éste mucho más allá del factor estético.
 
-La figura \ref{fig:Gui} muestra la pantalla principal de la interfaz. Los mensajes producidos por los agentes se muestran en esta pantalla para ir creando el hilo de historia.
+La Figura \ref{fig:Gui} muestra la pantalla principal de la interfaz. Los mensajes producidos por los agentes se muestran en esta pantalla para ir creando el hilo de historia.
 
 \begin{figure}[h]
 	\centering
@@ -593,7 +597,7 @@ La barra de menús contiene tres botones que nos permiten interactuar con el sist
 	\item Iniciar: botón que empieza la ejecución de los personajes incorporados usando el cuadro de herramientas.
 \end{itemize}
 
-La figura \ref{fig:NuevoPersonaje} es un ejemplo del cuadro de herramientas que permite al usuario agregar nuevos personajes a la historia mientras ésta se está desarrollando.
+La Figura \ref{fig:NuevoPersonaje} es un ejemplo del cuadro de herramientas que permite al usuario agregar nuevos personajes a la historia mientras ésta se está desarrollando.
 
 El usuario puede ir añadiendo personajes continuamente en cualquier momento del transcurso de la historia y todos estos sólo empezarán a ejecutarse cuando se pulse el botón de Iniciar de la pantalla principal. Esto se hace así para dar algo de margen y mantener cierto control a la hora de empezar la ejecución de personajes nuevos.
 
