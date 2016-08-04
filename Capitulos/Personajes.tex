@@ -35,26 +35,26 @@ También es importante indicar que todos los personajes se planificarán en algún 
 
 %contar con diseño por que necesitamos una super clase. al final de aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
 %contar la implementacion de la clase
-Antes de empezar a considerar lo que cada personaje en específico es capaz de hacer y que función tiene pensada para el desarrollo de la historia, es importante investigar la clase que modela el funcionamiento de los personaje.
+Antes de empezar a considerar lo que cada personaje en específico es capaz de hacer y que función tiene pensada para el desarrollo de la historia, es importante investigar la clase que modela el funcionamiento de los personajes.
 
-La clase \texttt{Personaje} representa un papel fundamental en la implementación de la aplicación. En concreto, la clase personaje nos proporciona una superclase a partir de la cual el resto de clases se desarrollan. Para ello cuenta con diferentes métodos y atributos comunes a los distintos tipos de personajes. 
+La clase \texttt{Personaje} representa un papel fundamental en la implementación de la aplicación. En concreto, la clase personaje nos proporciona una superclase a partir de la cual el resto de clases se desarrollan. Para ello cuenta con diferentes métodos y atributos comunes a los distintos tipos de personajes. Hay que resaltar que los PNJ's, al tratarse de personajes más planos, aunque puedan realizar todas estas acciones, habrá algunas que no realizaran en el transcurso natural de la historia, como por ejemplo planificarse o entablar batalla.
 
 %Quitar los nombres de los metedos, e indicar las acciones que pueden hacer en general
-Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a dos métodos por encima del resto, como son \texttt{planificar} y  \texttt{mandarCrearArchivo} que permite a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}.
-Aparte, también comparten ciertos atributos comunes a todos los personajes, como son la vida del personaje, su sexo, su localización, su casa... junto a los diferentes métodos \textit{getters} y \textit{setters} para poder usarlos. 
+Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a los métodos \texttt{planificar} y  \texttt{mandarCrearArchivo} que permiten a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}, siendo una parte vital de la aplicación ya que esto les permite interactuar con el \texttt{planificador} (véase el capítulo \ref{cap:Arquitectura:Planificador}).
+Aparte, todos los personajes comparten ciertos atributos comunes, como pueden ser sus puntos de vida, su sexo o su localización, cuyos respectivos métodos \textit{getters} y \textit{setters} también están incluidos en esta clase para poder usar correctamente estos atributos. 
 
-Por lo tanto y gracias a esta clase, se puede unificar el código de una manera más sencilla, permitiendo evitar la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de remodelar para cualquier persona que quiera proseguir con nuestra investigación.
+Por lo tanto y gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar.
 
 %poner aquí el diagrama
 
-\subsection{Comportamientos comunes a varios personajes}
+\subsection{Acciones comunes a varios personajes}
 %contar acciones como defender, batalla, mover con objeto, entrando un poco en detalle de implementacion, poner que personajes participan en ella
-Sin embargo, los distintos personajes no comparten solo atributos y métodos, también tienen en común ciertas acciones que representan aquellas actividades que todos los personajes pueden hacer. Hay que resaltar que los PNJ's, al tratarse de personajes mas planos, aunque puedan realizar estas acciones en el transcurso natural de la historia nunca lo harán.
-Estas acciones no están incluidas dentro de la clase \texttt{Personaje}, pero sin embargo es desde esta clase desde donde se invoca su funcionamiento, normalmente a través del método \texttt{planificar}.
+Sin embargo, los distintos personajes no comparten solo atributos y métodos, también tienen en común ciertas acciones que representan aquellas actividades que todos los personajes pueden hacer. 
+Estas acciones no están incluidas dentro de la clase \texttt{Personaje}, pero sin embargo es a través de esta clase desde donde se invoca su funcionamiento, normalmente a través del método \texttt{planificar}. Ciertas de estas acciones son \texttt{behaviours} de JADE pero no todos pueden serlo, debido a problemas de sincronización (para mas información consultar el capítulo \ref{cap:Arquitectura:ComportamientoJade})
 De igual manera, hay acciones específicas a cada tipo de personaje en concreto, pero esto se verá mas adelante en sus respectivas secciones localizadas en este capítulo.
 
-Por ejemplo, está el comportamiento \texttt{Batalla}. Este comportamiento expone como los personajes resolverán las disputas que tengan entre ellos. 
-Para el funcionamiento de \texttt{Batalla}, los personajes restan la suma de su vida y su atributo principal a la vida de su contrincante, mientras que los antagonistas restan directamente su vida. Aquel que consigue que la vida de su oponente sea menor que cero sería el vencedor. En caso de que ambos lo consigan, ambos mueren.
+Por ejemplo, está la acción \texttt{Batalla}. Esta acción expone como los personajes resolverán las disputas que tengan entre ellos. 
+En el funcionamiento de una batalla, un personaje informa a su contrincante de que va a luchar a través de un mensaje ACL del tipo \texttt{Inform}. En ese momento ocurre la batalla. Para simularla, se calcula la manera de golpear de cada personaje, de esta manera, los protagonistas golpean restando la suma de su vida y su atributo principal a la vida de su contrincante, mientras que los antagonistas golpean restando directamente su vida. Aquel que consigue que la vida de su oponente sea menor que cero será el vencedor. En caso de que ambos lo consigan, ambos mueren.
 
 También cuentan en su haber con el comportamiento \texttt{Mover}. Este comportamiento, permite a los distintos personajes moverse a través del mundo. 
 Para ello, los personajes cuentan con su localización origen y su localización de destino y, a través un mensaje ACL del tipo \texttt{Request}, le piden al \texttt{Agente Mundo} poder moverse. El \texttt{Agente Mundo}, que conoce todo el mapa, comprueba que en efecto ambas localizaciones están conectadas y en caso afirmativo, informa al susodicho agente a través de un mensaje ACL del tipo \texttt{Confirm}, de que puede cambiar su localización.
@@ -216,9 +216,10 @@ También es importante indicar que cada vez que el agente se mueve por el mapa de
 El ayudante se inicia cargando todos sus atributos y registrando el servicio \texttt{Cazamagia}.
 Tras esto el agente se localiza y añade un único comportamiento, \texttt{AyudaArcana()}.
 
-El comportamiento \texttt{AyudaArcana()} es un comportamiento complejo, en el que participan varios agentes y se comunican intercambiando mensajes. 
+El comportamiento \texttt{AyudaArcana()} es un comportamiento complejo, en el que participan varios agentes y se comunican intercambiando mensajes. Este comportamiento realmente se activa cuando un \texttt{Antagonista Guardian} está en la misma localización que un \texttt{Aspirante a Héroe}, y es entonces cuando el \texttt{Agente Mundo} despierta al ayudante a través de un mensaje ACL del tipo \texttt{Inform}. En ese momento el ayudante se planificará, provocando que vaya al encuentro entre el guardián y el aspirante a héroe, entablando batalla con el guardián. 
 
-En resumen, cuando un antagonista guardián se encuentra con un aspirante a héroe, este pedirá ayuda a algún mago disponible y el mago acudirá entablando batalla con el guardián
+En caso de vencer al guardián, el ayudante se quedará con su objeto y activará el comportamiento \texttt{ConvertirseEnSabio}, en el que tendrá que dejar el objeto en un lugar seguro, es decir, su casa.
+
 %-------------------------------------------------------------------
 
 
@@ -333,7 +334,7 @@ El comportamiento \texttt{Acecho} es un comportamiento sencillo que provoca que 
 %registra su tipo como asesino, añade el comportamiento maldad a partir del cual lanzara el mensaje derrocar, el rey cuya princesa ha sido secuestrada esta debil y es por tanto derrocable, asi que en ese momento el asesino se planifica.
 Cuando se inicia este antagonista, carga todos sus datos, se localiza y registra el tipo \texttt{Maligno}. Tras esto añade el comportamiento \texttt{Maldad}.
 
-El comportamiento \texttt{Maldad} es un comportamiento cíclico, un \texttt{CyclicBehaviour}, es decir, que ocrure cada cierto tiempo. En él, el \texttt{Antagonista Asesino} elegirá a aquel \texttt{Allegado a la Víctima} cuya \texttt{Víctima} haya sido capturada, a través de un mensaje ACL del tipo \texttt{Inform}, y por tanto sea derrocable. Tras esto se planificará, ejecutando la acción \texttt{Tortura}, indicando al allegado a través de el mensaje ACL del tipo \texttt{Inform Agoniza} que su vida va disminuyendo poco a poco, concretamente cada 30 segundos.
+El comportamiento \texttt{Maldad} es un comportamiento cíclico(\texttt{CyclicBehaviour}), es decir, que ocrure cada cierto tiempo. En él, el \texttt{Antagonista Asesino} elegirá a aquel \texttt{Allegado a la Víctima} cuya \texttt{Víctima} haya sido capturada, a través de un mensaje ACL del tipo \texttt{Inform}, y por tanto sea derrocable. Tras esto se planificará, ejecutando la acción \texttt{Tortura}, indicando al allegado a través de el mensaje ACL del tipo \texttt{Inform Agoniza} que su vida va disminuyendo poco a poco, concretamente cada 30 segundos.
 
 %-------------------------------------------------------------------
 
