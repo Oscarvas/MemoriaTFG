@@ -75,11 +75,10 @@ El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizacion
 	\centering
 	\begin{tabular}{c|c}
 		Clase o Monstruo		& Tipo de Localización \\ \hline
-		Rey 					& Castillo \\
-		Princesa 				& Castillo (el del padre) \\
-		Caballero 				& Pueblo \\
-		Druida 					& Bosque \\
-		Mago 					& Urbano \\
+		Allegado a la Víctima	& Castillo \\
+		Víctima 				& Castillo (el del padre) \\
+		Aspirante a Héroe		& Pueblo \\
+		Ayudante del Héroe		& Urbano \\
 		PNJ's 					& Urbano(elección específica) \\
 		Monstruo Secuestrador	& Guarida \\
 		Monstruo Emboscador 	& Bosque \\
@@ -155,10 +154,10 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 \label{cap:Mapa:ClaseMapaLocalizacion}
 La Clase \texttt{Localización} permite trabajar con las localizaciones de una manera más funcional, ligando al \textit{String} identificativo de la localización con su tipo (bosque, lago, etc.)
 
-De igual manera, la Clase \texttt{Localización} permitía al Agente \texttt{Mundo} conocer que personajes y objetos interactuan con ella así como con que localizaciones está conectada.
+De igual manera, la Clase \texttt{Localización} permite al Agente \texttt{Mundo} conocer que personajes y objetos interactuan con ella así como con que localizaciones está conectada.
 
-La Clase \texttt{Mapa} nos permite tener un conjunto de localizaciones fácilmente accesible por el Agente \texttt{Mundo} y acceder a localizaciones específicas de este.
+La Clase \texttt{Mapa} posibilita tener un conjunto de localizaciones fácilmente accesible por el Agente \texttt{Mundo} y acceder a localizaciones específicas de este.
 
-De forma similar, para localizar a los personajes se creó la Interfaz \texttt{Vocabulario} junto al Enumerado \texttt{Mitología}, que permite ligar clases a tipos de localizaciones específicas para posteriormente elegir mediante una selección aleatoria dentro de la lista de localizaciones específicas de cada clase cual sería su localización inicial. 
+De forma similar, para localizar a los personajes se crea la Interfaz \texttt{Vocabulario} junto al Enumerado \texttt{Mitología}, que permite ligar clases a tipos de localizaciones específicas para posteriormente elegir mediante una selección aleatoria dentro de la lista de localizaciones específicas de cada clase cual sería su localización inicial.
 
 %-------------------------------------------------------------------
