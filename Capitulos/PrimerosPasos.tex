@@ -16,48 +16,54 @@
 \end{FraseCelebre}
 \label{cap:PrimerosPasos}
 
-Para empezar nuestro proyecto lo primero que debimos hacer fue entender de donde partíamos y ver, si con esto, eramos capaces de satisfacer nuestras necesidades, las cuales se explican en el capítulo \ref{cap:Objetivos}. Para entender como se realizó nuestro proyecto y porque se implemento de la manera en la cual se hizo es necesario entrar ligeramente por esta vertiente.
+El objetivo de este capítulo es explicar la experiencia inicial, de manera que el lector de la memoria observe el problema que surgió y como no nos quedó mas remedio que empezar de cero para poder completar correctamente la investigación.
+
+Al empezar el proyecto, lo primero que se debía hacer era entender de donde se partía y ver si desde esa posición se podían alcanzar las cotas propuestas en la investigación, explicadas en el capítulo \ref{cap:Objetivos}. También es importante indicar que estas pruebas se realizan sobre la investigación sobre la que parte el proyecto, detallada en el capítulo \ref{cap:EstadoDeLaCuestion:Lacaustra}.
 
 
-%-------------------------------------------------------------------
-\section{Multiples Objetivos}
-Para satisfacer el poder crear historias distintas uno de nuestros principales objetivos como ya se explicó era que dos agentes que representaban el mismo tipo de personaje, pudiesen actuar de manera distinta, eligiendo de una manera aleatoria entre un abanico de posibles objetivos cual iba a ser el suyo cada vez.
-
-Con ánimo de poner esta idea en práctica, buscamos la manera de que nuestros personajes fueran capaces de elegir entre varios objetivos distintos. Con este objetivo en mente empezaron nuestras primeras pruebas sobre el anterior proyecto.
 %-------------------------------------------------------------------
 
 \subsection{Primeras pruebas}
-Afrontar este problema fue un arduo proceso que comenzó cuando tratamos el agente de la princesa. En el TFG anterior, la princesa, era lo que llamamos un agente objeto, un agente que realmente no tenia ninguna funcionalidad,
-sencillamente ella se movía de un lugar a otro, o bien secuestrada por un dragón o bien rescatada por un caballero, y no era capaz de realizar acciones por su propia iniciativa.
-Nuestro primer objetivo fue por tanto cambiar el agente de la princesa, de manera que a veces decidiese escaparse ella sola si nadie lograba rescatarla.
+Las primeras pruebas que se realizaron estaban encaminadas en conseguir agentes de múltiples objetivos. En la anterior investigación, la princesa era lo que llamamos un agente objeto, un agente que realmente no tiene ninguna funcionalidad. La princesa sencillamente se movía de un lugar a otro, o bien secuestrada por un dragón o bien rescatada por un caballero, y no era capaz de realizar acciones por su propia iniciativa. 
+Como primer objetivo se propuso cambiar este agente, de manera que a veces decidiese escaparse por si propio pie si nadie lograba un rescate.
 
-Sin embargo, nuestros conocimientos en las primeras exploraciones del proyecto eran mas ambiguos y un agente clave como la princesa y un estilo muy propio para que se moviese era un objetivo demasiado ambicioso que nos llevó a buscar un problema más sencillo que cumpliese nuestra necesidad del agente con múltiples objetivos.
+Sin embargo, nuestros conocimientos en las primeras exploraciones del proyecto eran algo ambiguos y un agente clave como la princesa y un estilo muy propio para que se moviese era un objetivo demasiado ambicioso que llevó a buscar un problema más sencillo que cumpliese el objetivo del agente con múltiples objetivos.
+
 
 \subsection{La figura del villano}
 
-Fue aquí cuando decidimos que el que mejor se amoldaba a nuestra búsqueda del agente con varios objetivos era el caballero.
-El caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
-Para cambiar esto decidimos que no todos los caballeros iban a salvar a la princesa, y así surgió el concepto del villano. El villano era un caballero como otro cualquiera, que cuando derrotase al dragón en vez de salvar a la princesa decidiese secuestrarla y así otro caballero debía venir a salvarla, y con una idea tan simple habíamos aumentado significativamente nuestra capacidad de crear historias variadas.
+En ese momento se decide que el personaje que mejor se amolda a esta búsqueda del agente con varios objetivos es el caballero.
+En la anterior investigación el caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar.
+Para cambiar esto, se propone que no todos los caballeros traten de salvar a la princesa, surgiendo así el concepto del villano. El villano es basicamente un caballero como otro cualquiera, que cuando derrota al dragón en vez de salvar a la princesa decide llevar acabo una acción malvada, como volver a secuestrarla, provocando que otro caballero deba venir a salvarla y aumentando significativamente la capacidad de crear historias variadas con una idea sencilla.
 
-Sin embargo esto no fue tan sencillo, el planificador no podía soportar tener que elegir aleatoriamente entre dos caballeros en principio iguales cual iba a ser distinto e iba a ser villano, y, bajo nuestro entendimiento del código disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
+Sin embargo, este cambio no resulto tan sencillo. El planificador no soportaba tener que elegir aleatoriamente entre dos caballeros cual va a tratar de ser héroe y cual va a tratar de ser villano y, bajo el entendimiento del código disponible, no se podía crear un caballero de manera sencilla que en el punto de inflexión para salvar a la princesa decidiese entre rescatarla o volverla a raptar.
 
-Como primera solución decidimos crear al personaje villano, de manera que cuando se creaba un caballero se elegía aleatoriamente si este iba a ser caballero o villano desde el principio, así cuando llegase el momento actuarían de manera distinta. En cierta medida si, eran dos agentes diferentes, pero a ojos del usuario iban a seguir siendo caballeros, se iban a comportar de distinta manera e iban a generar múltiples y distintas.
+Como primera solución, se propone la creación del personaje villano, de manera que cuando se crea un caballero, se elija de manera aleatoria si este será caballero o villano, de manera que llegado el momento de tratar a la princesa lo harían de manera distinta.
 
-El problema fue que la aplicación no estaba pensada para soportar esto. Las batallas siempre debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios...
+Sin embargo la aplicación no estaba pensada para soportar esto. Las batallas debían ser entre un dragón y un caballero, le costaba adaptar el rol del caballero para que fuese dragón, el planificador no se entendía con los cambios...
 
-Tras mucho debatir y con ciertos reparos, pues tras cortarle una cabeza a nuestro problema, de esta salieron dos, decidimos que la manera optima de actuar era replanteando la aplicación desde cero, siempre partiendo de la base del antiguo, pero reciclando cierta parte del código y en definitiva las funcionalidades de los agentes para que se adecuasen a nuestras necesidades, planteando los personajes y su manera de actuar como nosotros necesitábamos y replanteando y depurando el código para que, a nuestro entender, estuviese mucho mejor estructurado, de una manera mas lógica, respetando mejor los usos de los agentes y JADE, haciendo que las acciones fuesen \textit{behaviours} de JADE y no métodos sueltos, y en definitiva fuese mas legible para la comprensión del programador.
+A este problema había que sumar la nula adaptabilidad de la aplicación para adaptarse a nuevos entornos, la creación de una interfaz gráfica que interactúe de manera correcta con el código, tener que modificar los personajes a sus nuevas cualidades... Así que llegados a este punto, se decide replantear la aplicación desde cero..
+
+Al replantear la aplicación desde cero hay que tener en cuenta que se parte de la base de la anterior investigación, reutilizando cierta parte del código que aun es funcional. Sin embargo, se ha de adaptar a los personajes y su manera de actuar a las nuevas necesidades, así como rehacer el código de una manera mas estructurada, que se consigue respetando correctamente el las tecnologías explicadas en el capítulo \ref{cap:EstadoDeLaCuestion}, y minimizando el nivel de acoplamiento del sistema para que sea mas adaptable, lo cual también facilitará el uso de esta investigación en futuros proyectos.
+
+
 
 %-------------------------------------------------------------------
 \section{Empezando desde cero}
-El análisis y posterior uso del código anterior lo trataremos con mas detalle en los siguientes capítulos, donde veremos uno por uno como fueron diseñados e implementados los distintos componentes de nuestra aplicación. Lo que si teníamos claro, era que nuestro proyecto iba a incluir forzosamente personajes con múltiples objetivos y una GUI que diese un impacto visual claro a la ejecución de la aplicación.
+El análisis y la creación del código se discutirá con mas detalle en los siguientes capítulos, donde se verán uno por uno como han sido diseñados e implementados los distintos componentes de la aplicación. 
 
-Para ello, y ahora que por fin eramos capaces, decidimos cambiar a la princesa, de manera que en ocasiones si los caballeros se demoraban demasiado en su trabajo ella era capaz de escaparse de su raptor y volver al castillo por su propio pie.
-También modificamos al caballero, de manera que alguno ahora podía ser villano donde estos, si lograban vencer al dragón, entablaban una nueva batalla con la princesa con el objetivo de eliminarla. 
+Lo primero que se busca es que la investigación cuente con personajes de múltiples objetivos y una interfaz gráfica capaz de dar un impacto visual claro a la ejecución de la aplicación.
 
+Persiguiendo este objetivo, se cambia por fin a la princesa de manera que si los caballeros se demoran demasiado en salvarla en ocasiones ella trata de escaparse por si misma de su captor y volver por su propio pié al castillo.
+También se modifica al caballero, de manera que ahora algunos, si consiguen previamente vencer al dragón en combate, entablan una nueva batalla con la princesa con el objetivo de eliminarla, consiguiendo ahora si la representación del villano. 
 
-Esto nos permitió satisfacer nuestra necesidad del multiobjetivo, y así pudimos transformar a nuestros agentes en personajes mas profundos, con una serie de posibles objetivos:
+Estos cambios nos permiten satisfacer la necesidad del multiobjetivo, dando paso a la siguiente fase.
+
 %-------------------------------------------------------------------
 
 \section{Ahora que ya estamos donde queremos}
-Era el momento de ponernos ambiciosos, así que nos propusimos crear muchos mas personajes, rellenar el mapa con nuevos monstruos, e incluso poner algunos personajes totalmente secundarios que sencillamente le diesen un toque picante a la historia.
-A continuación, como se menciono anteriormente, se explicará en detalle cada proceso que seguimos para poder realizar de manera satisfactoria nuestro proyecto.
+Es el momento de ponerse ambiciosos, ya que ahora sí, hay una base que respalda la idea del proyecto y permite avanzar en la investigación con paso seguro.
+
+Es en este punto donde se propone gran parte del diseño, como la creación de nuevos personajes, nuevos antagonistas, e incluso poner algunos personajes totalmente secundarios que sencillamente le den un toque picante a la historia. De la misma manera, se empieza a trabajar en la idea de una aplicación altamente configurable y en una interfaz gráfica que interactúe correctamente con la aplicación.
+En los siguientes capítulos se relata detalladamente y paso a paso el proceso de creación seguido para poder realizar de manera satisfactoria el proyecto.
+

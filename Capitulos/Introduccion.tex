@@ -14,7 +14,6 @@
 \end{FraseCelebre}
 
 
-%contar un poco los problemas de la generación de historias, lo que hace realmente dificil este trabajo de investigacion.
 La generación de historias de manera artificial plantea algunos problemas que se resumen, sobre todo, en saber hasta qué punto es capaz de imitar la inteligencia artificial a la inteligencia humana.
 Más concretamente, la característica humana que más destaca a la hora de crear una historia es la creatividad. La creatividad, como tal, es un concepto abstracto difícil de explicar. Según la RAE es ``la capacidad de crear'', que siempre está en constante movimiento y debe innovarse y reciclarse cada pocos años. Es, por tanto, una característica difícil de encontrar y reproducir entre las propias personas, pues no todas tienen la capacidad de ser creativas y, mucho menos, de narrar una historia interesante.
 
@@ -23,79 +22,71 @@ Sí y no. La inteligencia artificial no es capaz de crear por sí sola, pues siemp
 
 La primera manera de simular la creatividad es haciendo que se creen historias completamente distintas, proponiendo, por ejemplo, lugares distintos donde se ejecuta la acción, como puede ser un mundo medieval fantástico o uno con características tipo \textit{Western}. También se puede conseguir a través de personajes totalmente distintos. Siguiendo el ejemplo, en una historia habría caballeros y dragones y en la otra \textit{sherifs} y bandidos. Gracias a esta manera el numero posible de historias a generar aumenta considerablemente.
 
-%segunda manera
+
 Sin embargo no es la única manera de conseguir esto, también se busca que dos historias con las mismas premisas resulten distintas.
 Si todas las historias tienen las mismas características, la única manera posible de hacer que produzcan resultados diferentes es buscar un momento en el cual divergen. Este momento consideramos que debe producirse cuando los personajes entran en conflicto en la historia, así, según las características de cada personaje o si simplemente aparecieron en el momento más oportuno, la historia tomará un curso u otro. 
 
-%que proponemos sobre la investigacion como solucion a este problema
-Ante estas posibilidades, se proponen dos soluciones. La primera, es proponer una aplicación altamente configurable donde el usuario pueda elegir los detalles de la historia, como los nombres de los personajes o el mundo planteado. De la misma manera, se propone la posibilidad de contar con un gran abanico de personajes posibles, dividiendo a estos personajes en clases distintivas, de manera que distintos personajes se comportasen de distintas maneras y produjesen historias nuevas.
 
-La segunda, es conseguir que cada elemento de la aplicación sea único. Para ello, se dota a los personajes de características propias que los hacen diferentes entre sus iguales, así como de la posibilidad de conseguir objetos que les puedan ayudar en los distintos conflictos en los que se vean envueltos. Gracias a estos cambios, se introducen en los conflictos entre personajes, poniendo una batalla como el ejemplo mas típico, tiradas de dados al mas puro estilo rolero, que se ven modificadas por estas cualidades. De esta manera ciertamente algunos personajes tienen más posibilidades de vencer que otros y el factor ``suerte'' siempre dota de una particularidad especial a cada historia.
+Ante estas posibilidades, se proponen dos soluciones. La primera, es proponer una aplicación altamente configurable donde el usuario pueda elegir los detalles de la historia, como los nombres de los personajes o el mundo planteado. De la misma manera, se propone la posibilidad de contar con un gran abanico de personajes posibles, dividiendo a estos personajes en clases distintivas, de manera que distintos personajes se comporten de distintas maneras y produzcan historias nuevas.
 
-Para poder reproducir esta idea, se necesita de \textit{Agentes Inteligentes}, unidades software con una avanzada inteligencia a los cuales se les puede proponer un objetivo que siempre intentarán cumplir, que harán las veces de personajes. Para que estos Agentes puedan ser capaces de entender su objetivo e interpretarlo con respecto al mundo en el que simulan vivir, se requiere de un planificador, una herramienta capaz de proponerle a cada Agente en específico los pasos que debe seguir en pos de cumplir sus objetivos. 
+La segunda, es conseguir que cada elemento de la aplicación sea único. Para ello, se dota a los personajes de características propias que los hacen diferentes entre sus iguales, así como de la posibilidad de conseguir objetos que les puedan ayudar en los distintos conflictos en los que se vean envueltos. Gracias a estos cambios, se introducen en los conflictos entre personajes, poniendo una batalla como el ejemplo mas típico, tiradas de dados al mas puro estilo rolero, que se ven modificadas por estas cualidades. De esta manera, ciertamente algunos personajes tienen más posibilidades de vencer que otros y el factor ``suerte'' siempre dota de una particularidad especial a cada historia.
+
+Para poder reproducir esta idea, se necesita de \textit{Agentes Inteligentes}, unidades software con una inteligencia artificial avanzada a los cuales se les puede proponer un objetivo que siempre intentarán cumplir, que harán las veces de personajes. Para que estos Agentes puedan ser capaces de entender su objetivo e interpretarlo con respecto al mundo en el que simulan vivir, se requiere de un planificador, una herramienta capaz de proponerle a cada Agente en específico los pasos que debe seguir en pos de cumplir sus objetivos. 
 En numerosas ocasiones esto lleva a que los Agentes entren en conflicto entre ellos, pues a veces los objetivos de un Agente son opuestos a los de otro. Para paliar este problema, se cuenta con la ayuda de un simulador, una herramienta capaz de simular, por ejemplo, una batalla entre distintos personajes para poder ver así cual saldrá vencedor y, por tanto, seguir con su plan para cumplir su objetivo.
 
-Enfocándolo de una manera más simple, imaginemos que nuestra historia es como el rodaje de una película. Los agentes conforman los personajes o actores de esta, cada uno con sus propios intereses y motivaciones, el planificador será nuestro equipo de guionistas, decidiendo que camino deberá tomar cada personaje para cumplir su cometido en la historia, y la simulación hará las veces de director,decidiendo en las escenas importantes que personaje seguirá adelante en la historia y qué personaje será descartado (por ejemplo, en una batalla en cada simulación el bando victorioso puede variar) centrando a partir de ahí la historia otra vez en los personajes que siguen disponibles y pidiendo al equipo de guionistas, el planificador, que determinen cuál será el siguiente camino a tomar, hasta que nuevamente se tenga que volver a simular o dirigir.
+Enfocándolo de una manera más simple, imaginemos que nuestra historia es como el rodaje de una película. Los agentes conforman los personajes o actores de esta, cada uno con sus propios intereses y motivaciones. El planificador será nuestro equipo de guionistas, decidiendo que camino deberá tomar cada personaje para cumplir su cometido en la historia. Y por último, la simulación, hará las veces de director,decidiendo en las escenas importantes que personaje seguirá adelante en la historia y qué personaje será descartado (por ejemplo, en una batalla en cada simulación el bando victorioso puede variar) centrando a partir de ahí la historia otra vez en los personajes que siguen disponibles y pidiendo al equipo de guionistas, el planificador, que determinen cuál será el siguiente camino a tomar, hasta que nuevamente se tenga que volver a simular o dirigir.
 
-%bajo estas premisas, se produjo al desarrollo de una aplicación capaz de cumplir con nuestras espectativas
+
 Así pues, se explican a continuación las características de nuestro proyecto, todo el material necesario para comprender su funcionamiento y las cualidades necesarias que debimos proporcionar con el ánimo de que este fuese capaz de cumplir nuestras expectativas. Para ello esta memoria se estructura de la siguiente manera:
 
+\section{Estructura General de la Memoria}
 \begin{itemize}
-	\item Capítulo 1: Introduccion. 
+	\item \textbf{Capítulo 1: Introduccion.} 
+	
 	Capítulo en el que se introduce de manera general la investigación desarrollada.
 	
-	\item Capítulo 2: Estado de la Cuestión. 
+	\item \textbf{Capítulo 2: Estado de la Cuestión. }
+	
 	Capítulo en el que se explica en profundidad las tecnologías usadas en la investigación. así como el funcionamiento de las mismas
 
-	\item Capítulo 3: Objetivos. 
+	\item \textbf{Capítulo 3: Objetivos. }
+	
 	Capítulo que puntualiza de manera concreta los objetivos marcados para esta investigación.
 	
-	\item Capítulo 4: Primeros Pasos. 
-	Capítulo que relata la experiencia en las primeras fases de la investigación
+	\item \textbf{Capítulo 4: Primeros Pasos.} 
+	
+	Capítulo que relata la experiencia en las primeras fases de la investigación y los problemas encontrados, de manera que se pueda entender el desarrollo de la misma.
 
-	\item Capítulo 5: Arquitectura del Generador de historias.
+	\item \textbf{Capítulo 5: Arquitectura del Generador de historias.}
+	
 	Capítulo en el que se explica en profundidad la implementación de la aplicación.
 	
-	\item Capítulo 6: Mapa. 
+	\item \textbf{Capítulo 6: Mapa.}
+	 
 	Capítulo en el que se describe como se genera el Mundo donde trascurre la historia, personificado en un Mapa, así como su diseño e implementación.
 	
-	\item Capítulo 7: Personajes. 
-	Capítulo en el que se ve en profundidad el diseño y la implementación de los distintos personajes, así como de todas las propiedades que los definen.
+	\item \textbf{Capítulo 7: Personajes. }
 	
-	\item Capítulo 8: Frases. 
+	Capítulo en el que se ve en profundidad el diseño y la implementación de los distintos personajes, así como de todas las cualidades que los definen.
+	
+	\item \textbf{Capítulo 8: Frases. }
+	
+	Capítulo en el que se detalla la creación e implementación de las frases que usarán los personajes en el aspecto narrativo de la investigación.
 
-	\item Capítulo 9: Simulaciones. 
+	\item \textbf{Capítulo 9: Simulaciones. }
+	
+	Capítulo en el que se exponen diferentes ejemplos del funcionamiento del software creado.	
  
-	\item Capítulo 10: Trabajo Individual. 
-
-	\item Capítulo 11: Conclusiones. 
+	\item \textbf{Capítulo 10: Trabajo Individual. }
 	
-	\item Capítulo 12: Trabajo Futuro. 
+	Capítulo que detalla el trabajo individual realizado por cada miembro del equipo en la investigación.
+
+	\item \textbf{Capítulo 11: Conclusiones. }
+	
+	Capítulo en el que se exponen las diferentes conclusiones en las que ha derivado la investigación.
+	
+	\item \textbf{Capítulo 12: Trabajo Futuro. }
+	
+	Capítulo que propone ciertas ideas para proseguir trabajando sobre la misma investigación.
 
 \end{itemize}
-
-
-%A PARTIR DE AQUI EL ANTERIOR, NO BORRO POR SI NO GUSTA
-%
-%El problema sobre la dificultad de generar una historia y que además esta sea interesante afecta directamente al proyecto, por lo que en primer lugar había que responder algunas preguntas:\\
-%\\
-%\textbf{\textit{¿Cómo recrear una cualidad como la creatividad?}}\\
-%%eliminar la pregunta
-%Para narrar una historia entretenida se requiere de una habilidad para hacerla única, la creatividad. 
-%La tarea de recrear habilidades humanas artificialmente es un problema complejo y más aún cuando estas habilidades son artísticas. Por tanto el cometido ha sido asaltar la creatividad computacional para poder generar historias.\\
-%\\
-%\textbf{\textit{¿Qué hace que una historia sea interesante?}}\\
-%%eliminar la pregunta
-%A lo largo de nuestra vida hemos visto como novelas han tenido un gran éxito, como puede ser ``El señor de los anillos'' o ``Canción de hielo y fuego'' entre otras, y al pensar en estas novelas observamos que tienen algunos factores en común. 
-%Uno de estos factores es que no exista un único protagonista, si no que la trama gira en torno a varios personajes de la historia. Estos tienen un objetivo marcado y depende del escritor si los personajes colaboran o entran en conflicto para lograr la consecución del objetivo. Para poder saber los requisitos que se necetian para la consecución de estos objetivos se utiliza un planificador, el cual realizá un plan, en función del estado en el que se encuentre el personaje, que se tendrá que seguir para alcanzar el objetivo .
-%También es importante que no todos los personajes de la historia tengan un objetivo, ya que se podría perder el hilo argumental, si no que aparezcan en la historia para interactuar con alguno de los protagonistas en momentos determinados. %no me gusta esta parte que viene a continuacion, la de los videojuegos.
-% Estos personajes los denominamos con un término del mundo de los videojuegos, PNJ(Peronaje No Jugable).
-%Otro factor común que observamos es el mapa donde se desarrollan y es que no son entornos muy reducidos.\\
-%\\
-%\textbf{\textit{¿Cómo hacer historias diversas dentro un mismo entorno?}}\\
-%%eliminar la pregunta
-%Al pensar en la diversidad de historias, nos viene a la mente los juegos de rol. Un juego de rol es aquel en donde el jugador desempeña el rol de un personaje ficticio y existe un director que introduce a los personajes dentro de la historia. A pesar de estar en un mismo entorno observamos historias diferentes cada vez que se juega. La diferencia de cada personaje en los juegos de rol viene marcada por los rasgos antropológicos, atributos físicos, habilidades determinadas, etcétera. Todos estos rasgos de un personaje como el entorno donde se introduce(mapa, PNJ, objetos) y la narrativa al interactuar con él es configurable mediante archivos.
-%
-%Con estas preguntas en mente y buscando sus respuestas hemos desarrollado un generador de historias diversas mediante simulaciones, introduciendo un estado inicial en archivos de configuración.
-
-%por lo gnral  no me gusta demasiado la introduccion, creo que resume mas nuestro TFG que introducirlo, quizá no sea el objetivo, opinad vosotros tambien.
