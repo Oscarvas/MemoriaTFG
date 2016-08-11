@@ -18,19 +18,27 @@
 
 Las mejores historias siempre se caracterizan por un mapa detrás que les da soporte, que compone los cimientos del mundo que el autor quiere introducir. Este mapa dotará a la historia de individualidad y servirá para orientar al usuario, de manera que este sepa donde se produce la acción.
 
-Tratando de dotar a las historias de un mapa así de consistente, se decidió crear un nuevo mapa que se adecue a un mínimo de necesidades.
+Tratando de dotar a las historias de un mapa así de consistente, se decide crear un mapa que se adecue a un mínimo de necesidades.
 
 
 %-------------------------------------------------------------------
 \section{Diseño del Mapa}
-Cuando se planteó el nuevo concepto de mapa lo primero que se tenia claro era enfocarle dentro de un ámbito fantástico y crear un mundo al viejo estilo de las novelas fantásticas, como las de Tolkien, con nombres específicos que representasen reinos y civilizaciones para darle un aire más personal a las historias, pero que a la vez fuese lo suficientemente claro y no estuviese sobrecargado de información nueva para el usuario.
+Cuando se plantea el nuevo concepto de mapa lo primero que se decide es enfocarle dentro de un ámbito fantástico y crear un mundo al viejo estilo de las novelas fantásticas, como las de Tolkien, con nombres específicos que representen reinos y civilizaciones para darle un aire más personal a las historias, pero que a la vez sea lo suficientemente claro y no este sobrecargado de información nueva para el usuario.
 
 
 \subsection{Conociendo lo que tenemos}
-Cuando se empezó a diseñar el mapa se decidió partir del mapa del proyecto \cite{556}, debido a que este mapa era un plano muy sencillo, con apenas 3 localizaciones conectadas entre sí, y trabajar en un entorno controlado. %Repetido previamente en las que siempre ocurrían las mismas cosas de la misma manera, el dragón iba al castillo, se llevaba a la princesa a la montaña y los caballeros acudían desde el pueblo tratando de derrotar al dragón hasta que finalmente alguno lo lograba y podía llevarla de vuelta al castillo.
+Cuando se empieza a diseñar el mapa se decide partir del mapa del proyecto \cite{556}, debido a que este mapa es un plano muy sencillo, consultable en la figura \ref{fig:MapaBase}, y permite trabajar en un entorno controlado.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/PrimerMapaBasico}
+	\caption{Mapa Base}
+	\label{fig:MapaBase}
+\end{figure}
+ %Repetido previamente en las que siempre ocurrían las mismas cosas de la misma manera, el dragón iba al castillo, se llevaba a la princesa a la montaña y los caballeros acudían desde el pueblo tratando de derrotar al dragón hasta que finalmente alguno lo lograba y podía llevarla de vuelta al castillo.
 
 
-Las primeras pruebas fueron trabajar sobre el planificador \ref{cap:Arquitectura:Planificador}, para ver como lidiaba con un problema y trataba de resolverlo con respecto a un mapa y así cuando le se presentasen nuevos mapas seguir teniendo el control sobre el comportamiento de la historia. Con está idea en mente, se desconectó la montaña del pueblo y se interpuso entre el castillo y la montaña dos nuevas localizaciones como se ve el la figura \ref{fig:MapaPrimerasPruebas}, el bosque y el lago. Con esto se logró ver que el planificador devolvía una ruta aleatoria si se quería ir del castillo a la montaña o viceversa, ya que los agentes tenían dos posibles caminos por los que llegar a su destino.
+Las primeras pruebas consisten en trabajar sobre el planificador, consultable en el capítulo \ref{cap:Arquitectura:Planificador}, para ver como éste lidia con un problema y trata de resolverlo con respecto a un mapa, de manera que cuando le se presenten nuevos mapas se pueda mantener el control sobre el comportamiento de la historia. Con está idea en mente, se desconecta la montaña del pueblo y se interpone entre el castillo y la montaña dos nuevas localizaciones, como se ve en la figura \ref{fig:MapaPrimerasPruebas}, el bosque y el lago. Con esto se logra ver que el planificador devuelve una ruta aleatoria si se quiere ir del castillo a la montaña o viceversa, ya que los agentes tienen dos posibles caminos por los que llegar a su destino.
 
 \begin{figure}[h]
 	\centering
@@ -39,13 +47,12 @@ Las primeras pruebas fueron trabajar sobre el planificador \ref{cap:Arquitectura
 	\label{fig:MapaPrimerasPruebas}
 \end{figure}
 
-La siguiente prueba que se realizó al planificador fue para saber como se escogían las localizaciones por las cuales transcurren los agentes para llegar a su destino. Tras diversas pruebas comprobando distintas localizaciones, algunas trampas y unas cuantas horas, descubrimos que el planificador siempre escogía el camino más corto posible para cada agente. Si había dos iguales, elegía indistintamente entre estos e intentaba no repetir con el mismo agente el mismo lugar, es decir, si pasaba con un agente por una localización entre dos posibles a la vuelta elegía la otra. Esto nos permitió conocer en profundidad como actuaba el planificador y así establecer los límites que tendrían que tener cada mapa que se fuese a utilizar.
+La siguiente prueba que se realiza al planificador es para saber como se escogen las localizaciones por las cuales transcurren los agentes para llegar a su destino. Tras diversas pruebas con distintas localizaciones y algunas trampas, se descubre que el planificador siempre trata de escoger el camino más corto posible para cada agente. Si hay dos iguales, elige indistintamente entre estos e intenta no repetir con el mismo agente el mismo lugar, es decir, si pasa con un agente por una localización entre dos posibles a la vuelta elige la otra. Esto permite conocer en profundidad la manera de actuar del planificador y así se pueden establecer los límites que ha de tener cada mapa que se vaya a utilizar. Una vez conocidos estos límites y como los trata el planificador, se empieza a desarrollar el nuevo mapa.
 
 \subsubsection{Creando el Mapa}
-Lo primero que se hizo para empezar a desarrollar el nuevo mapa fue plantearlo geográficamente, de manera que un pequeño mapa empezase a tener forma para dar origen a uno mas grande. Para poder organizarlo bien, utilizamos el concepto de regiones, que actuarían como estados divididos por localizaciones, que serían los lugares de renombre del propio estado, como sus ciudades, bosques, pueblos...
+Al empezar a desarrollar el nuevo mapa, primero se plantea el mismo geográficamente, de manera que un pequeño mapa vaya tomando forma para dar origen a uno más grande. Para poder organizarlo bien, se utilizan varios conceptos para dividirlo. Así, se crean las regiones, que representan estados subdivididos a su vez en localizaciones, que conforman los lugares de renombre del propio estado, como sus ciudades, bosques, o pueblos.
 
-
-Para ello se creó un archipiélago de islas donde tres islas pequeñas coronaban una isla mayor, que a su vez se dividía en otras tres partes piezas así nuestro mundo en seis regiones, que representan las seis divisiones en las que esta fraccionado el mapa consultable en la figura \ref{fig:MiniMapa},  donde cada cual tenía un numero diferente de localizaciones, que representaban territorios más específicos por los que realmente se moverían los personajes. También se dotó a cada una de estas regiones con un nombre para distinguirlas entre ellas y darle más detalle a la hora de la narrativa.
+Para desarrollar el mapa, se crea un archipiélago de islas donde tres islas pequeñas coronan a una isla mayor que a su vez se divide en otras tres partes, dividiendo así el mundo en seis regiones, que representan las seis divisiones en las que esta fraccionado el mapa consultable en la figura \ref{fig:MiniMapa}, donde cada región tiene un número diferente de localizaciones, que representan territorios más específicos por los que realmente se moverán los personajes. También se dota a cada una de estas regiones de un nombre en específico para distinguirlas entre ellas y entender mejor el mapa.
 
 \begin{figure}[h]
 	\centering
@@ -54,46 +61,43 @@ Para ello se creó un archipiélago de islas donde tres islas pequeñas coronaban u
 	\label{fig:MiniMapa}
 \end{figure}
 
-
-Para seguir aumentando el mapa, el siguiente paso fue profundizar en el contenido de las regiones. Con el objetivo de que cada región fuese única y no se tuviesen sencillamente seis zonas con nombres distintos, decidimos proporcionar a cada una, uno o varios elementos distintivos que la diferencie de las demás a través de un nuevo elemento llamado localizaciones. 
-Así por ejemplo, se decidió que sólo en dos regiones hubiese castillo y con estas localizaciones limitar el número de reinos que existen en la historia, pues solo en un castillo podría vivir un único rey.
+Con ánimo de seguir aumentando el mapa, se procede a profundizar en el contenido de las regiones. Con el objetivo de que cada región sea única y no se tengan sencillamente seis zonas con seis nombres distintos, se decide proporcionar a cada una, uno o varios elementos distintivos que la diferencien del resto de regiones a través de localizaciones, siendo algunas de estas exclusivas de cada región.
+Así, por ejemplo, se decide que solo en dos regiones habrá un castillo, limitando así el número de reinos existentes en la historia a dos.
 
 \label{cap:Mapa:LocalizacionesPNJ}
-De igual manera habría localizaciones muy especificas en ciertas regiones. Por ejemplo, en una de ellas estaría la herrería, en otra la taberna, en otra el hospital... Estas localizaciones cumplirían las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en él. Así, en estos sitios, aguardarían estos nuevos personajes esperando el momento de su intervención, estando estos personajes ligados a una localización particular en específico, como en este caso serian el herrero, el tabernero o la amable enfermera.
+De la misma manera, se forman localizaciones particulares en ciertas regiones.  Por ejemplo, en una de ellas estará la herrería, en otra la taberna, en otra el hospital... Estas localizaciones cumplirán las veces de sitios sencillos que albergan personajes secundarios que pueden cambiar el curso de la historia o sencillamente hacer acto de presencia en él. Así, en estos sitios, aguardan estos nuevos personajes esperando el momento de su intervención, estando estos personajes ligados a una localización particular en específico, como en este caso serán el herrero, el tabernero o la amable enfermera.
 
-
-Con el fin de dotar al resto de personajes de lugares en los que entrar en la historia, decidimos añadir una nueva característica al mapa, concretamente la de tipos de localizaciones.
-A través de esta nueva característica, buscamos clasificar nuestras localizaciones según un elemento común. Así, de todas aquellas localizaciones en el mapa que fuesen bosques sabríamos que lo eran y podríamos interpretarlas correctamente para trabajar con ellas en conjunto. 
-De esta manera clasificamos las localizaciones en los siguientes tipos: castillo, pueblo, urbano (que se referían a las localizaciones específicas previamente comentadas como la herrería), bosque, lago, guarida y camino.
+Con el fin de dotar al resto de personajes de lugares en los que entrar en la historia, se decide añadir una nueva característica al mapa, concretamente la de tipos de localizaciones.
+A través de esta nueva característica, se busca clasificar las localizaciones según un elemento común. Así, todas aquellas localizaciones en el mapa que sean bosques podrán ser tratados como tal para poder trabajar correctamente con ellos en conjunto.
+De esta manera se clasifica a las localizaciones en los siguientes tipos: castillo, pueblo, urbano (que se refiere a las localizaciones específicas previamente comentadas como la herrería), bosque, lago, guarida y camino.
 
 \label{cap:Mapa:LocalizacionesAleatoriasSegunClase}
-Esta clasificación en tipos nos ayudaría a la hora de crear personajes, asignándole a cada clase o monstruo un tipo de localización en concreto, de forma que al crearse dicho personaje fuese situado aleatoriamente en una de las localizaciones que tuviesen el tipo al que dicha clase o monstruo pertenecían. De esta manera, si a la clase o monstruo X le asignabas el tipo de localización Y, a ese personaje se le cedería una localización específica Z que perteneciese al conjunto de localizaciones del tipo Y.
+Esta clasificación en tipos ayudará a la hora de crear personajes, asignándole a cada protagonista o antagonista un tipo de localización en concreto, de forma que al crearse dicho personaje sea situado aleatoriamente en una de las localizaciones que tengan el tipo al que dicho personaje pertenece. De esta manera, si al protagonista o antagonista X le asignas el tipo de localización Y, a ese personaje se le cede una localización específica Z que pertenece al conjunto de localizaciones del tipo Y.
 El orden final se puede consultar en la tabla \ref{fig:TablaRelacionLozalizaciones}:
 
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c|c}
-		Clase o Monstruo		& Tipo de Localización \\ \hline
-		Allegado a la Víctima	& Castillo \\
-		Víctima 				& Castillo (el del padre) \\
-		Aspirante a Héroe		& Pueblo \\
-		Ayudante del Héroe		& Urbano \\
-		PNJ's 					& Urbano(elección específica) \\
-		Monstruo Secuestrador	& Guarida \\
-		Monstruo Emboscador 	& Bosque \\
-		Monstruo Guardian 		& Lago \\
-		Monstruo Maligno		& Cualquiera \\ \hline
+		Protagonista o Antagonista 	& Tipo de Localización \\ \hline
+		Allegado a la Víctima		& Castillo \\
+		Víctima 					& Castillo (el del padre) \\
+		Aspirante a Héroe			& Pueblo \\
+		Ayudante del Héroe			& Urbano \\
+		PNJ's 						& Urbano(elección específica) \\
+		Monstruo Secuestrador		& Guarida \\
+		Monstruo Emboscador 		& Bosque \\
+		Monstruo Guardian 			& Lago \\
+		Monstruo Maligno			& Cualquiera \\ \hline
 	\end{tabular}
 	\caption{Tabla de Relación Clase-Localización}
 	\label{fig:TablaRelacionLozalizaciones}
 \end{table}
 
-Finalmente, se decidió que todas estas características pudiesen ser configuradas por el usuario, a través de un archivo XML, donde pudiese diseñar siempre dentro de unos ciertos parámetros su propio mapa.
+Finalmente, se decide que todas estas características puedan ser configuradas por el usuario, a través de un archivo XML, donde el usuario pueda diseñar, siempre dentro de unos ciertos parámetros, su propio mapa.
 
-Una vez ya decidida la funcionalidad que tendría nuestro mapa, era el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayudase al usuario a situarse en la historia. Para ello, dibujamos un primer boceto en papel y procedimos a digitalizarlo, para lo cual usamos la herramienta GIMP.
-
-Una vez correctamente digitalizado se introduce en la GUI, aportando un gran impacto visual y estando listo para consultar (ver figura \ref{fig:MapaCompleto}).
+Una vez ya decidida la funcionalidad que tendrá el mapa, es el momento de plasmarlo en un mapa virtual, una imagen intuitiva que ayude al usuario a situarse en la historia. Para ello, se dibuja un primer boceto en papel y se digitaliza, a través de la herramienta GIMP.
+Una vez correctamente digitalizado se introduce en la interfaz gráfica, aportando un gran impacto visual y quedando listo para ser consultado (ver figura \ref{fig:MapaCompleto}).
 
 \begin{figure}[h!]
 	\centering
@@ -105,25 +109,25 @@ Una vez correctamente digitalizado se introduce en la GUI, aportando un gran imp
 
 %-------------------------------------------------------------------
 \section{Implementación del Mapa}
-Para que el mapa fuese configurable y pudiese cargar sus datos a través de un archivo XML fue necesaria una remodelación profunda del mismo, produciendo las modificaciones que se explicaran a continuación.
+Para que el mapa sea configurable y pueda cargar sus datos a través de un archivo XML es necesario un sistema de carga e interpretación que conlleva consigo distintas aportaciones al código, que a continuación se ven en profundidad.
 
-De igual manera, para poder usar de forma correcta el mapa, este debía estar en el Agente \texttt{Mundo}, tal y como se explica en el apartado \ref{cap:Arquitectura:AgenteMundo}, creando las clases necesarias para ello.
+De igual manera, para poder usar de forma correcta el mapa, es importante destacar la necesidad de el \texttt{Agente Mundo}, que puede cargar e interpretar en toda su magnitud el mapa, tal y como se explica en el apartado \ref{cap:Arquitectura:AgenteMundo}, lo que precisa de la adición de las clases que permiten que esto ocurra.
 
 
 \subsection{Mapas configurables por el usuario}
-El mapa original era un archivo XML lleno de \textit{Strings}, que representaban los nombres de las distintas localizaciones, volcados en un XML, y se cargaba directamente en la aplicación.
+El mapa es un archivo XML donde la información llega en forma de \textit{Strings}, que representan los nombres de las distintas localizaciones, y se carga directamente en la aplicación.
 
-Para poder usarse de la manera correcta, primero se debía contar con un SCD capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa debían ser conocidos por el Agente \texttt{Mundo} y por tanto se integra este SCD dentro del propio agente dándole la funcionalidad de \texttt{CargarMapa()}.
+Para poder usarse de la manera correcta, primero se debe contar con un SCD capaz de interpretar los datos del mapa. Sin embargo, los datos del mapa deben ser conocidos por el \texttt{Agente Mundo} y por tanto se integra este SCD dentro del propio agente dándole la funcionalidad de \texttt{CargarMapa()}.
 
-La función que actuaba como el SCD del archivo del mapa funcionaba básicamente como el resto de SCD's, ver apartado \ref{cap:Arquitectura:Loaders}, con la particularidad de que este iniciaba un objeto de la clase \texttt{Mapa}, que venía a ser un \textit{ArrayList} de localizaciones, y recorría los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual cargaba nuevas localizaciones. 
-Sin embargo, al cargar el mapa no solo se cargaban las localizaciones, sino que también se debía cargar la matriz de adyacencia de estas para que el agente Mundo fuese capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización, en la carga se buscaba la etiqueta \texttt{<conectadoCon>} donde estaban aquellas localizaciones conectadas con la que se estaba cargando.
+La función que actúa como el SCD del archivo del mapa funciona básicamente como el resto de SCD's, ver capítulo \ref{cap:Arquitectura:Loaders}, con la particularidad de que este inicia un objeto de la clase \texttt{Mapa}, que viene a ser un \textit{ArrayList} de localizaciones, y recorre los nodos del archivo XML buscando la etiqueta \texttt{<localización>} a partir de la cual carga nuevas localizaciones. 
+Sin embargo, al cargar el mapa no solo se cargan las localizaciones, sino que también se debe cargar la matriz de adyacencia de estas para que el \texttt{Agente Mundo} sea capaz de interpretar correctamente el mapa. Para ello, dentro de cada localización, en la carga se busca la etiqueta \texttt{<conectadoCon>} donde se reflejan aquellas localizaciones adyacentes a la localización que esta siendo cargada.
 
-Para que estas cargas se pudiesen realizar correctamente fue necesaria la inclusión de dos nuevas clases, la clase \texttt{Mapa} y la clase \texttt{Localización}, que se explican en detalle en el apartado \ref{cap:Mapa:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
+Para que estas cargas se puedan realizar correctamente es necesaria la inclusión de dos nuevas clases, la clase \texttt{Mapa} y la clase \texttt{Localización}, que se explican en detalle en el apartado \ref{cap:Mapa:ClaseMapaLocalizacion}. %aunque no se si es mejor poner que explicaremos al final del capitulo en vez de la ref
 
-Para introducir también la relación entre clases y localizaciones, al archivo XML se le introdujo la relación de tipos, como ya se comento en el capítulo de diseño. Estas localizaciones se guardaban en un \textit{ArrayList} auxiliar, donde estaban ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscaban y decidir de manera aleatoria su localización de origen entre las localizaciones de ese tipo.
+Para introducir la relación entre clases y localizaciones, al archivo XML se le introduce la relación de tipos, como ya se comentó en el capítulo de diseño. Estas localizaciones se guardan en un \textit{ArrayList} auxiliar, donde están ordenadas según su tipo, permitiendo así a los personajes acceder al tipo que buscan y decidir de manera aleatoria su localización de origen entre las localizaciones de dicho tipo.
 
-El problema que representaba esta implementación es que al necesitar el mapa de una configuración tan específica, el archivo XML debía crearse de una manera determinada, pues si no la aplicación no funcionaría de una manera correcta.
-Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de cómo construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo. Quedaría algo así:
+El problema que representa esta implementación es que al necesitar el mapa de una configuración tan específica, el archivo XML debe crearse bajo unos parámetros determinados, pues si no, la aplicación no funcionará de una manera correcta.
+Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía de cómo construirlo, aparte de proponer por defecto el mapa final cuya figura aparece en el diseño, que también hace las veces de ejemplo. El formato de construcción se puede consultar en el cuadro \ref{escenografiaXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML del Mapa},label=escenografiaXML]
@@ -154,10 +158,10 @@ Para que esto no ocurra, en el archivo XML del mapa se incluye una pequeña guía 
 \label{cap:Mapa:ClaseMapaLocalizacion}
 La Clase \texttt{Localización} permite trabajar con las localizaciones de una manera más funcional, ligando al \textit{String} identificativo de la localización con su tipo (bosque, lago, etc.)
 
-De igual manera, la Clase \texttt{Localización} permite al Agente \texttt{Mundo} conocer que personajes y objetos interactuan con ella así como con que localizaciones está conectada.
+De igual manera, la Clase \texttt{Localización} permite al \texttt{Agente Mundo} conocer que personajes y objetos interactúan con ella, así como con que localizaciones está conectada.
 
-La Clase \texttt{Mapa} posibilita tener un conjunto de localizaciones fácilmente accesible por el Agente \texttt{Mundo} y acceder a localizaciones específicas de este.
+La Clase \texttt{Mapa} posibilita tener un conjunto de localizaciones fácilmente accesible por el \texttt{Agente Mundo} y acceder a localizaciones específicas de este.
 
-De forma similar, para localizar a los personajes se crea la Interfaz \texttt{Vocabulario} junto al Enumerado \texttt{Mitología}, que permite ligar clases a tipos de localizaciones específicas para posteriormente elegir mediante una selección aleatoria dentro de la lista de localizaciones específicas de cada clase cual sería su localización inicial.
+De forma similar, para localizar a los personajes se crea la Interfaz \texttt{Vocabulario} junto al Enumerado \texttt{Mitología}, que permite ligar tipos de personajes a tipos de localizaciones específicas para posteriormente elegir, mediante una selección aleatoria dentro de la lista de localizaciones específicas de cada tipo de personaje, cual será la localización inicial del personaje.
 
 %-------------------------------------------------------------------
