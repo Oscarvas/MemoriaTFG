@@ -380,3 +380,132 @@ Como con todos los archivos XML, esta configuración exige que el fichero esté cr
 
 \subsubsection{La Clase PNJ}
 Si bien el agente se inicia desde el SCD, para poderse cargar de manera correcta se necesita de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se crea la clase PNJ, que hereda de la Case Personajes \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
+
+
+\section{Configuraciones de los personajes}
+
+
+En una historia no debería haber dos héroes iguales, donde uno fracasa otro debe tener la oportunidad de vencer y viceversa. Los mismos héroes de distintos lugares no debían ser iguales, parecidos, sí, pero no iguales, e incluso los de la misma zona, pues siempre hay héroes que destacan mas en la batalla que otros
+
+Para cumplir este objetivo, tratamos de que nuestros personajes se distinguiesen entre sus iguales a traves del concepto de atributos y razas.
+%-------------------------------------------------------------------
+
+\subsection{Diseño de los Atributos y las Razas}
+\label{cap:AtributosRazas}
+
+Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron:
+\begin{itemize}
+	\item Vida: atributo referente a la capacidad de aguante de un personaje.
+	\item Fuerza: atributo referente a la capacidad de combate del personaje (Util para los caballeros).
+	\item Destreza: atributo referente a la capacidad de combate del personaje (Util para los druidas).
+	\item Inteligencia: atributo referente a la capacidad de combate del personaje (Util para los magos).
+	\item Codicia: atributo que define el coste de contratar a dicho personaje.
+\end{itemize}
+
+Estos atributos representarían modificadores positivos a la hora de enfrentarse a un problema. Por ejemplo, la fuerza seria un factor diferencial que dictamina nuestras posibilidades de victoria a la hora de enfrentarnos a un monstruo en una batalla, o la codicia que representaría el precio que un héroe propondría a un rey para que este contratase sus servicios.
+
+De la misma forma, se propuso el concepto de raza, que es una característica mas que le podemos dar a los personajes protagonistas.
+Esta nueva característica modificará según ciertos multiplicadores los atributos que un personaje posee, haciendo así que dos héroes de razas distintas muy probablemente tengan atributos distintos.
+
+La manera en que los atributos y las razas se relacionan, viene dado porque los personajes de ciertas razas tienen atributos mas acentuados que otros. Esto se implicaría que, por ejemplo, los personajes de la raza X fuesen especialmente fuertes y los de la raza Y especialmente inteligentes, lo cual no quiere decir sin embargo que no exista un personaje de la raza Y especialmente fuerte que supere a otro de la raza X que no tuvo la misma fortuna.
+
+De igual manera, la clase también afectara a estos atributos, ya que un caballero en principio tendría mas opciones de ser fuerte que una princesa, para poder llevar esa flamante armadura también hay que echar sus horas en el gimnasio, lo cual nuevamente no implica que no pueda haber una princesa especialmente fuerte, sino que ese caso seria una extraña variedad dentro de las múltiples historias que podemos formar.
+
+
+
+%-------------------------------------------------------------------
+\subsection{Implementación de los Atributos y las Razas}
+Para explicar la implementación de los Atributos es necesario comprender bien la clase personaje.
+Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características. Cada tipo de personaje tenía un atributo principal, que representaba su manera de afrontar la batalla, por ejemplo, un aspirante a héroe emplearía la fuerza para luchar mientras que una víctima usaría la destreza. La tabla final quedaría de la siguiente forma:
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l}
+		Clase de Personaje		& Atributo Principal \\ \hline
+		Víctima					& Aleatorio \\
+		Allegado a la Víctima	& Codicia \\
+		Aspirante a Héroe		& Fuerza \\
+		Ayudante del Héroe		& Inteligencia ó Destreza (el mayor) \\
+		Antagonistas			& Vida \\
+	\end{tabular}
+	\caption{Tabla de Atributos Principales}
+	\label{fig:TablaAtributosPrincipales}
+\end{table}
+
+
+Para el caso de los Monstruos sin embargo, sólo nos interesaba el atributo Vida, que era el atributo que necesitábamos conocer para que un personaje pueda o no derrotarlos.
+Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ.
+
+Las razas sin embargo, venían dictaminadas de un archivo de configuración XML donde se especificaban el nombre de la raza y los distintos multiplicadores a atributos que esta representaba
+%-------------------------------------------------------------------
+\subsubsection{Razas configurables}
+Para realizar correctamente la configuración de las Razas a través de un archivo XML necesitábamos, nuevamente, un Loader capaz de cargar e interpretar los datos.
+
+Este Loader, que seguía el patrón normal de todos los Loaders \ref{cap:Arquitectura:Loaders}, tenía la particularidad de que cargaba el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave raza a partir de la cual cargaba las características específicas de esta, que eran enviados a un objeto Raza, que explicaremos más adelante, e introducido a una liste de las distintas Razas.
+
+La configuración específica que debía tener este fichero para que la aplicación funcionase correctamente debía seguirse a rajatabla, por lo tanto junto al archivo de configuración incluíamos un prototipo propio de configuración de razas que también podía usarse como ejemplo, aparte de una pequeña guía de como ha de construirse el archivo, consultable en el cuadro \ref{razasXML}.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Actores>
+<raza nombre="[nombreRaza]" vida="[#]" fuerza="[#]" destreza="[#]" 
+inteligencia="[#]"  codicia="[#]"/>
+</Actores>
+\end{lstlisting}
+
+%\label{ejemploXML:Razas}
+%\begin{lstlisting}[basicstyle=\tiny]
+%<raza nombre="EGERIAN" vida="5" fuerza="5" destreza="2" inteligencia="2"  codicia="1"/>
+%\end{lstlisting}
+%-------------------------------------------------------------------
+\subsubsection{La Clase Raza y como interactúa en la carga del personaje}
+La Clase Raza nos permitía interactuar con los atributos específicos de cada raza a la vez que guardaba todos aquellos relativos a una.
+
+Cuando un protagonista se creaba, accedía a la interfaz vocabulario, donde existía un HashMap de razas en el cual cada nombre de raza iba ligado a su objeto raza específico. Así, el protagonista accedía al nombre de la raza a la que pertenecía, atributo que le venia dado por su configuración XML, y cargaba ese objeto raza. Finalmente, a la hora de crear sus propios atributos, accedía a aquellos atributos que le venían dados por su configuración XML y los multiplicaba por los modificadores que le venían por su raza, dando esta operación las cifras finales de los atributos que poseería. 
+
+%-------------------------------------------------------------------
+\subsection{Narrativa de los personajes}
+Si se observa dentro del campo de la generación de narrativa computacional la mayoría de sistemas están ligados a un único tipo de historias, como se puede observar en el punto \ref{cap:EstadoDeLaCuestion:Narrativa}. Continuando el afán de crear un sistema altamente configurable, y también de poder dar la oportunidad a un escritor profesional crear una mejor narrativa para el sistema sin tener que entrar dentro de los apartados más técnicos del proyecto, se ha diseñado el apartado narrativo de la siguiente forma.
+
+\section{Diseño de la narrativa}
+Debido a que el sistema realizado esta enfocado en los personajes, serán estos mismos los encargados de almacenar toda la información lingüística que conocen. Para evitar que esta información esté ligada al código del sistema se ha decidido guardar esta información de forma externa y que el sistema se encargue de cargarla al iniciar el sistema. Con este diseño se consigue desligar el apartado narrativo del apartado técnico.
+
+\subsubsection{Implementación de la narrativa}
+La información narrativa del sistema se guarda dentro de un archivo XML. Actualmente la información se almacena en función del tipo de personaje y un atributo para trabajar en un entorno controlado, pero podría hacerse un archivo XML más extenso para que la lingüística de cada personaje fuese única, vinculando las frases con atributos más específicos.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l} 
+		Personaje					& Atributo \\ \hline
+		Protagonista				& Clase \\
+		Antagonista 				& Especie \\
+		PNJ							& Oficio \\ \hline
+	\end{tabular}
+	\caption{Tabla de la narrativa en función del personaje y atributo}
+	\label{fig:TablaFrasesPersonaje}
+\end{table}
+
+Además de estar las frases vinculadas al tipo de personaje y un atributo, también se necesita vincular las frases a una acción determinada. Esto es debido a que las frases se invocaran dentro de los correspondientes \texttt{acciones o behaviurs} de cada personaje. También es posible almacenar más de una frase para cada tipo de acción para evitar que se repita la misma frase cada vez que se realiza la misma acción. La elección de la frase que se utiliza será aleatoria, por lo que a cuantas más frases pueda utilizar mayor variedad tendrá la narración de la historia. 
+
+\subsubsection{Carga en el sistema}
+Como ya se ha comentado la narrativa esta guardada en un archivo XML que tiene la siguiente composición:
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la narrativa de los personajes},label=razasXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Frases>
+<personaje tipo="[NombreAtributo]">
+<frase accion="[NombreAccion]">
+<f>[ frase que se quiere utilizar ]</f> 
+</frase>
+</personaje>
+</Frases>
+\end{lstlisting}
+
+El archivo anterior tiene su propio \texttt{loarder} donde se carga todo el archivo de una vez por eficiencia y el \texttt{Mundo} será encargado de almacenar toda la narrativa cargada previamente. Cada personaje recibe la información lingüística correspondiente en el momento de su creación. 
+
+\subsubsection{Ventajas del diseño}
+La elección de este diseño ha sido para evitar el acoplamiento entre la parte técnica de la aplicación y la parte narrativa. El hacer esto da al sistema muchas variante ya que cambiando un único archivo de configuración se puede cambiar la forma narrativa de la historia en función del escritor o realizar traducciones en diferentes idiomas y hacer útil el sistema a nivel mundial.
