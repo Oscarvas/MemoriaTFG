@@ -17,55 +17,57 @@ John Locke
 \end{FraseCelebre}
 
 
-La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas sobre los que se apoya el trabajo realizado. Para ello se ha estructurado este capitulo en tres partes fundamentales.Diferenciar cada parte permite elaborar una imágen clara sobre los pilares que constituyen el trabajo realizado.
+La finalidad de éste capítulo es ofrecer una base de conocimientos sólida donde queden reflejados los distintos conceptos y herramientas sobre los que se apoya el trabajo realizado. Para ello se ha estructurado este capitulo en tres partes fundamentales. Diferenciar cada parte permite elaborar una imágen clara sobre los pilares que constituyen el trabajo realizado.
 
-La primera parte cuenta un resumen de los conceptos y las tecnologías referentes al sistema de agentes. Los agentes son el núcleo principal sobre el cuál se basa este proyecto, siendo estos los ``actores'' de cada historia.
+La primera parte cuenta un resumen de los conceptos y las tecnologías referentes al sistema de Agentes. Los Agentes son el núcleo principal sobre el cuál se basa este proyecto, siendo estos los ``actores'' de cada historia.
 
-En la segunda parte describe los sistemas planificadores y el lenguaje que se ha usado para que los agentes software sean capaces de realizar una planificación.La planificación es el sistema que van a usar estos agentes para ser dotados de cierta ``inteligencia'' e interactúen con todo su entorno.
+En la segunda parte se describe los sistemas planificadores y el lenguaje que se ha usado para que los Agentes software sean capaces de realizar una planificación. La planificación es el sistema que van a usar estos Agentes para ser dotados de cierta ``inteligencia'' e interactúen con todo su entorno.
 
-La última parte está dedicada a la narrativa computacional, en la cual veremos otros sistemas de \textit{generación de historias} relacionados con el ámbito del proyecto. Entender y conocer el ámbito de la narrativa computacional, la creatividad computacional, y la generación de historias, permite tener mejor enfoque sobre el contenido del proyecto.
+La última parte está dedicada a la narrativa computacional, en la cual se verán otros sistemas de generación de historias relacionados con el ámbito del proyecto. Entender y conocer el ámbito de la narrativa computacional, la creatividad computacional y la generación de historias, permite tener mejor enfoque sobre el contenido del proyecto y el punto desde el que parte.
 
 \section{Agentes}
 
 \subsection{Agente Software}
 %planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
-\cite{Wooldridge} Define el concepto de agente de la siguiente manera:
+\cite{Wooldridge} Define el concepto de Agente de la siguiente manera:
 \begin{quote}
 	\textit{Un agente es un sistema informático que se encuentra en un entorno, y que es capaz de realizar acciones autónomas en éste entorno con el fin de cumplir sus objetivos.}
 \end{quote}
 
-Con ésto se quiere hacer ver que un agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirán como un individuo único dentro de su entorno. Un agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
+Con ésto se quiere hacer ver que un Agente en particular es una entidad propia, que poseerá características y ciertas condiciones que le definirán como un individuo único dentro de su entorno. Un Agente software dispone de todas estas características, y además es capaz de realizar acciones por cuenta propia en función de las situaciones en las que se encuentre en un momento dado.
 
 \subsection{Agentes Inteligentes}
 
-Considerar que un agente sea inteligente sugiere preguntarse, ¿Cuándo considerar a un agente inteligente? \cite{Wooldridge} propone una lista de características que puede poseer un agente inteligente
+Considerar que un Agente sea inteligente sugiere preguntarse, ¿cuándo considerar a un Agente inteligente? \cite{Wooldridge} propone una lista de características que puede poseer un Agente Inteligente
 
 \begin{itemize}
-	\item Reactividad: Agentes inteligentes capaces de percibir su entorno y responder a los cambios que ocurren en éste con el fin de satisfacer sus objetivos.
-	\item Proactividad: Agentes inteligentes capaces de manifestar comportamientos \emph{orientado a objetivos} tomando la iniciativa con el fin de satisfacer sus objetivos .
-	\item Habilidades sociales: Agentes inteligentes capaces de interactuar con otros agentes (y posiblemente humanos) con el fin de satisfacer sus objetivos.
+	\item Reactividad: Agentes Inteligentes capaces de percibir su entorno y responder a los cambios que ocurren en éste con el fin de satisfacer sus objetivos.
+	\item Proactividad: Agentes Inteligentes capaces de manifestar comportamientos orientado a objetivos tomando la iniciativa con el fin de satisfacer sus objetivos .
+	\item Habilidades sociales: Agentes Inteligentes capaces de interactuar con otros Agentes( y posiblemente humanos).
 \end{itemize}
 
-Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos. %no usamos sociales? (pnj)
+Realizar una generación de historias rica en contenido, calidad y diversidad requiere usar una combinación de estos agentes, ya sean solo agentes reactivos, proactivos, ó en algún caso una mezcla de ambos con el fin de satisfacer sus objetivos. %no usamos sociales? (pnj)
 
 \subsection{Sistemas Multi-agente}
 %planteo, poner la cita entera en cursiva (ya que es de otra persona) y los emphasis en negrita
 Según \cite{greenwood} : 
 \begin{quote}
-	\textit{Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos sistemas multi-agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses.}
+	\textit{Incluso si un sistema de agentes puede basarse en un único agente funcionando en un entorno e interactuando con usuarios si fuese necesario, normalmente estos sistemas consisten en multiples agentes. Estos Sistemas Multi-Agente (SMA) pueden modelar sistemas complejos e introducir la posibilidad de que los agentes tengan objetivos en común ó en conflicto. Estos agentes pueden interactuar entre ellos indirectamente (alterando el entorno) ó directamente (vía comunicación y negociación). Los agentes pueden decidir si cooperan para un beneficio mutuo ó si compiten por sus propios intereses.}
 \end{quote}
 
-Una historia en la que sólo actúa un personaje \emph{a priori} no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes.Por tanto, un sistema multi-agente se puede ver como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí.% Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
+Una historia en la que sólo actúa un personaje a priori no disfruta de tantos elementos, eventos y acontecimientos como lo puede hacer una en la que coexistan varios personajes. Por tanto, un sistema multi-agente se puede ver como un entorno en el que coexisten varios agentes y donde estos serán capaces de interactuar entre sí.% Por tanto, nuestra generación de historias se basa en este tipo de sistemas. %no lo acabo de ver claro, mejor algo del estilo En este tipo de sismetas se basa nuestra... o quiza solo quitar el por tanto, no se.
 
 \subsection[FIPA]{Foundation for Intelligent Physical Agents - FIPA}
 
 \cite{fipa} es una organización que promueve las tecnologías basadas en agentes y la interoperatividad de sus estándares con otras tecnologías.
 
-En el libro \cite{anamas} mencionan sobre FIPA lo siguiente: \textit{El estándar FIPA define los servicios que debe proporcionar toda plataforma de agentes: un sistema encargado del transporte de mensajes (Internal Platform Message Transport), un sistema de gestión de agentes (Agent Management System), un servicio de páginas amarillas (Directory Facilator) y un canal de comunicaciones para los agentes (Agent Communication Channel). Cada uno de estos servicios , excepto el de transporte de mensajes, es suministrado por agentes especializados, lo cual supone que la comunicación con ellos será mediante mensajes ACL (Agent Communication Language) mediante la ontología definida para ese servicio}.
+En el libro \cite{anamas} mencionan sobre FIPA lo siguiente:
+\begin{quote}
+\textit{El estándar FIPA define los servicios que debe proporcionar toda plataforma de agentes: un sistema encargado del transporte de mensajes (Internal Platform Message Transport), un sistema de gestión de agentes (Agent Management System), un servicio de páginas amarillas (Directory Facilator) y un canal de comunicaciones para los agentes (Agent Communication Channel). Cada uno de estos servicios , excepto el de transporte de mensajes, es suministrado por agentes especializados, lo cual supone que la comunicación con ellos será mediante mensajes ACL (Agent Communication Language) mediante la ontología definida para ese servicio}.
+\end{quote}
+En \cite{acl} se dispone de información detallada sobre los mensajes FIPA ACL.
 
-En \cite{acl} disponemos de información detallada sobre los mensajes FIPA ACL.
-
-La tabla \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracterizan a los mensajes FIPA ACL.
+La Tabla \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracterizan a los mensajes FIPA ACL.
 %quiza sea mejor currarse la tabla en español en vez de poner la imagen
 
 
@@ -95,7 +97,7 @@ La tabla \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracter
 \end{table}
 Esta tabla y una explicación más detallada de todos los parámetros son consultables en \cite{aclStructure}. %estan disponibles = son consultables? me parece mas apropiada la segunda
 
-En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
+En próximos capítulos se verán cómo los Agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
 
 \subsection[JADE]{Java Agent Development Framework - JADE}
 %no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
@@ -103,7 +105,7 @@ En próximos capítulos veremos cómo los agentes son capaces de comunicarse entre 
 
 %\setcounter{footnote}{0}
 
-La figura \ref{fig:arquitecturaJade} nos muestra los elementos principales de la arquitectura de una plataforma JADE \cite{greenwood}.
+La Figura \ref{fig:arquitecturaJade} muestra los elementos principales de la arquitectura de una plataforma JADE \cite{greenwood}.
 
 \begin{figure}[h!]
 	\centering
@@ -116,28 +118,26 @@ La figura \ref{fig:arquitecturaJade} nos muestra los elementos principales de la
 \section{Planificación y Lenguaje}
 
 \subsection{Planificación}
-%no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
 Desde la perspectiva de \cite{hoffmann} :
 \begin{quote}
-	\textit{ La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe brevemente máquinas de estados grandes %que es sucintamente? no entiendo la frase, sistemas de transicion grandes?
-		, similares a redes de autómatas o máquinas de Turing.}
+	\textit{ La planificación es el problema de seleccionar una serie de acciones orientadas a objetivos, basados en una descripción de alto nivel del mundo. Desde la perspectiva de la informática, la planificación es sólo un formalismo que describe brevemente máquinas de estados grandes, similares a redes de autómatas o máquinas de Turing.}
 \end{quote}
 
-Mediante el proceso de planificación se consigue que los actores de las historias generadas logren disponer de una serie de acciones, que realizaran secuencialmente, y así se aseguran que cada personaje cumple su objetivo.
+Mediante el proceso de planificación se consigue que los actores de las historias generadas logren disponer de una serie de acciones, que realizaran secuencialmente, y así se aseguran que cada personaje puede cumplir su objetivo.
 
 \subsection{JavaFF}
 En el artículo \cite{hoffmann2001ff} \textit{The FF Planning System: Fast Plan Generation Through Heuristic Search}, se describen y evalúan las técnicas algorítmicas que son usadas en los sistemas de planificación FF \footnote{Fast Forward. En \cite{hoffmannff} nos explican con detalle este sistema.}
 
 En \cite{javaff} se explica que JavaFF es una implementación en Java de la estructura básica de \cite{hoffmann2001ff}, basada en en código fuente de CRIKEY \cite{coles2009managing}\footnote{La referencia que se hace al código fuente es de un documento de Agosto de 2008 que estaba por ser publicado en un recopilatorio en Enero de 2009, el cual es el documento final que referenciamos }.
 
-El planificador usado para generar las historias está basado en la implementación antes mencionada, y más específicamente, en una leve modificación realizada en \cite{556} sobre esa implementación.
+El planificador usado para generar las historias está basado en la implementación antes mencionada y, más específicamente, en una leve modificación realizada en \cite{556} sobre esa implementación.
 
 \subsection[PDDL]{Planning Domain Definition Language - PDDL}
 \label{cap:EstadoDeLaCuestion:PDDL}
 
 PDDL es un lenguaje para la especificación de problemas creado para la competición de planificadores AIPS-98. \cite{aeronautiques1998pddl} es un manual que explica la sintaxis y la semántica de este lenguaje. De igual manera cuenta que PDDL está hecho con la intención de expresar la ``física'' de un dominio, es decir, que predicados existen, que acciones son posibles y cuales son los efectos que ocurren tras cada acción.
 
-Un aspecto importante del funcionamiento de este lenguaje, en conjunto con un planificador que sea capaz de interpretar las instrucciones especificadas, es que necesariamente debemos especificar al menos 2 documentos:
+Un aspecto importante del funcionamiento de este lenguaje, en conjunto con un planificador que sea capaz de interpretar las instrucciones especificadas, es que necesariamente se debe especificar al menos 2 documentos:
 
 \begin{itemize}
 	\item Dominio: Es el documento que contendrá la especificación de las acciones, los tipos, requerimientos y predicados para poder resolver un problema dado. Es lo que se encarga de dar el conjunto de requerimientos que permiten al planificador procesar un plan.
@@ -147,7 +147,7 @@ Un aspecto importante del funcionamiento de este lenguaje, en conjunto con un pl
 
 \section{Narrativa Computacional}
 \label{cap:EstadoDeLaCuestion:Narrativa}
-Dentro del campo de la narrativa computacional hay algunos proyectos que tienen especial interés para el proyecto actual. Estos sirven para evitar partir desde cero, tener conocimiento del estado actual de la cuestión y así poder aportar algo más a este campo.
+Dentro del campo de la narrativa computacional hay algunos proyectos que tienen especial interés para el proyecto actual. Estos sirven para evitar partir desde cero, tener conocimiento del estado actual de la cuestión y así tener un punto de partida para aportar algo más a este campo.
 
 \subsection{NOVEL WRITTER}
 De los sistemas generadores de narrativa el que presume de ser el primero es el NOVEL WRITER de \cite{klein1973automatic}. Este sistema genera una historia de novela negra en la que se producen asesinatos en una fiesta durante un fin de semana. Para generar las historias utiliza un modelo de microsimulaciones en donde los comportamientos de los personajes y la sucesión de eventos que se producen son llevadas a cabo por normas probabilísticas que cambian constantemente el estado del mundo, mientras que la decisión de quien es el asesino o victima depende de los rasgos de entrada del personaje.
@@ -167,7 +167,7 @@ Es un programa que genera historias que pretende simular la mente de un autor cu
 \subsection{UNIVERSE} 
 Es el primer sistema generador de historias que centra la narrativa en torno a los personajes. Esta enfocado en la generación de historias como pueden ser las telenovelas o seriales televisivos, en donde la historia gira en las tramas que van surgiendo entre  personajes, más que en alcanzar un objetivo final, por lo que se generan historias que están en constante crecimiento.
 
-Un punto interesante en UNIVERSE es la forma de creación tanto de los personajes como de las tramas(Véase en las siguientes figuras).
+Un punto interesante en UNIVERSE es la forma de creación tanto de los personajes como de las tramas(Véase en las siguientes Figuras).
 
 \begin{figure}[h]
 	\centering
@@ -197,7 +197,7 @@ BRUTUS es un programa capaz de generar historias de traición, intriga y algo de 
 Sin embargo, gracias a la exposición de llevado a cabo por \cite{Bringsjord:1999:AIL:553698}, queda claro que BRUTUS no puede ser creativo sino que funciona utilizando ingeniería inversa.
 
 \subsection{VIRTUAL STORYTELLER}
-\cite{theune2003virtual} presenta un enfoque multi-agente para la generación de historias. Para guiar la  trama de la historia existe un \emph{agente director}, el cual no podrá obligar al resto de agentes a llevar a cabo acciones, pero sí podrá influir en el entorno de los agentes. También existe un \emph{agente narrador} que está encargado de traducir a lenguaje natural los cambios en el estado y los eventos que tienen lugar. Véase la figura \ref{fig:VirtualStoryArq} para conocer la arquitectura de este sistema.
+\cite{theune2003virtual} presenta un enfoque multi-agente para la generación de historias. Para guiar la  trama de la historia existe un \emph{agente director}, el cual no podrá obligar al resto de agentes a llevar a cabo acciones, pero sí podrá influir en el entorno de los agentes. También existe un \emph{agente narrador} que está encargado de traducir a lenguaje natural los cambios en el estado y los eventos que tienen lugar. Véase la Figura \ref{fig:VirtualStoryArq} para conocer la arquitectura de este sistema.\newline\newline
 
 \begin{figure}[h]
 	\centering
@@ -206,12 +206,7 @@ Sin embargo, gracias a la exposición de llevado a cabo por \cite{Bringsjord:1999
 	\label{fig:VirtualStoryArq}
 \end{figure}
 
-%\subsection{Computational Approaches to Storytelling and Creativity}
-%Es un artículo realizado por \cite{425}.
 
 \subsection{Generador de historias basado en agentes}
 \label{cap:EstadoDeLaCuestion:Lacaustra}
-%(oscar)esta seccion la cambiaría por el resumen del proyecto referenciado
-Este fue el primer sistema narrativo que investigamos para empezar a plantear nuestro proyecto. Se trata de un proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid junto a un artículo para una conferencia en que explican brevemente el proyecto que realizaron \cite{556}. De esta investigación hemos plantado las bases para empezar a desarrollar este proyecto, ya que utilizamos el mismo sistema multi-agentes, Jade, y el mismo planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar bien su trabajo del nuestro.
-
-Partimos de un trabajo reducido en el que siempre teníamos un mismo inicio (El dragón secuestra a la princesa), con un nudo(el rey contrata caballero) en bucle si se cumplía una condición(dragón mata caballero) y dos desenlaces (Un caballero salva a la princesa y se convierte en héroe o el rey se quedaba sin dinero para contratar caballeros y el dragón se queda con la princesa), esto dista de la idea que tenemos para generar historias diversas y cada vez que se ejecute la aplicación genere una historia única.
+Este fue el primer sistema narrativo que se investigó para empezar a plantear el proyecto. Se trata de un proyecto de fin de grado de unos alumnos de la Facultad de Informática de la Universidad Complutense de Madrid junto a un artículo para una conferencia en que explican brevemente el proyecto que realizaron \cite{556}. De esta investigación surgen las bases para empezar a desarrollar este proyecto, ya que se utiliza el mismo Sistema Multi-Agentes, JADE, y el mismo planificador para ayudar a las simulaciones. Ha sido muy importante estudiar tanto su memoria como su código fuente para poder diferenciar ambos proyectos.
