@@ -15,23 +15,19 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Al momento de empezar a crear una historia podemos plantearnos diferentes enfoques con el fin de abordar esta cuestión de la manera mas sencilla posible. Para nosotros, el aspecto mas importante de esto son los personajes. Queremos hacer historias que se centren en estos ya que serán estos quienes al momento de interactuar entre si, generarán la historia que deseemos.
+Al momento de empezar a crear una historia podemos plantearnos diferentes enfoques con el fin de abordar esta cuestión de la manera mas sencilla posible. El aspecto sobre el que van a estar centradas las historias generadas son los personajes. Ya que serán estos quienes al momento de interactuar entre sí generarán la historia que se desea.
 
-Para hacer que existan los personajes dentro del sistema es necesario definirlos y darles las herramientas necesarias para que estos puedan interactuar. Dicho esto, los personajes deben existir dentro del sistema multi-agente.
+Para hacer que existan los personajes dentro del sistema es necesario definirlos y darles las herramientas necesarias para que estos puedan interactuar. Dicho esto, los personajes deben existir dentro del Sistema Multi-Agente. El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE\footnote{http://jade.tilab.com/}, este sistema permite controlar la existencia de los agentes y poder manipularlos como tal.
 
-El SMA es el componente capaz de dotar a los personajes de las herramientas que les permiten enviar mensajes para comunicarse con otros personajes y existir como agentes software. Usando JADE\footnote{http://jade.tilab.com/}, este sistema nos permite controlar la existencia de los agentes y poder manipularlos como tal.
+El siguiente enfoque tiene más que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Es necesario ahora otorgar al sistema un poco más de profundidad en el asunto, por lo que se añade un mundo.
 
-El siguiente enfoque tiene más que ver con el aspecto del entorno de la historia. Tener varios personajes en la historia no implica nada si estos no disponen de un entorno sobre el cual desarrollar sus acciones y vivencias. Es necesario ahora otorgar al sistema un poco más de profundidad en el asunto, necesitamos añadir el mundo.
+El Mundo es un componente que permite a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo se podría decir que los personajes viven en la nada. Visto de otra forma, es como si todos estuviesen en una habitación vacía, en un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar, etcétera. La existencia del Mundo como nueva dimensión espacial aporta a los personajes la capacidad de existir en un plano. Los personajes dejan de conocer la situación de otros y llegan a la necesidad de interactuar con su entorno para poder realizar acciones relevantes en una historia.
 
-El Mundo, es un componente que permitirá a los personajes disponer de un nuevo espacio, un lugar donde queden reflejadas sus acciones. Sin la existencia del Mundo podríamos decir que los personajes viven en la nada. Visto de otra forma, es como si todos estuviesen en una habitación vacía, un espacio unidimensional en el cual no tendría sentido realizar acciones como moverse, negociar con terceros personajes, dudar...
+Ahora que ya se tiene un ecosistema creado con los personajes y su entorno, se necesita de un sistema capaz de otorgar la lógica e inteligencia a los personajes, dicho sistema es el planificador. El planificador es el componente que permite a los personajes ``pensar'' en la secuencia de acciones que deben realizar para poder cumplir sus objetivos dentro de la historia. Estas acciones ayudarán al personaje desde decidir a cual dirección moverse hasta en qué momento pelear con otro personaje.
 
-La existencia del Mundo como nueva dimensión espacial aporta a los personajes la capacidad de existir en un plano. Los personajes dejan de conocer la situación de otros y llegan a la necesidad de interactuar con su entorno para poder realizar acciones relevantes en una historia.
+Descrito el núcleo importante del sistema, se han juntado los componentes mínimos para poder generar una historia. Aún así el usuario no está incluido dentro de todo esto y no tiene sentido tener un sistema que trabaje para sí en lugar de dejarle a un usuario una copia de los resultados obtenidos.
 
-Ahora que ya tenemos un ecosistema creado con los personajes y su entorno, necesitamos de un sistema capaz de otorgar la lógica o inteligencia a los personajes. Dicho sistema es el planificador. El planificador es el componente que permite a los personajes ``pensar'' en la secuencia de acciones que deben realizar para poder cumplir sus objetivos dentro de la historia. Estas acciones ayudarán al personaje desde decidir a cual dirección moverse hasta en qué momento pelear con otro personaje.
-
-Con todo esto tenemos descrito el núcleo importante de nuestro sistema. Se han juntado los componentes mínimos para poder generar una historia. Aún así, todavía el usuario no está incluido dentro de todo esto, y no tiene sentido tener un sistema que trabaje para sí en lugar de dejarle a un usuario una copia de los resultados obtenidos.
-
-Es necesario el uso de algún componente o sistema que nos permita recoger el flujo de historia final. Saber cuáles han sido los mensajes que intercambiaron los personajes y las acciones que realizaron. Usar un \textit{logger} nos permite guardar un registro del momento en el que ocurre cada eventos de la historia.
+Es necesario el uso de algún componente o sistema que nos permita recoger el flujo de historia final. Saber cuáles han sido los mensajes que intercambiaron los personajes y las acciones que realizaron. Usar un \textit{logger} permite guardar un registro del momento en el que ocurre cada eventos de la historia.
 
 Sin embargo, al ser un sistema pensado para ser utilizado por un usuario, falta disponer de una capa que permita a este interactuar con el sistema. La interfaz gráfica otorga al usuario la capacidad de visualizar información adicional durante el momento de la simulación. Es mediante esta capa, que el usuario puede también añadir nuevos elementos a la generación de historias.
 
@@ -41,7 +37,7 @@ A continuación hablaremos con más detalle sobre cada uno de estos componentes y 
 %-------------------------------------------------------------------
 \section{Descripción de la arquitectura}
 
-Para tener una referencia que nos permita visualizar de manera sencilla la arquitectura del proyecto, podemos fijarnos en la Figura \ref{fig:ArquitecturaProyecto}.
+Para tener una referencia que permita visualizar de manera sencilla la arquitectura del proyecto se ha incluido la Figura \ref{fig:ArquitecturaProyecto}.
 
 \begin{figure}[h]
 	\centering
@@ -56,7 +52,7 @@ Para tener una referencia que nos permita visualizar de manera sencilla la arqui
 
 Cada uno de los personajes es implementado como agente software usando la plataforma JADE. Esto permite que los personajes puedan usar los estándares definidos por FIPA e interactuar con otros personajes.
 
-Cada agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes.
+Cada Agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes.
 
 %Estudiando diferentes tipos de historias, de diferentes autores y temáticas variadas, se puede observar en la gran mayoría de los casos que existe un factor en común para estas historias. Hablamos sobre los arquetipos de personajes que existen en las historias.
 %
@@ -103,9 +99,9 @@ Cada agente del sistema es un hilo de ejecución independiente dentro de este. Es
 %		
 %\end{itemize}
 
-En el capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
+En el Capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
 
-Comprender cómo está estructurado el SMA y por qué funciona requiere que se hable con una terminología más técnica y que indaguemos con más profundidad en las prestaciones que nos ofrecen los agentes, JADE y los estándares FIPA.
+Comprender cómo está estructurado el SMA y por qué funciona requiere que se hable con una terminología más técnica e indagar con más profundidad en las prestaciones que ofrecen los agentes, JADE y los estándares FIPA.
 
 %http://www.fipa.org/specs/fipa00023/XC00023H.html
 
@@ -247,7 +243,8 @@ Por último, en la Figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de f
 \subsection{Mensajes FIPA}
 \label{cap:Arquitectura:SMA:FIPA}
 
-En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters}, hemos visto cuáles son los parámetros que caracterizan a los mensajes FIPA ACL. Cuando los agentes se comunican, identificar el tipo de mensajes que se envían es muy importante de cara al control y tipo de tareas que quieren realizar los agentes. La tabla \ref{fig:Performatives} contiene algunos de los diferentes tipos de comunicación que nos ofrece el campo \texttt{performative}:
+En el Capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters}, se ve cuáles son los parámetros que caracterizan a los mensajes FIPA ACL. Cuando los agentes se comunican, identificar el tipo de mensajes que se envían es muy importante de cara al control y tipo de tareas que quieren realizar los Agentes. La Tabla \ref{fig:Performatives} contiene algunos de los diferentes tipos de comunicación que ofrece el campo \texttt{performative}:
+\newpage
 
 \begin{table}[h!]
 	\centering
@@ -274,7 +271,7 @@ En el capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters},
 	\label{fig:Performatives}
 \end{table}
 
-En el cuadro de código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwood}} podemos ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
+En el cuadro de Código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwood}} se puede ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
 
 %basicstyle=\scriptsize o footnotesize
 \lstset{frameround=fttt}
@@ -294,24 +291,24 @@ En el cuadro de código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwo
 )
 \end{lstlisting}
 
-
+\newpage
 %-------------------------------------------------------------------
 \section{El Agente Mundo}
 \label{cap:Arquitectura:AgenteMundo}
 
-Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de un mundo para nuestros personajes. El mundo tiene la función de servir como una plataforma en la cual los personajes se apoyan para poder desarrollar su funcionalidad. Más allá de sólo encargarse de la interacción de los personajes con la escenografía en la que se encuentren, el mundo el encargado de gestionar los siguientes aspectos:
+Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de un mundo para nuestros personajes. El Mundo tiene la función de servir como una plataforma en la cual los personajes se apoyan para poder desarrollar su funcionalidad. Más allá de sólo encargarse de la interacción de los personajes con la escenografía en la que se encuentren, el Mundo es el encargado de gestionar los siguientes aspectos:
 
 \begin{itemize}
-	\item Activar y gestionar las llamadas al SCD (\textit{Sistema de Carga de Datos}). Veremos qué es esto en la sección \ref{cap:Arquitectura:Loaders}.
+	\item Activar y gestionar las llamadas al SCD (\textit{Sistema de Carga de Datos}). Ver en la Sección \ref{cap:Arquitectura:Loaders}.
 	\item Actualizar el estado actual de cada personaje.
 	\item Gestionar ciertos eventos entre personajes.
-	\item Controlar las acciones tomadas contra la interfaz gráfica. Véase más adelante la sección \ref{cap:Arquitectura:InterfazPersonajes}.
-	\item Proporcionar a los personajes los archivos necesarios para poder usar el planificador, que veremos en la sección \ref{cap:Arquitectura:Planificador}.
+	\item Controlar las acciones tomadas contra la interfaz gráfica. Véase más adelante la Sección \ref{cap:Arquitectura:InterfazPersonajes}.
+	\item Proporcionar a los personajes los archivos necesarios para poder usar el planificador(Sección \ref{cap:Arquitectura:Planificador}).
 \end{itemize}
 
-Aunque la implementación del mundo se hace como un agente\footnote{Este es un agente especial del tipo GUIAgent, lo que permite la interacción con una interfaz gráfica. Más información de esto la tenemos en \cite{greenwood}.}, debido a la naturaleza de éste no se considera su pertenencia al SMA.
+Aunque la implementación del Mundo se hace como un Agente\footnote{Este es un agente especial del tipo GUIAgent, lo que permite la interacción con una interfaz gráfica. Más información en \cite{greenwood}.}, debido a la naturaleza de éste no se considera su pertenencia al SMA.
 
-Al ser un agente, la forma en la que gestiona la mayoría de funciones mencionadas anteriormente es a través de comportamientos JADE. Específicamente usando el tipo CyclicBehaviour. El motivo por el que todos los comportamientos que debe usar este agente sean cíclicos es que principalmente este un agente que debe estar en una escucha continua de peticiones por parte de todos los demás agentes. Por tanto, modelar el funcionamiento de este agente debe hacerse mediante un conjunto de comportamientos que estén constantemente evaluando si se han recibido peticiones nuevas.
+Al ser un Agente, la forma en la que gestiona la mayoría de funciones mencionadas anteriormente es a través de comportamientos JADE. Específicamente usando el tipo CyclicBehaviour. El motivo por el que todos los comportamientos que debe usar este Agente sean cíclicos es que principalmente este Agente que debe estar en una escucha continua de peticiones por parte de todos los demás Agentes. Por tanto, modelar el funcionamiento de este Agente debe hacerse mediante un conjunto de comportamientos que estén constantemente evaluando si se han recibido peticiones nuevas.
 
 Respecto a la interacción con la interfaz, el agente mundo funciona como el controlador al cual la vista envía la información recibida por el usuario y se encarga de validar ésta.
 
@@ -319,9 +316,9 @@ Respecto a la interacción con la interfaz, el agente mundo funciona como el cont
 \section{El Planificador}
 \label{cap:Arquitectura:Planificador}
 
-El planificador es el componente del sistema que se encarga de aportar ``inteligencia'' a los personajes. Recordemos que el propósito de los personajes es resolver un problema y la historia general nos contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
+El planificador es el componente del sistema que se encarga de aportar ``inteligencia'' a los personajes. Recordar que el propósito de los personajes es resolver un problema y la historia general contará lo que ha hecho cada personaje para poder dar solución a sus problemas.
 
-La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
+La solución a un problema u objetivo dado al planificador vendrá dada al procesar la información que éste recibe mediante los ficheros de dominio y problema (explicados en el Capítulo \ref{cap:EstadoDeLaCuestion:PDDL}).
 
 Para la generación de historias, el fichero de dominio va a contener el tipo de elementos que existen dentro de estas, las acciones que serán capaces de realizar cada uno de los personajes y alguna otra información clave que indique al planificador cómo actuar. Todo esto significa que es en este fichero donde realmente se le da forma al tipo historia que se desea generar, se definen las características del universo de la historia.
 
@@ -334,27 +331,24 @@ Aquí se presenta gran parte de la complejidad al momento de definir una base par
 	\item Una persona es capaz de soltar un objeto.
 \end{itemize}
 
-Definir un universo tan simple acota la cantidad de permutaciones que se pueden realizar con las acciones, y básicamente habremos creado un universo en el que las personas sólo pueden transportar objetos de una habitación a otra.
+Definir un universo tan simple acota la cantidad de permutaciones que se pueden realizar con las acciones, y básicamente se habrá creado un universo en el que las personas sólo pueden transportar objetos de una habitación a otra.
 
 Por el contrario, cuanto más se profundiza en las características deseadas dentro del universo que se quiere crear, por ejemplo definiendo aspectos cómo:
 
 \begin{itemize}
 	\item Mover pie/brazo derecho/izquierdo, ojo derecho/izquierdo.
-	\item Color del pelo, piel y ojos.
+	\item Saltar obstáculo pequeño, esquivar obstáculo grande.
 	\item Personas, animales, insectos, objetos, paisajes.
-	\item Temperatura, altitud, latitud...
-	\item Saltar obstáculo pequeño, esquivar obstáculo grande...
+	\item Temperatura, altitud, latitud.	
+	\item Color del pelo, piel y ojos.
+	\item Personalidad.
 \end{itemize} 
 
 Se amplían las herramientas que se pueden usar para dar vida a los personajes y definir una mayor variedad de comportamientos para estos o su entorno si así se desea.
 
-Hay que tener en cuenta que realizar una acción implica el cumplimiento de una serie de precondiciones y efectos especificados en función de la acción. La sucesión de un conjunto de acciones en cierto orden deben asegurar que se consiguen los efectos que hacen cumplir un objetivo dado.
+Hay que tener en cuenta que realizar una acción implica el cumplimiento de una serie de precondiciones y efectos especificados en función de la acción. La sucesión de un conjunto de acciones en cierto orden deben asegurar que se consiguen los efectos que hacen cumplir un objetivo dado. Nótese que esto también conlleva un aumento considerable de la complejidad de los problemas a resolver y al tiempo que tarda el planificador en poder encontrar una solución plausible a los problemas propuestos.
 
-Nótese que esto también conlleva un aumento considerable de la complejidad de los problemas a resolver, y el tiempo que tarda el planificador en poder encontrar una solución plausible a los problemas propuestos.
-
-Por otra parte, el llamado fichero del problema contiene la información del estado actual de las características definidas en el dominio que cada personaje conoce y que, basándose en el estado de estas, saber si existe una solución al problema que intenta resolver.
-
-Usando el ejemplo del universo simple que se comentó antes, el fichero problema contendría por ejemplo la siguiente información:
+Por otra parte, el llamado fichero del problema contiene la información del estado actual de las características definidas en el dominio que cada personaje conoce y que, basándose en el estado de estas, sabe si existe una solución al problema que intenta resolver. Usando el ejemplo del universo simple que se comentó anteriormente, el fichero del problema contendría por ejemplo la siguiente información:
 
 \begin{itemize}
 	\item La habitación \textbf{A} está junto a la \textbf{B}.
@@ -363,7 +357,7 @@ Usando el ejemplo del universo simple que se comentó antes, el fichero problema 
 	\item Objetivo de P: \textit{el objeto X debe estar en la habitación B}.
 \end{itemize}
 
-Cuando el planificador recibe este fichero problema, lo que hace es buscar en el dominio para saber cuáles son las acciones que \textit{puede} realizar la persona para lograr su objetivo. Una vez evaluadas las diferentes posibilidades, el planificador devuelve el plan de acción (la planificación) que debe llevar a cabo el personaje en estricto orden para conseguir que su objetivo se cumpla. La salida que devolvería el planificador en este caso puede ser algo como lo siguiente:
+Cuando el planificador recibe este fichero problema, lo que hace es buscar en el dominio para saber cuáles son las acciones que \textit{puede} realizar la persona para lograr su objetivo. Una vez evaluadas las diferentes posibilidades, el planificador devuelve el plan de acción (la planificación) que debe llevar a cabo el personaje en estricto orden para conseguir que su objetivo se cumpla. La salida que devolvería el planificador en este caso sería algo como lo siguiente:
 
 \begin{enumerate}
 	\item Mover P a la habitación A.
@@ -372,9 +366,7 @@ Cuando el planificador recibe este fichero problema, lo que hace es buscar en el
 	\item Soltar el objeto X.
 \end{enumerate}
 
-La ejecución ordenada de la planificación devuelta por el planificador asegura (teóricamente) al personaje que logra conseguir con éxito su objetivo.
-
-Los cuadros de código \ref{pddlDomain} y \ref{pddlProblema}\footnote{Recuperados de \cite{greenwood}} nos muestran un ejemplo sencillo de cómo se estructura cada fichero y cómo es la sintaxis de PDDL.
+La ejecución ordenada de la planificación devuelta por el planificador asegura al personaje que logra conseguir con éxito su objetivo. Los cuadros de Código \ref{pddlDomain} y \ref{pddlProblema}\footnote{Recuperados de \cite{greenwood}} muestran un ejemplo sencillo de cómo se estructura cada fichero y cómo es la sintaxis de PDDL.\newline
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de fichero domain.pddl},label=pddlDomain]
@@ -431,12 +423,12 @@ Con vistas en esto, el sistema permite al usuario definir y modificar con alta l
 	\item Personajes no jugadores (PNJ's).
 \end{itemize}
 
-Estos ficheros están codificados en XML\footnote{eXtensible Markup Language}.Este es un lenguaje que nos permite diseñar con mayor simpleza el esquema de los datos que el usuario puede modificar en cada uno de los aspectos que se han mencionado anteriormente. Algunas restricciones, recomendaciones y comentarios generales que influyen en todos los archivos son:
+Estos ficheros están codificados en XML\footnote{eXtensible Markup Language}. Este es un lenguaje que nos permite diseñar con mayor simpleza el esquema de los datos que el usuario puede modificar en cada uno de los aspectos que se han mencionado anteriormente. Algunas restricciones, recomendaciones y comentarios generales que influyen en todos los archivos son:
 
 \begin{itemize}
 	\item Los atributos \textit{nombreX} deben ser atómicos; una sola palabra.
 	\item Los valores numéricos en los atributos, salvo para la vida, mayormente deben estar comprendidos entre 0 y 10.
-	\item Es importante la distinción entre mayúsculas y minúsculas para los nombres que se elijan puesto que el sistema en algunos puntos hace distinción de caracteres, y esto puede producir error en el sistema.
+	\item Es importante la distinción entre mayúsculas y minúsculas para los nombres que se elijan puesto que el sistema en algunos puntos hace distinción de caracteres, esto producirá un error en el sistema.
 	\item Algunos atributos de las etiquetas XML necesariamente tienen que tomar un valor de entre ciertos propuestos.
 	\item Aunque se encuentre en dos ficheros diferentes, un mismo nombre es único para todos, por ejemplo en el caso de las localizaciones.
 \end{itemize}
@@ -589,13 +581,13 @@ La Figura \ref{fig:Gui} muestra la pantalla principal de la interfaz. Los mensaj
 	\caption{Pantalla principal de la interfaz}
 	\label{fig:Gui}
 \end{figure}
-
+\newpage
 La barra de menús contiene tres botones que nos permiten interactuar con el sistema:
 
 \begin{itemize}
-	\item Personajes: ofrece cuadros de herramientas que permiten incorporar nuevos personajes a la historia.
-	\item Mapa: permite seleccionar diferentes imágenes referentes a la escenografía (estas imágenes podemos verlas en el capítulo \ref{cap:Mapa}).
-	\item Iniciar: botón que empieza la ejecución de los personajes incorporados usando el cuadro de herramientas.
+	\item Personajes: Ofrece cuadros de herramientas que permiten incorporar nuevos personajes a la historia.
+	\item Mapa: Permite seleccionar diferentes imágenes referentes a la escenografía (estas imágenes podemos verlas en el Capítulo \ref{cap:Mapa}).
+	\item Iniciar: Botón que empieza la ejecución de los personajes incorporados usando el cuadro de herramientas.
 \end{itemize}
 
 La Figura \ref{fig:NuevoPersonaje} es un ejemplo del cuadro de herramientas que permite al usuario agregar nuevos personajes a la historia mientras ésta se está desarrollando.
@@ -617,4 +609,4 @@ El usuario puede ir añadiendo personajes continuamente en cualquier momento del 
 
 Aunque la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de una parte del sistema que se encargue de registrar todo lo sucedido en un fichero.
 
-Este componente registra toda la información que generan los agentes, incluyendo el emisor del mensaje, el momento de emisión y el mensaje en sí. No obstante, existen ciertos mensajes que no son registrados en el logger ya que restarían claridad al archivo, estos son los mensajes de control que usan los agentes para comunicarse entre ellos, como los visto antes en la sección \ref{cap:Arquitectura:SMA:FIPA}.
+Este componente registra toda la información que generan los agentes, incluyendo el emisor del mensaje, el momento de emisión y el mensaje en sí. No obstante, existen ciertos mensajes que no son registrados en el logger ya que restarían claridad al archivo, estos son los mensajes de control que usan los agentes para comunicarse entre ellos, como los vistos antes en la sección \ref{cap:Arquitectura:SMA:FIPA}.
