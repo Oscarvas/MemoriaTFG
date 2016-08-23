@@ -14,16 +14,16 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos mas personajes haya más posibilidades tendrás de crear diferentes historias, ya que cada uno podría actuar de manera distinta en cada ejecución. 
+Si quieres dar variedad a tu historia esta debe contar con una gran diversidad de personajes, cada uno con sus virtudes y limitaciones, y a cuantos más personajes haya más posibilidades tendrás de crear diferentes historias, ya que cada uno podrá actuar de manera distinta en cada ejecución. 
 
-Con este objetivo en mente propusimos un nuevo diseño para nuestros personajes.
-Sin embargo las posibles historias que podamos generar comparten siempre una misma estructura, ya que no puede ser de otra manera. 
-Siempre aparecerá un antagonista que logrará secuestrar a la princesa, el rey pedirá ayuda a los distintos aspirantes a héroes y estos acudirán a su llamada intentando salvarla, a partir de lo cuál aparecerán distintos personajes.
-Para poder diseñar correctamente estos diversos personajes lo primero que debíamos hacer era concretar unos tipos que definiesen en cierta medida cual sería su manera de participar en la historia. De esta manera decidimos dividir a nuestros posibles personajes en tres tipos concretos, que serían: \texttt{Protagonistas}, \texttt{Antagonistas} y \texttt{Personajes no Jugadores} o \texttt{PNJs}.
+Con este objetivo en mente se propone un nuevo diseño para los personajes.
+Sin embargo las posibles historias que se pueden generar comparten siempre una misma estructura, ya que no puede ser de otra manera. 
+Siempre aparecerá un antagonista que logra secuestrar a la víctima, el allegado a esta víctima pide ayuda a los distintos aspirantes a héroes y estos acuden a la llamada intentando salvarla, a partir aquí van apareciendo todos los personajes incluidos en la obra.
+Para poder diseñar correctamente estos diversos personajes lo primero que se hace es concretar unos tipos que definan en cierta medida cual será la manera de participar en la historia. De esta manera se decide dividir a los posibles personajes en tres bloques concretos, que son: Protagonistas, Antagonistas y Personajes no Jugadores(PNJ's).
 
-De esta manera los \texttt{Protagonistas} llevarían el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumirían el rol de los ``buenos'' dentro de la narración. Los \texttt{Antagonistas}, por su parte, actuarían en contra de los intereses de los protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de ``malos'' en la misma. Por último, los \texttt{PNJs} representarán los personajes secundarios que intervendrían en una narración, modificando la manera en la que esta discurre pero sin llegar a tener un papel clave en la historia, sino mas bien un papel de apoyo u oposición con respecto a los protagonistas.
+De esta manera los Protagonistas son los encargados de llevar el peso de la historia, representando aquellos personajes con los que el usuario se puede identificar y asumen el rol de ``buenos'' dentro de la narración. Los Antagonistas, por su parte, actúan en contra de los intereses de los Protagonistas, proponiendo problemas que estos deben resolver para el transcurso de la historia y asumiendo el papel de ``malos'' en la misma. Por último, los PNJ's representan los personajes secundarios que intervienen en una narración, modificando la manera en la que esta discurre con un papel de apoyo u oposición con respecto a los Protagonistas.
 
-También es importante indicar que todos los personajes se planificarán en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su manera de ejecutarse, es recomendable comprender bien el capitulo \ref{cap:Arquitectura:Planificador}.
+También es importante indicar que todos los personajes se planifican en algún momento de su ejecución. Para entender realmente como se planifican y el papel que juega el planificador en su ejecución, es recomendable comprender bien el Capítulo \ref{cap:Arquitectura:Planificador}.
 
 
 
@@ -37,63 +37,63 @@ También es importante indicar que todos los personajes se planificarán en algún 
 %contar la implementacion de la clase
 Antes de empezar a considerar lo que cada personaje en específico es capaz de hacer y que función tiene pensada para el desarrollo de la historia, es importante investigar la clase que modela el funcionamiento de los personajes.
 
-La clase \texttt{Personaje} representa un papel fundamental en la implementación de la aplicación. En concreto, la clase personaje nos proporciona una superclase a partir de la cual el resto de clases se desarrollan. Para ello cuenta con diferentes métodos y atributos comunes a los distintos tipos de personajes. Hay que resaltar que los PNJ's, al tratarse de personajes más planos, aunque puedan realizar todas estas acciones, habrá algunas que no realizaran en el transcurso natural de la historia, como por ejemplo planificarse o entablar batalla.
+La clase \texttt{Personaje} representa un papel fundamental en la implementación de la aplicación. En concreto, la clase \texttt{Personaje} proporciona una superclase a partir de la cual el resto de clases se desarrollan. Para ello cuenta con diferentes métodos y atributos comunes a los distintos tipos de personajes. Hay que resaltar que los PNJ's, al tratarse de personajes más planos, aunque puedan realizar todas estas acciones, habrá algunas que no realizaran en el transcurso natural de la historia, como por ejemplo planificarse.
 
 %Quitar los nombres de los metedos, e indicar las acciones que pueden hacer en general
-Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a los métodos \texttt{planificar} y  \texttt{mandarCrearArchivo} que permiten a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}, siendo una parte vital de la aplicación ya que esto les permite interactuar con el \texttt{planificador} (véase el capítulo \ref{cap:Arquitectura:Planificador}).
-Aparte, todos los personajes comparten ciertos atributos comunes, como pueden ser sus puntos de vida, su sexo o su localización, cuyos respectivos métodos \textit{getters} y \textit{setters} también están incluidos en esta clase para poder usar correctamente estos atributos. 
+Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a los métodos \texttt{planificar} y  \texttt{mandarCrearArchivo} que permiten a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}, siendo una parte vital de la aplicación ya que esto les permite interactuar con el planificador(véase el capítulo \ref{cap:Arquitectura:Planificador}).
+Aparte, todos los personajes comparten ciertos atributos comunes, como pueden ser sus puntos de vida, su sexo o su localización, cuyos respectivos métodos \texttt{getters} y \texttt{setters} también están incluidos en esta clase para poder usar correctamente estos atributos.
 
-Por lo tanto y gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar.
+Por lo tanto gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar.
 
 %poner aquí el diagrama
 
 \subsection{Acciones comunes a varios personajes}
 %contar acciones como defender, batalla, mover con objeto, entrando un poco en detalle de implementacion, poner que personajes participan en ella
 Sin embargo, los distintos personajes no comparten solo atributos y métodos, también tienen en común ciertas acciones que representan aquellas actividades que todos los personajes pueden hacer. 
-Estas acciones no están incluidas dentro de la clase \texttt{Personaje}, pero sin embargo es a través de esta clase desde donde se invoca su funcionamiento, normalmente a través del método \texttt{planificar}. Ciertas de estas acciones son \texttt{behaviours} de JADE pero no todos pueden serlo, debido a problemas de sincronización (para mas información consultar el capítulo \ref{cap:Arquitectura:ComportamientoJade})
+Estas acciones no están incluidas dentro de la clase \texttt{Personaje}, pero sin embargo es a través de esta clase desde donde se invoca su funcionamiento, normalmente a través del método \texttt{planificar}. Ciertas de estas acciones son \texttt{Behaviours} de JADE, pero no todos pueden serlo debido a problemas de sincronización (para más información consultar el Capítulo \ref{cap:Arquitectura:ComportamientoJade})
 De igual manera, hay acciones específicas a cada tipo de personaje en concreto, pero esto se verá mas adelante en sus respectivas secciones localizadas en este capítulo.
 
-Por ejemplo, está la acción \texttt{Batalla}. Esta acción expone como los personajes resolverán las disputas que tengan entre ellos. 
+Por ejemplo, está la acción \texttt{Batalla}. Esta acción expone como los personajes resuelven las disputas que tienen entre ellos. 
 En el funcionamiento de una batalla, un personaje informa a su contrincante de que va a luchar a través de un mensaje ACL del tipo \texttt{Inform}. En ese momento ocurre la batalla. Para simularla, se calcula la manera de golpear de cada personaje, de esta manera, los protagonistas golpean restando la suma de su vida y su atributo principal a la vida de su contrincante, mientras que los antagonistas golpean restando directamente su vida. Aquel que consigue que la vida de su oponente sea menor que cero será el vencedor. En caso de que ambos lo consigan, ambos mueren.
 
 También cuentan en su haber con el comportamiento \texttt{Mover}. Este comportamiento, permite a los distintos personajes moverse a través del mundo. 
-Para ello, los personajes cuentan con su localización origen y su localización de destino y, a través un mensaje ACL del tipo \texttt{Request}, le piden al \texttt{Agente Mundo} poder moverse. El \texttt{Agente Mundo}, que conoce todo el mapa, comprueba que en efecto ambas localizaciones están conectadas y en caso afirmativo, informa al susodicho agente a través de un mensaje ACL del tipo \texttt{Confirm}, de que puede cambiar su localización.
-En este mismo comportamiento el mundo comprueba si hay un objeto en la nueva localización, en cuyo caso un agente protagonista podría hacerse con él, y se comunica con el \texttt{Agente Emboscador} para su funcionamiento, lo cual se ve en detalle en la implementación de este mismo agente mas adelante en este capítulo.
+Para ello, los personajes cuentan con su localización origen y su localización de destino y, a través un mensaje ACL del tipo \texttt{Request}, le piden al \texttt{Agente Mundo} poder moverse. El \texttt{Agente Mundo}, que conoce todo el mapa, comprueba que en efecto ambas localizaciones están conectadas y en caso afirmativo, informa al susodicho Agente a través de un mensaje ACL del tipo \texttt{Confirm}, de que puede cambiar su localización.
+En este mismo comportamiento el \texttt{Mundo} comprueba si hay un objeto en la nueva localización, en cuyo caso un \texttt{Agente Protagonista} podrá hacerse con él, y se comunica con el \texttt{Agente Emboscador} para su funcionamiento, lo cual se ve en detalle en la implementación de este mismo Agente más adelante en este capítulo.
 
 %Contar defender
 
 \section{Protagonistas}
-Para que la historia fuese rica necesitábamos de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos mas personajes hubiera, mejores historias podríamos crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que decidimos que dentro de los propios protagonistas debía haber una nueva división de tipos.
+Para que la historia sea rica se necesita de no solo uno sino varios personajes principales con los que disponer en el transcurso natural de la historia, pues cuantos más personajes haya, mejores historias se podrán crear. Lo natural en estos casos es que los protagonistas no sean meras copias unos de otros, así que se decidió que dentro de los propios Protagonistas debía haber una nueva división de tipos.
 
 \subsection{Diseño de los Protagonistas}
-En la búsqueda de unos protagonistas para nuestras historias decidimos partir de aquellos ya planteados, como se ve en el capítulo \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudarían a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
-De igual manera, también es importante remarcar que los protagonistas serán los únicos que podrán obtener y consumir recursos, tal y como se explica en el capítulo \ref{cap:Objetos} referente a los objetos.
+En la búsqueda de unos protagonistas para las historias se decidió partir de aquellos ya planteados, como se ve en el capítulo \ref{cap:PrimerosPasos}, pero para que estos personajes fuesen originales y pudiesen cumplir papeles diversos en la historia fue necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases nos ayudaron a parametrizar los pasos que seguiría cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
+De igual manera, también es importante remarcar que los protagonistas son los únicos que pueden obtener y consumir recursos, tal y como se explica en el Capítulo \ref{cap:Objetos} referente a los objetos.
 A continuación veremos los diferentes tipos de protagonistas.
 
 \subsubsection{La Princesa}
-La Princesa cumplía un rol muy importante dentro de nuestras historias. Ella siempre era raptada por un antagonista y a partir de ese momento desencadenaba la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que debían pasar hasta que por fin fuese salvada.
-Sin embargo, nuestra idea del personaje ``Princesa'' no acababa ahí, sino que también queríamos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en nuestra búsqueda de la princesa fuerte e independiente, decidimos que ésta también fuese capaz de escapar por su propio pie. Así, cuando los caballeros se demoraban demasiado, la princesa se iba impacientando mientras evaluaba sus posibilidades de éxito, hasta que finalmente decidía emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo conseguía y a veces no.
+La Princesa cumple un rol muy importante dentro de las historias. Ella siempre es raptada por un antagonista y a partir de ese momento se desencadena la acción de los distintos protagonistas repartidos por el mundo, y las diversas pruebas por las que deben pasar hasta que por fin es salvada.
+Sin embargo, la idea del personaje ``Princesa'' no acaba ahí, sino que también queríamos que fuese un personaje capaz de actuar por iniciativa propia. Por tanto, en la búsqueda de la princesa fuerte e independiente, se decidió que ésta también fuese capaz de escapar por su propio pie. Así cuando los caballeros se demoren demasiado, la princesa se va impacientando mientras evaluaba sus posibilidades de éxito, hasta que finalmente decide emprender la huida por su cuenta. Esto no quiere decir que la princesa se escapase siempre, simplemente a veces lo consigue y a veces no.
 
 \subsubsection{El Rey}
-El Rey cumplía un papel mas formal dentro de la historia. Su principal uso era el de tener un personaje intermedio para que los distintos personajes se pudiesen comunicarse entre sí, pero no por ello era menos importante, ya que sin su ayuda la historia no podría transcurrir de manera fluida.
-La empresa del rey era la de contratar a los distintos caballeros del reino cuando alguna de sus hijas era secuestrada. Así, el Rey les pedía ayuda a estos aspirantes a héroes con la esperanza de que alguno pudiese rescatar a su preciada hija.
+El Rey cumple un papel más formal dentro de la historia. Su principal uso es el de tener un personaje intermedio para que los distintos personajes se puedan comunicarse entre sí, pero no por ello es menos importante, ya que sin su ayuda la historia no puede transcurrir de manera fluida.
+La empresa del rey es la de contratar a los distintos caballeros del reino cuando alguna de sus hijas es secuestrada. Así, el Rey les pide ayuda a estos aspirantes a héroes con la esperanza de que alguno pueda rescatar a su preciada hija.
 
 \subsubsection{Los Caballeros}
-El propósito de los Caballeros en la historia era cumplir el papel de héroes. Para ello debían emprender su camino con el objetivo de rescatar a la princesa de su malvado secuestrador, enfrentándose por el camino a las distintas pruebas propuestas por el resto de los antagonistas.
-En estas pruebas el caballero deberá hacer uso de los diversos recursos que tenga a su alcance, que representaremos mediante los objetos, o incluso necesitará ayuda de otros personajes para poder superarlas, que forman parte de la historia como otros protagonistas.
+El propósito de los Caballeros en la historia es cumplir el papel de héroes. Para ello deben emprender su camino con el objetivo de rescatar a la princesa de su malvado secuestrador, enfrentándose por el camino a las distintas pruebas propuestas por el resto de los antagonistas.
+En estas pruebas el caballero debe hacer uso de los diversos recursos que tiene a su alcance o incluso pedir ayuda a otros personajes, que forman parte de la historia como otros protagonistas, para poder superarlas.
 
 \subsubsection{El Mago}
-El Mago cumplirá el papel del personaje que ayuda en un momento crucial de la historia al héroe de la misma. La forma de funcionar de este personaje se entiende cuando el caballero tiene un encuentro con un antagonista en específico, en este caso el guardián.
-El caballero, que por si solo no es capaz de enfrentarse al guardián, pedirá apoyo a un mago, el cual acudirá en su ayuda bajo el precio de poder quedarse con el objeto que este antagonista guardián mantiene vigilado.
+El Mago cumple el papel del personaje que ayuda en un momento crucial de la historia a los aspirantes a héroe de la misma. La forma de funcionar de este personaje se entiende cuando el caballero tiene un encuentro con un antagonista en específico, en este caso el guardián.
+El caballero, que por si solo no es capaz de enfrentarse al guardián, pide apoyo a un mago, el cual acude en su ayuda bajo el precio de poder quedarse con el objeto que este antagonista guardián mantiene vigilado.
 
-Para encontrar un ejemplo mas gráfico, imaginen una historia en la que el caballero ha de cruzar un lago en el que vive una gran sierpe que ha roto el puente. En ese momento un mago aparece en escena, congelando el lago junto a la serpiente, permitiendo al caballero cruzar el lugar tras lo cual el mago derrotará a la sierpe y encontrará entre los huevos que custodiaba un mágico amuleto de aspecto siniestro.
+Para encontrar un ejemplo más gráfico, imaginen una historia en la que el caballero ha de cruzar un lago en el que vive una gran sierpe que ha roto el puente. En ese momento un mago aparece en escena, congelando el lago junto a la serpiente, permitiendo al caballero cruzar el lugar tras lo cual el mago derrotará a la sierpe y encontrará entre los huevos que custodiaba un mágico amuleto de aspecto siniestro.
 
 \subsubsection{EL Héroe Caído ó Villano}
-El concepto de héroe caído, como ya se menciono antes en el capítulo \ref{cap:PrimerosPasos}, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir nuestra necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el capítulo \ref{cap:Objetivos}, es el de no clasificar automáticamente a los personajes en ``buenos'' y ``malos'', pues somos partidarios de que las mejores historias cuentan con el elemento inesperado de aquel que parece ser héroe pero sin embargo no lo es.
+El concepto de héroe caído, como ya se ha mencionado antes en el Capítulo \ref{cap:PrimerosPasos:Villano}, es el de un caballero con un corazón malvado que en última instancia decide no salvar a la princesa e intenta acabar con ella. El propósito de este personaje, aparte de cumplir la necesidad de los múltiples objetivos de un mismo agente tal y como se explico en el Capítulo \ref{cap:Objetivos}, es el de no clasificar automáticamente a los personajes en ``buenos'' y ``malos'', pues siempre es un buen elemento narrativo las historias que cuentan con cambios inesperados en las actitudes de los personajes haciendo ver que no todo es como parece.
 
 \subsubsection{Protagonistas Adaptables}
-Como se explicó en el capítulo de objetivos, una de nuestras aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
-Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un archivo XML. Este archivo nos brindó la oportunidad de crear clases menos específicas, que se adaptasen a mas entornos y en definitiva fuesen mas genéricas, para ello cambiamos el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la tabla \ref{fig:TablaClasesProtagonistas}.
+Como se explicó en el Capítulo de Objetivos, una de la aspiraciones era conseguir que la aplicación fuese altamente personalizable haciéndola lo menos restrictiva posible.
+Para ello se ha decidido que los Protagonistas sean configurados mediante un archivo XML. Este archivo brinda la oportunidad de crear clases menos específicas, que se adaptasen a más entornos, en definitiva que sean más genéricas, para ello se ha cambiado el nombre de las clases explicadas anteriormente pudiéndose ver el resultado en la Tabla \ref{fig:TablaClasesProtagonistas}.
 
 \begin{table}[h!]
 	\centering
@@ -108,20 +108,20 @@ Para ello, decidimos que los Protagonistas pudiesen ser configurados mediante un
 	\label{fig:TablaClasesProtagonistas}
 \end{table}
 
-Esta forma permitirá al usuario tener mas flexibilidad a la hora de concretar los parámetros de su historia, de manera que puede elegir que uno de los héroes en su historia sea el caballero Don Quijote embarcado en el peligroso rescate de la princesa Dulcinea o que el samurai Kenshin deba rescatar a Mulán, la hija del emperador. 
+Esta forma permite al usuario tener más flexibilidad a la hora de concretar los parámetros de su historia, de manera que puede elegir que uno de los héroes en su historia sea el caballero Don Quijote embarcado en el peligroso rescate de la princesa Dulcinea o que el samurai Kenshin deba rescatar a Mulán, la hija del emperador. 
 
 %-------------------------------------------------------------------
 
 
 \subsection{Implementación de los Protagonistas}
-Para poder desarrollar de manera eficiente los protagonistas hubo que realizar numerosas tareas en la aplicación, ya que en parte, partíamos de cero, tal y como se explicó en el capítulo \ref{cap:PrimerosPasos}. Esto nos llevo a necesitar de distintas clases para poder cumplir los objetivos que se explican a lo largo del capítulo.
+Para poder desarrollar de manera eficiente los protagonistas ha habido que realizar numerosas tareas en la aplicación, ya que se decidió realizarla de cero, tal y como se explicó en el Capítulo \ref{cap:PrimerosPasos:Villano:Cero}. Esto ha llevado a necesitar de distintas clases para poder cumplir los objetivos que se explican a lo largo del capítulo.
 
-De igual manera, cada acción que aquí se comenta, como que la víctima pide ser rescatada, aparecerá en la historia, pero eso se ve con detalle en \ref{cap:Simulaciones}.
+De igual manera, cada acción que aquí se comenta, como que la víctima pide ser rescatada, aparece en la historia, pero eso se ve con detalle en \ref{cap:Simulaciones}.
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos protagonistas tan diversos necesitábamos de algo capaz de interpretar correctamente los datos de estos. Para ello se uso un SCD. Este SCD era capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual cogía las características concernientes a cada Protagonista en específico y proporcionaba al agente mundo esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
-El archivo de configuración tenía al final el aspecto del cuadro \ref{protagonistasXML}.
+Para poder tener unos protagonistas tan diversos se necesitaba de algo capaz de interpretar correctamente los datos de estos. Para ello se uso un SCD. Este SCD es capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual coge las características concernientes a cada Protagonista en específico y proporcionaba al \texttt{Agente Mundo} esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
+El archivo de configuración tiene al final el aspecto del cuadro de Código \ref{protagonistasXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los protagonistas},label=protagonistasXML]
@@ -145,16 +145,16 @@ El archivo de configuración tenía al final el aspecto del cuadro \ref{protagonis
 Para poder ejecutar correctamente a los protagonistas se necesita de una interfaz común para poder tratarlos a todos como el tipo de personajes que son.
 Esta interfaz interpreta correctamente los datos cargados desde el SCD de los protagonistas, para posteriormente enviarlos a cada clase en específico. Esta clase, que hereda a su vez de la clase \texttt{Personaje}, consultable en \ref{cap:Personajes:ClasePersonaje}, tiene los atributos específicos de los protagonistas, y representa una gran ayuda a la hora de la implementación de estos.
 %aquí pondría el diagrama de esta interfaz
-Una vez entendido bien el por que necesitamos de una interfaz común a todos los protagonistas, procederemos a explicar uno por uno como fueron realizados.
+Una vez entendido bien el por que necesitamos de una interfaz común a todos los protagonistas, se va a proceder a explicar uno por uno como han sido realizados.
 
 
 \subsubsection{La Víctima} 
-La ejecución de la clase empieza cargando los atributos y datos específicos del agente. Tras esto, es necesario imponer a la víctima un pariente, consultando al DF por aquellos agentes que registraron el servicio \texttt{Rey}, tras lo cual la víctima registra el servicio \texttt{Secuestrable} en el DF. %la princesa se localiza en el castillo del padre?
-Aparte de esto posee tres comportamientos.
+La ejecución de la clase empieza cargando los atributos y datos específicos del Agente. Tras esto, es necesario imponer a la víctima un pariente, consultando al DF por aquellos Agentes que registraron el servicio \texttt{Rey}, tras lo cual la víctima registra el servicio \texttt{Secuestrable} en el DF. %la princesa se localiza en el castillo del padre?
+Aparte de esto, posee tres comportamientos.
 
 El comportamiento \texttt{mover-secuestrada} permite a la princesa moverse con su secuestrador, respondiendo al mensaje ACL \texttt{mover princesa}. Aunque a los ojos de la historia es el captor quien manda moverse a la víctima, el agente solo puede relocalizarse en el mapa a sí mismo, así que realmente se mueve por su propio pie, aunque, eso si, siguiendo las ordenes de su captor.
 
-La víctima será raptada por un antagonista del tipo \textit{Secuestrador}. Cuando la víctima es secuestrada, llega un momento en el que su captor la manda el mensaje ACL \texttt{Te Secuestro}, que le confirma que en efecto ha sido raptada. En ese momento la víctima lanza una petición de ayuda que es recogida por el pariente que se le había asignado.
+La víctima es raptada por un antagonista del tipo \textit{Secuestrador}. Cuando la víctima es secuestrada, llega un momento en el que su captor la manda el mensaje ACL \texttt{Te Secuestro}, que le confirma que en efecto ha sido raptada. En ese momento la víctima lanza una petición de ayuda que es recogida por el pariente que se le ha asignado.
 Una vez esto ocurre la víctima intenta escaparse por sus propios medios. 
 Para ello la víctima usa un comportamiento \texttt{TickerBehaviour} que envía cada X periodo de tiempo la petición \texttt{mujerIndependiente}, a través de un mensaje ACL del tipo \texttt{Request} a su secuestrador. Este mensaje contiene un numero aleatorio generado en cada periodo, que se encuentra en el rango de los valores de vida de su captor. Cuando el captor recibe el mensaje, evalúa si el numero recibido es mayor que su valor de vida actual ya que ante un secuestrador malherido, contaría con muchas más posibilidades de escapar. Si finalmente el número es mayor, la víctima consigue liberarse, informa al \textit{Aspirante a Héroe} de que ya no necesita ser salvada y se planifica, tras lo que termina su ejecución.
 
@@ -163,22 +163,22 @@ Por último, tiene el comportamiento \texttt{rescatada}, que se ejecuta cuando es
 
 \subsubsection{El Allegado a la Víctima}
 % contar como se inicia y carga sus datos. Funciona como una maquina de estados (mirar en la otra memoria)
-Al iniciarse el agente se carga un número aleatorio de víctimas a las que puede estar ligado, seguido de los datos específicos del agente, con la particularidad de que también carga su salario específico, cualidad que usa el agente para contratar los servicios de los héroes dispuestos a salvar a la víctima, normalmente superior al del resto de personajes. Si el número de víctimas a las que puede estar ligado es cero, el agente se destruye.
+Al iniciarse el agente se carga un número aleatorio de víctimas a las que puede estar ligado, seguido de los datos específicos del Agente, con la particularidad de que también carga su salario específico, cualidad que usa el agente para contratar los servicios de los héroes dispuestos a salvar a la víctima, normalmente superior al del resto de personajes. Si el número de víctimas a las que puede estar ligado es cero, el agente se destruye.
 
 %quitable la siguiente frase
-Una vez comprobado que no existe ningún problema con los datos cargados, el agente se localiza, tras lo que registra el servicio \texttt{Rey} y comienza su ejecución, incorporando dos comportamientos, \texttt{Tortura}, en el que se ve enfrentado al antagonista Asesino, y un \texttt{FSMBehaviour}.
+Una vez comprobado que no existe ningún problema con los datos cargados, el Agente se localiza, tras lo que registra el servicio \texttt{Rey} y comienza su ejecución, incorporando dos comportamientos, \texttt{Tortura}, en el que se ve enfrentado al antagonista Asesino, y un \texttt{FSMBehaviour}.
 
-En el comportamiento específico de \texttt{Tortura}, el agente evalúa si recibe el mensaje ACL \texttt{Agoniza} de un asesino, y en caso afirmativo empieza la ejecución de un \texttt{TickerBehaviour} que le va restando vida al agente progresivamente. En caso de que la vida llegue a cero, el comportamiento finalizará la ejecución del agente.
+En el comportamiento específico de \texttt{Tortura}, el agente evalúa si recibe el mensaje ACL \texttt{Agoniza} de un asesino, y en caso afirmativo empieza la ejecución de un \texttt{TickerBehaviour} que le va restando vida al agente progresivamente. En caso de que la vida llegue a cero, el comportamiento finaliza la ejecución del Agente.
 
-A partir de aquí el funcionamiento del rey es ciertamente delicado. La ejecución del comportamiento \texttt{FSMBehaviour} se asemeja a la de una máquina de estados circular, donde cada comportamiento se ejecutará dando paso al siguiente. Para poder ejecutarse correctamente ha de registrar los diferentes estados, añadiendo a cada estado el comportamiento correspondiente e identificándolos por un nombre específico, y después añadirá las transiciones, que especifican el cambio entre estados.
+A partir de aquí el funcionamiento del rey es ciertamente delicado. La ejecución del comportamiento \texttt{FSMBehaviour} se asemeja a la de una máquina de estados circular, donde cada comportamiento se ejecuta dando paso al siguiente. Para poder ejecutarse correctamente ha de registrar los diferentes estados, añadiendo a cada estado el comportamiento correspondiente e identificándolos por un nombre específico, y después añade las transiciones, que especifican el cambio entre estados.
 Los diferentes estados por los que puede pasar el agente son:
 \begin{itemize}
-	\item \textbf{Atento}: En el estado atento, el agente esta esperando a recibir un mensaje ACL del tipo \texttt{Request} proveniente de la víctima. Cuando este mensaje se produce, el agente activa a un único antagonista del tipo \textit{Asesino}, elegido de forma aleatoria, a través de un mensaje ACL del tipo \texttt{Inform} con el ID \texttt{Derrocar}.
-	\item \textbf{Rescate}: En este estado el agente busca en las paginas amarillas a aquellos agentes con el servicio \textit{Matadragones}, que serán los aspirantes a héroes, buscando al menos uno disponible.
+	\item \textbf{Atento}: En el estado atento, el Agente esta esperando a recibir un mensaje ACL del tipo \texttt{Request} proveniente de la víctima. Cuando este mensaje se produce, el Agente activa a un único antagonista del tipo \texttt{Asesino}, elegido de forma aleatoria, a través de un mensaje ACL del tipo \texttt{Inform} con el ID \texttt{Derrocar}.
+	\item \textbf{Rescate}: En este estado el Agente busca en las paginas amarillas a aquellos Agentes con el servicio \texttt{Matadragones}, que serán los aspirantes a héroes, buscando al menos uno disponible.
 	\item \textbf{Ayuda}: Aquí se registra un mensaje ACL del tipo \texttt{CFP}, que se envía a todos aquellos agentes encontrados en el estado anterior a través del \texttt{MessageTemplate Solicitar Servicio}.
-	\item \textbf{Recibir Oferta}: El agente recibe la respuesta de cada \textit{Aspirante a Héroe} a la petición del estado anterior a través de un mensaje ACL. En este mensaje, se incluye el precio por contratar sus servicios de cada aspirante, tras lo que el \textit{Allegado} elige aquel con la mejor oferta, el precio mas bajo. Si no posee suficiente dinero para pagar a un nuevo aspirante, volverá a buscar aspirantes nuevos comprobando nuevamente si cumplen los requisitos necesarios.
-	\item \textbf{Aceptar Oferta}: Al aspirante seleccionado finalmente en el anterior estado, el \textit{Allegado} le manda un mensaje ACL del tipo \texttt{AcceptProposal}, en el que le proporciona los datos de la víctima y del secuestrador, de manera que el aspirante a héroe sea capaz de planificarse para rescatar a la víctima. Tras esto el agente espera una respuesta del aspirante en forma de mensaje ACL. Si este mensaje es del tipo \texttt{Inform} implica que el aspirante tuvo éxito en su empresa. Si no, significa que falló, y el \textit{Allegado} volverá a buscar nuevos aspirantes.
-	\item \textbf{Salvada}: En este estado el \textit{Allegado} envía un mensaje ACL de tipo \texttt{Inform} a la víctima, indicándole que ha sido rescatada, y eliminándola de la lista de víctimas ligadas al \textit{Allegado}. Si esta lista de víctimas queda vacía o el agente se queda sin dinero su ejecución terminará. Si no, volverá al estado inicial, Atento.
+	\item \textbf{Recibir Oferta}: El agente recibe la respuesta de cada \texttt{Aspirante a Héroe} a la petición del estado anterior a través de un mensaje ACL. En este mensaje, se incluye el precio por contratar los servicios de cada aspirante, tras lo que el \texttt{Allegado} elige aquel con la mejor oferta, el precio mas bajo. Si no posee suficiente dinero para pagar a un nuevo aspirante, vuelve a buscar aspirantes nuevos comprobando nuevamente si cumplen los requisitos necesarios.
+	\item \textbf{Aceptar Oferta}: Al aspirante seleccionado finalmente en el anterior estado, el \textit{Allegado} le manda un mensaje ACL del tipo \texttt{AcceptProposal}, en el que le proporciona los datos de la víctima y del secuestrador, de manera que el aspirante a héroe sea capaz de planificarse para rescatar a la víctima. Tras esto el Agente espera una respuesta del aspirante en forma de mensaje ACL. Si este mensaje es del tipo \texttt{Inform} implica que el aspirante tuvo éxito en su empresa. Si no, significa que falló, y el \texttt{Allegado} volverá a buscar nuevos aspirantes.
+	\item \textbf{Salvada}: En este estado el \texttt{Allegado} envía un mensaje ACL de tipo \texttt{Inform} a la víctima, indicándole que ha sido rescatada, y eliminándola de la lista de víctimas ligadas al \texttt{Allegado}. Si esta lista de víctimas queda vacía o el agente se queda sin dinero su ejecución terminará. Si no, volverá al estado inicial, Atento.
 \end{itemize}
 
 \begin{figure}[h]
@@ -194,29 +194,29 @@ Los diferentes estados por los que puede pasar el agente son:
 \subsubsection{El Aspirante a Héroe}
 Al iniciarse un nuevo aspirante, éste carga todos sus atributos, registra el servicio \texttt{Matadragones} y se localiza dentro del mapa.  El agente registra dos comportamientos principales que son el comportamiento \texttt{OfrecerServicios()} y el comportamiento \texttt{AceptarOfertaRescate()}.
 
-En el comportamiento \texttt{OfrecerServicio()}, el héroe espera un mensaje ACL del tipo \texttt{SolicitarServicio} que mandará el \textit{Allegado a la Víctima} cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responde enviando una propuesta, en forma de mensaje ACL del tipo \texttt{Propose}, indicando cuanto cuesta contratar sus servicios, que viene determinado por su codicia (véase el capitulo \ref{cap:AtributosRazas}).
+En el comportamiento \texttt{OfrecerServicio()}, el héroe espera un mensaje ACL del tipo \texttt{SolicitarServicio} que manda el \textit{Allegado a la Víctima} cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responde enviando una propuesta, en forma de mensaje ACL del tipo \texttt{Propose}, indicando cuanto cuesta contratar sus servicios, que viene determinado por su codicia (véase el punto \ref{cap:Personajes:AtributosRazas}).
 
-Si esta propuesta es aceptada accederá a su siguiente comportamiento, \texttt{AceptarOfertaRescate}. En este momento le llega la información necesaria para cumplir el contrato, véase los datos del \textit{Secuestrador} y de la \textit{Víctima} que ha de salvar. Tras esto, informa con el mensaje ACL \texttt{ObjetivoSecuestro}, un mensaje de control del entorno que refleja que víctima salvará el héroe, y se planifica.
+Si esta propuesta es aceptada accede a su siguiente comportamiento, \texttt{AceptarOfertaRescate}. En este momento le llega la información necesaria para cumplir el contrato, véase los datos del \textit{Secuestrador} y de la \textit{Víctima} que ha de salvar. Tras esto, informa con el mensaje ACL \texttt{ObjetivoSecuestro}, un mensaje de control del entorno que refleja que víctima será salvada por el héroe, y se planifica.
 %donde sus objetivos serán estar con la princesa en su casa y posteriormente convertirse en héroe, para lo que debe volver a su propia casa.
-Será dependiendo de su planificación cuando se decide si el aspirante a héroe acaba siendo un héroe o si sin embargo, harto de la princesa, decide convertirse en villano.
+Es dependiendo de su planificación cuando se decide si el aspirante a héroe acaba siendo un héroe o sin embargo, harto de la princesa, decide convertirse en villano.
 
-Si decide convertirse en héroe, el agente deberá enfrentarse al \textit{Secuestrador} en batalla y en caso de vencer escoltará a la \textit{Víctima} hasta su hogar, tras lo que el aspirante vuelve a su propia casa y se convierte finalmente en héroe.
+Si decide convertirse en héroe, el Agente se enfrenta al \texttt{Secuestrador} en batalla y en caso de vencer escoltará a la \texttt{Víctima} hasta su hogar, tras lo que el \texttt{Aspirante} vuelve a su propia casa y se convierte finalmente en héroe.
 
-Si decide convertirse en villano, el agente deberá enfrentarse al \textit{Secuestrador} en batalla y en caso de vencer entablará batalla con la \textit{Víctima} intentando acabar con ella, donde si lo consigue se convierte finalmente en villano.
+Si decide convertirse en villano, el Agente se enfrenta al \texttt{Secuestrador} en batalla y en caso de vencer entablará batalla con la \texttt{Víctima} intentando acabar con ella. Si lo consigue se convierte finalmente en villano.
 
-Independientemente de la elección el agente acaba su planificación y termina su ejecución.
+Independientemente de la elección, el Agente acaba su planificación y termina su ejecución.
 
-Si en algún momento la víctima logra escapar por si sola, el agente parará su ejecución y se replanificará con el objetivo de volver a casa.
+Si en algún momento la víctima logra escapar por si misma, el Agente parará su ejecución y se replanificará con el objetivo de volver a casa.
 
-También es importante indicar que cada vez que el agente se mueve por el mapa de una localización a otra, el entorno consulta a los antagonistas \textit{Guardianes} y \textit{Emboscadores} si les interesa interactuar en esta nueva localización con este agente. Esto se ve con mas detalle en sus capítulos respectivos.
+También es importante indicar que cada vez que el Agente se mueve por el mapa de una localización a otra, el entorno consulta a los antagonistas \texttt{Guardianes} y \texttt{Emboscadores} si les interesa interactuar en esta nueva localización con este Agente. Esto se ve con mas detalle en sus secciones respectivas.
 
 \subsubsection{El Ayudante del Héroe}
 %recoge datos, servicio cazamagia
 %1 solo comportamiento, en el que espera que alguien le avise, y en ese momento se planifica
 El ayudante se inicia cargando todos sus atributos y registrando el servicio \texttt{Cazamagia}.
-Tras esto el agente se localiza y añade un único comportamiento, \texttt{AyudaArcana()}.
+Tras esto el Agente se localiza y añade un único comportamiento, \texttt{AyudaArcana()}.
 
-El comportamiento \texttt{AyudaArcana()} es un comportamiento complejo, en el que participan varios agentes y se comunican intercambiando mensajes. Este comportamiento realmente se activa cuando un \texttt{Antagonista Guardian} está en la misma localización que un \texttt{Aspirante a Héroe}, y es entonces cuando el \texttt{Agente Mundo} despierta al ayudante a través de un mensaje ACL del tipo \texttt{Inform}. En ese momento el ayudante se planificará, provocando que vaya al encuentro entre el guardián y el aspirante a héroe, entablando batalla con el guardián. 
+El comportamiento \texttt{AyudaArcana()} es un comportamiento complejo, en el que participan varios Agentes y se comunican intercambiando mensajes. Este comportamiento realmente se activa cuando un \texttt{Antagonista Guardian} está en la misma localización que un \texttt{Aspirante a Héroe}, y es entonces cuando el \texttt{Agente Mundo} despierta al ayudante a través de un mensaje ACL del tipo \texttt{Inform}. En ese momento el ayudante se planificará, provocando que vaya al encuentro entre el guardián y el aspirante a héroe, entablando batalla con el guardián. 
 
 En caso de vencer al guardián, el ayudante se quedará con su objeto y activará el comportamiento \texttt{ConvertirseEnSabio}, en el que tendrá que dejar el objeto en un lugar seguro, es decir, su casa.
 
@@ -231,28 +231,29 @@ Para que la historia tenga sentido siempre debe haber algo que motive a los prot
 %-------------------------------------------------------------------
 
 \subsection{Diseño de los Antagonistas}
-Para diseñar los antagonistas se decide también que la mejor manera es clasificarlos según las distintas acciones que finalmente serán capaces de realizar, por tanto también se decide separarlos por clases capaces de diferenciar a los Antagonistas de una manera similar a lo propuesto con los Protagonistas. Las elecciones finales se explican en detalle a continuación.
+Para diseñar los antagonistas se decide también que la mejor manera es clasificarlos según las distintas acciones que finalmente son capaces de realizar.
+Por tanto también se decide separarlos por clases capaces de diferenciar a los Antagonistas de una manera similar a lo propuesto con los Protagonistas. Las elecciones finales se explican en detalle a continuación.
 
-\subsubsection{El dragón}
-El Dragón representa un personaje primordial en la historia. Al principio de la historia todo transcurre apaciblemente hasta que el dragón despierta, se inicia el agente, y busca una víctima que pueda secuestrar, en ese momento el dragón decide llevar a cabo el rapto dando pie a todos los acontecimientos que se suceden después, es decir, provocando que el rey avise a los caballeros y estos se muevan a través del mapa, que conforman el nudo de la historia.
+\subsubsection{El Dragón}
+El Dragón representa un personaje primordial en la historia. Al principio de la historia todo transcurre apaciblemente hasta que el dragón despierta, se inicia el Agente, y busca una víctima que pueda secuestrar, en ese momento el Dragón decide llevar a cabo el rapto dando pie a todos los acontecimientos que se suceden después, es decir, provocando que el rey avise a los caballeros y estos se muevan a través del mapa, que conforman el nudo de la historia.
 
 
 %-------------------------------------------------------------------
 \subsubsection{Creando nuevos Antagonistas}
-Una de las propuestas mas estudiadas es que nuevos héroes implicaban nuevos antagonistas. Sin embargo, estos nuevos antagonistas no pueden ser el mismo antagonista llamado de manera distinta (no nos sirve la idea de tener un grifo y un dragón y que los dos hagan lo mismo), y de igual manera no queremos introducir un nuevo tipo de antagonista con la capacidad de suplantar al dragón como elemento primordial en la historia.
+Una de las propuestas más estudiadas es que nuevos héroes implican nuevos antagonistas. Sin embargo, estos nuevos antagonistas no pueden ser el mismo antagonista llamado de manera distinta (no sirve la idea de tener un grifo y un dragón para que ambos hagan lo mismo), y de igual manera no se ha querido introducir un nuevo tipo de antagonista con la capacidad de suplantar al Dragón como elemento primordial en la historia.
 
-El primer enfoque explora el incluir antagonistas ligados a un lugar, es decir, antagonistas que vigilen un lugar específico del mapa y que castiguen a los \textit{Aspirantes a Héroes} que deciden atravesar ese camino para completar su aventura. De esta manera, se crean localizaciones concretas y antagonistas específicos para ellas.
+El primer enfoque explora el incluir antagonistas ligados a un lugar, es decir, antagonistas que vigilen un lugar específico del mapa y que castiguen a los aspirantes a héroes que deciden atravesar ese camino para completar su aventura. De esta manera, se crean localizaciones concretas y antagonistas específicos para ellas.
 
-La primera localización elegida es el lago. En el lago puede vivir una Serpiente Marina, aunque en este caso fuese de agua dulce, que ataque a los aventureros que se atrevan a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansen tranquilas siempre sin que nada las perturbe.
+La primera localización elegida es el lago. En el lago puede vivir una Serpiente Marina, aunque en este caso es de agua dulce, que ataque a los aventureros que se atrevan a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansen tranquilas siempre sin que nada las perturbe.
 
-La segunda localización que aprobada es el cruce. En este cruce de múltiples caminos, un avaricioso Trol monta guardia pidiéndole a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros deben pagar el tributo o sino se enfrentarán a la ira del malvado Trol. Tras esto el Trol cambiara de lugar en el que emboscar, ya que si no, se esperarían su siguiente emboscada.
+La segunda localización aprobada es el cruce. En este cruce de múltiples caminos, un avaricioso Trol monta guardia pidiendo a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros deben pagar el tributo o sino se enfrentarán a la ira del malvado Trol. Tras esto el Trol cambiará de lugar en el que emboscar, para poder y preparar su siguiente emboscada y no sean capaces de preverla.
 
 Como tampoco se busca que los nuevos antagonistas se limiten a no dejar pasar a los aspirantes a héroe, se introduce un nuevo antagonista que no interactua necesariamente con ellos, y así nace el concepto del Fantasma.
 
 El Fantasma es el espíritu vengativo de un rey derrocado hace tiempo que no pudo saciar sus ansias de poder. Así su cometido será vagar por los castillos, buscando aquellos monarcas en los que la desesperación ha hecho mella, como aquellos con una hija secuestrada, alimentándose de su desesperación y conduciéndolos a la locura, lo que implicaba un descenso progresivo en sus puntos de vida.
 
 \subsubsection{Antagonistas genéricos}
-Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas decidimos que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y pasamos a tener antagonistas secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. De la misma manera, los antagonistas que actuan sobre una localización inicial, pueden reconfigurarla para que se adapte a los requerimientos del usuario. El esquema final sería algo así:
+Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas se ha decidido que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y pasamos a tener antagonistas secuestradores (dragón), emboscadores (trol), guardianes (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. De la misma manera, los antagonistas que actuan sobre una localización inicial, pueden reconfigurarla para que se adapte a los requerimientos del usuario. Este es el esquema final resultante:
 
 \begin{table}[h!]
 	\centering
@@ -267,13 +268,13 @@ Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a l
 	\label{fig:TablaObjetivosMonstruos}
 \end{table}
 
-De esta manera el usuario a través del archivo XML, cuya construcción es explicada mas adelante., podrá dictaminar el nombre del antagonista, que clase de antagonista dentro de los tipos propuestos quiere que sea, que especie desea otorgarle y finalmente definir su sexo. Así, por poner algunos ejemplos, el usuario podrá elegir que la princesa Rapunzel sea secuestrada por el dragón Smaug o por la bruja Maléfica, o, de la misma manera, que el dragón Smaug secuestre princesas en una simulación del sistema o bien embosque a los viajeros que atraviesan la Montaña Solitaria.
+De esta manera el usuario a través del archivo XML, cuya construcción es explicada mas adelante., podrá dictaminar el nombre del antagonista, que clase de antagonista dentro de los tipos propuestos quiere que sea, que especie desea otorgarle y finalmente definir su sexo. Así, por poner algunos ejemplos, el usuario podrá elegir que la princesa Rapunzel sea secuestrada por el dragón Smaug o por la bruja Maléfica, o de la misma manera, que el dragón Smaug secuestre princesas en una simulación del sistema o bien embosque a los viajeros que atraviesan la Montaña Solitaria.
 %-------------------------------------------------------------------
 \subsection{Implementación de los Antagonistas}
-Para implementar los Antagonistas se necesita tratar con agentes y sus propiedades. A través del agente mundo los agentes se comunican con otros agentes y reciben la información que necesitan. Pero sin embargo para el correcto funcionamiento de los Antagonistas se necesitan muchas más cosas.
+Para implementar los Antagonistas se necesita tratar con agentes y sus propiedades. A través del \texttt{Agente Mundo}, los Agentes se comunican con otros Agentes y reciben la información que necesitan. Pero sin embargo para el correcto funcionamiento de los Antagonistas se necesitan muchas más cosas.
 %-------------------------------------------------------------------
 \subsubsection{Carga y configuración de los antagonistas}
-Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'', se sigue el patrón preestablecido en el capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave \texttt{<monstruo>}, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. La estructura del archivo XML se detalla en el cuadro \ref{antagonistasXML}.
+Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'', se sigue el patrón preestablecido en el Capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave \texttt{<monstruo>}, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. La estructura del archivo XML se detalla en el Código \ref{antagonistasXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
@@ -289,44 +290,43 @@ Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del arc
 
 %-------------------------------------------------------------------
 \subsubsection{La Clase Antagonistas}
-La clase \texttt{Antagonistas} es aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta clase a su vez hereda de la clase \texttt{Personaje}, consultable en la sección \ref{cap:Personajes:ClasePersonaje}, donde consigue cargar todos los atributos relativos al antagonista, como su especie, su localización y su vida, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de antagonistas en concreto.
+La clase \texttt{Antagonistas} es aquella capaz de interpretar correctamente un agente mandado desde el SCD de antagonista. Esta clase a su vez hereda de la clase \texttt{Personaje}, consultable en la Sección \ref{cap:Personajes:ClasePersonaje}, donde consigue cargar todos los atributos relativos al antagonista, como su especie, su localización y su vida, y finalmente le dejaba el trabajo a la clase en cuestión que se encargaba de ese tipo de antagonistas en concreto.
 %aquí pondría el diagrama de esta interfaz
 A continuación se entrará en detalle a explicar la implementación de cada antagonista en concreto, especificando que comportamientos y acciones es capaz de desarrollar como agente.
 %-------------------------------------------------------------------
 
 \subsubsection{El Antagonista Secuestrador}
-Al iniciarse el agente Secuestrador, carga todos sus atributos, localizandose en el mundo y añadiendo el comportamiento \texttt{Secuestro}.
+Al iniciarse el \texttt{Agente Secuestrador}, carga todos sus atributos, localizandose en el mundo y añadiendo el comportamiento \texttt{Secuestro}.
 
-Según se inicia el comportamiento \texttt{Secuestro}, el agente secuestrador solicita información al agente Mundo. En este caso el Mundo le tiene que indicar cuales son aquellos agentes que proporcionan el servicio \texttt{Secuestrables} y, en caso de que no haya ninguno, el agente se queda a la espera de que aparezca uno que cumpla los requisitos solicitados.
+Según se inicia el comportamiento \texttt{Secuestro}, el \texttt{Agente Secuestrador} solicita información al \texttt{Agente Mundo}. En este caso el \texttt{Mundo} tiene que indicar cuales son aquellos Agentes que proporcionan el servicio \texttt{Secuestrables} y, en caso de que no haya ninguno, el Agente se queda a la espera de que aparezca uno que cumpla los requisitos solicitados.
 
 En caso de encontrar al menos uno de los agentes con el servicio secuestrable, escoge uno de manera aleatoria eligiendo así su objetivo, indicando al entorno mediante el mensaje ACL \texttt{ObjetivoSecuestro} quien es la víctima elegida. Una vez ha escogido el agente a secuestrar se planifica, y al finalizar incorpora a su funcionamiento los comportamientos de \texttt{FalloSecuestro}, que entra en acción cuando falla en el rapto, y \texttt{FinDePlanificación}, que se ejecuta cuando el secuestro se realiza correctamente.
 
-Cuando se ha producido un error durante el secuestro, el agente informa al agente Mundo del mismo a través de un mensaje ACL del tipo \texttt{Failure} que indica al entorno el fallo, tras lo cual el agente detiene su ejecución y vuelve al punto inicial, es decir que esperará a que aparezca algún agente secuestrable.
+Cuando se ha producido un error durante el secuestro, el agente informa al \texttt{Agente Mundo} del mismo a través de un mensaje ACL del tipo \texttt{Failure} que indica al entorno el fallo, tras lo cual el Agente detiene su ejecución y vuelve al punto inicial, es decir que esperará a que aparezca algún Agente secuestrable.
 
-Sin embargo, cuando el secuestro se realiza con éxito, el agente secuestrador se dispone a finalizar correctamente su ejecución. En ese momento informa al agente Mundo del rapto y a través de un mensaje ACL del tipo \texttt{Inform}, notifica al agente \textit{Víctima} que ha secuestrado que en efecto ha sido raptado, provocando que la víctima avise al allegado al que esta ligado. Por último, vuelve a su guarida, arrastrando consigo al agente \textit{Víctima}, donde esperará a que alguien venga a por él y finalmente incorporará el comportamiento \texttt{VigilaTuEspalda}.
+Sin embargo, cuando el secuestro se realiza con éxito, el \texttt{Agente Secuestrador} se dispone a finalizar correctamente su ejecución. En ese momento informa al \texttt{Agente Mundo} del rapto y a través de un mensaje ACL del tipo \texttt{Inform}, notifica al \texttt{Agente Victima} que ha secuestrado que en efecto ha sido raptado, provocando que la víctima avise al allegado al que esta ligado. Por último, vuelve a su guarida, arrastrando consigo al \texttt{Agente Victima}, donde esperará a que alguien venga a por él y finalmente incorporará el comportamiento \texttt{VigilaTuEspalda}.
 
-Este comportamiento permite al agente \textit{Víctima} secuestrado escaparse de su raptor. Para ello, la víctima genera un número aleatorio entre los posibles valores de vida de su captor. Cuando el número generado es mayor que la vida actual de éste, escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
+Este comportamiento permite al \texttt{Agente Victima} secuestrado escaparse de su raptor. Para ello, la víctima genera un número aleatorio entre los posibles valores de vida de su captor. Cuando el número generado es mayor que la vida actual de éste, escapará, lo cual implica que es mucho mas fácil escapar de un captor malherido que de uno que aún conserve todas sus fuerzas.
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Emboscador}
-El agente emboscador carga todos sus datos y registra el servicio \texttt{Emboscador} en el DF que le permitirá actuar como tal, tras lo cual añade los comportamientos de \texttt{Emboscar} y \texttt{Acecho}, y finalmente se planifica.
+El \texttt{Agente Emboscador} carga todos sus datos y registra el servicio \texttt{Emboscador} en el DF que le permitirá actuar como tal, tras lo cual añade los comportamientos de \texttt{Emboscar} y \texttt{Acecho}, y finalmente se planifica.
 
 El comportamiento de \texttt{Emboscar} es bastante complejo. 
-Lo primero que se debe contemplar es que el agente \textit{Emboscador} ha sido colocado en el mundo, consultar el capitulo de Mapa \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase} para conocer como, en la localización donde realiza sus emboscadas y que solo embosca a personajes de una clase en específico, en este caso los \textit{Aspirantes a Héroe}.
+Lo primero que se debe contemplar es que el \texttt{Agente Emboscador} ha sido colocado en el mundo, consultar el Capítulo \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase} para conocer como, en la localización donde realiza sus emboscadas y que solo embosca a personajes de una clase en específico, en este caso los \textit{Aspirantes a Héroe}.
 Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
 
-Emboscar realmente es una negociación entre el agente emboscador y el agente mundo. Cada vez que un personaje se mueve de una localización a otra, el agente mundo le manda un mensaje ACL al agente emboscador del tipo \texttt{CFP} con la información relativa al tipo de agente que esta cruzando. Si este tipo de agente no interesa al emboscador, este respondera con un mensaje ACL del tipo \texttt{Refuse}. En caso contrario, responderá con un mensaje ACL del tipo \texttt{Propose} en el que enviará su localización. Si ambas localizaciones coinciden, el agente mundo aceptará la propuesta proporcionandole al agente emboscador la información específica del agente que se ha desplazado a esa localización.
-En caso de haber varios agentes emboscadores, el mundo elegirá uno aleatoriamente y negociará con ellos por orden.
+Emboscar realmente es una negociación entre el \texttt{Agente Emboscador} y el \texttt{Agente Mundo}. Cada vez que un personaje se mueve de una localización a otra, el \texttt{Agente Mundo} le manda un mensaje ACL al \texttt{Agente Emboscador} del tipo \texttt{CFP} con la información relativa al tipo de Agente que esta cruzando. Si este tipo de Agente no interesa al emboscador, este respondera con un mensaje ACL del tipo \texttt{Refuse}. En caso contrario, responderá con un mensaje ACL del tipo \texttt{Propose} en el que enviará su localización. Si ambas localizaciones coinciden, el \texttt{Agente Mundo} aceptará la propuesta proporcionandole al \texttt{Agente Emboscador} la información específica del Agente que se ha desplazado a esa localización.
+En caso de haber varios Agentes emboscadores, el mundo elegirá uno aleatoriamente y negociará con ellos por orden.
 
-Una vez que la propuesta del agente \textit{Emboscador} ha sido aceptada, da comienzo el comportamiento \texttt{Acechar}.
-En el comportamiento Acechar, el \textit{Emboscador} tiene los datos del agente al que esta emboscando, proporcionados por el agente \textit{Mundo}. De esta manera genera un numero aleatorio con el dinero que le pedirá al otro agente, a través de un mensaje ACL del tipo \texttt{Request}. Si el otro agente tiene el dinero suficiente paga y pasa sin problemas, y sino, el \textit{Emboscador} lo mata. Independientemente del resultado, el \textit{Emboscador} se planifica, resituándose dentro del mapa en una nueva localización en la que emboscar.
+Una vez que la propuesta del \texttt{Agente Emboscador} ha sido aceptada, da comienzo el comportamiento \texttt{Acechar}.
+En el comportamiento \texttt{Acechar}, el \texttt{Emboscador} tiene los datos del Agente al que esta emboscando, proporcionados por el \texttt{Agente Mundo}. De esta manera genera un número aleatorio con el dinero que le pide al otro Agente, a través de un mensaje ACL del tipo \texttt{Request}. Si el otro Agente tiene el dinero suficiente paga y pasa sin problemas, sino el \texttt{Emboscador} lo mata. Independientemente del resultado, el \texttt{Emboscador} se planifica, resituándose dentro del mapa en una nueva localización en la que emboscar.
 
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Guardián}
 %Declara su tipo como guardian y se planifica, yendo a buscar un pobjeto aleatorio para custodiarlo. En ese momento espera el encuentro con un caballero y es que, cuando un caballero pase por su guarida, el guardian se enfrentara a el para protegercon recelo su objeto. En ese momento el guardian despertara la actividad del mago que vendra en ayuda del caballero.
-Al iniciarse el \texttt{Antagonista Guardian} carga todos sus atributos, tras lo que se localiza en el mundo y añade el comportamiento \texttt{Acecho}.
+Al iniciarse el antagonista \texttt{Guardian} carga todos sus atributos, tras lo que se localiza en el mundo y añade el comportamiento \texttt{Acecho}.
 
-El comportamiento \texttt{Acecho} es un comportamiento sencillo que provoca que el antagonista se planifique. Asi que este, a través de su planificación, se moverá a la localización donde está el objeto que busca, el cual es elegido de manera aleatoria, momento en el cual se pone a defender susodicho objeto, de manera similar a como el \texttt{Secuestrador} protege a el agente \texttt{Víctima}, atacando a cualquier aspirante a héroe que pase por la localización en la que se encuentra. En ese momento, el Guardián activará al ayudante del héroe a través del mensaje ACl del tipo \texttt{Inform HoraMagica}. Tras esto, el ayudante acudirá y será realmente quien tenga la batalla contra él.
-
+El comportamiento \texttt{Acecho} es un comportamiento sencillo que provoca que el antagonista se planifique. Así que este, a través de su planificación, se mueve a la localización donde está el objeto que busca, el cual es elegido de manera aleatoria, momento en el cual se pone a defender susodicho objeto, de manera similar a como el \texttt{Secuestrador} protege al \texttt{Agente Víctima}, atacando a cualquier aspirante a héroe que pase por la localización en la que se encuentra. En ese momento, el \texttt{Guardian} activa al ayudante del héroe a través del mensaje ACl del tipo \texttt{Inform HoraMagica}. Tras esto, el ayudante acude y es realmente quien tenga la batalla contra él.
 
 
 %-------------------------------------------------------------------
@@ -334,30 +334,27 @@ El comportamiento \texttt{Acecho} es un comportamiento sencillo que provoca que 
 %registra su tipo como asesino, añade el comportamiento maldad a partir del cual lanzara el mensaje derrocar, el rey cuya princesa ha sido secuestrada esta debil y es por tanto derrocable, asi que en ese momento el asesino se planifica.
 Cuando se inicia este antagonista, carga todos sus datos, se localiza y registra el tipo \texttt{Maligno}. Tras esto añade el comportamiento \texttt{Maldad}.
 
-El comportamiento \texttt{Maldad} es un comportamiento cíclico(\texttt{CyclicBehaviour}), es decir, que ocrure cada cierto tiempo. En él, el \texttt{Antagonista Asesino} elegirá a aquel \texttt{Allegado a la Víctima} cuya \texttt{Víctima} haya sido capturada, a través de un mensaje ACL del tipo \texttt{Inform}, y por tanto sea derrocable. Tras esto se planificará, ejecutando la acción \texttt{Tortura}, indicando al allegado a través de el mensaje ACL del tipo \texttt{Inform Agoniza} que su vida va disminuyendo poco a poco, concretamente cada 30 segundos.
+El comportamiento \texttt{Maldad} es un comportamiento cíclico(\texttt{CyclicBehaviour}), es decir, que ocurre cada cierto tiempo. En él, el antagonista \texttt{Asesino} elige a aquel \texttt{Allegado a la Víctima} cuya \texttt{Víctima} haya sido capturada, a través de un mensaje ACL del tipo \texttt{Inform}, y por tanto es derrocable. Tras esto se planifica, ejecutando la acción \texttt{Tortura}, indicando al allegado a través de el mensaje ACL del tipo \texttt{Inform Agoniza} que su vida va disminuyendo poco a poco, concretamente cada 30 segundos.
 
 %-------------------------------------------------------------------
-
-
 
 
 \section{PNJ}
 \begin{quote}
-	\textit{Los PNJ's son personajes del juego que son controlados por el sistema y que son capaces de interactuar con el avatar del jugador intercambiar artículos e información}\cite{GomezGauchiaPeinadoTIDSE06}.
+	\textit{Los PNJ's son personajes del juego que son controlados por el sistema y que son capaces de interactuar con el avatar del jugador intercambiar artículos e información.} \cite{GomezGauchiaPeinadoTIDSE06}.
 \end{quote}
-En el sistema hemos adaptado estos personajes de los juegos a la narrativa para conseguir mayor diversidad de historias generadas.
+En el sistema se ha querido adaptar estos personajes característicos de los juegos a la narrativa para conseguir mayor diversidad de historias generadas.
 %-------------------------------------------------------------------
 
 \subsection{Diseño de los PNJ's}
-Nuestro numero de historias ya es altamente variado, pero aun así sentimos que debemos proponer más. En busca de un nuevo aire que diese un toque distinto a las historias y aumentase en cantidad el número posible de estas, propusimos la idea de unos personajes simples, parecidos a los agentes objetos que en un principio queríamos evitar, que con una acción sencilla cambien ligeramente el curso de la historia o que sencillamente aparezcan en ella dándole un toque divertido a ésta.
+En este punto el número de historias es altamente variado. En busca de un nuevo aire que dé un toque distinto a las historias y aumente en cantidad el número posible de generaciones de estas, se plantea la idea de unos personajes simples que con una acción sencilla cambien ligeramente el curso de la historia o que sencillamente aparezcan en ella dándole un toque divertido a ésta.
 
-Para ello se propone crear numerosos personajes, que tuviesen como peculiaridad el interactuar con los protagonistas cuando éstos pasan por las localizaciones en las que están situados. En ese momento se producirá un pequeño diálogo entre ambos personajes, otorgándole el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. A este aspecto dentro de la historia lo denominaremos como \texttt{bufo}. Éste \texttt{bufo} bien puede ser un objeto que se consume en el momento o una bendición que afecta al personaje modificando sus atributos, ya sea de manera positiva por que se había encontrado con un PNJ amigable o de manera negativa si éste era perverso. 
+Para ello se propone crear numerosos personajes, que tengan como peculiaridad el interactuar con los protagonistas cuando éstos pasan por las localizaciones en las que están situados. En ese momento se produce un pequeño diálogo entre ambos personajes, otorgándo el PNJ un objeto, \ref{cap:Objetos:ObjetosPNJ}, al personaje principal. Este aspecto dentro de la historia es un modificador de atributos para los protagonistas, que bien puede ser afectar de manera positiva por que se ha encontrado con un PNJ amistoso o de manera negativa si éste es malévolo. 
 
-Para terminar de definir los PNJ's pensamos que lo que mas encaja dentro de nuestra propuesta de diseño es que éstos tengan un oficio. De esta manera, al crear los PNJ's se propone que para definir el objeto con el que interactuaban lo suyo era clasificarlos por su oficio, de manera que se decide que los PNJ's fuesen herreros, enfermeras o sastres, que vivían en los lugares relacionados con su profesión tal y como se comento en el capitulo de mapa\ref{cap:Mapa:LocalizacionesPNJ} véase la herrería, el hospital o la sastrería y proporcionen este \texttt{bufo} con algo relacionado a su campo, por ejemplo el herrero puede forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acaba representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
-De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ''bendecidas por los ancestros´´, donde en ciertas simulaciones aumentarán los atributos del personaje, y en otras los disminuirán.
+Para terminar de definir los PNJ's se ha pensado que lo que más encaja dentro de la propuesta de diseño es que éstos tengan un oficio. De esta manera, al crear los PNJ's se propone que para definir el objeto con el que interactuan lo suyo es clasificarlos por su oficio, de manera que se decide que los PNJ's sean herreros, enfermeras o sastres, que viven en lugares relacionados con su profesión, tal y como se comento en el Capítulo Mapa en el apartado \ref{cap:Mapa:LocalizacionesPNJ}(véase la herrería, el hospital o la sastrería) y proporcionen este modificador con algo relacionado a su campo, por ejemplo el herrero puede forjar una espada mejor o reestablecer las abolladuras de la armadura del personaje, lo que se acaba representando como una mejora en un atributo del propio personaje, como puede ser la fuerza con la espada o la vida con la armadura. 
+De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ``bendecidas por los ancestros'', donde en unas simulaciones aumentarán los atributos del personaje y en otras los disminuirán.
 
-Sin embargo, decidimos que este diseño limitaba a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que queríamos evitar dentro de nuestra aplicación. De esta forma, se decide que los PNJ's también puedan ser configurables por el usuario a través de ficheros XML que, si se usaban con cuidado, permitirían al usuario personalizar su propia historia.
-
+Sin embargo, se observa que este diseño limita a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que se han querido evitar dentro de la aplicación. De esta forma, se decide que los PNJ's también puedan ser configurables por el usuario a través de ficheros XML que permiten al usuario personalizar su propio ámbito.
 
 %-------------------------------------------------------------------
 \subsection{Implementación de los PNJ's}
@@ -366,8 +363,8 @@ La implementación de los PNJ implica numerosas adiciones de clases nuevas al pro
 \subsubsection{PNJ's configurables por el usuario}
 Para permitir la configuración de los PNJ's a través de los XML se necesita, como de costumbre, de un SCD capaz de cargar los datos del archivo y almacenarlos correctamente dentro de la aplicación.
 
-Este SCD sigue el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave <pnj>. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
-Como con todos los archivos XML, esta configuración exige que el fichero esté creado de una manera concreta, consultable en \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
+Este SCD sigue el diseño normal del resto \ref{cap:Arquitectura:Loaders}, con la particularidad de que carga específicamente el fichero ``PNJs.XML'', donde recorre sus nodos buscando la palabra clave \texttt{<pnj>}. Una vez encontrada, recorre el nodo que representa al propio PNJ almacenando la información referente a su nombre, su sexo, su oficio y su localización, usando esta información para crear un nuevo agente con estas características.
+Como con todos los archivos XML, esta configuración exige que el fichero esté creado de una manera concreta, consultable en el fragmento de Código \ref{pnjsXML}, por lo que se incluye en el fichero ``PNJs.XML'' una guía sobre como construir estos agentes, lo mismo que viene rellenado con una información por defecto que también puede usarse como ejemplo.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los PNJ's},label=pnjsXML]
@@ -378,45 +375,42 @@ Como con todos los archivos XML, esta configuración exige que el fichero esté cr
 </Actores>
 \end{lstlisting}
 
-\subsubsection{La Clase PNJ}
-Si bien el agente se inicia desde el SCD, para poderse cargar de manera correcta se necesita de una clase capaz de usar correctamente las características específicas de este tipo de agentes. De esta manera se crea la clase PNJ, que hereda de la Case Personajes \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
+\subsubsection{La clase PNJ}
+Si bien el Agente se inicia desde el SCD, para poder cargarse de manera correcta necesita de una clase capaz de usar correctamente las características específicas de este tipo de Agentes. De esta manera se crea la clase \texttt{PNJ}, que hereda de la clase \texttt{Personajes} \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
 
 
-\section{Configuraciones de los personajes}
+\section{Configuraciones de los Personajes}
+En una historia no debería haber dos héroes iguales, donde uno fracasa otro debe tener la oportunidad de vencer y viceversa.
+Tampoco los mismos héroes nacidos en distintos lugares no deberían ser iguales, parecidos sí, pero no iguales.
+E incluso dentro de la misma zona, puede haber héroes que destacan más en la batalla que otros.
 
-
-En una historia no debería haber dos héroes iguales, donde uno fracasa otro debe tener la oportunidad de vencer y viceversa. Los mismos héroes de distintos lugares no debían ser iguales, parecidos, sí, pero no iguales, e incluso los de la misma zona, pues siempre hay héroes que destacan mas en la batalla que otros
-
-Para cumplir este objetivo, tratamos de que nuestros personajes se distinguiesen entre sus iguales a traves del concepto de atributos y razas.
+El objetivo de que los personajes se distingan entre sus iguales se ha realizado a través del concepto de atributos y razas.
 %-------------------------------------------------------------------
 
 \subsection{Diseño de los Atributos y las Razas}
-\label{cap:AtributosRazas}
-
-Con animo de hacer a nuestros personajes aun mas exclusivos, decidimos introducir atributos que representaban su forma física y mental. Los atributos que pensamos fueron:
+\label{cap:Personajes:AtributosRazas}
+Con animo de hacer a los personajes aun más exclusivos, se ha decidido introducir atributos que representan su forma física y mental.
+Los atributos que han sido implementados son:
 \begin{itemize}
-	\item Vida: atributo referente a la capacidad de aguante de un personaje.
-	\item Fuerza: atributo referente a la capacidad de combate del personaje (Util para los caballeros).
-	\item Destreza: atributo referente a la capacidad de combate del personaje (Util para los druidas).
-	\item Inteligencia: atributo referente a la capacidad de combate del personaje (Util para los magos).
-	\item Codicia: atributo que define el coste de contratar a dicho personaje.
+	\item Vida: Atributo referente a la capacidad de aguante de un personaje.
+	\item Fuerza/Destreza/Inteligencia: Atributos referentes a la capacidad de combate del personaje, en función del tipo que este sea(caballero/druida/mago).
+	\item Codicia: Atributo que define el coste de contratar a dicho personaje.
 \end{itemize}
 
-Estos atributos representarían modificadores positivos a la hora de enfrentarse a un problema. Por ejemplo, la fuerza seria un factor diferencial que dictamina nuestras posibilidades de victoria a la hora de enfrentarnos a un monstruo en una batalla, o la codicia que representaría el precio que un héroe propondría a un rey para que este contratase sus servicios.
+Estos atributos representan modificadores positivos a la hora de enfrentarse a un problema.
+Por ejemplo, la fuerza será un factor diferencial que dictamina las posibilidades de victoria a la hora de enfrentar a un monstruo en batalla, mientras que la codicia que representa el precio que un héroe pide a un rey para que este ofrezca sus servicios.
 
-De la misma forma, se propuso el concepto de raza, que es una característica mas que le podemos dar a los personajes protagonistas.
-Esta nueva característica modificará según ciertos multiplicadores los atributos que un personaje posee, haciendo así que dos héroes de razas distintas muy probablemente tengan atributos distintos.
+De la misma forma, se propone el concepto de raza, que es una característica más que tienen dada los personajes protagonistas.
+Esta nueva característica modifica según ciertos multiplicadores los atributos que un personaje posee, haciendo así que dos héroes de razas distintas, muy probablemente, tengan atributos distintos.
 
-La manera en que los atributos y las razas se relacionan, viene dado porque los personajes de ciertas razas tienen atributos mas acentuados que otros. Esto se implicaría que, por ejemplo, los personajes de la raza X fuesen especialmente fuertes y los de la raza Y especialmente inteligentes, lo cual no quiere decir sin embargo que no exista un personaje de la raza Y especialmente fuerte que supere a otro de la raza X que no tuvo la misma fortuna.
+La manera en que los atributos y las razas se relacionan, viene dado porque los personajes de ciertas razas tienen atributos más acentuados que otros. Esto implica que, por ejemplo, los personajes de la raza X fuesen especialmente fuertes y los de la raza Y especialmente inteligentes, lo cual no quiere decir sin embargo que no exista un personaje de la raza Y especialmente fuerte que supere a otro de la raza X que no tuvo la misma fortuna.
 
-De igual manera, la clase también afectara a estos atributos, ya que un caballero en principio tendría mas opciones de ser fuerte que una princesa, para poder llevar esa flamante armadura también hay que echar sus horas en el gimnasio, lo cual nuevamente no implica que no pueda haber una princesa especialmente fuerte, sino que ese caso seria una extraña variedad dentro de las múltiples historias que podemos formar.
-
-
+De igual manera, la clase también afecta a estos atributos, ya que un caballero en principio tendrá más opciones de ser fuerte que una princesa, para poder llevar esa flamante armadura también hay que echar sus horas en el gimnasio, lo cual nuevamente no implica que no pueda haber una princesa especialmente fuerte, sino que ese caso seria una extraña variedad dentro de las múltiples historias que se generan.
 
 %-------------------------------------------------------------------
 \subsection{Implementación de los Atributos y las Razas}
-Para explicar la implementación de los Atributos es necesario comprender bien la clase personaje.
-Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador por Raza, pues solo los protagonistas tenían estas características. Cada tipo de personaje tenía un atributo principal, que representaba su manera de afrontar la batalla, por ejemplo, un aspirante a héroe emplearía la fuerza para luchar mientras que una víctima usaría la destreza. La tabla final quedaría de la siguiente forma:
+Para explicar la implementación de los atributos es necesario comprender bien la clase \texttt{Personaje}.
+Estos atributos se cargan a la hora de crear el personaje y vienen dictaminados por los diferentes archivos XML en los protagonistas, así como por su modificador racial, pues solo los protagonistas tienen esta característica. Cada tipo de personaje tiene un atributo principal, que representa su manera de afrontar la batalla, por ejemplo, un aspirante a héroe emplea la fuerza para luchar mientras que una víctima usa la destreza. La Tabla final queda de la siguiente forma:
 
 \begin{table}[h!]
 	\centering
@@ -433,17 +427,17 @@ Estos atributos se cargaban a la hora de crear el personaje, y venían dictaminad
 \end{table}
 
 
-Para el caso de los Monstruos sin embargo, sólo nos interesaba el atributo Vida, que era el atributo que necesitábamos conocer para que un personaje pueda o no derrotarlos.
-Los PNJ sin embargo no contaban con atributos, ya que su aportación en la historia no les permitía entrar en conflictos con otros PNJ.
+Para el caso de los Monstruos sin embargo, sólo interesa el atributo Vida, que es el atributo que se necesita conocer para calcular que un personaje pueda o no derrotarlos.
+Los PNJ sin embargo no cuentan con dichos atributos, ya que su aportación en la historia no les permite entrar en conflictos con otros personajes.
 
-Las razas sin embargo, venían dictaminadas de un archivo de configuración XML donde se especificaban el nombre de la raza y los distintos multiplicadores a atributos que esta representaba
+Las razas sin embargo, vienen dictaminadas de un archivo de configuración XML donde se especifica el nombre de la raza y los distintos multiplicadores a atributos que esta representa.
 %-------------------------------------------------------------------
 \subsubsection{Razas configurables}
-Para realizar correctamente la configuración de las Razas a través de un archivo XML necesitábamos, nuevamente, un Loader capaz de cargar e interpretar los datos.
+Para realizar correctamente la configuración de las Razas a través de un archivo XML se necesita, nuevamente, un SCD capaz de cargar e interpretar los datos.
 
-Este Loader, que seguía el patrón normal de todos los Loaders \ref{cap:Arquitectura:Loaders}, tenía la particularidad de que cargaba el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave raza a partir de la cual cargaba las características específicas de esta, que eran enviados a un objeto Raza, que explicaremos más adelante, e introducido a una liste de las distintas Razas.
+Este SCD sigue el patrón normal de todos los SCD \ref{cap:Arquitectura:Loaders}, cargando el fichero específico ``Razas.XML'', y en su recorrido de nodos buscaba la palabra clave \texttt{<raza>} a partir de la cual carga las características específicas de esta, que son enviadas a un objeto \texttt{Raza} e introducido a una lista de las distintas razas.
 
-La configuración específica que debía tener este fichero para que la aplicación funcionase correctamente debía seguirse a rajatabla, por lo tanto junto al archivo de configuración incluíamos un prototipo propio de configuración de razas que también podía usarse como ejemplo, aparte de una pequeña guía de como ha de construirse el archivo, consultable en el cuadro \ref{razasXML}.
+La configuración específica que debe tener este fichero para que la aplicación funcione correctamente debe seguirse a rajatabla, por lo tanto junto al archivo de configuración se incluye un prototipo propio de configuración de razas que podrá usarse como ejemplo aparte de una pequeña guía de como ha de construirse el archivo, consultable en el cuadro de Código \ref{razasXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de las razas y atributos},label=razasXML]
@@ -461,20 +455,30 @@ inteligencia="[#]"  codicia="[#]"/>
 %\end{lstlisting}
 %-------------------------------------------------------------------
 \subsubsection{La Clase Raza y como interactúa en la carga del personaje}
-La Clase Raza nos permitía interactuar con los atributos específicos de cada raza a la vez que guardaba todos aquellos relativos a una.
+La clase \texttt{Raza} permite interactuar con los atributos específicos de cada raza a la vez que guarda todos aquellos relativos a una.
 
-Cuando un protagonista se creaba, accedía a la interfaz vocabulario, donde existía un HashMap de razas en el cual cada nombre de raza iba ligado a su objeto raza específico. Así, el protagonista accedía al nombre de la raza a la que pertenecía, atributo que le venia dado por su configuración XML, y cargaba ese objeto raza. Finalmente, a la hora de crear sus propios atributos, accedía a aquellos atributos que le venían dados por su configuración XML y los multiplicaba por los modificadores que le venían por su raza, dando esta operación las cifras finales de los atributos que poseería. 
+Cuando un protagonista se crea, accede a la interfaz \texttt{Vocabulario}, donde existe un \textit{HashMap} de razas en el cual cada nombre de raza va ligado a su objeto \texttt{Raza} correspondiente. Así el protagonista accede al nombre de la raza a la que pertenece, atributo que le viene dado por su configuración XML, y carga ese objeto \texttt{Raza}. Finalmente, a la hora de crear sus propios atributos, accede a aquellos atributos que le vienen dados por su configuración XML y los multiplica por los modificadores que le otorga su raza, dando esta operación las cifras finales de los atributos que posee. 
 
 %-------------------------------------------------------------------
-\subsection{Narrativa de los personajes}
-Si se observa dentro del campo de la generación de narrativa computacional la mayoría de sistemas están ligados a un único tipo de historias, como se puede observar en el punto \ref{cap:EstadoDeLaCuestion:Narrativa}. Continuando el afán de crear un sistema altamente configurable, y también de poder dar la oportunidad a un escritor profesional crear una mejor narrativa para el sistema sin tener que entrar dentro de los apartados más técnicos del proyecto, se ha diseñado el apartado narrativo de la siguiente forma.
+\section{Narrativa de los personajes}
+Si se observa dentro del campo de la generación de narrativa computacional la mayoría de sistemas están ligados a un único tipo de historias, como se puede observar en el punto \ref{cap:EstadoDeLaCuestion:Narrativa}. Continuando el afán de crear un sistema altamente configurable y que no este enfocando en un único ámbito se ha realizado el este diseño.
 
-\section{Diseño de la narrativa}
-Debido a que el sistema realizado esta enfocado en los personajes, serán estos mismos los encargados de almacenar toda la información lingüística que conocen. Para evitar que esta información esté ligada al código del sistema se ha decidido guardar esta información de forma externa y que el sistema se encargue de cargarla al iniciar el sistema. Con este diseño se consigue desligar el apartado narrativo del apartado técnico.
+\subsection{Diseño de la narrativa}
+Para poder modificar la narrativa del generador de una forma fácil con la que esta pueda ser modificada rápidamente se ha realizado un diseño en donde la narrativa no este acoplada al código del generador.
+Para poder llevar a cabo este objetivo se almacena la información de forma externa y se carga al ejecutarse el generador.
+Con este diseño se consigue desligar el apartado narrativo del apartado técnico.
 
-\subsubsection{Implementación de la narrativa}
-La información narrativa del sistema se guarda dentro de un archivo XML. Actualmente la información se almacena en función del tipo de personaje y un atributo para trabajar en un entorno controlado, pero podría hacerse un archivo XML más extenso para que la lingüística de cada personaje fuese única, vinculando las frases con atributos más específicos.
+Además, debido a que el generador esta enfocado las historias entre los personajes, van a ser estos mismos los encargados de almacenar toda la información lingüística que conocen.
 
+\subsection{Implementación de la narrativa}
+Para poder llevar a cabo el diseño se han creado dos clases diferentes, una clase \texttt{Frases} y otra \texttt{Diccionario}.
+
+La clase \texttt{Frases} es la unidad básica que se ha creado para que puedan los \texttt{Personajes} trabajar con la narrativa.
+El atributo principal de esta clase es un \textit{HashMap} en el cual la clave es un \textit{String} que hace referencia a las acciones de los personajes, que se vincula a un \textit{ArrayList} de \textit{String} y es aquí donde se almacenan todas las posibles frases que puede utilizar un personaje al realizar una acción en concreto.
+Al almacenarse las frases en una lista permite que se utilicen diferentes frases para una misma acción. Al invocarse el método \texttt{getFraseAccion}, este devuelve una frase aleatoria, por lo que a cuantas más frases pueda utilizar mayor variedad tendrá la narración de la historia dificultando así que un mismo personaje tenga un guión preestablecido y sea prácticamente imposible que se refleje la misma historia cuando un personaje realiza una acción.
+
+La clase \texttt{Diccionario} es la estructura que utiliza el \texttt{Mundo} para que se encargue de tener almacenadas todas las frases que se utilizan a la hora de generar la historia.
+Estas frases están vinculadas a los hijos de la clase \texttt{Personaje} en función de un atributo especifico(Ver Tabla \ref{fig:TablaFrasesPersonaje}).
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l|l} 
@@ -486,14 +490,16 @@ La información narrativa del sistema se guarda dentro de un archivo XML. Actualm
 	\caption{Tabla de la narrativa en función del personaje y atributo}
 	\label{fig:TablaFrasesPersonaje}
 \end{table}
-
-Además de estar las frases vinculadas al tipo de personaje y un atributo, también se necesita vincular las frases a una acción determinada. Esto es debido a que las frases se invocaran dentro de los correspondientes \texttt{acciones o behaviurs} de cada personaje. También es posible almacenar más de una frase para cada tipo de acción para evitar que se repita la misma frase cada vez que se realiza la misma acción. La elección de la frase que se utiliza será aleatoria, por lo que a cuantas más frases pueda utilizar mayor variedad tendrá la narración de la historia. 
+\newpage
+También se necesita vincular las frases a una acción determinada. Esto es debido a que las frases se invocan dentro de las clases almacenadas en la carpeta \texttt{acciones}, donde se encuentran todas las acciones y \textit{behaviours} los personajes pueden realizar.
+Es dentro de estas clases donde se invoca al método \texttt{hablar}, que heredan todos los Agentes, de la clase padre \texttt{Personaje}.
 
 \subsubsection{Carga en el sistema}
-Como ya se ha comentado la narrativa esta guardada en un archivo XML que tiene la siguiente composición:
+Como se ha mencionado previamente la información se quiere guardar de forma externa al código y es el \texttt{Mundo} el encargado de almacenar esta información, por ello se ha creado, una vez más, un SCD. 
+Una vez el \texttt{Mundo} se crea invoca a este SCD, el cual se encarga de cargar la información narrativa del sistema de un archivo XML, ``Frases.XML'', con la estructura que se ve en el Código \ref{narrativaXML}. Dentro del XML hay una sencilla guía explicativa de la estructura de este.
 
 \lstset{frameround=fttt}
-\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la narrativa de los personajes},label=razasXML]
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la narrativa de los personajes},label=narrativaXML]
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Frases>
@@ -504,8 +510,13 @@ Como ya se ha comentado la narrativa esta guardada en un archivo XML que tiene l
 </personaje>
 </Frases>
 \end{lstlisting}
+Actualmente la información se almacena en el XML función de un atributo tipo ligado a los personajes, ver Tabla \ref{fig:TablaFrasesPersonaje},  para trabajar en un entorno controlado, pero podría hacerse un archivo XML más extenso para que la lingüística de cada personaje fuese única, vinculando las frases con atributos más específicos y/o con mayor cantidad de atributos.
 
-El archivo anterior tiene su propio \texttt{loarder} donde se carga todo el archivo de una vez por eficiencia y el \texttt{Mundo} será encargado de almacenar toda la narrativa cargada previamente. Cada personaje recibe la información lingüística correspondiente en el momento de su creación. 
+Por tanto, el SCD busca en primer lugar la etiqueta \texttt{<personaje>} con el atributo \texttt{tipo} para empezar a almacenar en el \texttt{Diccionario} del \texttt{Mundo} por este atributo.
+Acto seguido se busca otra etiqueta, \texttt{<frase>}, dentro del bloque anterior por el atributo \texttt{accion} que es la clave para el \textit{HashMap} vicunlado a la clave \texttt{tipo} del \texttt{HashMap} de \texttt{Diccionario}.
+Por último, dentro de estos dos bloque se busca una etiqueta \texttt{<f>} que tiene dentro la frase que se desea guardar en el generador y que son las que finalmente se ven reflejadas en la generación de la historia.
 
-\subsubsection{Ventajas del diseño}
-La elección de este diseño ha sido para evitar el acoplamiento entre la parte técnica de la aplicación y la parte narrativa. El hacer esto da al sistema muchas variante ya que cambiando un único archivo de configuración se puede cambiar la forma narrativa de la historia en función del escritor o realizar traducciones en diferentes idiomas y hacer útil el sistema a nivel mundial.
+\subsection{Ventajas del diseño}
+La elección de este diseño ha sido para evitar el acoplamiento entre la parte técnica de la aplicación y la parte narrativa. El hacer esto da al sistema muchas variantes, ya que cambiando un único archivo de configuración se puede cambiar la forma narrativa de la historia.
+Así en función del escritor se tendrá una narrativa generada de forma personal.
+También cabe destacar que este diseño permite introducir un archivo en diferentes idiomas, haciendo útil el sistema a nivel mundial.

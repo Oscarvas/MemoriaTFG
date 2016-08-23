@@ -32,6 +32,7 @@ Las primeras pruebas que se realizaron estaban encaminadas en conseguir que todo
 Como primer objetivo se propuso cambiar este agente, de manera que a veces decidiese escaparse por su propio pie cuando se cansase de esperar un rescate.
 
 \subsection{La figura del villano}
+\label{cap:PrimerosPasos:Villano}
 En este momento se decide abordar otro objetivo, los personajes con variaciones en los objetivos. El personaje que mejor se amolda a esta búsqueda del agente con varios objetivos es el caballero. En la anterior investigación el caballero solo tenia una funcionalidad, rescatar a la princesa, y si fallaba sencillamente se generaba otro caballero que ocupase su lugar. Para cambiar esto, se propone que no todos los caballeros traten de salvar a la princesa y dejarla con el rey, surgiendo así el concepto del villano. El villano es basicamente un caballero como otro cualquiera, que cuando derrota al dragón en vez de salvar a la princesa decide llevar acabo una acción malvada, como por ejemplo volver a secuestrarla, provocando que otro caballero deba venir a salvarla. Así se aumentan la cantidad de crear historias distintas con una idea sencilla.
 
 \subsection{Un sistema cerrado}
@@ -43,6 +44,7 @@ A este problema había que sumar la nula adaptabilidad de la aplicación para adap
 
 %-------------------------------------------------------------------
 \section{Creando un sistema}
+\label{cap:PrimerosPasos:Villano:Cero}
 Al replantear la aplicación desde cero hay que tener en cuenta que se parte de la base de la anterior investigación, reutilizando cierta parte del código que aún es funcional para este proyecto. Sin embargo, se ha de adaptar a los personajes y su manera de actuar a las nuevas necesidades, así como rehacer el código de una manera mas estructurada, que se consigue respetando correctamente el las tecnologías explicadas en el Capítulo \ref{cap:EstadoDeLaCuestion}, y minimizando el nivel de acoplamiento del sistema para que sea mas adaptable, lo cual también facilitará el uso de esta investigación en futuros proyectos.
 
 Ahora que ya se está donde se quiere es el momento de sacar la ambición, ya que se ha eliminado una restricción y se puede elaborar un proyecto vacío incluyendo una base que respalda la idea del proyecto y permite avanzar en la investigación con paso seguro.
