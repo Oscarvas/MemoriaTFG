@@ -12,7 +12,7 @@
 	El trabajo del maestro no consiste tanto en enseñar todo lo aprendible, como en producir en el alumno amor y estima por el conocimiento
 \end{Frase}
 \begin{Fuente}
-John Locke
+	John Locke
 \end{Fuente}
 \end{FraseCelebre}
 
@@ -97,7 +97,118 @@ La Tabla \ref{fig:ACLParameters} nos muestra la lista de parámetros que caracter
 \end{table}
 Esta tabla y una explicación más detallada de todos los parámetros son consultables en \cite{aclStructure}. %estan disponibles = son consultables? me parece mas apropiada la segunda
 
-En próximos capítulos se verán cómo los Agentes son capaces de comunicarse entre sí usando los mensajes FIPA ACL.
+\subsection{Modelo del gestor de agentes}
+%(ref) explica que e
+El gestor de agentes proporciona el framework donde los agentes FIPA existen y operan. Éste establece el modelo lógico de referencia para la creación, registro, localización, comunicación, migración y retiro de los agentes.
+
+Las entidades contenidas en la Figura \ref{fig:ModeloReferencia} son una configuración lógica y no implica ninguna configuración física.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/agentmanagementReference}
+	\caption{Modelo de referencia del gestor de agentes.}
+	\caption*{Recuperado de http://www.fipa.org/specs/fipa00023/XC00023H.html.}
+	\label{fig:ModeloReferencia}
+\end{figure}
+
+Una \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes son desplegados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
+
+El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La Figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/paginasAmarillas}
+	\caption{Servicio de páginas amarillas.}
+	\caption*{Recuperado de \cite{greenwood}.}
+	\label{fig:PaginasAmarillas}
+\end{figure}
+
+El \textbf{Agent Management System (AMS)} es un componente esencial del AP. El AMS ejerce control de supervisión sobre el acceso y uso del AP. Sólo un AMS debe existir para cada AP. El AMS mantiene un directorio de AIDs (Agent Identifications) que contienen direcciones de transporte (entre otras cosas) para los agentes registrados en el AP. El AMS ofrece un servicio de \textit{páginas blancas} para otros agentes. Cada agente debe registrarse en el AMS para poder obtener un AID válido.
+
+Un \textbf{Message Transport Service (MTS)} es el método de comunicación por defecto entre agentes a través de diferentes APs.
+
+El diseño interno de una AP es labor de los desarrolladores del sistema de agentes y no está sujeto a una estandarización por parte de FIPA. Las APs y los agentes que son nativos a esa AP, ya sea por haber sidos creados ó migrados a esa AP, pueden utilizar cualquier método propio para la comunicación interna entre ellos.
+
+\subsection{Identificación de los agentes}
+Es oportuno comentar que para que un agente disponga de AID válido, el nombre usado como identificador al momento de crear un agente ha de ser único dentro del AP. De otra manera el sistema considera que el identificador se encuentra repetido y no será posible registrar correctamente el agente dentro del AP. El nombre identificador no es sensible a mayúsculas ni minúsculas, y es altamente recomendable que no contenga espacios en este para asegurar el correcto funcionamiento del sistema.
+
+\subsection{Ciclo de vida de los agentes}
+Un agente FIPA existe físicamente dentro de una AP y usa las facilidades proporcionadas por ésta para ejecutar sus funcionalidades. Dicho esto, el agente posee un ciclo de vida que es controlado por la AP como podemos observar en la Figura \ref{fig:CicloVidaAgentes}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/cicloVidaAgentes}
+	\caption{Ciclo de vida de los agentes FIPA.}
+	\caption*{Recuperado de http://www.fipa.org/specs/fipa00023/XC00023H.html.}
+	\label{fig:CicloVidaAgentes}
+\end{figure}
+
+\textbf{Active:} El MTS entrega mensajes al agente con normalidad.
+
+\textbf{Initiated/Waiting/Suspended:} El MTS bien almacena en un buffer los mensajes hasta que el agente vuelva al estado activo ó reenvía los mensajes a una nueva localización (si el reenvío está disponible para el agente)
+
+\textbf{Transit:} El MTS bien almacena en un buffer los mensajes hasta que el agente vuelva a estar activo (eso es, la función mover a fallado en la AP original ó el agente a iniciado satisfactoriamente en la AP destino) ó reenvía los mensajes a una nueva localización (si el reenvío está disponible para el agente). Téngase en cuenta que sólo los agentes móviles pueden entrar en estado de tránsito. Esto asegura que un agente estático ejecuta todas sus instrucciones en el nodo donde fue invocado.
+
+
+\textbf{Unknown:} El MTS bien almacena en un buffer los mensajes o los rechaza, dependiendo de la política del MTS y de los requerimientos de transporte del mensaje.
+
+Un agente en JADE dispone de 2 métodos fundamentales:
+\begin{itemize}
+	\item \texttt{setup()}: Método que se invoca al momento que se crea el agente, cuando el agente pasa a los estados de \textit{iniciado} y \textit{activo}. Dentro de este método se especifican las instrucciones y los comportamientos de los que dispondrá el agente.
+	
+	\item \texttt{takeDown()}: Método invocado automáticamente al momento que se destruye el agente. Principalmente nos permite liberar recursos usados por el agente antes de que deje de existir en la AP. 
+\end{itemize}
+
+\subsection{Mensajes FIPA}
+\label{cap:Arquitectura:SMA:FIPA}
+
+En el Capítulo \ref{cap:EstadoDeLaCuestion} en la tabla \ref{fig:ACLParameters}, se ve cuáles son los parámetros que caracterizan a los mensajes FIPA ACL. Cuando los agentes se comunican, identificar el tipo de mensajes que se envían es muy importante de cara al control y tipo de tareas que quieren realizar los Agentes. La Tabla \ref{fig:Performatives} contiene algunos de los diferentes tipos de comunicación que ofrece el campo \texttt{performative}:
+\newpage
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{!{\vrule width 2pt}l!{\vrule width 2pt}l!{\vrule width 2pt}} 
+		\noalign{\hrule height 2pt}
+		\textbf{Acto comunicativo}		& \textbf{Descripción} \\ 
+		\noalign{\hrule height 2pt}
+		
+		\texttt{Accept Proposal} 	& \parbox[t]{8cm}{La acción de aceptar una propuesta} \\ \hline
+		\texttt{Call for Proposal}	& \parbox[t]{8cm}{La acción de hacer propuestas para realizar cierta acción }\\ \hline
+		\texttt{Confirm}			& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es cierta }\\ \hline
+		\texttt{Disconfirm}			& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es falsa} \\ \hline
+		\texttt{Failure}			& \parbox[t]{8cm}{La acción de indicar a otro agente que se intentó realizar una acción pero este intento falló} \\ \hline
+		\texttt{Inform}				& \parbox[t]{8cm}{El emisor informa al receptor que una proposición dada es cierta }\\ \hline
+		\texttt{Propose}			& \parbox[t]{8cm}{La acción de enviar una propuesta para realizar cierta acción, dadas ciertas precondiciones} \\ \hline
+		\texttt{Refuse}				& \parbox[t]{8cm}{La acción de rehusarse a realizar una acción dada, y explicando la razón por la cual no se realiza la acción }\\ \hline
+		\texttt{Reject Proposal}	& \parbox[t]{8cm}{La acción de rechazar la propuesta de realizar cierta acción durante la negociación} \\ \hline
+		\texttt{Request}			& \parbox[t]{8cm}{El emisor solicita al receptor a realizar cierta acción. Una importancia de \texttt{Request} es que solicita al receptor realizar otro acto comunicativo }\\ \hline
+		
+		
+		\noalign{\hrule height 2pt}
+	\end{tabular}
+	\caption{Tipos de actos comunicativos definidos en \texttt{performative}}
+	\label{fig:Performatives}
+\end{table}
+
+En el cuadro de Código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwood}} se puede ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
+
+%basicstyle=\scriptsize o footnotesize
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de mensaje FIPA ACL},label=mensajeRequest]
+(request
+:sender (agent-identifier :name alice@mydomain.com)
+:receiver (agent-identifier :name bob@yourdomain.com)
+:ontology travel-assistant
+:language FIPA-SL
+:protocol fipa-request
+:content
+""((action
+(agent-identifier :name bob@yourdomain.com)
+(book-hotel :arrival 15/10/2006
+:departure 05/07/2002 ... )
+))""
+)
+\end{lstlisting}
 
 \subsection[JADE]{Java Agent Development Framework - JADE}
 %no tengo claro si es interpretar cita o la cita en si, si es la cita, propongo el estilo de la cursiva
@@ -114,6 +225,76 @@ La Figura \ref{fig:arquitecturaJade} muestra los elementos principales de la arq
 	\label{fig:arquitecturaJade}
 \end{figure}
 
+\subsection{Comportamientos JADE}
+\label{cap:Arquitectura:ComportamientoJade}
+
+
+Los agentes en JADE se especifican mediante comportamientos. Los comportamientos definen la forma de actuar para cada agente ante un problema dado. Cada comportamiento se encarga de resolver una tarea, comunicarse, o evaluar alguna condición del agente.
+
+Cada agente dispone a su vez de una cola de comportamientos en la cual ser irán incluyendo los comportamientos agregados con \verb|addBehaviour()|. Cuando llega el turno de ejecución de un comportamiento, este intenta realizar su tarea y al finalizar es removido y eliminado de la cola. Existen comportamientos que en función del tipo que sean, al finalizar su tarea intentarán añadirse nuevamente a la cola.
+
+Los tipos de comportamientos en JADE son los siguientes:
+
+\begin{itemize}
+	\item \textbf{Behaviour}. Comportamiento básico que proporciona los métodos \verb|action()| \footnote{Dentro se especifican las tareas que va a realizar el comportamiento.} y \verb|done()|\footnote{Devuelve \texttt{true} si el comportamiento ha finalizado su ejecución.}.
+	\begin{itemize}
+		
+		\item \textbf{SimpleBehaviour}. Comportamientos que realizan tarea simples.
+		
+		\begin{itemize}
+			\item \textbf{OneShotBehaviour}. Tipo de comportamiento que su método \verb|action()| se ejecuta una única vez.
+			
+			\item \textbf{TickerBehaviour}. Comportamiento de ejecución periódica.
+			
+			\item \textbf{WakerBehaviour}. Es una variación del OneShotBehaviour que inicia su ejecución después de un tiempo especificado.
+			
+			\item \textbf{CyclicBehaviour}. Comportamiento cuyo método \verb|done()| siempre devuelve \verb|false|, por tanto al terminar su \verb|action()| vuelve a la cola de comportamientos.
+			
+		\end{itemize}
+		
+		\item \textbf{CompositeBehaviour}. Nos permite integrar dentro de su estructura múltiples comportamientos.
+		
+		\begin{itemize}
+			
+			\item \textbf{ParallelBehaviour}. Este tipo permite la ejecución en paralelo de varios comportamientos.
+			
+			\item \textbf{SerialBehaviour}. Nos permite representar sucesiones de comportamientos.
+			
+			\begin{itemize}
+				\item \textbf{SequentialBehaviour}. Obliga a los comportamientos que lo integran a ejecutarse en un orden especificado.
+				
+				\item \textbf{FSMBehaviour}. Nos permite emular una máquina de estados finita basada en comportamientos.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+La Figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado de los comportamientos en JADE.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{Imagenes/jerarquiaComportamientos}
+	\caption{Diagrama de jerarquía de los comportamientos en JADE.}
+	\caption*{Recuperado de \cite{greenwood}.}
+	\label{fig:JerarquiaComportamientos}
+\end{figure}
+
+Al momento de diseñar el comportamiento de un agente es probable que se requiera de comportamientos que sean capaces de ejecutarse en paralelo y al mismo tiempo. El tipo \texttt{ParallelBehaviour} hace una ejecución en paralelo de dos ó más comportamientos pero lo que hace realmente es ejecutar un método \texttt{action()} a la vez, del comportamiento que toque, y luego va alternando con los demás comportamientos.
+
+Esto se debe a que el manejo de los comportamientos no sigue una política de expulsión, es decir, cuando se está ejecutando el método \texttt{action()} de un comportamiento éste nunca se ve interrumpido para que otro inicie su ejecución. Sólo cuando ése método termina y devuelve la salida \texttt{done()} como \texttt{true} se otorga el control al \texttt{action()} del siguiente comportamiento en la cola.
+
+JADE ofrece una solución bastante sencilla si necesitamos que dos comportamientos tengan la oportunidad de realmente ejecutarse a la vez, esto es asignando comportamientos a hilos dedicados.
+
+La clase \texttt{ThreadedBehaviourFactory} dispone de un método \texttt{wrap()} que se encarga de encapsular el comportamiento en un hilo dedicado cuando se añade éste a un agente.
+
+Por último, en la Figura \ref{fig:DiagramaFlujoAgentes} tenemos un diagrama de flujo que representa el ciclo de ejecución de un agente con sus comportamientos en JADE.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Imagenes/ejecucionAgenteTraducido}
+	\caption{Flujo de ejecución de un agente y sus comportamientos en JADE.} \caption*{Recuperado de \cite{greenwood}.}
+	\label{fig:DiagramaFlujoAgentes}
+\end{figure}
 
 \section{Planificación y Lenguaje}
 
