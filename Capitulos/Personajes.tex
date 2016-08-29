@@ -496,7 +496,7 @@ Estas frases están vinculadas a los hijos de la clase \texttt{Personaje} en func
 	\caption{Tabla de la narrativa en función del personaje y atributo}
 	\label{fig:TablaFrasesPersonaje}
 \end{table}
-\newpage
+
 También se necesita vincular las frases a una acción determinada. Esto es debido a que las frases se invocan dentro de las clases almacenadas en la carpeta \texttt{acciones}, donde se encuentran todas las acciones y \textit{behaviours} los personajes pueden realizar.
 Es dentro de estas clases donde se invoca al método \texttt{hablar}, que heredan todos los Agentes, de la clase padre \texttt{Personaje}.
 
@@ -504,6 +504,7 @@ Es dentro de estas clases donde se invoca al método \texttt{hablar}, que heredan
 Como se ha mencionado previamente la información se quiere guardar de forma externa al código y es el \texttt{Mundo} el encargado de almacenar esta información, por ello se ha creado, una vez más, un SCD. 
 Una vez el \texttt{Mundo} se crea invoca a este SCD, el cual se encarga de cargar la información narrativa del sistema de un archivo XML, ``Frases.XML'', con la estructura que se ve en el Código \ref{narrativaXML}. Dentro del XML hay una sencilla guía explicativa de la estructura de este.
 
+\newpage
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la narrativa de los personajes},label=narrativaXML]
 
