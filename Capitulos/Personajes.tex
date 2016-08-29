@@ -381,10 +381,11 @@ Como con todos los archivos XML, esta configuración exige que el fichero esté cr
 \subsubsection{La clase PNJ}
 Si bien el Agente se inicia desde el SCD, para poder cargarse de manera correcta necesita de una clase capaz de usar correctamente las características específicas de este tipo de Agentes. De esta manera se crea la clase \texttt{PNJ}, que hereda de la clase \texttt{Personajes} \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
 
-Aparte los PNJ's registran un comportamiento.
-%Se localiza en la loc asignada. Cuando un  personaje consumidor pasa por cierta localizacion se activa. El PNJ crea modificaciones a los atributos aleatorias. A traves de un aleatorio entre 0 y 1, el PNJ sera bueno o malo con ese PJ, dandole los atributos o positivos o negativos.
+De la misma manera en esta clase se incluyen los métodos que determinarán la manera de actuar de los PNJ's y es capaz de manejar como se desarrollará su ejecución. 
 
-%explicar aqui el metoco modificar estadisticas
+Al empezar su ejecución un PNJ carga sus datos, tras lo que se localiza y se mantiene a la espera en esta localización. Cuando un personaje consumidor, que son aquellos personajes capaces de coger objetos e interactuar con los PNJ's, pasa por esta localización, el \texttt{Agente Mundo} avisa al PNJ a través de un mensaje ACL del tipo \texttt{Request}.
+
+Cuando al PNJ le llega este mensaje, decide de manera aleatoria si el personaje recibirá una bendición o una maldición. En cualquier caso se generarán de manera aleatoria unos valores que modificarán los atributos del personaje, para mas información consultar el Capítulo \ref{cap:Personajes:AtributosRazas}, sumando estos nuevos valores a los que ya poseía el personaje en caso de ser una bendición y restándolos en el caso contrario.
 
 \section{Configuraciones de los Personajes}
 En una historia no debería haber dos héroes iguales, donde uno fracasa otro debe tener la oportunidad de vencer y viceversa.
