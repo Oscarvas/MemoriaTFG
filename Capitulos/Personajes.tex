@@ -67,7 +67,8 @@ Para que la historia sea rica se necesita de no solo uno, sino varios personajes
 
 \subsection{Diseño de los Protagonistas}
 En la búsqueda de unos protagonistas para las historias se decide partir de aquellos ya planteados, como se ve en el capítulo \ref{cap:PrimerosPasos}, pero para que estos personajes sean originales y puedan cumplir papeles diversos en la historia es necesaria la inclusión del concepto de clase dentro de los protagonistas. Estas clases ayudan a parametrizar los pasos que seguirá cada clase de personajes dentro de la historia y así darles a cada clase ciertas funcionalidades específicas. 
-De igual manera, también es importante remarcar que los protagonistas son los únicos que pueden obtener y consumir recursos, tal y como se explica en el Capítulo \ref{cap:Objetos} referente a los objetos.
+De igual manera, también es importante remarcar que ciertos protagonistas son los únicos que pueden obtener y consumir recursos, tal y como se explica en el Capítulo \ref{cap:Objetos} referente a los objetos, e interactuar con los PNJ's.
+En esta versión solo el Aspirante tendrá esta característica, convirtiéndose en un personaje consumidor.
 A continuación veremos los diferentes tipos de protagonistas.
 
 \subsubsection{La Princesa}
@@ -185,6 +186,7 @@ Los diferentes estados por los que puede pasar el agente son:
 	\centering
 	\includegraphics[width=0.8\textwidth]{Imagenes/DiagramaEstadosRey}
 	\caption{Diagrama de transición autómata del Allegado}
+	\caption*{Recuperado de \cite{556}.}
 	\label{fig:DiagramaEstadosRey}
 \end{figure}
 
@@ -355,6 +357,7 @@ Para terminar de definir los PNJ's se ha pensado que lo que más encaja dentro de
 De la misma manera, y para que entendamos el concepto de PNJ malévolo, el personaje podría cruzarse con un chamán, que le da una pócima de setas ``bendecidas por los ancestros'', donde en unas simulaciones aumentarán los atributos del personaje y en otras los disminuirán.
 
 Sin embargo, se observa que este diseño limita a los PNJ's a unos personajes muy específicos con un guión demasiado particular, características que se han querido evitar dentro de la aplicación. De esta forma, se decide que los PNJ's también puedan ser configurables por el usuario a través de ficheros XML que permiten al usuario personalizar su propio ámbito.
+%solo puede haber uno por localización
 
 %-------------------------------------------------------------------
 \subsection{Implementación de los PNJ's}
@@ -377,6 +380,9 @@ Como con todos los archivos XML, esta configuración exige que el fichero esté cr
 
 \subsubsection{La clase PNJ}
 Si bien el Agente se inicia desde el SCD, para poder cargarse de manera correcta necesita de una clase capaz de usar correctamente las características específicas de este tipo de Agentes. De esta manera se crea la clase \texttt{PNJ}, que hereda de la clase \texttt{Personajes} \ref{cap:Arquitectura:InterfazPersonajes}, donde se incluyen los métodos específicos que permiten el buen funcionamiento de los PNJ's.
+
+Aparte los PNJ's registran un comportamiento.
+%Se localiza en la loc asignada. Cuando un  personaje consumidor pasa por cierta localizacion se activa. El PNJ crea modificaciones a los atributos aleatorias. A traves de un aleatorio entre 0 y 1, el PNJ sera bueno o malo con ese PJ, dandole los atributos o positivos o negativos.
 
 %explicar aqui el metoco modificar estadisticas
 
