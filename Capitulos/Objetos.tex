@@ -16,14 +16,18 @@
 \end{Fuente}
 \end{FraseCelebre}
 
-Objetos... cuan de importantes son en muchas historias. Quien no recuerda a Excálibur, la legendaria espada del rey Arturo, o al Anillo Único de Sauron en los libros de Tolkien. Los objetos pueden ser el objetivo de una historia o dar ese giro inesperado que cambia el transcurso de la historia. En este proyecto hemos querido introducir objetos para crear historia mucho más ricas.
+Objetos... cuan de importantes son en muchas historias. Quien no recuerda a Excálibur, la legendaria espada del rey Arturo, o al Anillo Único de Sauron en los libros de Tolkien. Los objetos pueden ser el objetivo de una historia o dar ese giro inesperado que cambia el transcurso de la historia. En este proyecto se ha querido introducir objetos para crear historias mucho más ricas.
 \label{cap:Objetos}
 
 \section{Diseño de los objetos}
-En este punto del proyecto la historias que se generan tienen peso y dinamismo por todo lo que se ha explicado en puntos anteriores, pero con la idea de seguir consiguiendo más enriquecimiento de historias se ha decidido introducir objetos. Esto se introduce aparte de para conseguir historias más complejas también reflejar mejor algunos conflictos entre personajes, ya que si en un enfrentamiento entre dos personajes uno anteriormente ha conseguido una espada, este tendrá más oportunidades de salir vencedor.
+En este punto del proyecto las historias que se están generando tienen peso y dinamismo, por todo lo que se ha explicado en puntos anteriores, pero con la idea de seguir consiguiendo más enriquecimiento en las historias se ha tenido en cuenta la inclusión de objetos.
+Los objetos se introducen con el fin de conseguir historias más complejas y aparte también reflejar mejor los conflictos entre personajes.
+Por ejemplo, si en un enfrentamiento entre dos personajes uno anteriormente ha conseguido una espada, este tendrá más oportunidades de salir vencedor al tener un arma que le dará ventaja en una batalla.
 
 \subsection{Objetos consumibles}
-El primer planteamiento que se tuvo en mente de los objetos fue el de que fuesen objetos para usar en el momento en el que se encuentran obligatoriamente. Estos objetos encontrados se consumirán en el acto y desaparecerán del mapa, alterando las estadísticas del personaje en el momento de su consumición (introducir la refencia de stats de personajes).
+El primer planteamiento que se tuvo en mente de los objetos fue el de que fuesen objetos para usar en el momento en el que se encuentran obligatoriamente.
+Estos objetos encontrados se consumirán en el acto y desaparecerán del mapa, alterando las estadísticas del personaje en el momento de su consumición.
+Ver Capítulo \ref{cap:Personajes:AtributosRazas}.
 
 Este planteamiento sirvió como primer paso para introducir los objetos en el proyecto, aunque se pensó que los objetos diseñados de esta manera quedaban en la historia de forma efímera.
 
@@ -31,17 +35,66 @@ Este planteamiento sirvió como primer paso para introducir los objetos en el pro
 Con este pensamiento se introdujo un segundo tipo de objetos que serían clave durante el transcurso de la historia para poder lograr los objetivos de algunos personajes. Por ejemplo para que el caballero pueda entrar en la montaña para rescatar a la princesa necesitará un objeto que le servirá como llave para poder entrar.
 Gracias al diseño de este nuevo tipo de objetos, habrá objetos que tendrán un papel relevante en la historia, al igual que los objetos que se han mencionado anteriormente en la introducción de este capitulo.
 
-\subsection{Objetos creados por los PNJ's}
+\subsection{Objetos creados por los PNJ}
 \label{cap:Objetos:ObjetosPNJ}
-En este punto ya se tienen diseñados dos tipos de objetos que cubren las necesidades actuales del proyecto y se observa que tanto los personajes de tipo protagonista como los de tipo antagonista interactúan con los objetos tal y como están diseñados hasta este punto, pero los PNJ. Debido a esto y ya que los PNJ están configurados como entidades que tienen un oficio, no es descabellado hacer que estos fabriquen objetos, como que un alquimista cree una poción, un tabernero sirva una cerveza o un armero fabrique un arma. Estos objetos fabricados por los PNJ están pensados para tener un funcionamiento idéntico a los \textbf{objetos consumibles} es por esto que los objetos que fabriquen los PNJ solo se aparecerán en la historia a través de dicho PNJ, es decir no se podrá encontrar mientras se explora por el mapa, y de esta forma diferenciar ambos tipos de objetos.
+En este punto ya se tienen diseñados dos tipos de objetos que cubren las necesidades actuales del proyecto y se observa que tanto los personajes de tipo protagonista como los de tipo antagonista interactúan con los objetos tal y como están diseñados hasta este punto, pero no los PNJ.
+Debido a esto y ya que los PNJ están configurados como entidades que tienen un oficio, no es descabellado hacer que estos fabriquen objetos, como que un alquimista cree una poción, un tabernero sirva una cerveza o un armero fabrique un arma.
+Estos objetos fabricados por los PNJ están pensados para tener un funcionamiento idéntico a los objetos consumibles,l es por esto que los objetos que fabriquen los PNJ solo se aparecerán en la historia a través de dicho PNJ, es decir no se podrá encontrar mientras se explora por el mapa, y de esta forma diferenciar ambos tipos de objetos.
 
 \section{Implementación de los objetos}
 Como el resto de componentes de la aplicación, los objetos han sido implementados de forma altamente configurable y extensible. Se va a explicar detalladamente los pasos seguidos para conseguirlo.
+
  
 \subsection{Sistema de clases}
+Para poder trabajar con los objetos se ha creado una clase padre, \texttt{Objeto}, de la que extienden dos hijas, \texttt{Clave} y \texttt{Consumible}.
+Ambas clases hijas tienen en común un atributo identificativo y un atributo descriptivo además de los correspondientes métodos \textit{getters} y \textit{setters}.
+Luego por un lado los \texttt{Objetos Clave} tienen un atributo que permite saber en que localización se encuentran dentro del mapa, mientras que por otro lado los \texttt{Objetos Consumible} almacenan la información referente a los atributos que afecta y de que manera afecta.
+
+Una vez se ha creado como serán los objetos hay que situarlos en el mapa.
+Para esto se ha creado una nueva clase llamada \texttt{Almacen}, en donde se almacenan los \texttt{Objeto}, en una lista, en función de si son \texttt{Clave} o \texttt{Consumible}.
+Esta nueva clase permite tener un atributo a \texttt{Localizacion} para saber que objetos contiene en cada momento.
+
+Ahora que ya hay implementados dos de los tipos de objetos diseñados, queda explicar como funcionan los objetos creados por los PNJ.
+Para estos objetos no se ha creado una clase diferente, que en la fase actual del proyecto no se ha querido que estos objetos se almacenasen, ya sea por los personajes o en las localizaciones.
+Por ello los objetos de los PNJ no se crearán realmente si no que cuando hay un encuentro entre ciertos personajes y un PNJ, este le aplicará directamente una modificación en los atributos, de la misma forma que un objeto consumible.
+De esta forma queda abierta una vía para ampliar este campo en futuras ampliaciones, haciendo por ejemplo el PNJ a la vez que genera objetos los vaya distribuyendo por diferentes localizaciones del mapa.
+
+Con todas estas clases nuevas en un limbo se necesita crear una conexión para que puedan ser usados por los personajes y es a través del \texttt{Estado} que los objetos se integran en el sistema.
+Esto se debe a que los objetos clave también están involucrados en la planificación, ya que si un personaje necesita un objeto para cumplir un objetivo el planificador tiene que conocer dicho objeto.
+Además ya que solo se desea que ciertos personajes puedan consumir objetos es el \texttt{Estado} quien controla este aspecto mediante un listado de personajes consumidores, de esta manera cuando un personaje se encuentra en la misma localización que un objeto consumible y/o un PNJ para poder recibir una modificación en las estadísticas, el \texttt{Estado} mira el listado de consumidores y en caso de estar el personaje en el listado el \texttt{Estado} informa al personaje de que tiene un objeto o PNJ con el que puede interactuar.
+También el \texttt{Estado} es quien recibe y almacena toda la información que se encuentra guardada externamente.
+
+\newpage
 
 \subsection{Carga en el sistema}
+Una vez más se ha implementando un SCD.
+Al igual que el resto de SCD, este también extrae de un archivo XML, \texttt{Objetos.XML}, los datos que usa el sistema para poder trabajar con objetos.
 
-\subsection{Introducción en la historia}
+El SCD empieza buscando en primer lugar la etiqueta \texttt{<tipo>} con el atributo \texttt{tipo} para guardar en el \texttt{Almacen} del \texttt{Estado} los objetos en función de este atributo.
+El siguiente paso es buscar la etiqueta \texttt{<objeto>} dentro del bloque anterior y en función del valor del atributo \texttt{tipo} busca unos atributos u otros.
+Si el valor es \emph{clave} carga el valor del atributo \texttt{localizacion}, mientras que si el valor es \emph{consumible} busca los atributos \texttt{vida}, \texttt{fuerza}, \texttt{destreza}, \texttt{inteligencia} y \texttt{codicia}.
+Independientemente del valor de \texttt{tipo}, siempre buscará los atributos \texttt{nombre} y \texttt{descripcion}.
+En caso de duda consultar el cuadro de Código \ref{objetosXML}
 
-\subsection{Funcionalidades}
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Objetos>
+	<tipo tipo="clave">
+		<objeto nombre="[NombreIdentificativo]" 
+		descripcion="[Descripción]" 
+		localizacion="[NombreLocalización]"/>
+	</tipo>
+	<tipo tipo="consumible">
+		<objeto ombre="[NombreIdentificativo]" 
+		descripcion="[Descripción]" 
+		vida="[ValorEntero]" 
+		fuerza="[ValorEntero]" 
+		destreza="[ValorEntero]" 
+		inteligencia="[ValorEntero]" 
+		codicia="[ValorEntero]"/>
+	</tipo>
+</Objetos>
+\end{lstlisting}
+

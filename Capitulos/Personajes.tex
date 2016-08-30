@@ -505,19 +505,19 @@ Es dentro de estas clases donde se invoca al método \texttt{hablar}, que heredan
 Como se ha mencionado previamente la información se quiere guardar de forma externa al código y es el \texttt{Mundo} el encargado de almacenar esta información, por ello se ha creado, una vez más, un SCD. 
 Una vez el \texttt{Mundo} se crea invoca a este SCD, el cual se encarga de cargar la información narrativa del sistema de un archivo XML, ``Frases.XML'', con la estructura que se ve en el Código \ref{narrativaXML}. Dentro del XML hay una sencilla guía explicativa de la estructura de este.
 
-\newpage
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de la narrativa de los personajes},label=narrativaXML]
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Frases>
-<personaje tipo="[NombreAtributo]">
-<frase accion="[NombreAccion]">
-<f>[ frase que se quiere utilizar ]</f> 
-</frase>
-</personaje>
+	<personaje tipo="[NombreAtributo]">
+		<frase accion="[NombreAccion]">
+			<f>[ frase que se quiere utilizar ]</f> 
+		</frase>
+	</personaje>
 </Frases>
 \end{lstlisting}
+
 Actualmente la información se almacena en el XML función de un atributo tipo ligado a los personajes, ver Tabla \ref{fig:TablaFrasesPersonaje},  para trabajar en un entorno controlado, pero podría hacerse un archivo XML más extenso para que la lingüística de cada personaje fuese única, vinculando las frases con atributos más específicos y/o con mayor cantidad de atributos.
 
 Por tanto, el SCD busca en primer lugar la etiqueta \texttt{<personaje>} con el atributo \texttt{tipo} para empezar a almacenar en el \texttt{Diccionario} del \texttt{Mundo} por este atributo.
