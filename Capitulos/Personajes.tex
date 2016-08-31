@@ -194,6 +194,7 @@ Los diferentes estados por los que puede pasar el agente son:
 
 
 \subsubsection{El Aspirante a Héroe}
+\label{cap:Personajes:Aspirante}
 Al iniciarse un nuevo aspirante, éste carga todos sus atributos, registra el servicio \texttt{Matadragones} y se localiza dentro del mapa.  El agente registra dos comportamientos principales que son el comportamiento \texttt{OfrecerServicios()} y el comportamiento \texttt{AceptarOfertaRescate()}.
 
 En el comportamiento \texttt{OfrecerServicio()}, el héroe espera un mensaje ACL del tipo \texttt{SolicitarServicio} que manda el \textit{Allegado a la Víctima} cuando quiera que alguien salve a la víctima. A ese mensaje el héroe responde enviando una propuesta, en forma de mensaje ACL del tipo \texttt{Propose}, indicando cuanto cuesta contratar sus servicios, que viene determinado por su codicia (véase el punto \ref{cap:Personajes:AtributosRazas}).

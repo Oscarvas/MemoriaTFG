@@ -12,8 +12,51 @@
 \end{Fuente}
 \end{FraseCelebre}
 
+Antes de empezar es importante señalar que el trabajo hecho para el desarrollo de esta investigación ha sido realmente extenso. Si bien hay ciertas partes que se pueden dividir en tareas que ha realizado de manera individual cada uno de los miembros, es importante señalar que sin la ayuda de todos no se habrían conseguido cotas tan altas. Las reuniones de contenidos, opiniones, revisiones y modificaciones son difíciles de detallar para explicar de manera precisa donde acaba la aportación de un integrante y empieza la de otro. A continuación se procederá a intentar explicar de la mejor manera posible las aportaciones individuales de cada uno, teniendo siempre en cuenta esta premisa.
 
 \section{Trabajo realizado por Juan Orellana Quemada}
+Para empezar mi aportación a esta investigación me documente bien sobre la misma, pues nunca había trabajado ni con generadores de historias ni con agentes inteligentes ni con un planificador. Para ello, y como se partía de una investigación anterior, tuve que leer profundamente la memoria de la misma así como los artículos referenciados en ella, haciendo especial hincapié en aquellos que nos proporcionaba nuestro director del proyecto.
+
+A partir de aquí, me volqué en el diseño de nuestro generador de historias. Como no teníamos muy claro que queríamos hacer en un principio, participé activamente en el \textit{brainstorming} inicial, y poco a poco conseguimos buenas ideas junto a la ayuda de nuestro tutor, detalladas mas extensamente en el Capitulo de \ref{cap:Objetivos}. 
+
+Como tampoco podíamos paralizar la implementación, en cuanto tuvimos un objetivo claro, en este caso el de los personajes con múltiples objetivos, realice las primeras pruebas de modificaciones en la aplicación, hasta que al no conseguir avances hubo que rehacerla, tal y como se detalla en el Capítulo \ref{cap:PrimerosPasos}. En concreto todas las pruebas del villano fueron realizadas por mi.
+
+Mientras intentaba esto, también desarrollé el primer prototipo de memoria de la aplicación, de forma que aquellas partes en las que el diseño era claro iban tomando forma poco a poco dando lugar a unos objetivos claros hacia los que encaminar nuestro trabajo. Sin embargo hablaré del resto de mi aportación a la memoria más tarde.
+
+Cuando empezó la implementación de nuestra aplicación definitiva, aprendí de mi compañero Oscar los fundamentos de la misma, pues él llevaba la voz cantante en este aspecto.
+Cuando adquirí el suficiente conocimiento, implementé la primera beta de la acción \texttt{Batalla}, y construí el SCD de los PNJ's.
+
+Es a partir de este momento cuando decidimos que queremos una aplicación altamente configurable, y es en este apartado donde he realizado mi principal aportación al proyecto.
+
+Lo primero que intente fue tratar de hacer a los personajes lo mas configurables posibles. Para ello, debí crear una nueva estructura para los propios personajes, a través de una superclase y el uso de la herencia (el resultado final de esta arquitectura se puede ver en la figura \ref{fig:DCPersonajes}) . Para ello, fue necesario crear las clases \texttt{Protagonista} y \texttt{Antagonista}, de la misma manera que tuve que rehacer \texttt{PNJ}, de manera que todas las clases pudiesen interpretar correctamente los datos de la superclase.
+Estos cambios en la estructura me permitieron configurar los personajes de una manera más eficaz, de manera que les añadí atributos para favorecer la narración, como por ejemplo en un antagonista su \texttt{sexo} o su \texttt{especie}. Esto, junto al atributo \texttt{clase}, me permitía configurar los detalles de un antagonista, de manera que con un mismo arquetipo de configuración conseguía resultados muy distintos, como por ejemplo los que muestro en el Cuadro \ref{ejemploantagonistasXML}.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Ejemplo de código de creacion de antagonistas},label=ejemploantagonistasXML]
+
+<Actores>
+	<monstruo nombre="Smaug" clase="Secuestrador" 
+		especie="Dragon" sexo="M"/>
+	<monstruo nombre="Florecilla" clase="Secuestrador"
+		 especie="Dragon" sexo="F"/>
+	<monstruo nombre="Scar" clase="Secuestrador"
+		 especie="Tigre" sexo="M"/>
+</Actores>
+\end{lstlisting}  
+
+De esta manera, puedo conseguir al dragón Smaug, la dragona Florecilla o el tigre Scar, y todos actuaran como un antagonista secuestrador. La gracia de esta implementación reside en que la historia cambia totalmente cuando se narra, gracias a los atributos nuevos y la abstracción con la que se han construido las clases de personajes.
+
+Cuando implementé estos cambios, se hizo patente la necesidad de cambiar los archivos XML y los SCD que los cargaban. De esta manera, configuré correctamente el SCD, lo cual provocó que se debía cambiar la manera en la que se iniciaba cada personaje de manera individual y tuvé que realizar los cambios oportunos.
+
+
+Mi siguiente trabajo fue cambiar el mapa, tratando de permitir al usuario modificarlo a su gusto. Al rehacer el mapa de la manera mas configurable posible decidí darle tipos a las localizaciones, consultable en el Capítulo \ref{cap:Mapa:ClaseMapaLocalizacion}, de manera que los personajes se situaban al crearse según su clase en estos distintos tipos, tal y como se muestra en la Figura \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase}. Todas estas características están implementadas en la interfaz \texttt{Vocabulario}, donde se definen los diferentes tipos de localizaciones que se pueden tener, así como en la clase \texttt{Mitologia} donde se especifica la relación entre cada clase y su localización.
+Para conseguir satisfactoriamente este cambio, tuve que crear una arquitectura funcional para el mismo, creando la clase localización para poder interpretar correctamente el mapa y revisando la conexión entre la clase \texttt{Mapa} y el \texttt{Agente Mundo}, de manera que este agente pudiese interpretar correctamente el mapa (el diagrama de esta arquitectura es consultable en la figura \ref{fig:DCMapa}). 
+
+Lo único que quedaba sin ser configurable en la aplicación eran las razas, así que me puse con ello. Originalmente, las razas se cargaban directamente desde un enumerado implementado dentro de la aplicación, de manera que para hacerlas configurables tuve que crear su propia clase, asi como modificar su XML y crear un SCD acorde a él. De igual manera, tuve que modificar la clase \texttt{Protagonista} para que las razas fuesen cargadas correctamente y hacer que esta clase pudiese interactuar correctamente con la clase raza, conseguido a través de su vínculo común con el \texttt{Agente Mundo}. La arquitectura de este diseño es consultable en la figura \ref{fig:DCOntología}
+
+Por último realice la implementación del \texttt{Ayudante del Héroe}. Para crear este agente, debí crear su clase, así como los métodos necesarios para su ejecución y crear los comportamientos que necesitaba, en este caso \texttt{ConvertirseEnSabio}. Sin embargo, la parte mas difícil de esta implementación fue conseguir que el mundo avisase correctamente al \texttt{ayudante} cuando se producía un encuentro entre un \texttt{aspirante a heroe} y un \texttt{ladron}. Para ello, debí modificar el \texttt{Agente Mundo}, de manera que tomando como ejemplo el encuentro entre el \texttt{aspirante} y el \texttt{emboscador}, realicé uno parecido entre el \texttt{aspirante a heroe} y el \texttt{ladron} llamado \texttt{EncuentroLadron}, controlando como interactuaban estos agentes entre ellos, buscando en las páginas amarillas de JADE y mediante el intercambio de mensajes. Una vez se producía el encuentro entre estos dos agentes, el \texttt{Agente Mundo} se encargaba de avisar a los ayudantes a través del método \texttt{AcudeAyudante}, tal y como se especifica en el capitulo\ref{cap:Personajes:Aspirante}, donde nuevamente controlé el intercambio de mensajes entre estos agentes hasta que finalmente el ayudante llegaba. Por último, solo me quedaba realizar correctamente la planificación del ayudante, y junto con la ayuda de Oscar, conseguí acabarla satisfactoriamente.
+
+Para finalizar, me comprometí en gran medida con el desarrollo y corrección de la memoria. En concreto, los capítulos que he desarrollado han sido: Resumen y su traducción, Introducción y su traducción, Primeros Pasos, Mapa, Personajes (en concreto, la clase Personaje, personajes, antagonistas, PNJ's, atributos y razas) y Conclusiones y su traducción.
 
 \section{Trabajo realizado por Samuel Rodríguez Oliva}
 
