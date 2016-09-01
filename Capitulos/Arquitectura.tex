@@ -35,20 +35,26 @@ A continuación hablaremos con más detalle sobre cada uno de estos componentes y 
 
 Para tener una referencia que permita visualizar de manera sencilla la arquitectura del proyecto se ha incluido la Figura \ref{fig:ArquitecturaProyecto}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/arquitectura}
+	\includegraphics[width=1\textwidth]{Imagenes/EstructuraCompleta_DiagramaDeObjeto1}
 	\caption{Arquitectura del proyecto}
 	\label{fig:ArquitecturaProyecto}
 \end{figure}
 
 %-------------------------------------------------------------------
-%\section{Personajes y SMA}
-%\label{cap:Arquitectura:PersonajesSMA}
 
-%Cada uno de los personajes es implementado como agente software usando la plataforma JADE. Esto permite que los personajes puedan usar los estándares definidos por FIPA e interactuar con otros personajes.
+\newpage
+\section{Personajes y SMA}
+\label{cap:Arquitectura:PersonajesSMA}
 
-%Cada Agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes.
+En el Capítulo \ref{cap:EstadoDeLaCuestion:Agentes} se habla extensamente de las partes principales que componen al SMA de la aplicación, JADE y la plataforma que nos ofrece FIPA.
+
+Cada uno de los personajes es implementado como agente software usando la plataforma JADE. Esto permite que los personajes puedan usar los estándares definidos por FIPA e interactuar con otros personajes.
+
+Cada Agente del sistema es un hilo de ejecución independiente dentro de este. Esto permite que cada uno de los personajes pueda existir y actuar independientemente del resto de agentes haciendo uso de los diferentes \textit{behaviours} JADE. La unión de estas herramientas compone el núcleo SMA.
+
+
 
 %Estudiando diferentes tipos de historias, de diferentes autores y temáticas variadas, se puede observar en la gran mayoría de los casos que existe un factor en común para estas historias. Hablamos sobre los arquetipos de personajes que existen en las historias.
 %
@@ -95,7 +101,7 @@ Para tener una referencia que permita visualizar de manera sencilla la arquitect
 %		
 %\end{itemize}
 
-En el Capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
+%En el Capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo y características que tiene cada personaje.
 
 %Comprender cómo está estructurado el SMA y por qué funciona requiere que se hable con una terminología más técnica e indagar con más profundidad en las prestaciones que ofrecen los agentes, JADE y los estándares FIPA.
 
@@ -107,7 +113,8 @@ En el Capítulo \ref{cap:Personajes} se habla con más detalle sobre el trasfondo 
 \section{El Agente Mundo}
 \label{cap:Arquitectura:AgenteMundo}
 
-Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de un mundo para nuestros personajes. El Mundo tiene la función de servir como una plataforma en la cual los personajes se apoyan para poder desarrollar su funcionalidad. Más allá de sólo encargarse de la interacción de los personajes con la escenografía en la que se encuentren, el Mundo es el encargado de gestionar los siguientes aspectos:
+%Al comienzo de este capítulo se comentó la idea y necesidad de la existencia de un mundo para nuestros personajes.
+El Agente Mundo tiene la función de servir como una plataforma en la cual los personajes se apoyan para poder desarrollar su funcionalidad. Más allá de sólo encargarse de la interacción de los personajes con la escenografía en la que se encuentren, el Mundo es el encargado de gestionar los siguientes aspectos:
 
 \begin{itemize}
 	\item Activar y gestionar las llamadas al SCD (\textit{Sistema de Carga de Datos}). Ver en la Sección \ref{cap:Arquitectura:Loaders}.
@@ -421,3 +428,8 @@ El usuario puede ir añadiendo personajes continuamente en cualquier momento del 
 Aunque la interfaz gráfica se encarga de mostrar al usuario en momento de ejecución todas las acciones que han llevado a cabo los agentes y que terminan generando la historia, tener un recopilatorio ó registro de todos eventos y las simulaciones realizadas requiere de una parte del sistema que se encargue de registrar todo lo sucedido en un fichero.
 
 Este componente registra toda la información que generan los agentes, incluyendo el emisor del mensaje, el momento de emisión y el mensaje en sí. No obstante, existen ciertos mensajes que no son registrados en el logger ya que restarían claridad al archivo, estos son los mensajes de control que usan los agentes para comunicarse entre ellos, como los vistos antes en la sección \ref{cap:Arquitectura:SMA:FIPA}.
+
+
+\section*{}
+
+Son variados y considerablemente complejos cada uno de los componentes que integran toda la arquitectura del sistema que se está desarrollando. Los capítulos siguientes tratan de explicar con mayor nivel de detalle las características que tienen otros elementos internos de la arquitectura y sobre cómo son implementados. Por último se invita al lector, si está interesado en conocer aspectos más específicos sobre el modelo del sistema, en la sección de apéndices al final de este documento se incluyen algunos diagramas de clases que contienen más información sobre estructura interna de la aplicación, así como ejemplos de secuencia de los mensajes FIPA transmitidos entre los agentes durante una simulación.
