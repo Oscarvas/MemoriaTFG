@@ -11,32 +11,41 @@
 -En mi opinión, si vas a hacer algo como esto, hazlo con estilo.
 \end{Frase}
 \begin{Fuente}
-Regreso al futuro
+Conversación entre Doc y Marty, Regreso al futuro
 \end{Fuente}
 \end{FraseCelebre}
 
 
-Con el fin de progresar y ampliar las funcionalidades actuales del sistema se proponen varios campos de investigación para mejorar el mismo.
+Con el fin de progresar y ampliar las funcionalidades actuales del sistema se proponen varios puntos de investigación para mejorar el mismo.
 
 \section{Personalidad y complejidad de los personajes}
 
-Uno de los aspectos que más ha influido en aumentar la variedad de las historias generadas ha sido la inclusión de nuevas acciones disponibles. Cuanto mayor sea la cantidad de acciones que pueden realizar los personajes mediante su ejecución y existan acciones más atómicas, se podrán realizar acciones aún más complejas.
+Uno de los aspectos que más ha influido en aumentar la variedad de las historias generadas ha sido la inclusión de nuevas acciones disponibles.
+Cuanto mayor sea la cantidad de acciones que pueden realizar los personajes durante su ejecución mayor cantidad de historias habrá.
+Es por ello fundamental el que existan más acciones atómicas, con las que se podrán realizar acciones aún más complejas.
 
-Agregar a los personajes aspectos como la personalidad (miedosos, valientes, introvertidos...) y que este aspecto influya tanto en las frases que dicen los personajes como en la probabilidad de realizar con éxito ciertas acciones.
+Dentro del mismo apartado de personajes, agregar aspectos como la personalidad o estados de animo (miedosos, valientes, introvertidos...) permitirá que este aspecto influya tanto en las frases que dicen los personajes como en la probabilidad de realizar con éxito ciertas acciones.
 
-Los atributos y razas como factor aleatorizante en el transcurso de las historias abre un amplio abanico de posibilidades. Incorporar al sistema eventos o limitaciones ligados a estas características enriquecería enormemente al sistema.
+Por último, los atributos y razas tomados como un factor aleatorizante en el transcurso de las historias abre un amplio abanico de posibilidades.
+Incorporar al sistema eventos o limitaciones ligados a estas características enriquecería enormemente al sistema.
 
 \section{Estabilidad}
-
-El drástico aumento en la capacidad de configuración del sistema nos ha obligado a perder cierto control en la cohesión de las diferentes fuentes que le proporcionan datos a la aplicación. Para hacer que el sistema sea más sencillo y cómodo de usar por cualquier usuario, eventualmente surgirá la necesidad de tener un módulo o herramienta extra la correcta cohesión y consistencia entre las diferentes fuentes de entrada de datos.
+El aumento en la capacidad de configuración del sistema ha obligado a perder control automático en la cohesión de las diferentes fuentes que proporcionan datos a la aplicación.
+Para hacer que el sistema sea más robusto surgirá la necesidad de tener herramienta encargada de la correcta cohesión y consistencia entre las diferentes fuentes de todo el SCD.
+De esta forma se conseguirá aumentar la sencillez y comodidad a la hora de configurar y usar el sistema por parte de cualquier usuario.
 
 
 \section{Interfaz Gráfica de Usuario}
 
 La interfaz gráfica actual que usa el sistema es lo suficientemente sencilla para dejar incorporar nuevos personajes a la historia en ejecución pero se ve muy limitada para otras funciones. Extender la implementación de la interfaz para que funcione como cuadro de mandos y permita al usuario introducir los datos iniciales para el sistema en lugar de tener que preparar los archivos XML con antelación facilitaría el uso de la aplicación.
 
-Disponer de acciones como pausar o poder modificar el estado actual de un personaje mientras la historia se está generando, así como aumentar la interactividad general del usuario contra el sistema.
+Así como disponer de acciones que permitan pausar o poder modificar el estado actual de un personaje mientras la historia se está generando permitiría aumentar la interactividad general del usuario contra el sistema.
 
 \section{Agentes}
 
 Actualmente, la mayoría de los agentes pasan buena parte del tiempo esperando a que ocurra algún evento, mientras esto pasa, los agentes no realizan ninguna acción. Incorporar comportamientos a los agentes para minimizar el tiempo que pasan ociosos y que aporten nueva información a las historias.
+
+\section{Hilo desencadenante de la historia}
+En el momento actual el desencadenante de la historia siempre es que el Secuestrador rapta a la Princesa y su Allegado pide ayuda.
+Este proyecto se ha enfocado ha generar multitud de historias a partir de ese momento.
+Por esto queda pendiente cambiar el desencadenante de la historia para conseguir que además de generar historias diversas las haría impredecibles desde el principio.
