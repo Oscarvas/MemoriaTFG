@@ -67,3 +67,21 @@ También ha participado en el desarrollo del Resumen, Introducción y Trabajo Futu
 Por último se ha encargado de la revisión de todos los Capítulos y de la recolocación de las imagnes en el documento. 
 
 \section{Trabajo realizado por Óscar David Vásquez Peraza}
+
+Una vez que se realizaron los primeros procesos de \textit{brainstorming}, quedó bastante claro que las primeras aproximaciones que se debían hacer era familiarizarse con JADE, el lenguaje PDDL, y estudiar al fondo el sistema generador anterior.
+
+En estas primeras fases, se trató de incorporar una serie de variaciones y nuevas funciones en el sistema base, sin mucho éxito. Entonces empece a crear sistemas simples usando JADE que ayudarían al resto de compañeros también a entender el funcionamiento de los agentes con mayor facilidad. Una vez hecho todo esto procedí con la reimplementación del sistema anterior parte por parte para poder tener una estructura limpia que nos permitiese realizar la implementación de las nuevas funciones.
+
+Tras varias discusiones sobre las diferentes capas que iban a componer el sistema, se empieza a hacer el montaje del nuevo sistema. Una de las primeras funciones que se incorpora es la interfaz gráfica, puesto que nos permitiría interactuar con el sistema de una forma más cómoda.
+
+El diseño e implementación de nuevos tipos de personajes requería no solo un buen manejo de JADE, sino que tambíen del lenguaje PDDL puesto este es quién declara y especifica las acciones que usan los personajes y que en función de las acciones que realicen serán un tipo de personaje en la historia. Todo esto lleva a empezar a diseñar el conjunto de instrucciones necesarias para disponer de un sistema multiobjetivos. Nos damos cuenta de que en lugar de crear un agente en concreto que solo realizaba cierto tipos de acciones, se puede hacer que el agente sea capaz de ejercer ciertos roles en función del tipo de objetivo que haya elegido realizar.
+
+Así es como se empieza a hacer la ampliación del dominio pddl y crear nuevas acciones, con nuevos efectos sobre los personajes y que algunos servirían para personajes específicos y otras acciones más generales. Esto obliga ampliar el código para que cada personaje sea capaz de procesar las nuevas instrucciones que va recibiendo del planificador así como también aumentó drásticamente el número de variables de control en el sistema.
+
+A la vista de la nueva magnitud que el sistema estaba tomando, fue necesario modificar el agente Mundo y la forma en la que manejaba cierta información. Debido a ciertas características del lenguaje pddl, la información que recibe cada personaje para generar su fichero de problema empezó a verse en la necesidad de ser filtrada, puesto que el tamaño de los archivos ha aumentado porque recogen toda la nueva información. Gran parte de esta información era irrelevante para cada personaje, o mejor dicho, a cada personaje sólo le interesa conocer cierta información, así que generar un archivo de problema pddl específico para cada personaje se convirtió en algo a implementar con alto nivel de urgencia.
+
+El montaje del nuevo sistema permitía que implementar una serie nuevos personajes fuese más sencillo, empezando a implementar personajes como el emboscador, el asesino, el ladrón, la planificación de la víctima , así como darle la posibilidad de escapar por cuenta propia de su secuestrador.
+
+Al implementar a estos personajes, crear y diseñar la forma en la que se dispararían eventos entre personajes que estuviesen funcionando de forma paralela se hace inmediatamente necesario para que estos personajes interactúen correctamente, con lo cuál me hago cargo de asegurarme que el agente Mundo sea capaz de manejar y controlar los eventos. A modo general, la mayor parte de mi trabajo está centrado en el estudio y diseño del funcionamiento y la lógica del sistema.
+
+Respecto a la documentación, los capítulos realizados han sido Estado de la Cuestión(a excepción de la narrativa), Objetivos, Arquitectura y Trabajo Futuro, así como la revisión y corrección del resto del documento.

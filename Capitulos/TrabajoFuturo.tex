@@ -41,9 +41,11 @@ La interfaz gráfica actual que usa el sistema es lo suficientemente sencilla par
 
 Así como disponer de acciones que permitan pausar o poder modificar el estado actual de un personaje mientras la historia se está generando permitiría aumentar la interactividad general del usuario contra el sistema.
 
-\section{Agentes}
+\section{Agentes y Sincronización}
 
 Actualmente, la mayoría de los agentes pasan buena parte del tiempo esperando a que ocurra algún evento, mientras esto pasa, los agentes no realizan ninguna acción. Incorporar comportamientos a los agentes para minimizar el tiempo que pasan ociosos y que aporten nueva información a las historias.
+
+En general, aunque existen eventos que se disparan cuando dos personajes se llegan a encontrar, es necesario que para que un primer agente cumpla su planificación, el resto de agente con los que interactúa estén en un estado de \textit{standby}. Implementar una interacción por parte del usuario en tiempo de ejecución requiere que los agentes sean capaces de actualizar la información que conocen del entorno en cada momento, cosa que actualmente no realizan en totalidad.
 
 \section{Hilo desencadenante de la historia}
 En el momento actual el desencadenante de la historia siempre es que el Secuestrador rapta a la Princesa y su Allegado pide ayuda.
