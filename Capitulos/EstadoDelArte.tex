@@ -128,7 +128,7 @@ En la tabla \ref{fig:ACLParameters}, se ve cuáles son los parámetros que caracte
 	\caption{Tipos de actos comunicativos definidos en \texttt{performative}}
 	\label{fig:Performatives}
 \end{table}
-
+\newpage
 En el cuadro de Código \ref{mensajeRequest}\footnote{Recuperado de \cite{greenwood}} se puede ver un ejemplo del contenido de un mensaje usando el acto \texttt{Request}:
 
 %basicstyle=\scriptsize o footnotesize
@@ -162,7 +162,7 @@ Las entidades contenidas en la Figura \ref{fig:ModeloReferencia} son una configu
 	\caption*{Recuperado de http://www.fipa.org/specs/fipa00023/XC00023H.html.}
 	\label{fig:ModeloReferencia}
 \end{figure}
-
+\newpage
 Una \textbf{Agent Platform (AP)} proporciona la infraestructura física donde los agentes son desplegados. La AP comprende la máquina/s, sistema operativo, software de soporte de agentes, componentes de gestión de agentes FIPA (DF, AMS y MTS) y los agentes.
 
 El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicado más adelante). El DF proporciona un servicio de \textit{páginas amarillas} para el resto de agentes. Los agentes pueden registar sus servicios en el DF ó consultar éste para conocer que servicios ofrecen otros agentes. La Figura \ref{fig:PaginasAmarillas} muestra un ejemplo de este servicio.
@@ -174,7 +174,7 @@ El \textbf{Directory Facilitator (DF)} es un componente esencial del AP(explicad
 	\caption*{Recuperado de \cite{greenwood}.}
 	\label{fig:PaginasAmarillas}
 \end{figure}
-
+\newpage
 El \textbf{Agent Management System (AMS)} es un componente esencial del AP. El AMS ejerce control de supervisión sobre el acceso y uso del AP. Sólo un AMS debe existir para cada AP. El AMS mantiene un directorio de AIDs (Agent Identifications) que contienen direcciones de transporte (entre otras cosas) para los agentes registrados en el AP. El AMS ofrece un servicio de \textit{páginas blancas} para otros agentes. Cada agente debe registrarse en el AMS para poder obtener un AID válido.
 
 Un \textbf{Message Transport Service (MTS)} es el método de comunicación por defecto entre agentes a través de diferentes APs.
@@ -280,7 +280,7 @@ La Figura \ref{fig:JerarquiaComportamientos} nos muestra un diagrama detallado d
 	\caption*{Recuperado de \cite{greenwood}.}
 	\label{fig:JerarquiaComportamientos}
 \end{figure}
-
+\newpage
 Al momento de diseñar el comportamiento de un agente es probable que se requiera de comportamientos que sean capaces de ejecutarse en paralelo y al mismo tiempo. El tipo \texttt{ParallelBehaviour} hace una ejecución en paralelo de dos ó más comportamientos pero lo que hace realmente es ejecutar un método \texttt{action()} a la vez, del comportamiento que toque, y luego va alternando con los demás comportamientos.
 
 Esto se debe a que el manejo de los comportamientos no sigue una política de expulsión, es decir, cuando se está ejecutando el método \texttt{action()} de un comportamiento éste nunca se ve interrumpido para que otro inicie su ejecución. Sólo cuando ése método termina y devuelve la salida \texttt{done()} como \texttt{true} se otorga el control al \texttt{action()} del siguiente comportamiento en la cola.
@@ -327,7 +327,7 @@ Un aspecto importante del funcionamiento de este lenguaje, en conjunto con un pl
 	
 	\item Problema: Es el documento que contiene el estado inicial, los objetos y la especificación de objetivos.
 \end{itemize}
-
+\newpage
 \section{Narrativa Computacional}
 \label{cap:EstadoDeLaCuestion:Narrativa}
 Dentro del campo de la narrativa computacional hay algunos proyectos que tienen especial interés para el proyecto actual. Estos sirven para evitar partir desde cero, tener conocimiento del estado actual de la cuestión y así tener un punto de partida para aportar algo más a este campo.
@@ -365,7 +365,7 @@ Un punto interesante en UNIVERSE es la forma de creación tanto de los personajes
 	\caption{Representación de una trama en UNIVERSE}
 	\label{fig:UniverseTrama}
 \end{figure}
-
+\newpage
 \subsection{MINSTREL}
 \cite{IRIS:thesisTurner1992} en su tesis doctoral trata el tema de Creatividad Computacional y la generación de narrativa. Por ello realizó este programa, el cual genera historias breves de no más de una página, sobre los Caballeros de la Mesa Redonda del Rey Arturo. Para la generación de la historia primero se realiza una fase de planificación y a continuación una fase de la resolución del problema.
 
