@@ -5,7 +5,7 @@
 %---------------------------------------------------------------------
 
 \chapter{Simulaciones de historias}
-
+\label{cap:Simulaciones}
 \begin{FraseCelebre}
 	\begin{Frase}
 	\end{Frase}
@@ -13,16 +13,62 @@
 	\end{Fuente}
 \end{FraseCelebre}
 
-No olvidar introducción del capitulo
+Después de un año de trabajo en este capítulo se van a exponer los resultados obtenidos durante la elaboración del proyecto.
 
 \section{Flujo de una historia}
-
-\section{Historia del generador anterior}
+Como se ha mencionado anteriormente, el hilo principal de la historia es el secuestro de la \textit{Víctima} por parte del \textit{Secuestrador}.
+Pero lo que se ha introducido son una gran cantidad de factores que hacen que cada simulación el nudo y el desenlace de la historia sea diferente.
+Todo esto se consigue gracias al haber introducido elementos en la historia que permiten generar aleatoriedad dentro de las mismas acciones.
+Finalmente si se cree que el número de historias diferentes generadas no es suficiente para eso esta todo el SCD que se ha creado.
 
 \section{Historias en función de la parametrización}
+Se ha conseguido con el SCD que si el número de historias que se genera con la parametrización principal no parece suficiente, cambiando los archivos XML de ``Protagonistas.XML'' ,``Antagonistas.XML'', ``PNJ.XML'', ``Mapa.XML'',``Razas.XML'', ``Objetos.XML'' y ``Frases.XML'' se consiga un nuevo ámbito para generar historias.
 
 \subsection{Historias con parametros mínimos}
+Para las historias más reducidas que se pueden generar se necesita que en el archivo ``Protagonistas.XML'' haya como mínimo un personaje \textit{Víctima}, un personaje \textit{Allegado} a esta víctima y un \textit{Aspirante}, mientras que en el archivo ``Antagonistas.XML'' solo tiene que haber un personaje \textit{Secuestrador}.
+Creando un mapa con dos localizaciones es más que suficiente para que se genere la historia.
+Y por último se necesita el archivo ``Frases.XML'' que este será el más extenso de todos.
+Para crear esta historia mínima no son necesarios los archivos ``Razas.XML'', ``PNJ.XML''y ``Objetos.XML''.
 
-\subsection{Historias aumentado parametros}
+\subsection{Ampliando parametros}
+Partiendo desde la historia reducida, simplemente incluyendo los archivos que no eran necesarios ya se consiguen nuevas historias o ampliaciones de las historias reducidas.
+Por tanto a cuanto mayor cantidad de datos se introduzcan en los archivos XML que afectan a la generación de la historia, la cantidad de historias diferentes que  pueden conseguir crece de forma exponencial.
+La siguiente historia se ha generado con una configuración mínima de al menos un valor para cada apartado posible de cada archivo XML.
 
-\label{cap:Simulaciones}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria1}
+	\caption{Imagen de ejemplo de una simulación parte 1}
+	\label{fig:EjemploHistoria1}
+\end{figure}
+\newpage
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria2}
+	\caption{Imagen de ejemplo de una simulación parte 2}
+	\label{fig:EjemploHistoria2}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria3}
+	\caption{Imagen de ejemplo de una simulación parte 3}
+	\label{fig:EjemploHistoria3}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria4}
+	\caption{Imagen de ejemplo de una simulación parte 4}
+	\label{fig:EjemploHistoria4}
+\end{figure}
+
+
+\newpage
+\subsection{Historias famosas}
+Además de conseguir multitud de historias también el sistema permite recrear algunas historias conocidas, como la historia de \emph{Super Mario} o \emph{Zelda}, simplemente introduciendo los datos en los archivos del SCD (Ver en el siguiente ejemplo).
+
+\subsection{Historia del generador anterior}
+Por último tampoco se quería perder la historia desde la que se partía y se ha realizado la configuración adecuada para los archivos correspondientes para así guardar la historia desde la que se partía.
+
+
