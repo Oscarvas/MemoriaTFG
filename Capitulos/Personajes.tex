@@ -121,7 +121,7 @@ De igual manera, cada acción que aquí se comenta, como que la víctima pide ser r
 
 %-------------------------------------------------------------------
 \subsubsection{Carga y Configuración de los Protagonistas}
-Para poder tener unos protagonistas tan diversos se necesitaba de algo capaz de interpretar correctamente los datos de estos. Para ello se usa un SCD. Este SCD es capaz de cargar e interpretar los datos proporcionados a través del fichero ``Personajes.XML'', a partir del cual coge las características concernientes a cada Protagonista en específico y proporciona al \texttt{Agente Mundo} esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<personaje>}.
+Para poder tener unos protagonistas tan diversos se necesitaba de algo capaz de interpretar correctamente los datos de estos. Para ello se usa un SCD. Este SCD es capaz de cargar e interpretar los datos proporcionados a través del fichero ``Protagonistas.XML'', a partir del cual coge las características concernientes a cada Protagonista en específico y proporciona al \texttt{Agente Mundo} esos datos, recorriendo en el archivo todos los nodos con la palabra clave \texttt{<protagonista>}.
 El archivo de configuración tiene al final el aspecto del cuadro de Código \ref{protagonistasXML}.
 
 \lstset{frameround=fttt}
@@ -129,7 +129,7 @@ El archivo de configuración tiene al final el aspecto del cuadro de Código \ref{
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Actores>
-	<personaje nombre="[nombrePersonaje]" clase="[nombreClase]"
+	<protagonista nombre="[nombrePersonaje]" clase="[nombreClase]"
 		raza="[nombreRaza]" vida="[#]" 
 			fuerza="[#]" destreza="[#]" inteligencia="[#]" 
 				codicia="[#]"/>
@@ -258,7 +258,7 @@ El Fantasma es el espíritu vengativo de un rey derrocado hace tiempo que no pudo
 Finalmente, se decide que el diseño de la serpiente no es lo suficientemente exclusivo, asi que se modifica para que busque un objeto, lo robe, y decida protegerlo en algún lugar atacando a los personajes que pasen por él.
 
 \subsubsection{Antagonistas genéricos}
-Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas se decide que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y se pasa a tener antagonistas secuestradores (dragón), emboscadores (trol), ladrones (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. De la misma manera, los antagonistas que actúan sobre una localización inicial, pueden reconfigurarla para que se adapte a los requerimientos del usuario. Este es el esquema final resultante:
+Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a los antagonistas se decide que estos también deben ser configurados por el usuario a través de un archivo XML. Para ello la clasificación de los antagonistas dentro del sistema cambia, y se pasa a tener antagonistas secuestradores (dragón), emboscadores (trol), ladrones (serpiente) y asesinos(fantasma). Esta nueva clasificación permite que los antagonistas trabajen bajo las condiciones con las que antiguamente estaban diseñados pero que a su vez no tengan por que ser un antagonista impuesto por nosotros. De la misma manera, los antagonistas que actúan sobre una localización inicial, pueden reconfigurarla para que se adapte a los requerimientos del usuario.El esquema resultante se puede comprobar en la figura \ref{fig:TablaObjetivosAntagonistas}.
 
 \begin{table}[h!]
 	\centering
@@ -269,8 +269,8 @@ Como sucede a lo largo del proyecto, al tratar de darle un aire mas genérico a l
 		Ladron						& Robar y Proteger un Objeto \\
 		Asesino						& Atormentar Allegados a Víctimas \\ \hline
 	\end{tabular}
-	\caption{Tabla final de objetivos y tipos de Monstruos}
-	\label{fig:TablaObjetivosMonstruos}
+	\caption{Tabla final de objetivos y tipos de Antagonistas}
+	\label{fig:TablaObjetivosAntagonistas}
 \end{table}
 
 De esta manera el usuario a través del archivo XML, cuya construcción es explicada mas adelante, podrá dictaminar el nombre del antagonista, que clase de antagonista dentro de los tipos propuestos quiere que sea, que especie desea otorgarle y finalmente definir su sexo. Así, por poner algunos ejemplos, el usuario podrá elegir que la princesa Rapunzel sea secuestrada por el dragón Smaug o por la bruja Maléfica, o de la misma manera, que el dragón Smaug secuestre princesas en una simulación del sistema o bien embosque a los viajeros que atraviesan la Montaña Solitaria en otra simulación.
@@ -279,14 +279,14 @@ De esta manera el usuario a través del archivo XML, cuya construcción es explica
 Para implementar los Antagonistas se necesita tratar con agentes y sus propiedades. A través del \texttt{Agente Mundo}, los Agentes se comunican con otros Agentes y reciben la información que necesitan. Pero sin embargo para el correcto funcionamiento de los Antagonistas se necesitan muchas más cosas.
 %-------------------------------------------------------------------
 \subsubsection{Carga y configuración de los antagonistas}
-Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Monstruos.XML'', se sigue el patrón preestablecido en el Capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave \texttt{<monstruo>}, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. La estructura del archivo XML se detalla en el Código \ref{antagonistasXML}.
+Al crear el SCD de Antagonistas, capaz de cargar los datos correctamente del archivo ``Antagonistas.XML'', se sigue el patrón preestablecido en el Capítulo \ref{cap:Arquitectura:Loaders} con la particularidad de recorrer los nodos con la palabra clave \texttt{<antagonista>}, que contienen los atributos específicos de cada antagonista que se quiere introducir en la historia. La estructura del archivo XML se detalla en el Código \ref{antagonistasXML}.
 
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los antagonistas},label=antagonistasXML]
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Actores>
-	<monstruo nombre="[nombreAntagonista]" 
+	<antagonista nombre="[nombreAntagonista]" 
 		clase="[Secuestrador|Ladron|Emboscador|Asesino]"
 			especie="[nombreEspecie]" sexo="[M|F]"/>
 </Actores>
