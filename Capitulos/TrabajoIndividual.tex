@@ -59,12 +59,36 @@ Por último realice la implementación del \texttt{Ayudante del Héroe}. Para crear
 Para finalizar, me comprometí en gran medida con el desarrollo y corrección de la memoria. En concreto, los capítulos que he desarrollado han sido: Resumen y su traducción, Introducción y su traducción, Primeros Pasos, Mapa, Personajes (en concreto, la clase Personaje, personajes, antagonistas, PNJ's, atributos y razas) y Conclusiones y su traducción.
 
 \section{Trabajo realizado por Samuel Rodríguez Oliva}
-La parte realizada por Samuel correspondiente al desarrollo del sistema se ha centrado principalmente en el apartado narrativo así como en la inclusión de los objetos en las historias, ver los capítulos correspondientes para más información.
-También ha colaborado en la realización de los conceptos de atributos y razas, además de en la implementación del árbol de jerarquía de clases de los personajes.  
+En primer lugar para poder empezar a hablar de mi aportación al proyecto que se ha estado describiendo a lo largo de esta memoria hay que empezar por el trabajo de documentación que he ido realizando.
+Al no haber trabajado previamente con Agentes ni con planificadores, le pedí al tutor toda la información posible sobre el proyecto del cual quería que partiésemos.
+Aparte de la información del proyecto también nos pasó cinco documentos que trataban sobre Agentes, Sistemas Multi-Agentes y generadores de historias con Agentes, referencias donde ver como instalar y trabajar con JADE y una web (http://icaps-conference.org/index.php/Main/Competitions) para buscar información sobre planificación en IA en general y PDDL en particular. Toda esta información sirvió para empezar la investigación con alguna base.
+A partir de aquí comencé a leer artículos relacionados con la generación de historias.
+Esto me permitió conocer sistemas previos de generación de historias y que fue de gran ayuda para conocer que aspectos se habían trabajado previamente además de absorber nuevas ideas que intentar integrar en nuestro proyecto.
+Para conocer estos sistemas es mejor ver el Capítulo \ref{cap:EstadoDeLaCuestion:Narrativa}.
+ 
+Durante las primeras semanas fue crucial realizar reuniones cada dos semanas ya que en ellas nos solventaban dudas que habían surgido de una reunión a otra al ir probando cosas y trabajando sobre el proyecto para después realizar un \textit{brainstorming} con ideas plausibles para integrar en nuestro sistema.
+Aunque no todas las ideas lanzadas en estas reuniones nos servían o podías ser implementas si recogimos algunas que han servido como pilares para el sistema.
+Estos pilares fueron recogidos como los objetivos que queríamos conseguir y de los cuales se habla detalladamente en el Capitulo de \ref{cap:Objetivos}. 
 
-Para la realización de la memoria del proyecto ha trabajado sobre los aspectos de la Narrativa Computacional y en que momento se encuentra actualmente, la Narrativa del Sistema, el Capítulo sobre los objetos así como del Capítulo de Simulaciones realizadas.
-También ha participado en el desarrollo del Resumen, Introducción y Trabajo Futuro, además de en la reestructuración de los capítulos de Primeros Pasos y Personajes.
-Por último se ha encargado de la revisión de todos los Capítulos y de la recolocación de las imagnes en el documento. 
+Como se ve en el Capítulo \ref{cap:PrimerosPasos} estábamos bloqueados con la implementación ya que nos atamos, al principio, con el sistema de nuestros compañeros.
+En estos primeros pasos trabajé en como hacer que la princesa no fuese un Agente objeto y ayudé a mis compañeros para intentar lograr que el caballero pudiese tener múltiples objetivos.
+Al fracasar en estos objetivos decidimos partir de un sistema realizado por nosotros desde el principio y así no tener limitaciones que no fuesen impuestas por nosotros mismos.
+En este punto repartimos el trabajo para avanzar de forma más eficiente y así aquí donde yo empecé a trabajar en primer lugar en la inclusión de los objetos en la historia.
+Para ver más detalladamente este apartado consultar el Capítulo \ref{cap:Objetos}.
+Ya que para algunos objetos necesitaba trabajar con la parte de planificación en momentos trabajamos conjuntamente Óscar y yo, él ayudándome con la integración de los objetos en el planificador y yo a él con el archivo de dominio del planificador en la creación de algunas acciones atómicas de los personajes. 
+A la vez que trabajaba con los objetos también participé en la realización de los conceptos, tal cual se encuentran implementados actualmente, de atributos y razas, además de en la implementación del árbol de jerarquía de clases de los personajes.
+Una vez implementado los objetos, mi esfuerzo se dedicó enteramente al apartado narrativo del sistema.
+
+A pesar de ser un apartado importante en la generación de historias, he creído conveniente que la mejor opción no era que tuviese un capítulo propio para explicar el tema sino que fuese un apartado dentro del Capítulo de Personajes(\ref{cap:Personajes:Narrativa}), debido a que las historias generadas con nuestro sistema están centradas en los personajes y son estos los encargados de saber para cada acción que realizan la frase o frases correspondientes que pueden decir.
+
+Por último he estado encargado de la realización de nuevos archivos de configuración XML e imágenes para poder probar que es posible que el sistema es capaz de crear nuevas historias en un ámbito diferente.
+Para ver un ejemplo de esto mirar en el Capítulo \ref{cap:Simulaciones}.
+Al ir probando estas diferentes configuraciones también e ido solventando problemas y errores que se encontraban en el sistema.
+
+De forma paralela a la implementación del sistema me encargué de transferir a \emph{LaTeX} toda la información que hasta el momento había ido recogiendo tanto yo como mi compañero Juan.
+Aquellos aspectos sobre los cuales he escrito han sido referentes principalmente a la parte de Narrativa Computacional dentro del Estado de la Cuestión, al Capítulo sobre los objetos así como al Capítulo de Simulaciones realizadas y al aparatado del Sistema Narrativo de los Personajes.
+También he participado de forma importante en el desarrollo del Resumen, Introducción y Trabajo Futuro, además de en la reestructuración de los Capítulos  Primeros Pasos y Personajes.
+Finamente mis últimos pasos en la realización de esta memoria se han enfocado en una corrección exhaustiva de todos los Capítulos además de una correcta colocación de imágenes, textos y códigos que se han utilizado como ejemplo o apoyo durante todo el documento.
 
 \section{Trabajo realizado por Óscar David Vásquez Peraza}
 

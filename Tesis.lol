@@ -8,5 +8,5 @@
 \contentsline {lstlisting}{\numberline {7.4}Formato XML de las razas y atributos}{74}{lstlisting.7.4}
 \contentsline {lstlisting}{\numberline {7.5}Formato XML de la narrativa de los personajes}{76}{lstlisting.7.5}
 \contentsline {lstlisting}{\numberline {8.1}Formato XML de los objetos}{80}{lstlisting.8.1}
-\contentsline {lstlisting}{\numberline {10.1}Ejemplo de c\'odigo de creacion de antagonistas}{86}{lstlisting.10.1}
-\contentsline {lstlisting}{\numberline {A.1}Extracto secuencia mensajes FIPA}{100}{lstlisting.Alph1.1}
+\contentsline {lstlisting}{\numberline {10.1}Ejemplo de c\'odigo de creacion de antagonistas}{88}{lstlisting.10.1}
+\contentsline {lstlisting}{\numberline {A.1}Extracto secuencia mensajes FIPA}{104}{lstlisting.Alph1.1}
