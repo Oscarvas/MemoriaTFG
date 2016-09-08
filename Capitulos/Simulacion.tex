@@ -13,7 +13,8 @@
 	\end{Fuente}
 \end{FraseCelebre}
 
-Después de un año de trabajo en este capítulo se van a exponer los resultados obtenidos durante la elaboración del proyecto.
+Después de un año de trabajo en este capítulo se van a exponer dos pequeños resultados que se han obtenido durante la elaboración del proyecto.
+Con estos resultados expuestos lo que se quiere mostrar es el alcance real del sistema y los cambios que se pueden producir cambiando los archivos del SCD.
 
 \section{Flujo de una historia}
 Como se ha mencionado anteriormente, el hilo principal de la historia es el secuestro de la \textit{Víctima} por parte del \textit{Secuestrador}.
@@ -22,18 +23,27 @@ Todo esto se consigue gracias al haber introducido elementos en la historia que 
 Finalmente si se cree que el número de historias diferentes generadas no es suficiente para eso esta todo el SCD que se ha creado.
 
 \section{Historias en función de la parametrización}
-Se ha conseguido con el SCD que si el número de historias que se genera con la parametrización principal no parece suficiente, cambiando los archivos XML de ``Protagonistas.XML'' ,``Antagonistas.XML'', ``PNJ.XML'', ``Mapa.XML'',``Razas.XML'', ``Objetos.XML'' y ``Frases.XML'' se consiga un nuevo ámbito para generar historias.
+\label{cap:Simulaciones:Parametrizacion}
+Con el SCD se ha conseguido que si el número de historias que se genera con la parametrización principal no parece suficiente o  mismamente uno se ha cansado del ámbito en el cual se desarrollan, se pueden generar nuevos tipos de historias con unos pequeños ajustes.
+Para llevar a cabo el cambio del entorno de la simulación simplemente hay que cambiar los siguientes archivos XML(cuadro de Código correspondiente): ``Antagonistas.XML''(\ref{antagonistasXML}), ``Frases.XML''(\ref{narrativaXML}), ``Mapa.XML''(\ref{escenografiaXML}), ``Objetivos.XML''(\ref{objetivosXML}), ``Objetos.XML''(\ref{objetosXML}), ``PNJs.XML''(\ref{pnjsXML}), ``Protagonistas.XML''(\ref{protagonistasXML}) y ``Razas.XML''(\ref{razasXML}).
 
-\subsection{Historias con parametros mínimos}
+También se  recomienda cambiar las imágenes que se muestran a través de la interfaz para conseguir un efecto más apropiado para la ambientación de estas nuevas historias.
+Las imágenes que se recomienda cambiar son tres: ``MapaBeta.PNG'', ``miniMapa.PNG'', ``OnePage.PNG''.
+La imagen ``MapaBeta.PNG'' es la que se muestra cuando a través del menú se accede a Mapa>Mostrar Mapa y es donde se muestra todas las regiones por la cuales se desarrolla la historia generada, mientras que ``miniMapa.PNG'' es la imagen que se carga al ejecutar el sistema y en todo momento esta visible, para la configuración principal del sistema la imagen que se muestra es un mapa más global que hace referencia a los reinos que existen.
+Finalmente la imagen ``OnePage.PNG'' es la que sirve de fondo sobre el cual se escriben las historias generadas.
+
+\subsection{Historias con parámetros mínimos}
 Para las historias más reducidas que se pueden generar se necesita que en el archivo ``Protagonistas.XML'' haya como mínimo un personaje \textit{Víctima}, un personaje \textit{Allegado} a esta víctima y un \textit{Aspirante}, mientras que en el archivo ``Antagonistas.XML'' solo tiene que haber un personaje \textit{Secuestrador}.
 Creando un mapa con dos localizaciones es más que suficiente para que se genere la historia.
 Y por último se necesita el archivo ``Frases.XML'' que este será el más extenso de todos.
 Para crear esta historia mínima no son necesarios los archivos ``Razas.XML'', ``PNJ.XML''y ``Objetos.XML''.
 
-\subsection{Ampliando parametros}
+\subsection{Ampliando parámetros}
 Partiendo desde la historia reducida, simplemente incluyendo los archivos que no eran necesarios ya se consiguen nuevas historias o ampliaciones de las historias reducidas.
 Por tanto a cuanto mayor cantidad de datos se introduzcan en los archivos XML que afectan a la generación de la historia, la cantidad de historias diferentes que  pueden conseguir crece de forma exponencial.
-La siguiente historia se ha generado con una configuración mínima de al menos un valor para cada apartado posible de cada archivo XML.
+La siguiente historia se ha generado con una configuración mínima de al menos un tipo de cada personaje descrito en el Capítulo \ref{cap:Personajes}, además de introducir un mapa extenso para evitar que al generar una historia se produzcan los mismos encuentros.
+También en esta historia se puede ver la interactuación de los personajes con los objetos y como les afectan.
+Por último es importante saber que toda la narrativa de esta historia es la que se encuentra almacenada y simplemente modificando este almacenaje cambiaría.
 
 \begin{figure}[h]
 	\centering
@@ -67,6 +77,7 @@ La siguiente historia se ha generado con una configuración mínima de al menos un
 \newpage
 \subsection{Historias famosas}
 Además de conseguir multitud de historias también el sistema permite recrear algunas historias conocidas, como la historia de \emph{Super Mario}, \emph{Zelda} o \emph{Shrek}, simplemente introduciendo los datos en los archivos del SCD.
+En las siguientes imágenes se puede observar una pequeña historia sobre basada en algunos de los personajes de la franquicia del videojuego Super Mario.
 
 \begin{figure}[h]
 	\centering
@@ -88,5 +99,6 @@ Además de conseguir multitud de historias también el sistema permite recrear alg
 	\caption{Imagen de una simulación con parámetros de Super Mario(3)}
 	\label{fig:HistoriaMario3}
 \end{figure}
-
-
+\newpage
+Este resultado obtenido ha sido posible realizando las pautas que se han explicado en la Sección \ref{cap:Simulaciones:Parametrizacion} dentro de este mismo Capítulo.
+Con esto se quiere demostrar que el sistema es capaz de realizar integraciones de ámbitos distintos, de esta manera sería sencillo imitar ambientaciones ya existentes como crear una ambientación nueva  y después trabajar sobre ella.

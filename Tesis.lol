@@ -7,6 +7,7 @@
 \contentsline {lstlisting}{\numberline {7.3}Formato XML de los PNJ's}{71}{lstlisting.7.3}
 \contentsline {lstlisting}{\numberline {7.4}Formato XML de las razas y atributos}{74}{lstlisting.7.4}
 \contentsline {lstlisting}{\numberline {7.5}Formato XML de la narrativa de los personajes}{76}{lstlisting.7.5}
-\contentsline {lstlisting}{\numberline {8.1}Formato XML de los objetos}{80}{lstlisting.8.1}
-\contentsline {lstlisting}{\numberline {10.1}Ejemplo de c\'odigo de creacion de antagonistas}{88}{lstlisting.10.1}
-\contentsline {lstlisting}{\numberline {A.1}Extracto secuencia mensajes FIPA}{104}{lstlisting.Alph1.1}
+\contentsline {lstlisting}{\numberline {7.6}Formato XML de los objetivos de los personajes}{77}{lstlisting.7.6}
+\contentsline {lstlisting}{\numberline {8.1}Formato XML de los objetos}{82}{lstlisting.8.1}
+\contentsline {lstlisting}{\numberline {10.1}Ejemplo de c\'odigo de creacion de antagonistas}{90}{lstlisting.10.1}
+\contentsline {lstlisting}{\numberline {A.1}Extracto secuencia mensajes FIPA}{106}{lstlisting.Alph1.1}

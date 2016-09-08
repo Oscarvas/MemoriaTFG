@@ -470,17 +470,18 @@ Cuando un protagonista se crea, accede a la interfaz \texttt{Vocabulario}, donde
 %-------------------------------------------------------------------
 \section{Narrativa de los personajes}
 \label{cap:Personajes:Narrativa}
-Si se observa dentro del campo de la generación de narrativa computacional la mayoría de sistemas están ligados a un único tipo de historias, como se puede observar en el punto \ref{cap:EstadoDeLaCuestion:Narrativa}. Continuando el afán de crear un sistema altamente configurable y que no este enfocando en un único ámbito se ha realizado el este diseño.
+Si se observa dentro del campo de la generación de narrativa computacional la mayoría de sistemas están ligados a un único tipo de historias, como se puede observar en el punto \ref{cap:EstadoDeLaCuestion:Narrativa}.
+Continuando el afán de crear un sistema altamente configurable y que no este enfocando en un único ámbito se ha realizado el siguiente diseño.
 
 \subsection{Diseño de la narrativa}
 Para poder modificar la narrativa del generador de una forma fácil con la que esta pueda ser modificada rápidamente se ha realizado un diseño en donde la narrativa no este acoplada al código del generador.
 Para poder llevar a cabo este objetivo se almacena la información de forma externa y se carga al ejecutarse el generador.
 Con este diseño se consigue desligar el apartado narrativo del apartado técnico.
 
-Además, debido a que el generador esta enfocado las historias entre los personajes, van a ser estos mismos los encargados de almacenar toda la información lingüística que conocen.
+Además, debido a que el generador esta enfocado las historias entre los personajes, van a ser estos mismos los encargados de almacenar toda la información lingüística que conocen
 
 \subsection{Implementación de la narrativa}
-Para poder llevar a cabo el diseño se han creado dos clases diferentes, una clase \texttt{Frases} y otra \texttt{Diccionario}.
+Para poder llevar a cabo el diseño pensado se han creado dos clases diferentes, una clase \texttt{Frases} y otra \texttt{Diccionario}.
 
 La clase \texttt{Frases} es la unidad básica que se ha creado para que puedan los \texttt{Personajes} trabajar con la narrativa.
 El atributo principal de esta clase es un \textit{HashMap} en el cual la clave es un \textit{String} que hace referencia a las acciones de los personajes, que se vincula a un \textit{ArrayList} de \textit{String} y es aquí donde se almacenan todas las posibles frases que puede utilizar un personaje al realizar una acción en concreto.
@@ -526,7 +527,32 @@ Por tanto, el SCD busca en primer lugar la etiqueta \texttt{<personaje>} con el 
 Acto seguido se busca otra etiqueta, \texttt{<frase>}, dentro del bloque anterior por el atributo \texttt{accion} que es la clave para el \textit{HashMap} vicunlado a la clave \texttt{tipo} del \texttt{HashMap} de \texttt{Diccionario}.
 Por último, dentro de estos dos bloque se busca una etiqueta \texttt{<f>} que tiene dentro la frase que se desea guardar en el generador y que son las que finalmente se ven reflejadas en la generación de la historia.
 
+\subsection{El guión de la narrativa}
+Es importante no olvidar lo necesario para que exista un transcurso de una historia y es que los personajes tengan que intentar cumplir unos objetivos.
+Anteriormente en este Capítulo se ha hablado sobre que objetivos específicamente intentaran cumplir tanto los Protagonistas como los Antagonistas, ya que los PNJs no se crean con la finalidad de cumplir objetivos que sean un hilo en la historia.
+Pero el objetivo que tendrá que cumplir cada personaje no está en su conocimiento hasta poner en marcha el sistema.
+Al arrancar el sistema cada personaje que se inicia llama al SCD de objetivos y es en ese momento que conoce que objetivo debe cumplir cuando ya puede pasar a planificarse.
+
+El archivo que utiliza el SCD es un XML llamado ``Objetivos.XML'' y se puede ver su estructura en el cuadro de Código \ref{objetivosXML}.
+El SCD busca la etiqueta \texttt{<personaje>} con el atributo \texttt{tipo}, este atributo hace referencia al tipo de personaje que es, por ejemplo Allegado, Secuestrador, etcétera.
+Y acto seguido busca la etiqueta \texttt{<objetivo>}.
+Dentro de esta etiqueta se debe encontrar una cadena de caracteres que hace referencia a una acción la cual el planificador tiene que ser capaz de entender, es decir que tiene que estar contemplada en el archivo ``domain.PDDL''.
+Un ejemplo es que para un Aspirante se encuentre el objetivo \texttt{(and (esHeroe Aspirante) (salvada Victima))}.
+
+\lstset{frameround=fttt}
+\begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetivos de los personajes},label=objetivosXML]
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Objetivos>
+	<personaje tipo="[TipoDePersonaje]" >
+		<objetivo>([Objetivo])</objetivo>
+	</personaje>
+</Objetivos>
+\end{lstlisting}
+
 \subsection{Ventajas del diseño}
 La elección de este diseño ha sido para evitar el acoplamiento entre la parte técnica de la aplicación y la parte narrativa. El hacer esto da al sistema muchas variantes, ya que cambiando un único archivo de configuración se puede cambiar la forma narrativa de la historia.
 Así en función del escritor se tendrá una narrativa generada de forma personal.
 También cabe destacar que este diseño permite introducir un archivo en diferentes idiomas, haciendo útil el sistema a nivel mundial.
+
+También es un factor importante el que los personajes no conozcan su objetivo hasta el momento de iniciarse, de esta forma se evita el saber de antemano que misión tiene que realizar cada uno de los personajes creados o como es en el caso del Aspirante si será un héroe o un villano.
