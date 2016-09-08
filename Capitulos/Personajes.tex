@@ -27,14 +27,10 @@ También es importante indicar que todos los personajes se planifican en algún mo
 
 
 
-%para las comillas ``inteligencia''
 
-%IMPORTANTE
 \section{La Clase Personaje}
 \label{cap:Personajes:ClasePersonaje}
 
-%contar con diseño por que necesitamos una super clase. al final de aqui yo introduciria el diagrama del que de los personajes salen las 3 clases.
-%contar la implementacion de la clase
 Antes de empezar a considerar lo que cada personaje en específico es capaz de hacer y que función tiene pensada para el desarrollo de la historia, es importante investigar la clase que modela el funcionamiento de los personajes.
 
 La clase \texttt{Personaje} representa un papel fundamental en la implementación de la aplicación. En concreto, la clase \texttt{Personaje} proporciona una superclase a partir de la cual el resto de clases se desarrollan. Para ello, cuenta con diferentes métodos y atributos comunes a los distintos tipos de personajes. Hay que resaltar que los PNJ's, al tratarse de personajes más planos, aunque pueden realizar todas estas acciones, habrá algunas que no realizarán en el transcurso natural de la historia, como por ejemplo planificarse.
@@ -43,7 +39,14 @@ La clase \texttt{Personaje} representa un papel fundamental en la implementación
 Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a los métodos \texttt{planificar} y  \texttt{mandarCrearArchivo} que permiten a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}, siendo una parte vital de la aplicación ya que esto les permite interactuar con el planificador(véase el capítulo \ref{cap:Arquitectura:Planificador}).
 Aparte, todos los personajes comparten ciertos atributos comunes, como pueden ser sus puntos de vida, su sexo o su localización, cuyos respectivos métodos \texttt{getters} y \texttt{setters} también están incluidos en esta clase para poder ser usados correctamente.
 
-Por lo tanto gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar.
+Por lo tanto gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar. Para visualizar mejor esta arquitectura, se puede consultar su correspondiente diagrama de clases en la figura \ref{fig:DCPersonajes}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Imagenes/ModelosGeneradorHistorias_DiagramaDeClasePersonajes}
+	\caption{Diagrama de Clase de los Personajes}
+	\label{fig:DCPersonajes}
+\end{figure}
 
 %poner aquí el diagrama
 

@@ -16,7 +16,7 @@
 	\end{Fuente}
 \end{FraseCelebre}
 
-Las mejores historias siempre se caracterizan por un mapa detrás que les da soporte, que compone los cimientos del mundo que el autor quiere introducir.Tratando de dotar a las historias de un mapa así de consistente, se decide crear un mapa que se adecue a un mínimo de necesidades, este mapa dotará a la historia de individualidad y servirá para orientar al usuario, de manera que este sepa donde se produce la acción.
+Las mejores historias siempre se caracterizan por un mapa detrás que les da soporte, que compone los cimientos del mundo que el autor quiere introducir. Tratando de dotar a las historias de un mapa así de consistente, se decide crear un mapa que se adecue a un mínimo de necesidades, este mapa dotará a la historia de individualidad y servirá para orientar al usuario, de manera que este sepa donde se produce la acción.
 
 %-------------------------------------------------------------------
 \section{Diseño del Mapa}
@@ -111,7 +111,14 @@ Una vez correctamente digitalizado se introduce en la interfaz gráfica, aportand
 \section{Implementación del Mapa}
 Para que el mapa sea configurable y pueda cargar sus datos a través de un archivo XML es necesario un sistema de carga e interpretación que conlleva consigo distintas aportaciones al código, que a continuación se ven en profundidad.
 
-De igual manera, para poder usar de forma correcta el mapa, es importante destacar la necesidad de el \texttt{Agente Mundo}, que puede cargar e interpretar en toda su magnitud el mapa, tal y como se explica en el apartado \ref{cap:Arquitectura:AgenteMundo}, lo que precisa de la adición de las clases que permiten que esto ocurra.
+De igual manera, para poder usar de forma correcta el mapa, es importante destacar la necesidad de el \texttt{Agente Mundo}, que puede cargar e interpretar en toda su magnitud el mapa, tal y como se explica en el apartado \ref{cap:Arquitectura:AgenteMundo}, lo que precisa de la adición de las clases que permiten que esto ocurra. La arquitectura que sigue esta implementación es consultable en su diagrama de clases \ref{fig:DCMapa}. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Imagenes/ModelosGeneradorHistorias_DiagramaDeClaseMapa}
+	\caption{Diagrama de Clase del Mapa}
+	\label{fig:DCMapa}
+\end{figure}
 
 
 \subsection{Mapas configurables por el usuario}
