@@ -39,16 +39,16 @@ La clase \texttt{Personaje} representa un papel fundamental en la implementación
 Gracias a esta clase, todos los agentes que representan personajes comparten ciertos métodos. Estos métodos les permiten realizar tareas comunes a todos ellos, como cargar la información relativa al mundo, localizarse en el mapa o moverse a través de él. También es importante destacar a los métodos \texttt{planificar} y  \texttt{mandarCrearArchivo} que permiten a los distintos personajes planificarse y crear sus archivos \texttt{PDDL}, siendo una parte vital de la aplicación ya que esto les permite interactuar con el planificador(véase el capítulo \ref{cap:Arquitectura:Planificador}).
 Aparte, todos los personajes comparten ciertos atributos comunes, como pueden ser sus puntos de vida, su sexo o su localización, cuyos respectivos métodos \texttt{getters} y \texttt{setters} también están incluidos en esta clase para poder ser usados correctamente.
 
-Por lo tanto gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar. Para visualizar mejor esta arquitectura, se puede consultar su correspondiente diagrama de clases en la figura \ref{fig:DCPersonajes}.
+Por lo tanto gracias a esta clase, se puede unificar el código de una manera más sencilla, evitando la redundancia de código y proponiendo una superclase común sobre un elemento que así lo requiere, provocando que la aplicación sea mas intuitiva y fácil de desarrollar. Para visualizar mejor esta arquitectura, se puede consultar su correspondiente diagrama de clases en la Figura \ref{fig:DCPersonajes}.
+\newpage
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/ModelosGeneradorHistorias_DiagramaDeClasePersonajes}
+	\includegraphics[width=0.78\textwidth]{Imagenes/ModelosGeneradorHistorias_DiagramaDeClasePersonajes}
 	\caption{Diagrama de Clase de los Personajes}
 	\label{fig:DCPersonajes}
 \end{figure}
 
-%poner aquí el diagrama
 
 \subsection{Acciones comunes a varios personajes}
 %contar acciones como defender, batalla, mover con objeto, entrando un poco en detalle de implementacion, poner que personajes participan en ella
@@ -249,7 +249,7 @@ El Dragón representa un personaje primordial en la historia. Al principio de la 
 Una de las propuestas más estudiadas es que nuevos héroes implican nuevos antagonistas. Sin embargo, estos nuevos antagonistas no pueden ser el mismo antagonista llamado de manera distinta (no sirve la idea de tener un grifo y un dragón para que ambos hagan lo mismo), y de igual manera no se ha querido introducir un nuevo tipo de antagonista con la capacidad de suplantar al Dragón como elemento primordial en la historia.
 
 El primer enfoque explora el incluir antagonistas ligados a un lugar, es decir, antagonistas que vigilen un lugar específico del mapa y que castiguen a los aspirantes a héroes que deciden atravesar ese camino para completar su aventura. De esta manera, se crean localizaciones concretas y antagonistas específicos para ellas.
-
+\newpage
 La primera localización elegida es el lago. En el lago puede vivir una Serpiente Marina, aunque en este caso es de agua dulce, que ataque a los aventureros que se atrevan a cruzarlo, con el objetivo de derrotarlos y que las aguas del lago descansen tranquilas siempre sin que nada las perturbe.
 
 La segunda localización aprobada es el cruce. En este cruce de múltiples caminos, un avaricioso Trol monta guardia pidiendo a los confiados viajeros los tributos necesarios para poder continuar su camino. Los viajeros deben pagar el tributo o sino se enfrentarán a la ira del malvado Trol. Tras esto el Trol cambiará de lugar en el que emboscar, para poder preparar su siguiente emboscada y que nadie sea capaz de preverla.
@@ -318,7 +318,7 @@ Este comportamiento permite al \texttt{Agente Victima} secuestrado escaparse de 
 %-------------------------------------------------------------------
 \subsubsection{El Antagonista Emboscador}
 El \texttt{Agente Emboscador} carga todos sus datos y registra el servicio \texttt{Emboscador} en el DF que le permitirá actuar como tal, tras lo cual añade los comportamientos de \texttt{Emboscar} y \texttt{Acecho}, y finalmente se planifica.
-
+\newpage
 El comportamiento de \texttt{Emboscar} es bastante complejo. 
 Lo primero que se debe contemplar es que el \texttt{Agente Emboscador} ha sido colocado en el mundo, consultar el Capítulo \ref{cap:Mapa:LocalizacionesAleatoriasSegunClase} para conocer como, en la localización donde realiza sus emboscadas y que solo embosca a personajes de una clase en específico, en este caso los \textit{Aspirantes a Héroe}.
 Tras esta aclaración se explica como funciona el comportamiento de Emboscar.
@@ -344,7 +344,6 @@ El comportamiento \texttt{Maldad} es un comportamiento cíclico(\texttt{CyclicBeh
 
 %-------------------------------------------------------------------
 
-\newpage
 \section{PNJ}
 \begin{quote}
 	\textit{Los PNJ's son personajes del juego que son controlados por el sistema y que son capaces de interactuar con el avatar del jugador intercambiar artículos e información.} \cite{GomezGauchiaPeinadoTIDSE06}.
@@ -503,7 +502,7 @@ Estas frases están vinculadas a los hijos de la clase \texttt{Personaje} en func
 	\caption{Tabla de la narrativa en función del personaje y atributo}
 	\label{fig:TablaFrasesPersonaje}
 \end{table}
-
+\newpage
 También se necesita vincular las frases a una acción determinada. Esto es debido a que las frases se invocan dentro de las clases almacenadas en la carpeta \texttt{acciones}, donde se encuentran todas las acciones y \textit{behaviours} los personajes pueden realizar.
 Es dentro de estas clases donde se invoca al método \texttt{hablar}, que heredan todos los Agentes, de la clase padre \texttt{Personaje}.
 
