@@ -48,13 +48,24 @@ Como el resto de componentes de la aplicación, los objetos han sido implementado
  
 \subsection{Sistema de clases}
 Para poder trabajar con los objetos se ha creado una clase padre, \texttt{Objeto}, de la que extienden dos hijas, \texttt{Clave} y \texttt{Consumible}.
-Ambas clases hijas tienen en común un atributo identificativo y un atributo descriptivo además de los correspondientes métodos \textit{getters} y \textit{setters}.
+Ambas clases hijas tienen en común un atributo identificativo y otro descriptivo además de los correspondientes métodos \textit{getters} y \textit{setters}.
 Luego por un lado los \texttt{Objetos Clave} tienen un atributo que permite saber en que localización se encuentran dentro del mapa, mientras que por otro lado los \texttt{Objetos Consumible} almacenan la información referente a los atributos que afecta y de que manera afecta.
 
 Una vez se ha creado como serán los objetos hay que situarlos en el mapa.
 Para esto se ha creado una nueva clase llamada \texttt{Almacen}, en donde se almacenan los \texttt{Objeto}, en una lista, en función de si son \texttt{Clave} o \texttt{Consumible}.
 Esta nueva clase permite tener un atributo a \texttt{Localizacion} para saber que objetos contiene en cada momento.
+Cuando los objetos ya están cargados por el sistema se introducen los \texttt{Consumible} en cada localización de la escenografía aleatoriamente.
+Con esto se consigue que en cada simulación no se encuentre un objeto concreto siempre en la misma localización.
+Para observar de forma concisa toda esta información referente a la arquitectura del sistema de clases de los objetos se ha incluido la Figura \ref{fig:DCObjetos}.
 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Imagenes/ModelosGeneradorHistorias_DiagramaDeClaseObjetos}
+	\caption{Diagrama de Clase de los Objetos}
+	\label{fig:DCObjetos}
+\end{figure}
+\newpage
 Ahora que ya hay implementados dos de los tipos de objetos diseñados, queda explicar como funcionan los objetos creados por los PNJ.
 Para estos objetos no se ha creado una clase diferente, que en la fase actual del proyecto no se ha querido que estos objetos se almacenasen, ya sea por los personajes o en las localizaciones.
 Por ello los objetos de los PNJ no se crearán realmente si no que cuando hay un encuentro entre ciertos personajes y un PNJ, este le aplicará directamente una modificación en los atributos, de la misma forma que un objeto consumible.
@@ -65,8 +76,6 @@ Esto se debe a que los objetos clave también están involucrados en la planificac
 Además ya que solo se desea que ciertos personajes puedan consumir objetos es el \texttt{Estado} quien controla este aspecto mediante un listado de personajes consumidores, de esta manera cuando un personaje se encuentra en la misma localización que un objeto consumible y/o un PNJ para poder recibir una modificación en las estadísticas, el \texttt{Estado} mira el listado de consumidores y en caso de estar el personaje en el listado el \texttt{Estado} informa al personaje de que tiene un objeto o PNJ con el que puede interactuar.
 También el \texttt{Estado} es quien recibe y almacena toda la información que se encuentra guardada externamente.
 
-\newpage
-
 \subsection{Carga en el sistema}
 Una vez más se ha implementando un SCD.
 Al igual que el resto de SCD, este también extrae de un archivo XML, \texttt{Objetos.XML}, los datos que usa el sistema para poder trabajar con objetos.
@@ -76,7 +85,7 @@ El siguiente paso es buscar la etiqueta \texttt{<objeto>} dentro del bloque ante
 Si el valor es \emph{clave} carga el valor del atributo \texttt{localizacion}, mientras que si el valor es \emph{consumible} busca los atributos \texttt{vida}, \texttt{fuerza}, \texttt{destreza}, \texttt{inteligencia} y \texttt{codicia}.
 Independientemente del valor de \texttt{tipo}, siempre buscará los atributos \texttt{nombre} y \texttt{descripcion}.
 En caso de duda consultar el cuadro de Código \ref{objetosXML}
-
+\newpage
 \lstset{frameround=fttt}
 \begin{lstlisting}[basicstyle=\scriptsize,frame=trBL,caption={Formato XML de los objetos},label=objetosXML]
 
