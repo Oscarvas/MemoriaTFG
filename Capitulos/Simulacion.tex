@@ -13,7 +13,7 @@
 	\end{Fuente}
 \end{FraseCelebre}
 
-En este capítulo se van a exponer dos pequeños resultados que se han obtenido durante la elaboración del proyecto.
+En este capítulo se van a exponer algunos de los resultados que se han obtenido durante la elaboración del proyecto.
 Con estos resultados expuestos lo que se quiere mostrar es el alcance real del sistema y los cambios que se pueden producir cambiando los archivos del SCD.
 
 \section{Flujo de una historia}
@@ -44,60 +44,78 @@ Por tanto a cuanto mayor cantidad de datos se introduzcan en los archivos XML qu
 La siguiente historia se ha generado con una configuración mínima de al menos un tipo de cada personaje descrito en el Capítulo \ref{cap:Personajes}, además de introducir un mapa extenso para evitar que al generar una historia se produzcan los mismos encuentros.
 También en esta historia se puede ver la interactuación de los personajes con los objetos y como les afectan.
 Por último es importante saber que toda la narrativa de esta historia es la que se encuentra almacenada y simplemente modificando este almacenaje cambiaría.
+\newpage
+\section{Ejemplos de historias}
+A continuación se va a mostrar ejemplos de historias que ha generado el sistema.
+Todas las historias funcionan gracias al intercambio de mensajes entre los Agentes.
+Para ver ejemplos de estos intercambios hay que mirar el Apéndice \label{ap:IntercambioMensajes}.
+
+\subsection{Una Historia}
+En este primer ejemplo se va a mostrar una de las ejecución del sistema, la cual se encuentra enmarcada en un ambiente medieval fantástico.
+En esta historia se observa en primer lugar donde se encuentran todos los personajes que van a participar en la historia. 
+Acto seguido empieza a desarrollarse la trama en el momento que el dragón emprende la marcha para ir a buscar a la princesa. 
+Una vez esta secuestrada la princesa, el captor vuelve a la guarida junto a su presa.
+En paralelo el padre de la princesa empieza una búsqueda por el reino para ver que caballeros están disponibles para rescatarla.
+Este fragmento de historia se puede ver en la Imagen \ref{fig:EjemploHistoria1}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria1}
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/h3}
 	\caption{Imagen del ejemplo de una simulación(1)}
 	\label{fig:EjemploHistoria1}
 \end{figure}
 \newpage
+En la siguiente Imagen, \ref{fig:EjemploHistoria2}, lo que se está narrando es como Alonso a sido el caballero escogido y emprende su marcha para cumplir el objetivo que le ha pedido el rey.
+Durante su travesía se observa como se encuentra con un PNJ, hace una paradita para comer una manzana y se encuentra con simpático emboscador que se encarga de sacarle el dinero.
+En último lugar se ve el enfrentamiento entre Alonso y el dragón siendo este derrotado.
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria2}
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/h4}
 	\caption{Imagen del ejemplo de una simulación(2)}
 	\label{fig:EjemploHistoria2}
 \end{figure}
 
+Una vez el caballero se encuentra con la princesa, este en un acto de absoluta maldad decide atacar a la princesa, lo que le convierte en un villano.
+Este acto ocasiona una lucha entre ambos donde hay un final trágico, ya que mueren los dos personajes.
+Al morir la princesa se produce un gran pesar en todo el reino y se puede ver como el otro caballero estaba enamorado de la princesa porque esta ahogando sus penas.
+La Imagen \ref{fig:EjemploHistoria3} hace referencia a lo explicado.
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria3}
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/h5}
 	\caption{Imagen del ejemplo de una simulación(3)}
 	\label{fig:EjemploHistoria3}
 \end{figure}
 
+\subsection{Mismo entorno, distinto final}
+Dentro de este mismo encuadre se va a mostrar un ejemplo (\ref{fig:EjemploHistoria4}) en el que no tiene porque siempre la princesa esperar a un caballero que la rescate de las garras del dragón, sino que ella es una mujer fuerte e independiente capaz de huir sigilosamente de la guarida de su captor y llegar a su querido hogar para finalizar así la historia.
+
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/EjemploHistoria4}
+	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/h2escape}
 	\caption{Imagen del ejemplo de una simulación(4)}
 	\label{fig:EjemploHistoria4}
 \end{figure}
 
-\newpage
+Estos ejemplos representan posibles transcursos de una misma historia, donde los personajes que intervienen en ella, los caminos e incluso los finales divergen. De este modo, se demuestra que este sistema es capaz de generar historias diversas dentro de un mismo entorno.
+
 \subsection{Historias famosas}
 Además de conseguir multitud de historias también el sistema permite recrear algunas historias conocidas, como la historia de \emph{Super Mario}, \emph{Zelda} o \emph{Shrek}, simplemente introduciendo los datos en los archivos del SCD.
-En las siguientes imágenes se puede observar una pequeña historia sobre basada en algunos de los personajes de la franquicia del videojuego Super Mario.
+En la siguiente imagen se puede observar una pequeña historia sobre basada en algunos de los personajes de la franquicia del videojuego Super Mario.
+El resultado obtenido ha sido posible realizando las pautas que se han explicado en la Sección \ref{cap:Simulaciones:Parametrizacion} dentro de este mismo Capítulo.
+Con esto se quiere demostrar que el sistema es capaz de realizar integraciones de ámbitos distintos, de esta manera sería sencillo imitar ambientaciones ya existentes como crear una ambientación nueva  y después trabajar sobre ella.
+
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/HistoriaMario1}
-	\caption{Imagen de una simulación con parámetros de Super Mario(1)}
+	\includegraphics[width=0.9\textwidth]{Imagenes/Historias/HistoriaMario}
+	\caption{Imagen de una simulación con parámetros de Super Mario}
 	\label{fig:HistoriaMario1}
 \end{figure}
-\newpage
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/HistoriaMario2}
-	\caption{Imagen de una simulación con parámetros de Super Mario(2)}
-	\label{fig:HistoriaMario2}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{Imagenes/Historias/HistoriaMario3}
-	\caption{Imagen de una simulación con parámetros de Super Mario(3)}
-	\label{fig:HistoriaMario3}
-\end{figure}
-\newpage
-Este resultado obtenido ha sido posible realizando las pautas que se han explicado en la Sección \ref{cap:Simulaciones:Parametrizacion} dentro de este mismo Capítulo.
-Con esto se quiere demostrar que el sistema es capaz de realizar integraciones de ámbitos distintos, de esta manera sería sencillo imitar ambientaciones ya existentes como crear una ambientación nueva  y después trabajar sobre ella.
+
+
+
+
